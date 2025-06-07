@@ -1,0 +1,56 @@
+Sat Jun  7 14:24:42 2025
+Windows-10-10.0.26100
+Ren'Py 8.1.1.23060707
+ 
+
+Bootstrap to the start of init.init. took 0.02s
+Early init. took 0.00s
+Loader init. took 0.48s
+Loading error handling. took 0.09s
+Loading script. took 4.01s
+Loading save slot metadata. took 0.14s
+Loading persistent. took 0.00s
+Exception in thread INFO:renpy_warp_service:service thread started. periodically scanning ports for warp server
+Running init code. took 0.25s
+Thread-2:
+Traceback (most recent call last):
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/threading.py", line 910, in run
+  File "<string>", line 193, in try_socket_ports_forever
+  File "<string>", line 138, in socket_service
+ModuleNotFoundError: No module named 'websockets'
+Loading analysis data. took 0.02s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.03s
+Index archives took 0.00s
+Dump and make backups. took 0.05s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object. took 0.16s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.08s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4080 SUPER/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 576.02'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1009) drawable=(1920, 1009)
+Maximum texture size: 4096x4096
