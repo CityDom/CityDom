@@ -1,1 +1,0 @@
-## same as MC_Alone.rpy
