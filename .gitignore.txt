@@ -1,0 +1,153 @@
+# macOS-related files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows-related files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+
+# Python-related files
+*.pyc
+*.pyo
+*.pyi
+*.egg-info
+*.pyd
+
+# Editor/tool files
+*~
+*.bak
+.gdb_history
+.idea/
+*.iml
+
+# Compiled Ren'Py files
+*.rpyc
+*.rpyb
+*.rpymc
+
+# Ren'Py log files
+log.txt
+errors.txt
+traceback.txt
+lint.txt
+
+# Created directories
+saves/
+tmp/
+cache/
+renpy/common/_developer/
+
+# Executables (Ren'Py)
+renpy.exe
+renpy2.exe
+renpy3.exe
+renpy-32.exe
+renpy.sh
+renpy2.sh
+renpy3.sh
+renpy.app
+renpy2.app
+renpy3.app
+
+# Ren'Py libraries and modules
+/lib
+/module/gen/
+/module/gen3/
+/module/gen-static/
+/module/gen3-static/
+/module/build
+/module/dist
+/module/emscripten-static
+/pygame_sdl2/
+
+# Ren'Py platform-specific files
+/rapt
+/rapt2
+/rapt3
+/renios
+/renios2
+/renios3
+/web
+/web2
+/web3
+
+# Ren'Py updater files
+update.pem
+
+# Steam integration
+steam_appid.txt
+/steamapi.py
+
+# Android-related files
+*.keystore
+.android.json
+
+# Live2D integration
+cubism
+CubismSdkForNative-4-*.zip
+
+# Generated or cached files
+*.bak
+*.autosave
+*.tmp
+*.swp
+*.swo
+*.backup
+*.orig
+
+# Screenshots and saves
+/screenshot*
+
+# Type analysis (Mypy, Pyright, etc.)
+/typings
+
+# Documentation
+/doc
+/doc-web
+/sphinx/source/inc/
+/sphinx/source/thequestion.rst
+
+# Text editors and IDEs
+/.vscode/
+/.vscode/launch.json
+/.vscode/tasks.json
+/jedit/
+/atom/
+/idea/
+
+# Miscellaneous
+/tmp/
+.scratch
+*-dists
+/c
+/cg
+
+# Temporary files
+*.tmp
+*.log
+*.lock
+*.pid
+*.gz
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.rar
+
+# Backup files
+*.bak
+*.swp
+*.old
+
+# Old, unused files
+/0old
+
+# Ignore all image and video assets
+*.webp
+*.webm
+*.png
+/images/
