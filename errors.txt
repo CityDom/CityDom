@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 38: expected statement.
-    hide_all_event_screens()
-                              ^
+File "game/WeekendScenes/JenniferScenes/2PM.rpy", line 20: choice menuitem expects a non-empty block.
+    "Wait":
+           ^
 
 Ren'Py Version: Ren'Py 8.4.0.25071206
-Thu Jul 24 00:43:01 2025
+Fri Dec  5 00:45:08 2025

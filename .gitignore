@@ -24,10 +24,13 @@ ehthumbs_vista.db
 .idea/
 *.iml
 
-# Compiled Ren'Py files
+# Compiled Ren'Py files (ignore everywhere)
 *.rpyc
+**/*.rpyc
 *.rpyb
+**/*.rpyb
 *.rpymc
+**/*.rpymc
 
 # Ren'Py log files
 log.txt
@@ -146,7 +149,7 @@ CubismSdkForNative-4-*.zip
 # Old, unused files
 /0old
 
-# Ignore all image and video assets
+# Assets 
 *.webp
 *.webm
 *.png

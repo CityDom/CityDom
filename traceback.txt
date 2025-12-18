@@ -3,164 +3,166 @@
 While running game code:
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/WeekendScenes/Shared/Breakfast_9AM.rpy", line 84, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
-  File "game/script.rpy", line 48, in script
+  File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/script.rpy", line 48, in <module>
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/HouseScreens/KitchenScreen.rpy", line 1, in execute
-    screen KitchenScreen():
-  File "game/HouseScreens/KitchenScreen.rpy", line 1, in execute
-    screen KitchenScreen():
-  File "game/HouseScreens/KitchenScreen.rpy", line 2, in execute
-    if calendar.Day not in [0, 6]:
-  File "game/HouseScreens/KitchenScreen.rpy", line 3, in execute
-    if calendar.Hours == 2:
-  File "game/HouseScreens/KitchenScreen.rpy", line 12, in <module>
-    elif Calendar.Hours < 12 and calendar.Hours >= 0:
-         ^^^^^^^^^^^^^^                              
-AttributeError: type object 'Calendar' has no attribute 'Hours'
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+[Previous line repeated 4 more times]
+  File "game/WeekendScenes/IsabellaScenes/1PM.rpy", line 98, in script call
+    $ advance_time_or_sleep()
+  File "game/WeekendScenes/JenniferScenes/2PM.rpy", line 151, in script
+    $ LilSis_corruption = LilSis_corruption + 2
+  File "game/WeekendScenes/JenniferScenes/2PM.rpy", line 151, in <module>
+    $ LilSis_corruption = LilSis_corruption + 2
+                          ^^^^^^^^^^^^^^^^^    
+NameError: name 'LilSis_corruption' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/WeekendScenes/Shared/Breakfast_9AM.rpy", line 84, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
   File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
-  File "game/SleepEvent/SleepDialog.rpy", line 28, in script call
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
     $ renpy.call("GameLoop")
-  File "game/script.rpy", line 48, in script
+  File "game/script.rpy", line 48, in script call
     $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/SleepEvent/SleepDialog.rpy", line 29, in script call
+    $ renpy.call("GameLoop")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+  File "game/script.rpy", line 48, in script call
+    $ new_location = renpy.call_screen("MainHud", _layer="screens")
+[Previous line repeated 4 more times]
+  File "game/WeekendScenes/IsabellaScenes/1PM.rpy", line 98, in script call
+    $ advance_time_or_sleep()
+  File "game/WeekendScenes/JenniferScenes/2PM.rpy", line 151, in script
+    $ LilSis_corruption = LilSis_corruption + 2
   File "renpy/ast.py", line 1187, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1260, in py_exec_bytecode
     exec(bytecode, globals, locals)
     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/script.rpy", line 48, in <module>
-    $ new_location = renpy.call_screen("MainHud", _layer="screens")
-                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/statementexports.py", line 348, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ui.py", line 304, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2216, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )  # type: ignore
-    ^                
-  File "renpy/display/core.py", line 2754, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 432, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 503, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2754, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/display/screen.py", line 514, in per_interact
-    self.update()
-    ~~~~~~~~~~~^^
-  File "renpy/display/screen.py", line 715, in update
-    self.screen.function(**self.scope)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
-  File "game/HouseScreens/KitchenScreen.rpy", line 1, in execute
-    screen KitchenScreen():
-  File "game/HouseScreens/KitchenScreen.rpy", line 1, in execute
-    screen KitchenScreen():
-  File "game/HouseScreens/KitchenScreen.rpy", line 2, in execute
-    if calendar.Day not in [0, 6]:
-  File "game/HouseScreens/KitchenScreen.rpy", line 3, in execute
-    if calendar.Hours == 2:
-  File "renpy/python.py", line 1292, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/python.py", line 1285, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "game/HouseScreens/KitchenScreen.rpy", line 12, in <module>
-    elif Calendar.Hours < 12 and calendar.Hours >= 0:
-         ^^^^^^^^^^^^^^                              
-AttributeError: type object 'Calendar' has no attribute 'Hours'
+  File "game/WeekendScenes/JenniferScenes/2PM.rpy", line 151, in <module>
+    $ LilSis_corruption = LilSis_corruption + 2
+                          ^^^^^^^^^^^^^^^^^    
+NameError: name 'LilSis_corruption' is not defined
 
-Windows-11-10.0.26100-SP0 AMD64
+Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.4.0.25071206
 City Dom 0.4
-Tue Aug  5 22:20:44 2025
+Thu Dec 11 13:27:17 2025
