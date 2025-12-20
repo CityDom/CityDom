@@ -1,14 +1,13 @@
 screen Garden2WeekendScreen():
-    add "HouseScreens/Claire_Weekend_6AM.webp"
-    if calendar.Hours == 0:
+    if calendar.Hours == 2:
         add "HouseScreens/Claire_Weekend_8AM.webp"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
-                idle "HouseScreens/Claire_6AM_idle.png"
-                hover "HouseScreens/Claire_6AM_hover.png"
+                idle "HouseScreens/Claire_8AM_idle.png"
+                hover "HouseScreens/Claire_8AM_hover.png"
                 xpos 730
                 ypos 348
-                action [Hide("ClaireRoomWeekendScreen"), Jump("Claire_weekend_6AM")]
+                action [Hide("Garden2WeekendScreen"), Jump("Claire_weekend_8AM")]
                 focus_mask True
     elif calendar.Hours < 12 and calendar.Hours >= 0:
         add "HomeSubplace/garden2.png"

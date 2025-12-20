@@ -14,11 +14,7 @@ init python:
 
         @property
         def rooms(self):
-            outList = []
-            for q in SubLocations:
-                if q.parent == self.ID:
-                    outList.append(q.ID)
-            return outList
+            return [s.name for s in get_sublocations(self.ID)]
 
 
     # Places = []

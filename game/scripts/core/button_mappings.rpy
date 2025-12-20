@@ -37,8 +37,8 @@ init python:
             create_button("TransparentDoors/EntrenceDoorButton", 45, 103, "Entrance", "Evening")
         ],
         "my room evening": [create_button("TransparentDoors/MyRoomInsideDoor", 277, 158, "hallway", "Evening")],
-        "Jennifer room evening": [create_button("TransparentDoors/JenniferDoorButton", 0, 94, "hallway", "Evening")],
-        "Isabella room evening": [create_button("TransparentDoors/IsabellaRoomButton", 0, 94, "hallway", "Evening")],
+        "Jennifer room evening": [],
+        "Isabella room evening": [],
         "Claire room evening": [create_button("TransparentDoors/ClaireRoomButtonInside", 0, 94, "hallway", "Evening")],
 
         # NIGHT
@@ -61,8 +61,8 @@ init python:
             create_button("TransparentDoors/EntrenceDoorButton", 45, 103, "Entrance", "Night")
         ],
         "my room night": [create_button("TransparentDoors/MyRoomInsideDoor", 277, 158, "hallway", "Night")],
-        "Jennifer room night": [create_button("TransparentDoors/JenniferDoorButton", 0, 94, "hallway", "Night")],
-        "Isabella room night": [create_button("TransparentDoors/IsabellaRoomButton", 0, 94, "hallway", "Night")],
+        "Jennifer room night": [],
+        "Isabella room night": [],
         "Claire room night": [create_button("TransparentDoors/ClaireRoomButtonInside", 0, 94, "hallway", "Night")],
 
         # DAY
@@ -85,9 +85,14 @@ init python:
             create_button("TransparentDoors/EntrenceDoorButton", 45, 103, "Entrance", "Day")
         ],
         "my room": [create_button("TransparentDoors/MyRoomInsideDoor", 277, 158, "hallway", "Day")],
-        "Jennifer room": [create_button("TransparentDoors/JenniferDoorButton", 0, 94, "hallway", "Day")],
-        "Isabella room": [create_button("TransparentDoors/IsabellaRoomButton", 0, 94, "hallway", "Day")],
+        "Jennifer room": [],
+        "Isabella room": [],
         "Claire room": [create_button("TransparentDoors/ClaireRoomButtonInside", 0, 94, "hallway", "Day")],
+    }
+
+    invisible_door_button_mappings = {
+        normalize_location_key(k): v
+        for k, v in invisible_door_button_mappings.items()
     }
 
     room_mappings = {
@@ -226,6 +231,11 @@ init python:
         "garden2 evening": "entrance",
         "garden2 night": "entrance",
     }
+
+    room_mappings = {
+        normalize_location_key(k): v
+        for k, v in room_mappings.items()
+    }
     
     time_icons = [
     ("DayTimeIcon/Morning.png", (0, 4), "Morning"),
@@ -237,8 +247,9 @@ init python:
 ]
 
 screen door_buttons(location):
-    if location in invisible_door_button_mappings:
-        for button in invisible_door_button_mappings[location]:
+    $ location_key = normalize_location_key(location)
+    if location_key in invisible_door_button_mappings:
+        for button in invisible_door_button_mappings[location_key]:
             imagebutton:
                 idle button["idle"]
                 hover button["hover"]

@@ -26,6 +26,8 @@ label SleepEvent:
                     $ Location = "my room"
                     $ calendar.Hours = 0
                     $ calendar.update_sub_place_data()
+                    $ Location_img = ""
+                    window hide
                     $ renpy.call("GameLoop")
             "Sleep naked":
                 $ reset_EnglishClass_encounters()
@@ -87,12 +89,16 @@ label SleepEvent:
                         $ Location = "my room"
                         $ calendar.Hours = 2
                         $ calendar.update_sub_place_data()
+                        $ Location_img = ""
+                        window hide
                         $ renpy.call("GameLoop")
                     "Get out of bed":
                         MC "{color=#808080}*Yea... let's start the day.*{/color}"
                         $ Location = "my room"
                         $ calendar.Hours = 0
                         $ calendar.update_sub_place_data()
+                        $ Location_img = ""
+                        window hide
                         $ renpy.call("GameLoop")
             "Don't sleep yet":
                 $ current_location = str(Location).lower()
