@@ -103,26 +103,22 @@ screen MainHud():
                                         ypos button["ypos"]
                                         action button["action"]
                                         focus_mask True
-    # Precompute positions for this location so we can scale spacing uniformly.
-    $ current_sublocs = [s for s in SubLocations if s.parent == LocationID]
+    $ current_sublocs = get_sublocations(LocationID)
     $ has_sublocs = bool(current_sublocs)
-    if has_sublocs:
-        $ min_x = min(s.x for s in current_sublocs)
-        $ min_y = min(s.y for s in current_sublocs)
 
-    for q in current_sublocs:
-        if q.parent == LocationID:
-            if ShowSublocationIcons and not (is_in_school(LocationID) and not is_in_school_hours()):
+    if ShowSublocationIcons and has_sublocs and not (is_in_school(LocationID) and not is_in_school_hours()):
+        $ min_x, min_y = get_sublocation_layout(LocationID)
+        for subloc in current_sublocs:
+            if subloc.active:
                 # Scale distances to shrink the gaps uniformly (X and Y both preserved).
-                $ nx = int(min_x + (q.x - min_x) * SUBLOC_POS_SCALE_X) + SUBLOC_RIGHT_SHIFT
-                $ ny = int(min_y + (q.y - min_y) * SUBLOC_POS_SCALE_Y) + SUBLOC_BOTTOM_SHIFT
+                $ nx = int(min_x + (subloc.x - min_x) * SUBLOC_POS_SCALE_X) + SUBLOC_RIGHT_SHIFT
+                $ ny = int(min_y + (subloc.y - min_y) * SUBLOC_POS_SCALE_Y) + SUBLOC_BOTTOM_SHIFT
 
-                # Resolve concrete filenames for size/idle/hover when using "auto ..._%s.png"
-                $ img_idle = (q.iconPhoto % "idle") if ("%s" in q.iconPhoto) else q.iconPhoto
-                $ img_hover = (q.iconPhoto % "hover") if ("%s" in q.iconPhoto) else q.iconPhoto
+                # Resolve concrete filenames for size/idle/hover.
+                $ img_idle, img_hover = subloc.resolve_icons()
 
                 # Get image size (fallback to a sane default if not loadable)
-                $ iw, ih = renpy.image_size(img_idle) if renpy.loadable(img_idle) else (64, 64)
+                $ iw, ih = subloc.get_icon_size()
 
                 # Convert top-left layout (nx, ny) to center coords so we can anchor/zoom from middle
                 $ cx = nx + (iw // 2)
@@ -143,152 +139,141 @@ screen MainHud():
                     ycenter cy
                     focus_mask True
                     action [Function(hideEventScreens),
-                            Return(q.name),
+                            Return(subloc.name),
                             SetVariable("ShowPhone", False),
                             SetVariable("ShowInventory", False), 
                             SetVariable("showWallpaperScreen", False), 
                             SetVariable("Messanger", False),
                             SetVariable("showWallpaperPreview", False),
                             SetVariable("ShowCallForSidebar", False)]
-                # button:
-                #     text "[q.name]" size 20 color '#000000'
-                #     xpos q.x + 20
-                #     ypos q.y + 140
-                #     action [Return(q.name),
-                #             Function(hideEventScreens),
-                #             SetVariable("ShowPhone", False), 
-                #             SetVariable("ShowInventory", False), 
-                #             SetVariable("showWallpaperScreen", False), 
-                #             SetVariable("Messanger", False),
-                #             SetVariable("showWallpaperPreview", False),
-                #             SetVariable("ShowCallForSidebar", False)]
-            #  map icon
-            imagebutton:       
-                auto "SubLocationIcons/MapIcon_%s.png" xpos 1830 ypos 10
-                action [Function(show_map_screen),
-                        SetVariable("ShowCallForSidebar", False)]
 
-            #  open/close sublocations
-            if not (is_in_school(LocationID) and not is_in_school_hours()):
-                imagebutton:
-                    auto "Arrow_%s.png" xpos -15 ypos 955
-                    action ToggleVariable("ShowSublocationIcons", True, False)
+    #  map icon
+    imagebutton:
+        auto "SubLocationIcons/MapIcon_%s.png" xpos 1830 ypos 10
+        action [Function(show_map_screen),
+                SetVariable("ShowCallForSidebar", False)]
 
-            #  phone icon
+    #  open/close sublocations
+    if not (is_in_school(LocationID) and not is_in_school_hours()):
+        imagebutton:
+            auto "Arrow_%s.png" xpos -15 ypos 955
+            action ToggleVariable("ShowSublocationIcons", True, False)
+
+    #  phone icon
+    imagebutton:
+        auto "PhoneIcon_%s.png" xpos 1750 ypos 10
+        action [ToggleVariable("ShowPhone", True, False), 
+                SetVariable("ShowInventory", False), 
+                SetVariable("showWallpaperScreen", False), 
+                SetVariable("ShowConversationScreen", False), 
+                SetVariable("Messanger", False),
+                SetVariable("showWallpaperPreview", False),
+                SetVariable("ShowCamera", False),
+                SetVariable("ShowCallForSidebar", False)]
+
+    if ShowPhone:
+        use phone_screen
+
+    if ShowInventory:
+        use inventory_screen
+
+    if showWallpaperScreen:
+        use gallery_screen
+    
+    if Messanger:
+        use Messanger_screen
+ 
+    if ShowConversationScreen:
+        use Conversation_screen
+
+    if showWallpaperPreview:
+        use WallPaperPreview_screen
+
+    if ShowCallForSidebar:
+        use sidebar_screen
+
+    # if ShowCamera:
+    #     use Camera_screen
+
+    # daytime icons 
+    for q in DayTime:
+        for icon, (start, end), label in time_icons:
+            if start <= calendar.Hours < end:
+                # Creating a frame to hold the icon and text together
+                $ scaled_icon = scale_image(icon, scale_factor)
+                frame:
+                    xpos 20
+                    ypos 10
+                    xsize scaled_icon.width
+                    ysize scaled_icon.height
+                    background None  # Ensures the frame itself has no visible border
+
+                    # Add the scaled icon as the background of the frame
+                    add scaled_icon
+
+                    # Calculate the real hour format
+                    $ real_hour = (calendar.Hours + 6) % 24
+                    $ hour_12_format = real_hour % 12
+                    $ hour_12_format = 12 if hour_12_format == 0 else hour_12_format
+                    $ am_pm = "AM" if real_hour < 12 or real_hour == 24 else "PM"
+
+                    if not is_in_school(LocationID):
+                        # Position the time text within the frame
+                        text f"{hour_12_format}:00 {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
+                        
+                        # Display the current weekday within the frame
+                        $ current_weekday = calendar.WeekDays[int(calendar.Day)]
+                        text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
+
+                    if is_in_school(LocationID) and 12 <= school_clock.hour < 18:
+                        # Position the school clock time within the frame
+                        text f"{school_clock.Output} {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
+                        
+                        # Display the current weekday within the frame
+                        $ current_weekday = calendar.WeekDays[int(calendar.Day)]
+                        text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
+
+
+
+    # go back 1 room button
+    if StatScreenShown == False:
+        if Location_img in room_mappings:
+            $ button_image = "GoBackRoomButton_%s.png"
             imagebutton:
-                auto "PhoneIcon_%s.png" xpos 1750 ypos 10
-                action [ToggleVariable("ShowPhone", True, False), 
+                auto button_image
+                idle "GoBackRoomButton_idle.png"
+                xpos 1850
+                ypos 1000
+                action [Return(room_mappings[Location_img]), 
+                        SetVariable("ShowPhone", False), 
                         SetVariable("ShowInventory", False), 
                         SetVariable("showWallpaperScreen", False), 
-                        SetVariable("ShowConversationScreen", False), 
                         SetVariable("Messanger", False),
                         SetVariable("showWallpaperPreview", False),
                         SetVariable("ShowCamera", False),
                         SetVariable("ShowCallForSidebar", False)]
 
-            if ShowPhone:
-                use phone_screen
+    imagebutton:
+        auto "skip_time_%s.png" xpos 1510 ypos 10
+        action Function(advance_time_or_sleep)
+    
+    imagebutton:
+        auto "sleep_%s.png" xpos 1590 ypos 10
+        action If(ShowPhone == False and Messanger == False and ShowConversationScreen == False and showWallpaperScreen == False and showWallpaperPreview == False and ShowCamera == False, Function(sleep_function))
 
-            if ShowInventory:
-                use inventory_screen
-
-            if showWallpaperScreen:
-                use gallery_screen
-            
-            if Messanger:
-                use Messanger_screen
- 
-            if ShowConversationScreen:
-                use Conversation_screen
-
-            if showWallpaperPreview:
-                use WallPaperPreview_screen
-
-            if ShowCallForSidebar:
-                use sidebar_screen
-
-            # if ShowCamera:
-            #     use Camera_screen
-
-            # daytime icons 
-            for q in DayTime:
-                for icon, (start, end), label in time_icons:
-                    if start <= calendar.Hours < end:
-                        # Creating a frame to hold the icon and text together
-                        $ scaled_icon = scale_image(icon, scale_factor)
-                        frame:
-                            xpos 20
-                            ypos 10
-                            xsize scaled_icon.width
-                            ysize scaled_icon.height
-                            background None  # Ensures the frame itself has no visible border
-
-                            # Add the scaled icon as the background of the frame
-                            add scaled_icon
-
-                            # Calculate the real hour format
-                            $ real_hour = (calendar.Hours + 6) % 24
-                            $ hour_12_format = real_hour % 12
-                            $ hour_12_format = 12 if hour_12_format == 0 else hour_12_format
-                            $ am_pm = "AM" if real_hour < 12 or real_hour == 24 else "PM"
-
-                            if not is_in_school(LocationID):
-                                # Position the time text within the frame
-                                text f"{hour_12_format}:00 {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
-                                
-                                # Display the current weekday within the frame
-                                $ current_weekday = calendar.WeekDays[int(calendar.Day)]
-                                text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
-
-                            if is_in_school(LocationID) and 12 <= school_clock.hour < 18:
-                                # Position the school clock time within the frame
-                                text f"{school_clock.Output} {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
-                                
-                                # Display the current weekday within the frame
-                                $ current_weekday = calendar.WeekDays[int(calendar.Day)]
-                                text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
-
-
-
-            # go back 1 room button
-            if StatScreenShown == False:
-                if Location_img in room_mappings:
-                    $ button_image = "GoBackRoomButton_%s.png"
-                    imagebutton:
-                        auto button_image
-                        idle "GoBackRoomButton_idle.png"
-                        xpos 1850
-                        ypos 1000
-                        action [Return(room_mappings[Location_img]), 
-                                SetVariable("ShowPhone", False), 
-                                SetVariable("ShowInventory", False), 
-                                SetVariable("showWallpaperScreen", False), 
-                                SetVariable("Messanger", False),
-                                SetVariable("showWallpaperPreview", False),
-                                SetVariable("ShowCamera", False),
-                                SetVariable("ShowCallForSidebar", False)]
-
-            imagebutton:
-                auto "skip_time_%s.png" xpos 1510 ypos 10
-                action Function(advance_time_or_sleep)
-            
-            imagebutton:
-                auto "sleep_%s.png" xpos 1590 ypos 10
-                action If(ShowPhone == False and Messanger == False and ShowConversationScreen == False and showWallpaperScreen == False and showWallpaperPreview == False and ShowCamera == False, Function(sleep_function))
-
-            if LocationID == 0:
-                imagebutton:
-                    auto "Announce_%s.png" xpos 1670 ypos 10
-                    action [ToggleVariable("ShowCallForSidebar", True, False),
-                            SetVariable("ShowInventory", False), 
-                            SetVariable("showWallpaperScreen", False), 
-                            SetVariable("ShowConversationScreen", False), 
-                            SetVariable("Messanger", False),
-                            SetVariable("showWallpaperPreview", False),
-                            SetVariable("ShowCamera", False),
-                            SetVariable("ShowPhone", False)]
-            else:
-                imagebutton:
-                    auto "Announce_%s.png" xpos 1670 ypos 10
-                    action NullAction()
-                add "forbidden.png" xpos 1670 ypos 10
+    if LocationID == 0:
+        imagebutton:
+            auto "Announce_%s.png" xpos 1670 ypos 10
+            action [ToggleVariable("ShowCallForSidebar", True, False),
+                    SetVariable("ShowInventory", False), 
+                    SetVariable("showWallpaperScreen", False), 
+                    SetVariable("ShowConversationScreen", False), 
+                    SetVariable("Messanger", False),
+                    SetVariable("showWallpaperPreview", False),
+                    SetVariable("ShowCamera", False),
+                    SetVariable("ShowPhone", False)]
+    else:
+        imagebutton:
+            auto "Announce_%s.png" xpos 1670 ypos 10
+            action NullAction()
+        add "forbidden.png" xpos 1670 ypos 10

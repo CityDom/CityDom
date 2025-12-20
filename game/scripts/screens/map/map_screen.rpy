@@ -20,14 +20,12 @@ screen MapScreen():
             action [
                 Function(set_typing_state, False),
                 Function(clear_typing_state),
-                SetVariable("LocationID", 0),
                 SetVariable("MapScreenShown", False),
-                SetVariable("Location_img", "HouseFront"),
-                Return("HouseFront"),
+                Return("Housefront"),
                 Show("MainHud"),
                 Hide("MapScreen")
             ]
-            hovered renpy.log(f"[DEBUG] Entrance Button Clicked. Returning Location: HouseFront")
+            hovered renpy.log(f"[DEBUG] Entrance Button Clicked. Returning Location: Housefront")
             at buttonScale
         if beenToSchoolOnce:
             if is_in_school_hours():
@@ -38,10 +36,9 @@ screen MapScreen():
                     action [
                             Function(set_typing_state, False),
                             Function(clear_typing_state),
-                            SetVariable("LocationID", 1),
                             SetVariable("MapScreenShown", False),
                             Function(synchronize_school_clock),
-                            Return("school"),
+                            Return("School"),
                             Show("MainHud"),
                             Hide("MapScreen")]
                     at buttonScale

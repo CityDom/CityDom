@@ -4,6 +4,7 @@ default timeIcon = 0
 default Location = "Entrance"
 default old_scene = ""
 default LastLocation = ""
+default Location_img = ""
 default LocationID = 0
 default ShowPhone = False
 default ShowInventory = False

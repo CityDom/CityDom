@@ -9,9 +9,19 @@ label start:
             
             # Reset variables
             $ BlockToCall, clickType = "", ""
+            $ calendar.update_period_index()
+            $ LocationID = get_location_id(Location, LocationID)
+            $ Location = get_location_name(Location)
+
+            # Keep background in sync with time-of-day before input.
+            $ desired_location_img = get_location_image_key(Location, calendar.period_index)
+            if desired_location_img != Location_img:
+                $ Location_img = desired_location_img
+                if renpy.has_image(Location_img, exact=True):
+                    scene expression Location_img
             
             # Check for events in the current location
-            $ current_location = str(Location).lower()
+            $ current_location = normalize_location_key(Location)
             python:
                 for event in EVENTS.values():
                     if event.is_active and event.date_check(calendar) and event.location.lower() == current_location:
@@ -27,40 +37,45 @@ label start:
                     # This assumes you have a label or function setup for handling the event by its name
                     $ renpy.call(BlockToCall)
 
-            # Change location image if it exists
-            python:
-                if calendar.period_index == 1:
-                    Location_img = str(Location).lower() + " evening"
-                elif calendar.period_index == 2:
-                    Location_img = str(Location).lower() + " night"
-                else:
-                    Location_img = str(Location).lower()
-            if renpy.has_image(Location_img, exact=True):
-                scene expression Location_img
-
             # ! Sad isolate event. Will look for a better solution
             if is_before_gym_swim_class() and (calendar.Day == 1 or calendar.Day == 3 or calendar.Day == 5) and Location == "GirlsLockerRoom":
                 $ renpy.hide_screen("GirlsLockerRoomScreen")
                 $ renpy.jump("BeforeGymClass_FromInside_Scene")
             # ! Sad isolate event. Will look for a better solution
 
+            if LastLocation != Location:
+                python:
+                    location_screen = get_location_screen_name(Location)
+                    if location_screen and renpy.has_screen(location_screen):
+                        renpy.show_screen(location_screen)
+
             # Check for location change and update the location if changed
             $ new_location = renpy.call_screen("MainHud", _layer="screens")
+            $ location_changed = False
             if new_location != Location:
-                # Assuming Location is the variable holding the current location name
-                $ Location = new_location
+                $ location_changed = True
+                python:
+                    loc_def = get_location_def(new_location)
+                    if loc_def:
+                        Location = loc_def.name
+                        if loc_def.location_id is not None:
+                            LocationID = loc_def.location_id
+                    else:
+                        Location = new_location
 
                 # Hide all screens from the previous location
                 python:
                     for screen_name in ALL_EVENT_SCREENS:
                         renpy.hide_screen(screen_name)
 
-                # Then show the new location's screen
-                $ new_location_screen = f"{Location}_Screen"
-                if renpy.has_screen(new_location_screen):
-                    $ renpy.show_screen(new_location_screen)
-                else:
+                # Update background immediately for the new location.
+                $ Location_img = get_location_image_key(Location, calendar.period_index)
+                if renpy.has_image(Location_img, exact=True):
                     scene expression Location_img
+                python:
+                    location_screen = get_location_screen_name(Location)
+                    if location_screen and renpy.has_screen(location_screen):
+                        renpy.show_screen(location_screen)
 
             # Update last location
             $ LastLocation = Location
