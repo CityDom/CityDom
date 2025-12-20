@@ -1,0 +1,30 @@
+# Text normalization
+* text=auto
+
+# Explicit text rules
+*.rpy text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.bat text eol=crlf
+
+# Binary assets (no diff, no text processing)
+*.png binary
+*.webp binary
+*.webm binary
+*.ogg binary
+*.mp4 binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.7z binary
+*.rar binary
+*.pdf binary
