@@ -154,3 +154,8 @@ CubismSdkForNative-4-*.zip
 *.webm
 *.png
 /images/
+# Android signing
+android.keystore
+bundle.keystore
+*.keystore
+*.jks
