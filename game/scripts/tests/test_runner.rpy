@@ -1,0 +1,3 @@
+testsuite global:
+    teardown:
+        exit
