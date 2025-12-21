@@ -24,9 +24,7 @@ label IsabellaNight34:
             Isabella "AAAAAAAAAAAAAAAAAAAAAAAA"
             Isabella "GET OUT!!!!!!!!!!!!!!!!!!"
             "{color=#808080}**You leave in a hurry**{/color}"
-            "{color=#808080}**Isabella love - 5**{color=#808080}"
-            $ Isabella_love = Isabella_love - 5
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -5}}, show_black=False, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Leave":

@@ -110,14 +110,7 @@ label MariaFirstPauseScene:
                     MC "See you in class!"
                     scene MariaPauseScene43 with Dissolve(0.5)
                     Maria "See you..."
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Maria love + 2**{color=#808080}"
-                    "{color=#808080}**Maria corruption + 2**{color=#808080}"
-                    "{color=#808080}**Maria obedience + 2**{color=#808080}"
-                    $ Maria_love = Maria_love + 2
-                    $ Maria_Corruption = Maria_Corruption + 2
-                    $ Maria_Obedience = Maria_Obedience + 2
-                    $ check_and_update_character_stats("Maria")
+                    call stat_reward({"Maria": {"love": 2, "corruption": 2, "obedience": 2}}, return_to=None)
                     $ Location = "SchoolGymFront"
                     $ advance_time_or_sleep()
                 "Compliment":
@@ -147,10 +140,7 @@ label MariaFirstPauseScene:
                     Maria "Fuck off"
                     scene MariaPauseScene56 with Dissolve(0.5)
                     MC "Anyway, I see that you're not in a chatty mood, I'll see you in class then."
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Maria love + 2**{color=#808080}"
-                    $ Maria_love = Maria_love + 2
-                    $ check_and_update_character_stats("Maria")
+                    call stat_reward({"Maria": {"love": 2}}, return_to=None)
                     $ Location = "SchoolGymFront"
                     $ advance_time_or_sleep()
                 "Pervert compliment":
@@ -197,12 +187,7 @@ label MariaFirstPauseScene:
                     Maria "{color=#808080}*I can't believe I fell for that, he's fucking dead!*"
                     scene MariaPauseScene77 with Dissolve(0.5)
                     Maria "NOT MY NIPPLE YOU DUMBASS, IT FUCKING HURTS!!!"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Maria love - 5**{color=#808080}"
-                    "{color=#808080}**Maria corruption + 2**{color=#808080}"
-                    $ Maria_love = Maria_love - 5
-                    $ Maria_Corruption = Maria_Corruption + 2
-                    $ check_and_update_character_stats("Maria")
+                    call stat_reward({"Maria": {"love": -5, "corruption": 2}}, return_to=None)
                     $ Location = "SchoolGymFront"
                     $ advance_time_or_sleep()
         "Ask about classmates":
@@ -974,12 +959,7 @@ label AnnaAndEmmaReport:
                     MC "Good girl!"
                     scene MariaPauseScene189 with Dissolve(0.5)
                     Maria "Fuck off!"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Maria corruption + 2**{color=#808080}"
-                    "{color=#808080}**Maria obedience + 2**{color=#808080}"
-                    $ Maria_Corruption = Maria_Corruption + 2
-                    $ Maria_Obedience = Maria_Obedience + 2
-                    $ check_and_update_character_stats("Maria")
+                    call stat_reward({"Maria": {"corruption": 2, "obedience": 2}}, return_to=None)
                     $ Location = "SchoolGymFront"
                     $ advance_time_or_sleep()
         else:
@@ -1188,14 +1168,7 @@ label GretaReport:
         Maria "Can I put my shirt down now?"
         scene MariaPauseScene230 with Dissolve(0.5)
         MC "Yeah, I have to get going anyway."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Maria love + 2**{color=#808080}"    
-        "{color=#808080}**Maria corruption + 2**{color=#808080}"
-        "{color=#808080}**Maria obedience + 2**{color=#808080}"
-        $ Maria_love = Maria_love + 2
-        $ Maria_Corruption = Maria_Corruption + 2
-        $ Maria_Obedience = Maria_Obedience + 2
-        $ check_and_update_character_stats("Maria")
+        call stat_reward({"Maria": {"love": 2, "corruption": 2, "obedience": 2}}, return_to=None)
         $ Location = "SchoolGymFront"
         $ advance_time_or_sleep()
 label DorothyReport:

@@ -82,12 +82,6 @@ label Isabella_weekend_1PM:
     $ renpy.pause(0.6, hard=True)
     scene Isabella_weekend_1PM_32
     Criss "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Isabella love + 2**{color=#808080}"
-    "{color=#808080}**Criss love + 2**{color=#808080}"
-    $ Isabella_love = Isabella_love + 2
-    $ Criss_love = Criss_love + 2
-    $ check_and_update_character_stats("Isabella")
-    $ check_and_update_character_stats("Criss")
+    call stat_reward({"Criss": {"love": 2}, "Isabella": {"love": 2}}, return_to=None)
     $ Location = "Entrance"
     $ advance_time_or_sleep()

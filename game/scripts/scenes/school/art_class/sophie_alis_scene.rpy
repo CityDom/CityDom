@@ -32,11 +32,4 @@ label ArtClass_SophieAlis_Scene:
         MC "{color=#808080}*\"Just walking by?!\" How the fuck did I fumble like that?!*{color=#808080}"
         scene Sophie_Alis_Scene11 with Dissolve(0.5)
         MC "{color=#808080}*Maybe Mhyrorin is right, I'm just a virgin...*{color=#808080}"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Sophie love + 2**{color=#808080}"
-        "{color=#808080}**Alis love + 2**{color=#808080}"
-        $ Sophie_love += 2
-        $ Alis_love += 2
-        $ check_and_update_character_stats("Sophie")
-        $ check_and_update_character_stats("Alis")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Alis": {"love": 2}, "Sophie": {"love": 2}})

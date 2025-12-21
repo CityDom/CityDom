@@ -21,8 +21,5 @@ label AlisClassroomScene:
     scene AlisScene1 with Dissolve(0.5)
     MC "{color=#808080}*Holy fuck... fuck, fumbled that so hard, I can't even speak to her...*"
     MC "{color=#808080}*Maria was right, she gorgeous, but she creeps me out...*"
-    "{color=#808080}**Alis love + 2**{color=#808080}"
-    $ Alis_love = Sophie_love + 2
     $ AlisClassroomSceneWatched = True
-    $ check_and_update_character_stats("Alis")
-    $ renpy.call("GameLoop")
+    call stat_reward({"Alis": {"love": 2}})

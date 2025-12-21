@@ -79,27 +79,7 @@ label Isa_Team_Scene:
         Tanya "No reason to fight—you have to be a team!"
         scene Isa_Team_Scene30 with Dissolve(0.5)
         Isabella "Yeah, you heard her. Let's discuss how we play!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Every girl in class love + 2**{/color}"
-        $ Maria_love += 2
-        $ Isabella_love += 2
-        $ Alis_love += 2
-        $ Sophie_love += 2
-        $ Helena_love += 2
-        $ Criss_love += 2
-        $ check_and_update_character_stats("Maria")
-        $ check_and_update_character_stats("Isabella")
-        $ check_and_update_character_stats("Alis")
-        $ check_and_update_character_stats("Sophie")
-        $ check_and_update_character_stats("Lola")
-        $ check_and_update_character_stats("Selina")
-        $ check_and_update_character_stats("Helena")
-        $ check_and_update_character_stats("Dorothy")
-        $ check_and_update_character_stats("Leya")
-        $ check_and_update_character_stats("Greta")
-        $ check_and_update_character_stats("Criss")
-        $ check_and_update_character_stats("Anna")
-        $ check_and_update_character_stats("Emma")
+        call stat_reward({"Alis": {"love": 2}, "Criss": {"love": 2}, "Helena": {"love": 2}, "Isabella": {"love": 2}, "Maria": {"love": 2}, "Sophie": {"love": 2}}, return_to=None)
     else:
         MC "{color=#808080}*I already talked to them about this.*{/color}"
     $ renpy.call("GameLoop")

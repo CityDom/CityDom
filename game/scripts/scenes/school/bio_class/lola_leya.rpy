@@ -66,15 +66,4 @@ label BioClass_Lola_Leya_Scene:
         MC "So she's all yours, good luck!"
         scene BioClass_Lola_Leya_Scene26 with Dissolve(0.5)
         Lola "God damn it, [MC]..."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Lola love + 2**{color=#808080}"
-        "{color=#808080}**Lola corruption + 2**{color=#808080}"
-        "{color=#808080}**Leya love + 2**{color=#808080}"
-        "{color=#808080}**Leya corruption + 2**{color=#808080}"
-        $ Lola_love += 2
-        $ Leya_love += 2
-        $ Leya_Corruption += 2
-        $ Lola_Corruption += 2
-        $ check_and_update_character_stats("Lola")
-        $ check_and_update_character_stats("Leya")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Leya": {"love": 2, "corruption": 2}, "Lola": {"love": 2, "corruption": 2}})

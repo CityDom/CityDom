@@ -64,10 +64,7 @@ label GretaFirstPauseMenu:
                     Greta "I'm sorry if what I said came around as begging for money, but that's not what I meant at all!"
                     Greta "I really try to earn what I can fair and square!"
                     Greta "So if you don't need anything else, I will go back at learning!"
-                    "{color=#808080}**Greta love + 2**{color=#808080}"
-                    $ Greta_love = Greta_love + 2
-                    $ check_and_update_character_stats("Greta")
-                    jump GretaFirstPauseMenu
+                    call stat_reward({"Greta": {"love": 2}}, show_black=False, return_to="GretaFirstPauseMenu")
                 "Compliment":
                     MC "Well, since I got the moment and its just the two of us, I wanted to tell you that you looked really nice today!"
                     scene GretaPauseScene6 with Dissolve(0.5)
@@ -83,10 +80,7 @@ label GretaFirstPauseMenu:
                     Greta "It... It's true..."
                     scene GretaPauseScene10 with Dissolve(0.5)
                     Greta "Ummmm, anyway, I have to go back to studying, is there something else that you need help with?"
-                    "{color=#808080}**Greta love + 5**{color=#808080}"
-                    $ Greta_love = Greta_love + 5
-                    $ check_and_update_character_stats("Greta")
-                    jump GretaFirstPauseMenu
+                    call stat_reward({"Greta": {"love": 5}}, show_black=False, return_to="GretaFirstPauseMenu")
                 "Pervert Compliment":
                     scene GretaPauseScene11 with Dissolve(0.5)
                     MC "I just wanted to let you know that you look really hot today!"
@@ -95,11 +89,7 @@ label GretaFirstPauseMenu:
                     Greta "I really don't need to hear that, [MC]!"
                     Greta "I thought you actually wanted some help."
                     Greta "Now leave, I have to study!"
-                    "{color=#808080}**Greta love - 5**{color=#808080}"
-                    "{color=#808080}**Greta corruption + 2**{color=#808080}"
-                    $ Greta_love = Greta_love - 5
-                    $ Greta_Corruption = Greta_Corruption + 2
-                    $ check_and_update_character_stats("Greta")
+                    call stat_reward({"Greta": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
                     $ advance_time_or_sleep()
                 "Insult":
                     scene GretaPauseScene14 with Dissolve(0.5)
@@ -110,9 +100,7 @@ label GretaFirstPauseMenu:
                     Greta "I really wanted to help you."
                     Greta "At least tell me an insult that I haven't heard before!"
                     Greta "Leave already!! I have better stuff to do than to talk to you"
-                    "{color=#808080}**Greta love - 5**{color=#808080}"
-                    $ Greta_love = Greta_love - 5
-                    $ check_and_update_character_stats("Greta")
+                    call stat_reward({"Greta": {"love": -5}}, show_black=False, return_to=None)
                     $ advance_time_or_sleep()
                 "Leave":
                     jump GretaFirstPauseMenu
@@ -203,9 +191,7 @@ label GretaFirstPauseMenu:
                             scene GretaPauseScene47 with Dissolve(0.5)
                             Greta "You are crossing the line [MC]!"
                             Greta "You said that it won't take long, so please leave, I have to study!"
-                            "{color=#808080}**Greta love - 5**{color=#808080}"
-                            $ Greta_love = Greta_love - 5
-                            $ check_and_update_character_stats("Greta")
+                            call stat_reward({"Greta": {"love": -5}}, show_black=False, return_to=None)
                             $ advance_time_or_sleep()
                         "Don't":
                             MC "Yeah, you can put your shirt down."
@@ -222,13 +208,9 @@ label GretaFirstPauseMenu:
                             scene GretaPauseScene50 with Dissolve(0.5)
                             Greta "You are right! I also have some time left to study, and I also made some money!"
                             Greta "See you around, [MC]!"
-                            "{color=#808080}**Greta love + 5**{color=#808080}"
-                            "{color=#808080}**Greta corruption + 5**{color=#808080}"
-                            "{color=#808080}**Greta obedience + 5**{color=#808080}"
-                            $ Greta_love = Greta_love + 5
+                            call stat_reward({"Greta": {"love": 5}}, show_black=False, return_to=None)
                             $ Greta_Obedience = Greta_Corruption + 5
                             $ Greta_Obedience = Greta_Obedience + 5
-                            $ check_and_update_character_stats("Greta")
                             $ advance_time_or_sleep()
         "Leave":
             scene GretaPauseScene19 with Dissolve(0.5)

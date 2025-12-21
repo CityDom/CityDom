@@ -44,11 +44,7 @@ label SandraDetentionMenu:
                 Sandra "Hah, wouldn't that be nice. But the best you can do is be someone that I don't hate."
                 Sandra "If you listen to my classes and don't act out of place you can be on the right track."
                 Sandra "But talking all this sweet stuff won't raise your grade, so tell me if you need anything else."
-                scene BlackScreen with Dissolve(0.5)
-                "{color=#808080}**Sandra Love + 2**{color=#808080}"
-                $ Sandra_love = Sandra_love + 2
-                $ check_and_update_character_stats("Sandra")
-                jump SandraDetentionMenu
+                call stat_reward({"Sandra": {"love": 2}}, return_to="SandraDetentionMenu")
             else:
                 MC "I already talked to her about that."
                 jump SandraDetentionMenu
@@ -71,13 +67,7 @@ label SandraDetentionMenu:
                 Sandra "All of you disgusting men can think about one thing!"
                 Sandra "You just got yourself another two hours of detention!!"
                 Sandra "Now get out of my face!"
-                scene BlackScreen with Dissolve(0.5)
-                "{color=#808080}**Sandra Love - 2**{color=#808080}"
-                "{color=#808080}**Sandra Corruption + 2**{color=#808080}"
-                $ Sandra_love = Sandra_love - 2
-                $ Sandra_Corruption = Sandra_Corruption + 2
-                $ check_and_update_character_stats("Sandra")
-                $ renpy.call("GameLoop")
+                call stat_reward({"Sandra": {"love": -2, "corruption": 2}})
             else:
                 MC "I already talked to her about that."
                 jump SandraDetentionMenu

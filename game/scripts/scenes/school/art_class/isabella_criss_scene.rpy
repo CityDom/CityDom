@@ -63,11 +63,4 @@ label ArtClass_IsabellaCriss_Scene:
         MC "Alright, Miss Petal, I'll go right now!"
         scene Isabella_Criss_Scene25 with Dissolve(0.5)
         MC "{color=#808080}*Geez, why is she so angry? She could've asked nicely...*{color=#808080}"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Criss love + 2**{color=#808080}"
-        "{color=#808080}**Isabella love + 2**{color=#808080}"
-        $ Criss_love += 2
-        $ Isabella_love += 2
-        $ check_and_update_character_stats("Isabella")
-        $ check_and_update_character_stats("Criss")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Criss": {"love": 2}, "Isabella": {"love": 2}})

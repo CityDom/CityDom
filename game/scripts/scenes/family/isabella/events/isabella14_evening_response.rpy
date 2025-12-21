@@ -56,9 +56,7 @@ label IsabellaEvening14:
                     Isabella "GET THE FUCK OUT NOW!!!!!!!"
                     "{color=#808080}**You quickly get out of the room**{color=#808080}"
                     MC "{color=#808080}*I hope she's not too mad*{color=#808080}"
-                    MC "{color=#808080}*Isabella love -5*{color=#808080}"
-                    $ Isabella_love = Isabella_love - 5
-                    $ check_and_update_character_stats("Isabella")
+                    call stat_reward({"Isabella": {"love": -5}}, show_black=False, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
                 "Leave":
@@ -66,9 +64,7 @@ label IsabellaEvening14:
                     MC "{color=#808080}*Fuck... I wanna see her naked so badly...*{color=#808080}"
                     MC "{color=#808080}*But it's better not to risk it.*{color=#808080}"
                     "{color=#808080}**You slowly step out of the room and close the door silently**{color=#808080}"
-                    "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-                    $ Isabella_Corruption = Isabella_Corruption + 2
-                    $ check_and_update_character_stats("Isabella")
+                    call stat_reward({"Isabella": {"corruption": 2}}, show_black=False, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
         "Open":
@@ -80,9 +76,7 @@ label IsabellaEvening14:
             MC "Oh my god, I'm so sorry I didn't know you were changing, I thought you-"
             scene Isabella_evening14_13 with Dissolve(0.5)
             Isabella "I SAID GET THE FUCK OUT NOW PERVERT!!!!!!!!!!"
-            "{color=#808080}**Isabella love - 5**{color=#808080}"
-            $ Isabella_love = Isabella_love - 5
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -5}}, show_black=False, return_to=None)
             $ Location = "Hallway"
         "Leave":
             MC "{color=#808080}*Better not to risk it.*{color=#808080}"

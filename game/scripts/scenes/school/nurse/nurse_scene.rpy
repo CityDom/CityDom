@@ -56,9 +56,7 @@ label LunaMenu:
                 scene Nurse_Scene15 with Dissolve(0.5)
                 Luna "But... uhhh... I don't really have time to talk right now..."
                 Luna "So if you don't have an actual problem you kinda have to leave..."
-                "{color=#808080}**Luna love + 2**{color=#808080}"      
-                $ Luna_love = Luna_love + 2
-                jump LunaMenu
+                call stat_reward({"Luna": {"love": 2}}, show_black=False, return_to="LunaMenu")
         "Pervert compliment":
             if Watched_Nurse_PervertCompliment:
                 MC "{color=#808080}*I already told her that...*{color=#808080}"
@@ -117,13 +115,8 @@ label LunaMenu:
                 MC "Wait, what?! But I thought—"
                 scene Nurse_Scene36 with Dissolve(0.5)
                 Luna "Enough talking, [MC]!! Get out of my office right now!"
-                scene BlackScreen with Dissolve(0.5)
-                "{color=#808080}**Luna love - 2**{color=#808080}"
-                "{color=#808080}**Luna corruption + 2**{color=#808080}"            
-                $ Luna_love = Luna_love - 2
-                $ Luna_Corruption = Luna_Corruption + 2
+                call stat_reward({"Luna": {"love": -2, "corruption": 2}}, return_to=None)
                 $ Location = "MedicRoomFront"
-                $ check_and_update_character_stats("Luna")
                 $ renpy.call("GameLoop")
         "Insult":
             if Watched_Nurse_Insult:
@@ -140,13 +133,8 @@ label LunaMenu:
                 scene Nurse_Scene38 with Dissolve(0.5)
                 Luna "Get out, now!"
                 Luna "I don't have time for this right now!"
-                scene BlackScreen with Dissolve(0.5)
-                "{color=#808080}**Luna love - 2**{color=#808080}"
-                "{color=#808080}**Luna corruption - 2**{color=#808080}"            
-                $ Luna_love = Luna_love - 2
-                $ Luna_Corruption = Luna_Corruption - 2
+                call stat_reward({"Luna": {"love": -2, "corruption": -2}}, return_to=None)
                 $ Location = "MedicRoomFront"
-                $ check_and_update_character_stats("Luna")
                 $ renpy.call("GameLoop")
         "Leave":
             MC "I was feeling a little off, but I think I'm better now!"

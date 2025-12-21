@@ -69,14 +69,4 @@ label BioClass_IsaCrissHelena_Scene:
         IsaAndHelena "Oh, shut up already!"
         scene Isa_Criss_Helena_Scene30 with Dissolve(0.5)
         Criss "{color=#808080}*Ughhh... [MC], how did you make things worse than they already were?*{color=#808080}"
-        scene BlackScreen with Dissolve(1)
-        "{color=#808080}**Criss love + 2**{color=#808080}"
-        "{color=#808080}**Isabella love + 2**{color=#808080}"
-        "{color=#808080}**Helena love + 2**{color=#808080}"
-        $ Criss_love += 2
-        $ Isabella_love += 2
-        $ Helena_love += 2
-        $ check_and_update_character_stats("Isabella")
-        $ check_and_update_character_stats("Criss")
-        $ check_and_update_character_stats("Helena")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Criss": {"love": 2}, "Helena": {"love": 2}, "Isabella": {"love": 2}}, dissolve_time=1)

@@ -32,9 +32,6 @@ label Jennifer_weekend_6AM:
     MC "Okay, Mom. Wonderful chat we had. See you around!"
     scene Jennifer_weekend_6AM_14 with Dissolve(0.5)
     Jennifer "Mhm. That's what I thought."
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Jennifer love +2**{/color}"
-    $ Jennifer_love = Jennifer_love + 2
-    $ check_and_update_character_stats("Jennifer")
+    call stat_reward({"Jennifer": {"love": 2}}, return_to=None)
     $ Location = "Hallway"
     $ advance_time_or_sleep()

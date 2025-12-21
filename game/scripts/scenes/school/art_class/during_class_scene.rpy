@@ -297,11 +297,7 @@ label ArtClass_RepeatCurvesDialog:
             MariaW "Ughhhh, what a dumbass..."
             scene DuringArtClass_Scene83 with Dissolve(0.5)
             Scarlet "GET OUT OF MY CLASSROOM, NOW!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Scarlet love - 2**{/color}"
-            "{color=#808080}**Scarlet corruption + 2**{/color}"
-            $ Scarlet_love = Scarlet_love - 2
-            $ Scarlet_Corruption = Scarlet_Corruption + 2
+            call stat_reward({"Scarlet": {"love": -2, "corruption": 2}}, return_to=None)
             $ advance_time_or_sleep()
             $ renpy.call("GameLoop")
         "Don't":
@@ -512,9 +508,7 @@ label ScarletAsSheIs_After:
     Scarlet "You should try to be more brave on the details, I know it's scary at times, but that's how you learn, through trial and error."
     scene DuringArtClass_Scene148 with Dissolve(0.5)
     Scarlet "Alright, next, Dorothy, get ready!"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Scarlet love + 2**{/color}"
-    $ Scarlet_love = Scarlet_love + 2
+    call stat_reward({"Scarlet": {"love": 2}}, return_to=None)
     $ advance_time_or_sleep()
     $ renpy.call("GameLoop")
 
@@ -568,11 +562,7 @@ label ScarletMaid_after:
     Scarlet "Good job, [MC], I'm glad you are venturing out of your comfort zone."
     scene DuringArtClass_Scene162 with Dissolve(0.5)
     Scarlet "Alright, Dorothy, you're up next!"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Scarlet love + 2**{/color}"
-    "{color=#808080}**Scarlet corruption + 2**{/color}"
-    $ Scarlet_love = Scarlet_love + 2
-    $ Scarlet_Corruption = Scarlet_Corruption + 2
+    call stat_reward({"Scarlet": {"love": 2, "corruption": 2}}, return_to=None)
     $ advance_time_or_sleep()
     $ renpy.call("GameLoop")
 
@@ -640,11 +630,7 @@ label ScarletCatGirl_after:
     Scarlet "It's your turn, Maria, come here!"
     scene DuringArtClass_Scene183 with Dissolve(0.5)
     MariaLS "I told you, dumbass!"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Scarlet love - 5**{/color}"
-    "{color=#808080}**Scarlet obedience + 2**{/color}"
-    $ Scarlet_love = Scarlet_love - 5
-    $ Scarlet_Obedience = Scarlet_Obedience + 2
+    call stat_reward({"Scarlet": {"love": -5, "obedience": 2}}, return_to=None)
     $ advance_time_or_sleep()
     $ renpy.call("GameLoop")
 
@@ -696,12 +682,6 @@ label ScarletNaked_after:
     Scarlet "THIS IS SICK, [MC_upper], GET OUT OF MY CLASSROOM, NOW!!"
     scene DuringArtClass_Scene200 with Dissolve(0.5)
     MC "Right away, ma'am, I'm sorry...."
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Scarlet love - 5**{/color}"
-    "{color=#808080}**Scarlet corruption + 2**{/color}"
-    "{color=#808080}**Scarlet obedience - 5**{/color}"
-    $ Scarlet_love = Scarlet_love - 5
-    $ Scarlet_Corruption = Scarlet_Corruption + 2
-    $ Scarlet_Obedience = Scarlet_Obedience - 5
+    call stat_reward({"Scarlet": {"love": -5, "corruption": 2, "obedience": -5}}, return_to=None)
     $ advance_time_or_sleep()
     $ renpy.call("GameLoop")

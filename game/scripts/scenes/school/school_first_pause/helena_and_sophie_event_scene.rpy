@@ -53,16 +53,7 @@ label HelenaAndSophieFirstPauseScene:
                     scene HelenaAndSophieEventScene17 with Dissolve(0.5)
                     Helena "I think you got a bit too comfortable with this conversation, [MC]!"
                     Helena "We're going to class, see ya!"
-                    "{color=#808080}**Helena love - 5**{color=#808080}"
-                    "{color=#808080}**Helena corruption + 2**{color=#808080}"
-                    "{color=#808080}**Sophie love - 5**{color=#808080}"
-                    "{color=#808080}**Sophie corruption + 2**{color=#808080}"
-                    $ Helena_love = Helena_love - 5
-                    $ Helena_Corruption = Helena_Corruption + 2
-                    $ Sophie_love = Sophie_love - 5
-                    $ Sophie_Corruption = Sophie_Corruption + 2
-                    $ check_and_update_character_stats("Helena")
-                    $ check_and_update_character_stats("Sophie")
+                    call stat_reward({"Helena": {"love": -5, "corruption": 2}, "Sophie": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
                     $ advance_time_or_sleep()
                 "Agree with them":
                     MC "You girls are right, and it's a shame to have them compressed."
@@ -80,12 +71,7 @@ label HelenaAndSophieFirstPauseScene:
                     Sophie "Byeee!"
                     scene HelenaAndSophieEventScene20 with Dissolve(0.5)
                     Helena "See ya!"
-                    "{color=#808080}**Helena love + 2**{color=#808080}"
-                    "{color=#808080}**Sophie love + 2**{color=#808080}"
-                    $ Helena_love = Helena_love + 2
-                    $ Sophie_love = Sophie_love + 2
-                    $ check_and_update_character_stats("Helena")
-                    $ check_and_update_character_stats("Sophie")
+                    call stat_reward({"Helena": {"love": 2}, "Sophie": {"love": 2}}, show_black=False, return_to=None)
                     $ advance_time_or_sleep()
         "Leave":
             MC "I was just passing by, see you in class!"

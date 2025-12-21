@@ -72,12 +72,6 @@ label Jennifer_weekend_1PM:
     Jennifer "[MC_upper]!!" 
     scene Jennifer_weekend_1PM_33 with Dissolve(0.5)
     MC "My bad!"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Mom love + 2**{color=#808080}"
-    "{color=#808080}**Isabella love + 2**{color=#808080}"
-    $ Jennifer_love = Jennifer_love + 2
-    $ Isabella_love = Isabella_love + 2
-    $ check_and_update_character_stats("Jennifer")
-    $ check_and_update_character_stats("Isabella")
+    call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, return_to=None)
     $ Location = "Entrance"
     $ advance_time_or_sleep()

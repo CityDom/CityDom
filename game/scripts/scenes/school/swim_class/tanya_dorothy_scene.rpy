@@ -45,11 +45,4 @@ label SwimClass_Tanya_Dorothy_Scene:
         TanyaW "You won't get detention for looking at other girls inappropriately. Now stop breaking my balls and go there!"
         scene Pool_Tanya_Dorothy_Scene13 with Dissolve(0.5)
         MC_whispering "Fine..."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Tanya love + 2**{color=#808080}"
-        "{color=#808080}**Dorothy love + 2**{color=#808080}"
-        $ Tanya_love = Tanya_love + 2 
-        $ Dorothy_love = Dorothy_love + 2
-        $ check_and_update_character_stats("Tanya")
-        $ check_and_update_character_stats("Dorothy")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Dorothy": {"love": 2}, "Tanya": {"love": 2}})

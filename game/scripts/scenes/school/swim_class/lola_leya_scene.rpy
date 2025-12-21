@@ -48,11 +48,4 @@ label SwimClass_Lola_Leya_Scene:
         MC "It's okay, Leya, you're safe now, let's get you to the pool edge so you can calm down."
         scene Pool_Lola_Leya_Scene18 with Dissolve(0.5)
         Leya "Okay..."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Lola love + 2**{color=#808080}"
-        "{color=#808080}**Leya love + 2**{color=#808080}"
-        $ Leya_love = Leya_love + 2 
-        $ Lola_love = Lola_love + 2
-        $ check_and_update_character_stats("Lola")
-        $ check_and_update_character_stats("Leya")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Leya": {"love": 2}, "Lola": {"love": 2}})

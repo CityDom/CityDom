@@ -14,9 +14,7 @@ label LeyaClassroomScene:
     Leya "Uhhhh, I don't think the teacher accepts men in the class... sorry..."
     scene LeyaScene5 with Dissolve(0.5)
     MC "Oh, it's okay, no need to feel sorry for it."
-    "{color=#808080}**Leya love + 2**{color=#808080}"
-    $ Leya_love = Leya_love + 2
+    call stat_reward({"Leya": {"love": 2}}, show_black=False, return_to=None)
     $ LeyaClassroomSceneWatched = True
-    $ check_and_update_character_stats("Leya")
     $ renpy.call("GameLoop")
     #! Maybe you could teach me -- future idea

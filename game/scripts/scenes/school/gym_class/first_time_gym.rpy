@@ -187,12 +187,6 @@ label FirstTimeGym_Scene:
     scene FirstTimeGym_Scene74 with Dissolve(0.5)
     MC "Let's go now, we don't wanna be late!"
     Maria "Don't touch me, I'll kill you!"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Maria Love + 2**{color=#808080}"
-    "{color=#808080}**Tanya love + 2**{color=#808080}"
-    $ Tanya_love = Tanya_love + 2 
-    $ Maria_love = Maria_love + 2
-    $ check_and_update_character_stats("Tanya")
-    $ check_and_update_character_stats("Maria")
+    call stat_reward({"Maria": {"love": 2}, "Tanya": {"love": 2}}, return_to=None)
     $ Location = "Gym"
     $ renpy.call("GameLoop")

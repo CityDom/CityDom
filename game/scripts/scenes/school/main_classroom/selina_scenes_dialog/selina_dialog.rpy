@@ -10,8 +10,6 @@ label SelinaClassroomScene:
     Selina "I have a boyfriend, fuck off."
     scene SelinaScene1 with Dissolve(0.5)
     MC "{color=#808080}*Bitch...*"
-    "{color=#808080}**Selina love + 2**{color=#808080}"
-    $ Selina_love = Selina_love + 2
+    call stat_reward({"Selina": {"love": 2}}, show_black=False, return_to=None)
     $ SelinaClassroomSceneWatched = True
-    $ check_and_update_character_stats("Selina")
     $ renpy.call("GameLoop")

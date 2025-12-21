@@ -102,21 +102,13 @@ label Isabella_weekend_6AM:
                     Isabella "Yeah, the pizza is armed and aggressive... And unusually short for its age..."
                     scene Isabella_weekend_6AM_44 with Dissolve(0.5)
                     MC "Wait! Stop! Are you crazy?!"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Isabella love - 2**{color=#808080}"
-                    "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-                    $ Isabella_Corruption = Isabella_Corruption + 2
-                    $ Isabella_love = Isabella_love - 2
-                    $ check_and_update_character_stats("Isabella")
+                    call stat_reward({"Isabella": {"love": -2, "corruption": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
                 "leave":
                     MC "{color=#808080}*I better leave...*{/color}"
                     MC "{color=#808080}*She'll go crazy if she wakes up and sees me...*{/color}"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Isabella love + 2**{color=#808080}"
-                    $ Isabella_love = Isabella_love + 2
-                    $ check_and_update_character_stats("Isabella")
+                    call stat_reward({"Isabella": {"love": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
         "Leave her alone":

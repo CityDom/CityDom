@@ -207,20 +207,5 @@ label BioClass_During_Class_Scene:
     MariaW "Tsk, I didn't ask you to compare them, asshole!"
     scene BioClass_During_Class_Scene83 with Dissolve(0.5)
     MariaW "......."
-    scene BlackScreen with Dissolve(1)
-    "{color=#808080}**Maria love + 2**{color=#808080}"
-    "{color=#808080}**Maria corruption + 2**{color=#808080}"
-    "{color=#808080}**Isabella love + 2**{color=#808080}"
-    "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-    "{color=#808080}**Luna love + 2**{color=#808080}"
-    "{color=#808080}**Luna corruption + 2**{color=#808080}"
-    $ Isabella_love = Isabella_love + 2
-    $ Isabella_Corruption = Isabella_Corruption + 2
-    $ Maria_love = Maria_love + 2
-    $ Maria_Corruption = Maria_Corruption + 2
-    $ Luna_love = Luna_love + 2
-    $ Luna_Corruption = Luna_Corruption + 2
-    $ check_and_update_character_stats("Isabella")
-    $ check_and_update_character_stats("Maria")
-    $ check_and_update_character_stats("Luna")
+    call stat_reward({"Isabella": {"love": 2, "corruption": 2}, "Luna": {"love": 2, "corruption": 2}, "Maria": {"love": 2, "corruption": 2}}, dissolve_time=1, return_to=None)
     $ advance_time_or_sleep()

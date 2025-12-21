@@ -52,12 +52,7 @@ label DetentionClass_Maria_Scene:
         scene DetentionClass_Maria_Scene18 with Dissolve(0.5)
         MariaW "Then take that hand off my tits before I cut it!"
         MC_whispering "Yes Ma'am!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Maria Love - 2**{color=#808080}"
-        "{color=#808080}**Maria Corruption - 2**{color=#808080}"
-        $ Maria_love = Maria_love - 2
-        $ Maria_Corruption = Maria_Corruption - 2
-        $ check_and_update_character_stats("Maria")
+        call stat_reward({"Maria": {"love": -2, "corruption": -2}}, return_to=None)
     else:
         scene DetentionClass_Maria_Scene1 with Dissolve(0.5)
         MC "I already talked to her about that."

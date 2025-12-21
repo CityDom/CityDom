@@ -90,10 +90,7 @@ label Isabella_weekend_10AM:
             Isabella "I don't know what they fed him back at dad's..."
             scene Isabella_weekend_10AM_39 with Dissolve(0.5)
             Isabella "But he is scary strong sometimes..."
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Isabella love + 2**{color=#808080}"
-            $ Isabella_love = Isabella_love + 2
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": 2}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Change grip":
@@ -115,9 +112,6 @@ label Isabella_weekend_10AM:
             Isabella "You are such a piece of shit!"
             scene Isabella_weekend_10AM_47 with Dissolve(0.5)  
             MC "Come on, Criss!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Isabella love - 5**{color=#808080}"
-            $ Isabella_love = Isabella_love - 5
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -5}}, return_to=None)
             $ Location = "Entrance"
             $ advance_time_or_sleep()

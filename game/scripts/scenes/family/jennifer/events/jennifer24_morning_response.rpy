@@ -54,9 +54,7 @@ label JenniferMorning24:
                     scene Jennifer_morning24_4 with Dissolve(0.5)
                     Jennifer "Ok kiddo, now go sit at the table, let's eat breakfast"
                     MC "Oke mom, thanks for the kiss"
-                    "{color=#808080}**Mom love + 2**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love + 2
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": 2}}, show_black=False, return_to=None)
                     $ Location = "livingroom"
                     $ advance_time_or_sleep()
         "Leave":

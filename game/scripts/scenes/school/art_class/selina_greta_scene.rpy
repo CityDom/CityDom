@@ -26,11 +26,4 @@ label ArtClass_SelinaGreta_Scene:
         Selina "So get lost already; you have no business standing next to me!"
         scene ArtClass_SelinaGreta_Scene8 with Dissolve(0.5)
         Greta "Bye-bye, [MC]!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Selina love + 2**{color=#808080}"
-        "{color=#808080}**Greta love + 2**{color=#808080}"
-        $ Greta_love += 2
-        $ Selina_love += 2
-        $ check_and_update_character_stats("Greta")
-        $ check_and_update_character_stats("Selina")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Greta": {"love": 2}, "Selina": {"love": 2}})

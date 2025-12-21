@@ -63,21 +63,4 @@ label BioClass_Selina_Greta_Scene:
         Selina "You are fucked, you hear me?! FUCKED!!!"
         scene Selina_Greta_Scene25 with Dissolve(0.5)
         MC "Yeah, yeah, whatever you say, Selina."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Selina love + 2**{color=#808080}"
-        "{color=#808080}**Selina corruption + 2**{color=#808080}"
-        "{color=#808080}**Selina obedience + 2**{color=#808080}"
-        "{color=#808080}**Greta love + 2**{color=#808080}"
-        "{color=#808080}**Greta corruption + 2**{color=#808080}"
-        "{color=#808080}**Greta obedience + 2**{color=#808080}"
-        $ Greta_love = Greta_love + 2
-        $ Greta_Corruption = Greta_Corruption + 2
-        $ Greta_Obedience = Greta_Obedience + 2
-        $ Selina_love = Selina_love + 2 
-        $ Selina_Corruption = Selina_Corruption + 2 
-        $ Selina_Obedience = Selina_Obedience + 2 
-        $ check_and_update_character_stats("Greta")
-        $ check_and_update_character_stats("Selina")
-        $ renpy.call("GameLoop")
-
-
+        call stat_reward({"Greta": {"love": 2, "corruption": 2, "obedience": 2}, "Selina": {"love": 2, "corruption": 2, "obedience": 2}})

@@ -83,10 +83,7 @@ label Jennifer_weekend_10AM:
                     Jennifer "Eh, I can't even be mad about it, you probably got that from me..."
                     scene Jennifer_weekend_10AM_43 with Dissolve(0.5)
                     Jennifer "Okay, get out of here, I'm running late!"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Mom love + 2**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love + 2
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
                 "Leave":
@@ -119,27 +116,19 @@ label Jennifer_weekend_10AM:
                     MC "{color=#808080}*Anyway, time to go!*"
                     scene Jennifer_weekend_10AM_11 with Dissolve(0.5)
                     Jennifer "{color=#808080}*UGHHHHH!!!! [MC_upper]!!!!*"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Mom love - 5**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love - 5
+                    call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
                 "Leave":
                     MC "{color=#808080}Let's better not risk it.*"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                    $ Jennifer_Corruption = Jennifer_Corruption + 2
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"corruption": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ renpy.call("GameLoop")
         "Open":
             scene Jennifer_weekend_10AM_12 with Dissolve(0.5)
             Jennifer "WHAT THE HELL ARE YOU DOING!!! GET OUT!!!!!"
             Jennifer "KNOCK ON THAT GODDAMN DOOR NEXT TIME!!!!!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Mom love - 5**{color=#808080}"
-            $ Jennifer_love = Jennifer_love - 5
-            $ check_and_update_character_stats("Jennifer")
+            call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Leave":

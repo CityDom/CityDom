@@ -128,14 +128,7 @@ label CrissAndIsabellaFirstPauseScene:
             Isabella "You just can't stop yourself from being a pervert!"
             scene BlackScreen with Dissolve(0.5)
             $ Maria_Report_Criss_Kissed = True
-            "{color=#808080}**Criss love - 5**{color=#808080}"
-            "{color=#808080}**Criss corruption + 2**{color=#808080}"
-            "{color=#808080}**Isabella love - 5**{color=#808080}"
-            $ Criss_love = Criss_love - 5
-            $ Criss_Corruption = Criss_Corruption + 2
-            $ Isabella_love = Isabella_love - 5
-            $ check_and_update_character_stats("Isabella")
-            $ check_and_update_character_stats("Criss")
+            call stat_reward({"Criss": {"love": -5, "corruption": 2}, "Isabella": {"love": -5}}, show_black=False, return_to=None)
             $ advance_time_or_sleep()
         "Don't":
             $ Maria_Report_Criss_didnt_Kissed = True
@@ -222,17 +215,7 @@ label CrissAndIsabellaFirstPauseScene:
                     scene CrissAndIsabellaScene88 with Dissolve(0.5)
                     Isabella "Come on, Criss."
                     Isabella "It was pointless to try to do something with him."
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Criss love - 5**{color=#808080}"
-                    "{color=#808080}**Criss corruption + 2**{color=#808080}"
-                    "{color=#808080}**Isabella love - 5**{color=#808080}"
-                    "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-                    $ Criss_love = Criss_love - 5
-                    $ Criss_Corruption = Criss_Corruption + 2
-                    $ Isabella_love = Isabella_love - 5
-                    $ Isabella_Corruption = Isabella_Corruption + 2
-                    $ check_and_update_character_stats("Isabella")
-                    $ check_and_update_character_stats("Criss")
+                    call stat_reward({"Criss": {"love": -5, "corruption": 2}, "Isabella": {"love": -5, "corruption": 2}}, return_to=None)
                     $ advance_time_or_sleep()
                 "Don't":
                     $ Maria_Report_Isabella_didnt_Kiss_Criss = True
@@ -252,12 +235,6 @@ label CrissAndIsabellaFirstPauseScene:
                     scene CrissAndIsabellaScene95 with Dissolve(0.5)
                     Isabella "Just so you know, you lost!"
                     Isabella "And you're a pussy!"
-                    scene BlackScreen with Dissolve(1)
-                    "{color=#808080}**Criss love + 2**{color=#808080}"
-                    "{color=#808080}**Isabella love + 2**{color=#808080}"
-                    $ Criss_love = Criss_love + 2
-                    $ Isabella_love = Isabella_love + 2
-                    $ check_and_update_character_stats("Isabella")
-                    $ check_and_update_character_stats("Criss")
+                    call stat_reward({"Criss": {"love": 2}, "Isabella": {"love": 2}}, dissolve_time=1, return_to=None)
                     $ Location = "ArtClassFront"
                     $ advance_time_or_sleep()

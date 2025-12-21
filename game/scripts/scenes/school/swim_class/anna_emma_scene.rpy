@@ -28,14 +28,7 @@ label SwimClass_AnnaEmma_Scene:
             MC "Damn brats."
             scene Pool_Anna_Emma_Scene9 with Dissolve(0.5)
             MC "Trying your luck with me like I don't have the biggest pain of a little sister. You two are nothing compared to her!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Anna love + 2**{color=#808080}"
-            "{color=#808080}**Emma love + 2**{color=#808080}"
-            $ Anna_love += 2 
-            $ Emma_love += 2
-            $ check_and_update_character_stats("Anna")
-            $ check_and_update_character_stats("Emma")
-            $ renpy.call("GameLoop")
+            call stat_reward({"Anna": {"love": 2}, "Emma": {"love": 2}})
         else:
             scene Pool_Anna_Emma_Scene1 with Dissolve(0.5)
             Anna "Look, it's the new guy!"

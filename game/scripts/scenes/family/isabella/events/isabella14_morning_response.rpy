@@ -60,9 +60,7 @@ label IsabellaMorning14:
             Isabella "Now please go, I gotta go take a bath."
             MC "Sure sis, byeee!"
             Isabella "See you around [MC]!"
-            "{color=#808080}**Isabella love - 5**{color=#808080}"
-            $ Isabella_love = Isabella_love - 5
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -5}}, show_black=False, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
             # if (Isabella_love >= 20):
@@ -114,9 +112,7 @@ label IsabellaMorning14:
             Isabella "Thanks a lot [MC]!!"
             Isabella "Now can you please leave?"
             Isabella "I gotta go take a bath."
-            "{color=#808080}**Isabella love + 2**{color=#808080}"
-            $ Isabella_love = Isabella_love + 2
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": 2}}, show_black=False, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
 
