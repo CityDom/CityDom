@@ -113,6 +113,8 @@ screen MainHud():
                 # Scale distances to shrink the gaps uniformly (X and Y both preserved).
                 $ nx = int(min_x + (subloc.x - min_x) * SUBLOC_POS_SCALE_X) + SUBLOC_RIGHT_SHIFT
                 $ ny = int(min_y + (subloc.y - min_y) * SUBLOC_POS_SCALE_Y) + SUBLOC_BOTTOM_SHIFT
+                if LocationID == 1:
+                    $ ny += SUBLOC_SCHOOL_Y_SHIFT
 
                 # Resolve concrete filenames for size/idle/hover.
                 $ img_idle, img_hover = subloc.resolve_icons()
