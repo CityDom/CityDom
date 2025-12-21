@@ -251,17 +251,7 @@ label BioClass_Sophie_Alis_Scene:
         Sophie "Oh. My. God. That is so true!!! I'm so glad I thought of that!"
         scene BioClass_Sophie_Alis_Scene69 with Dissolve(0.5)
         Alis "{color=#808080}*Tsk, so annoying!*{color=#808080}"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Sophie love + 2**{color=#808080}"
-        "{color=#808080}**Sophie corruption + 2**{color=#808080}"
-        "{color=#808080}**Alis love + 2**{color=#808080}"
-        "{color=#808080}**Alis corruption + 2**{color=#808080}"
-        $ Sophie_love += 2
-        $ Sophie_Corruption += 2
-        $ Alis_love += 2
-        $ Alis_Corruption += 2
-        $ check_and_update_character_stats("Sophie")
-        $ check_and_update_character_stats("Alis")
+        call stat_reward({"Alis": {"love": 2, "corruption": 2}, "Sophie": {"love": 2, "corruption": 2}}, return_to=None)
         scene BioClass_Sophie_Alis_Scene70 with Dissolve(0.5)
         Maria "............................"
         $ renpy.call("GameLoop")

@@ -107,16 +107,7 @@ label AnnaAndEmmaFirstPauseScene:
             scene AnnaAndEmmaScene40 with Dissolve(0.5)
             Anna "Yeah, you leave already you asshole!!"
             scene AnnaAndEmmaScene41 with Dissolve(0.5)
-            "{color=#808080}**Anna love - 5**{color=#808080}"
-            "{color=#808080}**Emma love - 5**{color=#808080}"
-            "{color=#808080}**Anna Corruption + 2**{color=#808080}"
-            "{color=#808080}**Emma Corruption + 2**{color=#808080}"
-            $ Anna_love = Anna_love - 5 
-            $ Emma_love = Emma_love - 5
-            $ Anna_Corruption = Anna_Corruption + 2 
-            $ Emma_Corruption = Emma_Corruption + 2 
-            $ check_and_update_character_stats("Anna")
-            $ check_and_update_character_stats("Emma")
+            call stat_reward({"Anna": {"love": -5, "corruption": 2}, "Emma": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
             $ Maria_Report_AnnaAndEmma_tits = True
             $ advance_time_or_sleep()
         "Don't":
@@ -213,29 +204,10 @@ label AnnaAndEmmaFirstPauseScene:
                     EmmaAndAnna "Fuck you!"
                     scene BlackScreen with Dissolve(0.5)
                     $ Maria_Report_AnnaAndEmma_ass = True
-                    "{color=#808080}**Anna love - 5**{color=#808080}"
-                    "{color=#808080}**Emma love - 5**{color=#808080}"
-                    "{color=#808080}**Anna Corruption + 2**{color=#808080}"
-                    "{color=#808080}**Emma Corruption + 2**{color=#808080}"
-                    "{color=#808080}**Anna Obedience + 2**{color=#808080}"
-                    "{color=#808080}**Emma Obedience + 2**{color=#808080}"
-                    $ Anna_love = Anna_love - 5 
-                    $ Emma_love = Emma_love - 5
-                    $ Anna_Corruption = Anna_Corruption + 2 
-                    $ Emma_Corruption = Emma_Corruption + 2
-                    $ Anna_Obedience = Anna_Obedience + 2 
-                    $ Emma_Obedience = Emma_Obedience + 2
-                    $ check_and_update_character_stats("Anna")
-                    $ check_and_update_character_stats("Emma")
+                    call stat_reward({"Anna": {"love": -5, "corruption": 2, "obedience": 2}, "Emma": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
                     $ advance_time_or_sleep()
                 "Don't":
                     scene AnnaAndEmmaScene75 with Dissolve(0.5)
                     MC "Yeah, whatever you say, let's just go, I still have water in my shoes."
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Anna love + 2**{color=#808080}"
-                    "{color=#808080}**Emma love + 2**{color=#808080}"
-                    $ Anna_love = Anna_love + 2 
-                    $ Emma_love = Emma_love + 2
-                    $ check_and_update_character_stats("Anna")
-                    $ check_and_update_character_stats("Emma")
+                    call stat_reward({"Anna": {"love": 2}, "Emma": {"love": 2}}, return_to=None)
                     $ advance_time_or_sleep()

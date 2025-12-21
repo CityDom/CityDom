@@ -125,13 +125,7 @@ label LunchEventLVL1:
                         MC "Come on mom! I didn't mean it like that!"
                         Jennifer "See you in an hour at the movie night kids..."
                         Jennifer "And you better work on your behavior [MC]!"
-                        "{color=#808080}**Mom love - 5**{color=#808080}"
-                        "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                        "{color=#808080}**Mom obedience - 5**{color=#808080}"
-                        $ Jennifer_Corruption = Jennifer_Corruption + 2
-                        $ Jennifer_love = Jennifer_love - 5
-                        $ Jennifer_Obedience = Jennifer_Obedience - 5
-                        $ check_and_update_character_stats("Jennifer")
+                        call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": -5}}, show_black=False, return_to=None)
                         "{color=#808080}**Jennifer leaves the room**{/color}"
                         scene LunchScene40 with Dissolve(0.5)
                         Isabella "Good job bro, you somehow managed to fuck it up!"
@@ -193,13 +187,7 @@ label LunchEventLVL1:
                                 MC "{color=#808080}*But at least she got me so mad that I pinched her nipple*{/color}"
                                 MC "{color=#808080}*So I'm not too sad about it.*{/color}"
                                 "{color=#808080}**Isabella leaves the room and you leave shortly after her**{/color}"
-                                "{color=#808080}**Isabella love - 5**{color=#808080}"
-                                "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-                                "{color=#808080}**Isabella obedience + 2**{color=#808080}"
-                                $ Isabella_love = Isabella_love - 5
-                                $ Isabella_Corruption = Isabella_Corruption + 2
-                                $ Isabella_Obedience = Isabella_Obedience + 2
-                                $ check_and_update_character_stats("Isabella")
+                                call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
                             "Just leave":
@@ -227,11 +215,7 @@ label LunchEventLVL1:
                                 Isabella "See you in an hour at the movie."
                                 Isabella "Try to be there, maybe they'll fight again."
                                 "{color=#808080}**Isabella leaves the room and you leave shortly after her**{/color}"
-                                "{color=#808080}**Isabella love + 2**{color=#808080}"
-                                "{color=#808080}**Isabella love - 5**{color=#808080}"
-                                $ Isabella_love = Isabella_love + 2
-                                $ Isabella_Obedience = Isabella_Obedience - 5
-                                $ check_and_update_character_stats("Isabella")
+                                call stat_reward({"Isabella": {"love": 2, "obedience": -5}}, show_black=False, return_to=None)
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
                     "Leave it at that":
@@ -356,13 +340,7 @@ label LunchEventLVL1:
                                 scene BlackScreen with Dissolve(0.5)
                                 "{color=#808080}**You both leave the room.**{/color}"
                                 "{color=#808080}**Jennifer was not crying anymore so you both went into your rooms**{/color}"
-                                "{color=#808080}**Isabella love + 2**{color=#808080}"
-                                "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-                                "{color=#808080}**Isabella obedience + 2**{color=#808080}"
-                                $ Isabella_love = Isabella_love + 2
-                                $ Isabella_Corruption = Isabella_Corruption + 2
-                                $ Isabella_Obedience = Isabella_Obedience + 2
-                                $ check_and_update_character_stats("Isabella")
+                                call stat_reward({"Isabella": {"love": 2, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
                             "Don't":
@@ -372,12 +350,7 @@ label LunchEventLVL1:
                                 MC "{color=#808080}*Such a wasted opportunity*{/color}"
                                 scene BlackScreen with Dissolve(0.5)
                                 "{color=#808080}**You and Isabella finish your dinner while your mother leaves to wash her face**{/color}"
-                                "{color=#808080}**Isabella love + 2**{color=#808080}"
-                                "{color=#808080}**Mom love + 2**{color=#808080}"
-                                $ Isabella_love = Isabella_love + 2
-                                $ Jennifer_love = Jennifer_love + 2
-                                $ check_and_update_character_stats("Jennifer")
-                                $ check_and_update_character_stats("Isabella")
+                                call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
         "Leave":

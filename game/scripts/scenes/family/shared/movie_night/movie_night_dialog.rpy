@@ -22,12 +22,7 @@ label MovieNightLVL1:
                 scene MovieScene30 with Dissolve(0.5)
                 menu:
                     "Action":
-                        $ Jennifer_love = Jennifer_love + 2
-                        $ Isabella_love = Isabella_love + 2
-                        "{color=#808080}**Mom love + 2**{color=#808080}"
-                        "{color=#808080}**Isabella love + 2**{color=#808080}"
-                        $ check_and_update_character_stats("Jennifer")
-                        $ check_and_update_character_stats("Isabella")
+                        call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
                         scene MovieScene31 with Dissolve(0.5)
                         MC "We could watch an action movie."
                         scene MovieScene30 with Dissolve(0.5)
@@ -96,12 +91,7 @@ label MovieNightLVL1:
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
                     "Romance":
-                        $ Jennifer_love = Jennifer_love + 2
-                        $ Isabella_love = Isabella_love + 2
-                        "{color=#808080}**Mom love + 2**{color=#808080}"
-                        "{color=#808080}**Isabella love + 2**{color=#808080}"
-                        $ check_and_update_character_stats("Jennifer")
-                        $ check_and_update_character_stats("Isabella")
+                        call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
                         scene MovieScene31 with Dissolve(0.5)
                         MC "We could watch a romance movie"
                         scene MovieScene30 with Dissolve(0.5)
@@ -172,12 +162,7 @@ label MovieNightLVL1:
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
                     "Horror":
-                        $ Jennifer_love = Jennifer_love - 2
-                        $ Isabella_love = Isabella_love - 2
-                        "{color=#808080}**Isabella love - 2**{color=#808080}"
-                        "{color=#808080}**Mom love - 2**{color=#808080}"
-                        $ check_and_update_character_stats("Jennifer")
-                        $ check_and_update_character_stats("Isabella")
+                        call stat_reward({"Isabella": {"love": -2}, "Jennifer": {"love": -2}}, show_black=False, return_to=None)
                         scene MovieScene31 with Dissolve(0.5)
                         MC "We could maybe watch a horror movie"
                         scene MovieScene30 with Dissolve(0.5)

@@ -34,8 +34,6 @@ label SophieClassroomScene:
     Sophie "Ahhh, I'm so relieved to hear that, talk to you later then."
     scene SophieScene10 with Dissolve(0.5)
     MC "{color=#808080}*Damn... a simple fuck off would've been better...*"
-    "{color=#808080}**Sophie love + 2**{color=#808080}"
-    $ Sophie_love = Sophie_love + 2
+    call stat_reward({"Sophie": {"love": 2}}, show_black=False, return_to=None)
     $ SophieClassroomSceneWatched = True
-    $ check_and_update_character_stats("Sophie")
     $ renpy.call("GameLoop")

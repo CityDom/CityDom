@@ -78,19 +78,8 @@ label DropPenScene:
             Jannice "Make sure to do your homework!"
             scene DropPenScene30 with Dissolve(0.5)
             Jannice "See you after the break!"
-            "{color=#808080}**Maria love + 2**"
-            "{color=#808080}**Maria obedience + 2**"
-            "{color=#808080}**Maria corruption + 2**"
-            "{color=#808080}**Jannice love - 5**"
-            "{color=#808080}**Jannice corruption + 2**"
             $ Location = "mainclassroom"
-            $ Maria_love = Maria_love + 2
-            $ Maria_Obedience = Maria_Obedience + 2
-            $ Maria_Corruption = Maria_Corruption + 2
-            $ Jannice_love = Jannice_love - 5
-            $ Jannice_Corruption = Jannice_Corruption + 2  
-            $ check_and_update_character_stats("Maria")
-            $ check_and_update_character_stats("Jannice")
+            call stat_reward({"Jannice": {"love": -5, "corruption": 2}, "Maria": {"love": 2, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
             $ advance_time_or_sleep()
         "Don't":
             scene DropPenScene31 with Dissolve(0.5)
@@ -106,8 +95,6 @@ label DropPenScene:
             Jannice "Make sure to do your homework!"
             scene DropPenScene30 with Dissolve(0.5)
             Jannice "See you after the break!"
-            $ Jannice_love = Jannice_love + 2
-            $ check_and_update_character_stats("Jannice")
-            "{color=#808080}**Jannice love + 2**"
+            call stat_reward({"Jannice": {"love": 2}}, show_black=False, return_to=None)
             $ Location = "mainclassroom"
             $ advance_time_or_sleep()

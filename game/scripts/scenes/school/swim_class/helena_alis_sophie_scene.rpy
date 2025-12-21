@@ -69,14 +69,4 @@ label SwimClass_Helena_Alis_Sophie_Scene:
         MC "{color=#808080}*Her lips two centimeters away from mine!*"
         MC "{color=#808080}*And I fumbled! I fucked up! I pussyed out!*"
         MC "{color=#808080}*What the fuck is wrong with me!? And why always with her?!*"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Helena love + 2**{color=#808080}"
-        "{color=#808080}**Sophie love + 2**{color=#808080}"
-        "{color=#808080}**Alis love + 2**{color=#808080}"
-        $ Helena_love = Helena_love + 2
-        $ Sophie_love = Sophie_love + 2
-        $ Alis_love = Alis_love + 2
-        $ check_and_update_character_stats("Helena")
-        $ check_and_update_character_stats("Sophie")
-        $ check_and_update_character_stats("Alis")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Alis": {"love": 2}, "Helena": {"love": 2}, "Sophie": {"love": 2}})

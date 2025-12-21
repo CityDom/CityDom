@@ -90,13 +90,7 @@ label JenniferNight34:
             Jennifer "Now please leave..."
             scene Jennifer_night34_26 with Dissolve(0.5)
             MC "Oke mom, bye!"
-            "{color=#808080}**Mom love + 2**{color=#808080}"
-            "{color=#808080}**Mom corruption + 2**{color=#808080}"
-            "{color=#808080}**Mom obedience + 2**{color=#808080}"
-            $ Jennifer_Corruption = Jennifer_Corruption + 2
-            $ Jennifer_love = Jennifer_love + 2
-            $ Jennifer_Obedience = Jennifer_Obedience + 2
-            $ check_and_update_character_stats("Jennifer")
+            call stat_reward({"Jennifer": {"love": 2, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
             $ Location = "hallway"
             $ advance_time_or_sleep()
         "Leave":

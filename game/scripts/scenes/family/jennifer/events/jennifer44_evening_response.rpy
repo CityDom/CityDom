@@ -93,13 +93,7 @@ label JenniferEvening44:
                     MC "{color=#808080}*I messed up pretty bad...*{/color}"
                     scene BlackScreen
                     "{color=#808080}**You leave the room.**{/color}"
-                    "{color=#808080}**Mom love - 5**{color=#808080}"
-                    "{color=#808080}**Mom obedience - 5**{color=#808080}"
-                    "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love - 5
-                    $ Jennifer_Obedience = Jennifer_Obedience - 5
-                    $ Jennifer_Corruption = Jennifer_Corruption + 2
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": -5}}, show_black=False, return_to=None)
                     $ Location = "Entrance"
                     $ advance_time_or_sleep()
                 "Leave":
@@ -109,9 +103,7 @@ label JenniferEvening44:
                     Jennifer "Go sit at the table, the food it's almost done."
                     scene BlackScreen
                     "{color=#808080}**You leave the room.**{/color}"
-                    "{color=#808080}**Mom love + 2**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love + 2
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": 2}}, show_black=False, return_to=None)
                     $ Location = "Entrance"
                     $ advance_time_or_sleep()
         "Leave":

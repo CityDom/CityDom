@@ -144,22 +144,15 @@ label IsabellaNight44:
                     scene Isabella_night44_7 with Dissolve(0.5) 
                     Isabella "Yea, yeah..."
                     scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Isabella love + 2**{color=#808080}"
-                    "{color=#808080}**Isabella obedience + 2**{color=#808080}"
+                    call stat_reward({"Isabella": {"love": 2, "obedience": 2}}, show_black=False, return_to=None)
                     "{color=#808080}**You leave the room.**{/color}"
-                    $ Isabella_love = Isabella_love + 2
-                    $ Isabella_Obedience = Isabella_Obedience + 2
-                    $ check_and_update_character_stats("Isabella")
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
                 "Leave":
                     scene Isabella_night44_6 with Dissolve(0.5)
                     MC "Okay, sis I won't bother you anymore, just know that you can tell me any problem you have."
                     Isabella "I know, I know."
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Isabella love + 2**{color=#808080}"
-                    $ Isabella_love = Isabella_love + 2
-                    $ check_and_update_character_stats("Isabella")
+                    call stat_reward({"Isabella": {"love": 2}}, show_black=False, return_to=None)
                     "{color=#808080}**You leave the room.**{/color}"
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()

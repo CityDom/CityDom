@@ -114,11 +114,8 @@ label AngelineMenu:
             Angeline "This school doesn't run itself!"
             scene PrincipalOffice_scene36 with Dissolve(0.5)
             MC "Yes ma'am! Thank you for your time!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Angeline love + 2**{color=#808080}"   
             $ Location = "TeacherHall"
-            $ Angeline_love = Angeline_love + 2
-            $ check_and_update_character_stats("Angeline")
+            call stat_reward({"Angeline": {"love": 2}}, return_to=None)
             $ advance_time_or_sleep()
             $ renpy.call("GameLoop")
         "Pervert compliment":
@@ -135,13 +132,8 @@ label AngelineMenu:
             Angeline "Get out."
             scene PrincipalOffice_scene40 with Dissolve(0.5)
             MC "Yes ma'am!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Angeline love - 2**{color=#808080}"
-            "{color=#808080}**Angeline Corruption - 2**{color=#808080}"
             $ Location = "TeacherHall"
-            $ Angeline_love = Angeline_love - 2
-            $ Angeline_Corruption = Angeline_Corruption - 2
-            $ check_and_update_character_stats("Angeline")
+            call stat_reward({"Angeline": {"love": -2, "corruption": -2}}, return_to=None)
             $ advance_time_or_sleep()
             $ renpy.call("GameLoop")
         "Insult":

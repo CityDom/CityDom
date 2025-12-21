@@ -113,12 +113,7 @@ label Isabella_weekend_7AM:
             Isabella "Yes, I know it because you are my big brother."
             Isabella "I would be less watched if I'd do it in the city center."
             Isabella "So, get out!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Isabella love + 2**{color=#808080}"
-            "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-            $ Isabella_love = Isabella_love + 2
-            $ Isabella_Corruption = Isabella_Corruption + 2
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": 2, "corruption": 2}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "It was alright":
@@ -132,11 +127,6 @@ label Isabella_weekend_7AM:
             pause 3.0
             scene Isabella_weekend_7AM_39 with Dissolve(0.5)
             MC "\"Can take criticism\" my ass..."
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Isabella love - 2**{color=#808080}"
-            "{color=#808080}**Isabella corruption - 2**{color=#808080}"
-            $ Isabella_love = Isabella_love - 2
-            $ Isabella_Corruption = Isabella_Corruption - 2
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -2, "corruption": -2}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()

@@ -24,11 +24,4 @@ label ArtClass_AnnaEmma_Scene:
         MC "Hah, just try and do something funny. You'll see!"
         scene Anna_Emma_Scene6 with Dissolve(0.5)
         Anna "Can't wait. Let's see who'll have the last laugh!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Anna love + 2**{color=#808080}"
-        "{color=#808080}**Emma love + 2**{color=#808080}"
-        $ Anna_love += 2
-        $ Emma_love += 2
-        $ check_and_update_character_stats("Anna")
-        $ check_and_update_character_stats("Emma")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Anna": {"love": 2}, "Emma": {"love": 2}})

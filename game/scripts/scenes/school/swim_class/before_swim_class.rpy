@@ -181,35 +181,7 @@ label BeforeSwimClassScene:
     Maria "None of your business!"
     scene BeforeSwimClass75 with Dissolve(0.5)
     ".................."
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Maria love - 5**{color=#808080}"
-    "{color=#808080}**Every girl in class besides Maria Corruption + 2**{color=#808080}"
-    $ Maria_love = Maria_love - 5
-    $ Isabella_Corruption = Isabella_Corruption + 2
-    $ Alis_Corruption = Alis_Corruption + 2
-    $ Sophie_Corruption = Sophie_Corruption + 2
-    $ Lola_Corruption = Lola_Corruption + 2
-    $ Selina_Corruption = Selina_Corruption + 2
-    $ Helena_Corruption = Helena_Corruption + 2
-    $ Dorothy_Corruption = Dorothy_Corruption + 2
-    $ Leya_Corruption = Leya_Corruption + 2
-    $ Greta_Corruption = Greta_Corruption + 2
-    $ Criss_Corruption = Criss_Corruption + 2
-    $ Anna_Corruption = Anna_Corruption + 2
-    $ Emma_Corruption = Emma_Corruption + 2
-    $ check_and_update_character_stats("Maria")
-    $ check_and_update_character_stats("Isabella")
-    $ check_and_update_character_stats("Alis")
-    $ check_and_update_character_stats("Sophie")
-    $ check_and_update_character_stats("Lola")
-    $ check_and_update_character_stats("Selina")
-    $ check_and_update_character_stats("Helena")
-    $ check_and_update_character_stats("Dorothy")
-    $ check_and_update_character_stats("Leya")
-    $ check_and_update_character_stats("Greta")
-    $ check_and_update_character_stats("Criss")
-    $ check_and_update_character_stats("Anna")
-    $ check_and_update_character_stats("Emma")
+    call stat_reward({"Alis": {"corruption": 2}, "Anna": {"corruption": 2}, "Criss": {"corruption": 2}, "Dorothy": {"corruption": 2}, "Emma": {"corruption": 2}, "Greta": {"corruption": 2}, "Helena": {"corruption": 2}, "Isabella": {"corruption": 2}, "Leya": {"corruption": 2}, "Lola": {"corruption": 2}, "Maria": {"love": -5}, "Selina": {"corruption": 2}, "Sophie": {"corruption": 2}}, return_to=None)
     $ advance_time_or_sleep()
     $ renpy.call("GameLoop")
 

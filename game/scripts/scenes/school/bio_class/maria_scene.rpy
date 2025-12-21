@@ -19,8 +19,4 @@ label BioClass_Maria_Scene:
         ".............."
         scene BioClass_Maria_Scene4 with Dissolve(0.5)
         MC "Uhhh, okay then, I will leave you to it..."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Maria love + 2**{color=#808080}"
-        $ Maria_love += 2
-        $ check_and_update_character_stats("Maria")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Maria": {"love": 2}})

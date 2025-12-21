@@ -98,12 +98,7 @@ label Jennifer_weekend_8AM:
             MC "{color=#808080}*Although, mom and Isa getting closer to each other doesn't sound bad at all, it might make things easier actually.*"
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            "{color=#808080}**Jennifer obedience + 2**{/color}"
-            "{color=#808080}**Isabella obedience + 2**{/color}"            
-            $ Jennifer_Obedience = Jennifer_Obedience + 2
-            $ Isabella_Obedience = Isabella_Obedience + 2
-            $ check_and_update_character_stats("Jennifer")
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"obedience": 2}, "Jennifer": {"obedience": 2}}, show_black=False, return_to=None)
             $ Location = "Livingroom"
             $ advance_time_or_sleep()
         "scare Isabella":
@@ -184,16 +179,7 @@ label Jennifer_weekend_8AM:
             MC "UGHHHH..."
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            "{color=#808080}**Jennifer corruption + 2**{/color}"
-            "{color=#808080}**Isabella corruption + 2**{/color}"
-            "{color=#808080}**Jennifer love - 2**{/color}"
-            "{color=#808080}**Isabella love - 2**{/color}"
-            $ Jennifer_Corruption = Jennifer_Corruption + 2
-            $ Isabella_Corruption = Isabella_Corruption + 2
-            $ Jennifer_love = Jennifer_love - 2
-            $ Isabella_love = Isabella_love - 2
-            $ check_and_update_character_stats("Jennifer")
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -2, "corruption": 2}, "Jennifer": {"love": -2, "corruption": 2}}, show_black=False, return_to=None)
             $ Location = "Livingroom"
             $ advance_time_or_sleep()
         "leave":
@@ -209,11 +195,6 @@ label Jennifer_weekend_8AM:
             MC "Yeah, yeah, you tell me every time."
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            "{color=#808080}**Jennifer love + 2**{/color}"
-            "{color=#808080}**Isabella love + 2**{/color}"
-            $ Jennifer_love = Jennifer_love + 2
-            $ Isabella_love = Isabella_love + 2
-            $ check_and_update_character_stats("Jennifer")
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
             $ Location = "Livingroom"
             $ advance_time_or_sleep()

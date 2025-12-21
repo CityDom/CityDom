@@ -36,10 +36,8 @@ label janniceTalk_menu:
             scene JanniceScene6 with Dissolve(0.5)
             Jannice "Compliments won't raise your grades [MC]."
             Jannice "Now go back to your seat, class is about to start"
-            $ Jannice_love = Jannice_love + 2
             $ JanniceComplimentWatched = True
-            "{color=#808080}**Jannice love + 2**{color=#808080}"
-            $ check_and_update_character_stats("Jannice")
+            call stat_reward({"Jannice": {"love": 2}}, show_black=False, return_to=None)
             jump first_menu
         "Pervert compliment":
             if JannicePervComplimentWatched:
@@ -51,12 +49,8 @@ label janniceTalk_menu:
             scene JanniceScene9 with Dissolve(0.5)
             Jannice "This is no way to talk to a teacher, [MC]!!"
             Jannice "Enjoy your time in detention today, go to your seat!"
-            $ Jannice_love = Jannice_love - 5
-            $ Jannice_Corruption = Jannice_Corruption + 2
-            "{color=#808080}**Jannice love - 5**{color=#808080}"
-            "{color=#808080}**Jannice Corruption + 2**{color=#808080}"
+            call stat_reward({"Jannice": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
             $ JannicePervComplimentWatched = True
-            $ check_and_update_character_stats("Jannice")
             scene BlackScreen with Dissolve(0.5)
             $ renpy.call("GameLoop")
         "Insult":
@@ -71,12 +65,8 @@ label janniceTalk_menu:
             MC "You just seem to have gained some weight lately, are you sure you are alright?"
             scene JanniceScene13 with Dissolve(0.5)
             Jannice "I'm fine, [MC], go back to your seat right now! You have detention!!"
-            $ Jannice_Corruption = Jannice_Corruption - 5
-            $ Jannice_love = Jannice_love - 5
-            "{color=#808080}**Jannice love - 5**{color=#808080}"
-            "{color=#808080}**Jannice Corruption - 5**{color=#808080}"
+            call stat_reward({"Jannice": {"love": -5, "corruption": -5}}, show_black=False, return_to=None)
             $ JanniceInsultWatched = True
-            $ check_and_update_character_stats("Jannice")
             scene BlackScreen with Dissolve(0.5)
             $ renpy.call("GameLoop")
         "Leave":

@@ -76,10 +76,7 @@ label Jennifer_weekend_2PM:
                     MC "Uhhhh, I wanted to ask If I could help you with the cleaning, but right now I think I'd rather lay down for a bit, sorry."
                     scene Jennifer_weekend_2PM_22 with Dissolve(0.5)
                     Jennifer "Haha, it's okay. Let me know if you need anything"
-                    scene BlackScreen with Dissolve(0.5)
-                    "{color=#808080}**Mom love + 2**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love + 2
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
                 "Leave":
@@ -138,23 +135,13 @@ label Jennifer_weekend_2PM:
             Isabella "You are such a fucking dumbass, stop talking!"
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            "{color=#808080}**Jennifer love + 2**{/color}"
-            "{color=#808080}**Isabella love - 2**{/color}"
-            "{color=#808080}**Isabella corruption + 2**{/color}"
-            $ Jennifer_love = Jennifer_love + 2
-            $ Isabella_love = Isabella_love - 2
-            $ Isabella_Corruption = Isabella_Corruption + 2
-            $ check_and_update_character_stats("Jennifer")
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -2, "corruption": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Open":
             scene Jennifer_weekend_2PM_24 with Dissolve(0.5)
             Jennifer "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Mom love - 5**{color=#808080}"
-            $ Jennifer_love = Jennifer_love - 5
-            $ check_and_update_character_stats("Jennifer")
+            call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Leave":

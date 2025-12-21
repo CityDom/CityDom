@@ -39,8 +39,4 @@ label SwimClass_Maria_Scene:
         Maria "Just do your part of the deal, and I'll do mine, nothing more, nothing less!"
         scene Pool_Maria_Scene13 with Dissolve(0.5)
         Maria "And stop wasting my time!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Maria love + 2**{color=#808080}"
-        $ Maria_love = Maria_love + 2
-        $ check_and_update_character_stats("Maria")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Maria": {"love": 2}})

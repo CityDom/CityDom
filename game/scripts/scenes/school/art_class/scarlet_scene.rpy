@@ -50,11 +50,7 @@ label scarletTalk_menu:
                 scene ArtClass_Scarlet_Scene8 with Dissolve(0.5)
                 Scarlet "Thank you, [MC]. I knew you had a good eye!"
                 Scarlet "Now go back to your seat. Class is about to start."
-                scene BlackScreen with Dissolve(0.5)
-                "{color=#808080}**Scarlet love + 2**{color=#808080}"
-                $ Scarlet_love += 2
-                $ check_and_update_character_stats("Scarlet")
-                $ renpy.call("GameLoop")
+                call stat_reward({"Scarlet": {"love": 2}})
             else:
                 MC "{color=#808080}*I already talked to her about that...*"
                 jump scarletTalk_menu
@@ -76,12 +72,7 @@ label scarletTalk_menu:
                 Scarlet "GO BACK TO YOUR PLACE RIGHT NOW!!!!"
                 scene BlackScreen with Dissolve(0.5)
                 MC "{color=#808080}*Geez... She really flies off the handle pretty quick...*{color=#808080}"
-                "{color=#808080}**Scarlet love - 2**{color=#808080}"
-                "{color=#808080}**Scarlet corruption + 2**{color=#808080}"
-                $ Scarlet_love -= 2
-                $ Scarlet_Corruption += 2
-                $ check_and_update_character_stats("Scarlet")
-                $ renpy.call("GameLoop")
+                call stat_reward({"Scarlet": {"love": -2, "corruption": 2}}, show_black=False)
             else:
                 MC "{color=#808080}*I already talked to her about that...*"
                 jump scarletTalk_menu
@@ -97,13 +88,7 @@ label scarletTalk_menu:
                 Scarlet "UNDER NO CIRCUMSTANCE ARE YOU ALLOWED TO TALK LIKE THIS TO A TEACHER, [MC_upper]!!!"
                 Scarlet "I DON'T CARE WHAT YOU THINK ABOUT MY ATTITUDE!!"
                 Scarlet "NOW GO BACK TO YOUR SEAT RIGHT NOW!!"
-                scene BlackScreen with Dissolve(0.5)
-                "{color=#808080}**Scarlet love - 2**{color=#808080}"
-                "{color=#808080}**Scarlet corruption - 2**{color=#808080}"
-                $ Scarlet_love -= 2
-                $ Scarlet_Corruption -= 2
-                $ check_and_update_character_stats("Scarlet")
-                $ renpy.call("GameLoop")
+                call stat_reward({"Scarlet": {"love": -2, "corruption": -2}})
             else:
                 MC "{color=#808080}*I already talked to her about that...*"
                 jump scarletTalk_menu

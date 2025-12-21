@@ -205,14 +205,7 @@ label DetentionClass_Scene:
     MC "Let's go, Maria!"
     scene DetentionClass_Scene81 with Dissolve(0.5)
     MC "Sorry, Miss Nadal, see you in manners class!"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Sandra Love - 2**{/color}"
-    "{color=#808080}**Sandra Corruption + 2**{/color}"
-    "{color=#808080}**Sandra Obedience + 2**{/color}"
-    $ Sandra_love = Sandra_love - 2
-    $ Sandra_Corruption = Sandra_Corruption + 2
-    $ Sandra_Obedience = Sandra_Obedience + 2
-    $ check_and_update_character_stats("Sandra")
+    call stat_reward({"Sandra": {"love": -2, "corruption": 2, "obedience": 2}}, return_to=None)
     $ Location = "artclassfront"
     $ advance_time_or_sleep()
 

@@ -64,25 +64,19 @@ label IsabellaMorning24:
                     Isabella "GET OUT!!!!!!"
                     Isabella "NOOOOOOWWWWW!!!!!!!!!!!"
                     "{color=#808080}**You get out of the bathroom as fast as possible**{/color}"
-                    "{color=#808080}**Isabella love - 5**{color=#808080}"
-                    $ Isabella_love = Isabella_love - 5
-                    $ check_and_update_character_stats("Isabella")
+                    call stat_reward({"Isabella": {"love": -5}}, show_black=False, return_to=None)
                     $ Location = "washing room"
                     $ advance_time_or_sleep()
                 "Leave":
                     "{color=#808080}**Let's better get out before she sees me.**{/color}"
-                    "{color=#808080}**Isabella corruption + 2**{color=#808080}"
                     $ Location = "washing room"
-                    $ Isabella_Corruption = Isabella_Corruption + 2
-                    $ check_and_update_character_stats("Isabella")
+                    call stat_reward({"Isabella": {"corruption": 2}}, show_black=False, return_to=None)
                     $ advance_time_or_sleep()
         "Open":
             scene Isabella_morning24_19 with Dissolve(0.5)
             Isabella "I'm taking a shower here!!!! get out!!!!!"
             MC "{color=#808080}*I better just leave...*{/color}"
-            "{color=#808080}**Isabella love - 2**{color=#808080}"
-            $ Isabella_love = Isabella_love - 2
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -2}}, show_black=False, return_to=None)
             $ Location = "washing room"
             $ advance_time_or_sleep()
         "Leave":

@@ -33,8 +33,4 @@ label ArtClass_Maria_Scene:
         MC "Yeah, not surprising at all... in any case, I wanted to ask you what exactly we'll be doing in this class."
         scene ArtClass_Maria_Scene8 with Dissolve(0.5)
         Maria "Just wait and you'll see. Miss Petal really tries her hardest to stand out as a teacher..."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Maria love + 2**{color=#808080}"
-        $ Maria_love += 2
-        $ check_and_update_character_stats("Maria")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Maria": {"love": 2}})

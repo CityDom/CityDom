@@ -116,13 +116,7 @@ label JenniferEvening24:
                     MC "{color=#808080}*Damn... I guess she doesn't like me enough for me to do that yet...*{/color}"
                     MC "{color=#808080}*Now she's mad...*{/color}"
                     "{color=#808080}**You mom goes to her room.**{/color}"
-                    "{color=#808080}**Mom love - 5**{color=#808080}"
-                    "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                    "{color=#808080}**Mom obedience + 2**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love - 5
-                    $ Jennifer_Corruption = Jennifer_Corruption + 2
-                    $ Jennifer_Obedience = Jennifer_Obedience + 2
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
                     $ Location = "entrance"
                     $ advance_time_or_sleep()
                 "don't":
@@ -134,11 +128,7 @@ label JenniferEvening24:
                     scene Jennifer_evening24_61 with Dissolve(0.5)
                     MC "Ok, mom, see you later!"
                     "{color=#808080}**You mom goes to her room.**{/color}"
-                    "{color=#808080}**Mom love + 2**{color=#808080}"
-                    "{color=#808080}**Mom obedience - 5**{color=#808080}"
-                    $ Jennifer_love = Jennifer_love + 2
-                    $ Jennifer_Obedience = Jennifer_Obedience - 5
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": 2, "obedience": -5}}, show_black=False, return_to=None)
                     $ Location = "entrance"
                     $ advance_time_or_sleep()
         "don't":

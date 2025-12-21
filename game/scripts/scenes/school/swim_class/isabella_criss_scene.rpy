@@ -25,11 +25,4 @@ label SwimClass_Isabella_Criss_Scene:
         MC "Just leave her alone, Isa. She's clearly uncomfortable."
         scene Pool_Isabella_Criss_Scene8 with Dissolve(0.5)
         Isabella "Ughhh, alright, fine..."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Criss love + 2**{color=#808080}"
-        "{color=#808080}**Isabella love + 2**{color=#808080}"
-        $ Isabella_love = Isabella_love + 2 
-        $ Criss_love = Criss_love + 2
-        $ check_and_update_character_stats("Criss")
-        $ check_and_update_character_stats("Isabella")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Criss": {"love": 2}, "Isabella": {"love": 2}})

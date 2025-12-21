@@ -78,12 +78,7 @@ label SleepEvent:
                         MC "{color=#808080}*But I can swear that I heard her.*{/color}"
                         MC "{color=#808080}*And the door slamming shut.*{/color}"
                         MC "{color=#808080}*In any case, I should wake up...*{/color}"
-                        $ Jennifer_Corruption = Jennifer_Corruption + 2
-                        $ Jennifer_Obedience = Jennifer_Obedience + 2
-                        $ Jennifer_love = Jennifer_love - 2
-                        "{color=#808080}**Mom love - 2**{color=#808080}"
-                        "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                        "{color=#808080}**Mom obedience + 2**{color=#808080}"
+                        call stat_reward({"Jennifer": {"love": -2, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
                         $ Location = "my room"
                         $ calendar.Hours = 2
                         $ calendar.update_sub_place_data()

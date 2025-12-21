@@ -43,9 +43,7 @@ label TanyaGymMenu:
                 scene GymClass_Tanya9 with Dissolve(0.5)
                 Tanya "Haha, miles away from working!"
                 Tanya "Now tell me what you really want. You're never nice just to be nice!"
-                "{color=#808080}**Tanya Love + 2**{/color}"
-                $ Tanya_love = Tanya_love + 2 
-                $ check_and_update_character_stats("Tanya")
+                call stat_reward({"Tanya": {"love": 2}}, show_black=False, return_to=None)
             else:
                 MC "{color=#808080}*I already talked to her about that.*{/color}"
             jump TanyaGymMenu
@@ -60,11 +58,7 @@ label TanyaGymMenu:
                 Tanya "It shows that you lived with that jerk. I hope Jennifer taught you better."
                 Tanya "I hope you're not talking to the other teachers like that!"
                 Tanya "Now get lost before I smack you!"
-                "{color=#808080}**Tanya Love - 2**{/color}"
-                "{color=#808080}**Tanya Corruption + 2**{/color}"
-                $ Tanya_love = Tanya_love - 2
-                $ Tanya_Corruption = Tanya_Corruption + 2
-                $ check_and_update_character_stats("Tanya")
+                call stat_reward({"Tanya": {"love": -2, "corruption": 2}}, show_black=False, return_to=None)
             else:
                 MC "{color=#808080}*I already talked to her about that.*{/color}"
             jump TanyaGymMenu
@@ -76,12 +70,7 @@ label TanyaGymMenu:
                 MC "It just makes you look like the annoying teacher type."
                 scene GymClass_Tanya11 with Dissolve(0.5)
                 Tanya "You better get lost before I smack you in front of the class!"
-                scene BlackScreen with Dissolve(0.5)
-                "{color=#808080}**Tanya love - 2**{/color}"
-                "{color=#808080}**Tanya corruption - 2**{/color}"
-                $ Tanya_love = Tanya_love - 2
-                $ Tanya_Corruption = Tanya_Corruption - 2
-                $ check_and_update_character_stats("Tanya")
+                call stat_reward({"Tanya": {"love": -2, "corruption": -2}}, return_to=None)
             else:
                 MC "{color=#808080}*I already talked to her about that.*{/color}"
             jump TanyaGymMenu

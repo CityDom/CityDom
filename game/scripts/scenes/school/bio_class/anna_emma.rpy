@@ -46,11 +46,4 @@ label BioClass_Anna_Emma_Scene:
         Anna "You should've seen your face, hahahaha!!"
         scene BioClass_Anna_Emma_Scene18 with Dissolve(0.5)
         Emma "You are such a loser!!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Anna love + 2**{color=#808080}"
-        "{color=#808080}**Emma love + 2**{color=#808080}"
-        $ Anna_love += 2
-        $ Emma_love += 2
-        $ check_and_update_character_stats("Anna")
-        $ check_and_update_character_stats("Emma")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Anna": {"love": 2}, "Emma": {"love": 2}})

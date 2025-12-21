@@ -51,9 +51,7 @@ label JenniferMorning14:
                             scene Jennifer_morning14_18 with Dissolve(0.5)
                             Jennifer "Awwww, thank you kiddo, that's sweet."
                             Jennifer "But keep the compliments for the girls at school."
-                            "{color=#808080}**Mom love + 2**{color=#808080}"
-                            $ Jennifer_love = Jennifer_love + 2
-                            $ check_and_update_character_stats("Jennifer")
+                            call stat_reward({"Jennifer": {"love": 2}}, show_black=False, return_to=None)
                             $ Jennifer14AM_compliment_given = True
                         else:
                             "{color=#808080}*I've already complimented her.*{/color}"
@@ -109,13 +107,7 @@ label JenniferMorning14:
                                 MC "See you later then..."
                                 scene BlackScreen
                                 "{color=#808080}**You leave the room**{/color}"
-                                "{color=#808080}**Mom love - 5**{color=#808080}"
-                                "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                                "{color=#808080}**Mom obedience + 2**{color=#808080}"
-                                $ Jennifer_love = Jennifer_love - 5
-                                $ Jennifer_Corruption = Jennifer_Corruption + 2
-                                $ Jennifer_Obedience = Jennifer_Obedience + 2
-                                $ check_and_update_character_stats("Jennifer")
+                                call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
                                 $ Location = "hallway"
                                 $ advance_time_or_sleep()
                             "Don't":
@@ -134,11 +126,7 @@ label JenniferMorning14:
                                 MC "See you around mom!"
                                 scene BlackScreen
                                 "{color=#808080}**You leave the room**{/color}"
-                                "{color=#808080}**Mom love + 2**{color=#808080}"
-                                "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                                $ Jennifer_love = Jennifer_love + 2
-                                $ Jennifer_Corruption = Jennifer_Corruption + 2
-                                $ check_and_update_character_stats("Jennifer")
+                                call stat_reward({"Jennifer": {"love": 2, "corruption": 2}}, show_black=False, return_to=None)
                                 $ Location = "Hallway"
                                 $ advance_time_or_sleep()
                     "Leave":

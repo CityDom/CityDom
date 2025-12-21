@@ -45,10 +45,7 @@ label Lola_Team_Scene:
         MC "I'll leave it at that then; I don't wanna get expelled for some dumbass reason."
         scene Lola_Team_Scene17 with Dissolve(0.5)
         Selina "Yeah, that's right! You better walk away!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Lola love + 2**{/color}"
-        $ Lola_love += 2
-        $ check_and_update_character_stats("Lola")
+        call stat_reward({"Lola": {"love": 2}}, return_to=None)
     else:
         MC "{color=#808080}*I've already talked to them about this.*{/color}"
     $ renpy.call("GameLoop")

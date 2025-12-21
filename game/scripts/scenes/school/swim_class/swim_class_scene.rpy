@@ -352,15 +352,7 @@ label McDivesInTheWater:
             MC "Oh c'mon, can you even blame me for that? Just take a look at yourself."
             scene SwimClass_Scene130 with Dissolve(0.5)
             Maria "Ugh, let's just go already!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Tanya love - 5**{/color}"
-            "{color=#808080}**Tanya corruption + 2**{/color}"
-            "{color=#808080}**Maria love + 2**{/color}"
-            $ Tanya_love = Tanya_love - 5 
-            $ Tanya_Corruption = Tanya_Corruption + 2
-            $ Maria_love = Maria_love + 2
-            $ check_and_update_character_stats("Tanya")
-            $ check_and_update_character_stats("Maria")
+            call stat_reward({"Maria": {"love": 2}, "Tanya": {"love": -5, "corruption": 2}}, return_to=None)
             $ advance_time_or_sleep()
             $ renpy.call("GameLoop")
         "Don't":
@@ -473,13 +465,7 @@ label McDivesInTheWater:
             MC "Oh c'mon, can you even blame me for that? Just take a look at yourself."
             scene SwimClass_Scene130 with Dissolve(0.5)
             Maria "Ugh, let's just go already!"
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Tanya love + 2**{/color}"
-            "{color=#808080}**Maria love + 2**{/color}"
-            $ Tanya_Corruption = Tanya_Corruption + 2
-            $ Maria_love = Maria_love + 2
-            $ check_and_update_character_stats("Tanya")
-            $ check_and_update_character_stats("Maria")
+            call stat_reward({"Maria": {"love": 2}, "Tanya": {"corruption": 2}}, return_to=None)
             $ advance_time_or_sleep()
             $ renpy.call("GameLoop")
 

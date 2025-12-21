@@ -72,14 +72,7 @@ label IsabellaAfterNoon44:
                             Isabella "I didn't know that, thank you for teaching me!"
                             scene Isabella_afternoon44_25 with Dissolve(0.5)
                             MC "No problem sis, now show me what game do you want."
-                            "{color=#808080}**Isabella love + 2**{color=#808080}"
-                            "{color=#808080}**Isabella obedience + 2**{color=#808080}"
-                            "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-                            $ Isabella_love = Isabella_love + 2
-                            $ Isabella_Obedience = Isabella_Obedience + 2
-                            $ Isabella_Corruption = Isabella_Corruption + 2
-                            $ check_and_update_character_stats("Isabella")
-                            jump getGame
+                            call stat_reward({"Isabella": {"love": 2, "corruption": 2, "obedience": 2}}, show_black=False, return_to="getGame")
                         "Ask for more":
                             MC "Hmmm..."
                             MC "I'm afraid that is still not enough..."
@@ -103,13 +96,7 @@ label IsabellaAfterNoon44:
                             extend "So you can leave now. "
                             extend "Thank you for nothing!"
                             "{color=#808080}**You leave the room, Isabella is mad at you.**{/color}"
-                            "{color=#808080}**Isabella love - 5**{color=#808080}"
-                            "{color=#808080}**Isabella obedience - 2**{color=#808080}"
-                            "{color=#808080}**Isabella corruption + 2**{color=#808080}"
-                            $ Isabella_love = Isabella_love - 5
-                            $ Isabella_Obedience = Isabella_Obedience - 2
-                            $ Isabella_Corruption = Isabella_Corruption + 2
-                            $ check_and_update_character_stats("Isabella")
+                            call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": -2}}, show_black=False, return_to=None)
                             $ Location = "Hallway"
                             $ advance_time_or_sleep()
         "Leave":
@@ -157,9 +144,7 @@ label getGame:
             Isabella "Yaaaaay, sure, thank you!"
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**After 30 minutes you finish installing the game and leave.**{/color}"
-            "{color=#808080}**Isabella love + 2**{color=#808080}"
-            $ Isabella_love = Isabella_love + 2
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": 2}}, show_black=False, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
             # TODO: Add a scene with MC where he makes her thank him and teaches her how, to stick out her tongue, etc.
@@ -210,10 +195,6 @@ label getGame:
             Isabella "Yea, thanks for nothing, get out!"
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You leave the room, Isabella is mad at you.**{/color}"
-            "{color=#808080}**Isabella love - 5**{color=#808080}"
-            "{color=#808080}**Isabella obedience + 2**{color=#808080}"
-            $ Isabella_love = Isabella_love - 5
-            $ Isabella_Obedience = Isabella_Obedience + 2
-            $ check_and_update_character_stats("Isabella")
+            call stat_reward({"Isabella": {"love": -5, "obedience": 2}}, show_black=False, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()

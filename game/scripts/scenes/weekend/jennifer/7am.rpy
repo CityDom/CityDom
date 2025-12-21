@@ -29,9 +29,7 @@ label Jennifer_weekend_7AM:
             Jennifer "WHAT ARE YOU DOING!!! GET OUT!!!!!"
             MC "Sorry m..."
             Jennifer "GET OUT NOW!!!!!!!"
-            "{color=#808080}**Mom love - 5**{color=#808080}"
-            $ Jennifer_love = Jennifer_love - 5
-            $ check_and_update_character_stats("Jennifer")
+            call stat_reward({"Jennifer": {"love": -5}}, show_black=False, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Leave":

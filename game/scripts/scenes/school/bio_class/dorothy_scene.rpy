@@ -71,10 +71,4 @@ label BioClass_Dorothy_Scene:
         MC "Okay then, I'll leave you to it. I'll try to cop- uh, um, do the homework as well before the class starts!"
         scene Dorothy_Scene26 with Dissolve(0.5)
         Dorothy "Okay, [MC], good luck!"
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Dorothy love + 2**{color=#808080}"
-        "{color=#808080}**Dorothy corruption + 2**{color=#808080}"
-        $ Dorothy_love += 2
-        $ Dorothy_Corruption += 2
-        $ check_and_update_character_stats("Dorothy")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Dorothy": {"love": 2, "corruption": 2}})

@@ -494,12 +494,7 @@ label MannersClassChoice:
             Sandra "Now go back to your seat. And I don't want to hear another word from you."
             scene MannersClass106 with Dissolve(0.5)
             Sandra "Okay class, we can continue."
-            scene BlackScreen with Dissolve(0.5)
-            "{color=#808080}**Sandra love + 2**{/color}"
-            "{color=#808080}**Sandra corruption + 2**{/color}"
-            $ Sandra_love = Sandra_love + 2
-            $ Sandra_Corruption = Sandra_Corruption + 2
-            $ check_and_update_character_stats("Sandra")
+            call stat_reward({"Sandra": {"love": 2, "corruption": 2}}, return_to=None)
             $ seenSandraBackstory = True
             $ Sandra_apologized = False
             $ Sandra_saluted = False

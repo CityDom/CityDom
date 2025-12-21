@@ -44,13 +44,6 @@ label DorothyFirstPauseScene:
     MC "See you in class!"
     scene DorothyEventScene13 with Dissolve(0.5)
     Dorothy "I promise I will check them out! See ya!"
-    scene BlackScreen with Dissolve(0.5)
-    "{color=#808080}**Dorothy love + 2**{color=#808080}"
-    "{color=#808080}**Dorothy corruption + 2**{color=#808080}"
-    "{color=#808080}**Dorothy obedience + 2**{color=#808080}"
-    $ Dorothy_love = Dorothy_love + 2
-    $ Dorothy_Corruption = Dorothy_Corruption + 2
-    $ Dorothy_Obedience = Dorothy_Obedience + 2
+    call stat_reward({"Dorothy": {"love": 2, "corruption": 2, "obedience": 2}}, return_to=None)
     $ Maria_Report_Dorothy = True
-    $ check_and_update_character_stats("Dorothy")
     $ advance_time_or_sleep()

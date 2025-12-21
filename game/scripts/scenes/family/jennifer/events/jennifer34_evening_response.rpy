@@ -62,17 +62,12 @@ label JenniferEvening34:
                     MC "Sorry, mom, I was just...."
                     Jennifer "I DON'T WANT TO HEAR A THING!!!!"
                     Jennifer "LEAVE!!!!!!!!!"
-                    "{color=#808080}**Mom love - 5**{color=#808080}"
-                    "{color=#808080}**Mom corruption - 5**{color=#808080}"
-                    $ Jennifer_Corruption = Jennifer_Corruption - 5
-                    $ Jennifer_love = Jennifer_love - 5
-                    $ check_and_update_character_stats("Jennifer")
+                    call stat_reward({"Jennifer": {"love": -5, "corruption": -5}}, show_black=False, return_to=None)
                     $ Location = "Hallway" 
                     $ advance_time_or_sleep()
                 "Leave":
                     "You close the door as slowly as you can and leave."
-                    "{color=#808080}**Mom corruption + 2**{color=#808080}"
-                    $ Jennifer_Corruption = Jennifer_Corruption + 2
+                    call stat_reward({"Jennifer": {"corruption": 2}}, show_black=False, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
         "Open":
@@ -86,11 +81,7 @@ label JenniferEvening34:
             MC "Sorry mom I was just...."
             Jennifer "I DON'T WANT TO HEAR A THING!!!!"
             Jennifer "LEAVE!!!!!!!!!"
-            "{color=#808080}**Mom love - 5**{color=#808080}"
-            "{color=#808080}**Mom corruption - 5**{color=#808080}"
-            $ Jennifer_Corruption = Jennifer_Corruption - 5
-            $ Jennifer_love = Jennifer_love - 5 
-            $ check_and_update_character_stats("Jennifer")
+            call stat_reward({"Jennifer": {"love": -5, "corruption": -5}}, show_black=False, return_to=None)
             $ Location = "Hallway" 
             $ advance_time_or_sleep()
         "Leave":

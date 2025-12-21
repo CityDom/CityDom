@@ -34,11 +34,4 @@ label SwimClass_Selina_Greta_Scene:
         Selina "Hahahaha, I got the broke boy mad, he's fuming!! Hahahahaha!!"
         scene Pool_Selina_Greta_Scene11 with Dissolve(0.5)
         MC "Tsk...."
-        scene BlackScreen with Dissolve(0.5)
-        "{color=#808080}**Selina love + 2**{color=#808080}"
-        "{color=#808080}**Greta love + 2**{color=#808080}"
-        $ Greta_love = Greta_love + 2
-        $ Selina_love = Selina_love + 2
-        $ check_and_update_character_stats("Greta")
-        $ check_and_update_character_stats("Selina")
-        $ renpy.call("GameLoop")
+        call stat_reward({"Greta": {"love": 2}, "Selina": {"love": 2}})
