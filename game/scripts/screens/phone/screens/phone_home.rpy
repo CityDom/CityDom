@@ -17,24 +17,23 @@ screen phone_screen():
         image "alarm_clock.png":
             xpos 215
             ypos 10
-        for q in DayTime:
-            for icon, (start, end), label in time_icons:
-                if start <= calendar.Hours < end:
-                    # Convert game hour to real-world hour, assuming game starts at 7:00 AM
-                    $ real_hour = (calendar.Hours + 6) % 24
-                    $ hour_12_format = real_hour % 12
-                    $ hour_12_format = 12 if hour_12_format == 0 else hour_12_format
-                    $ am_pm = "AM" if real_hour < 12 or real_hour == 24 else "PM"
-                    
-                    if not is_in_school(LocationID):
-                        # For simplicity, minutes are not displayed; adjust if needed
-                        text f"{hour_12_format}:00 {am_pm}" xpos 5 ypos 7 style "digital_text" color "#000000" size 25
-                        #text f"{label}" xpos 123 ypos 50 style "digital_text" color "#000000"
+        for icon, (start, end), label in time_icons:
+            if start <= calendar.Hours < end:
+                # Convert game hour to real-world hour, assuming game starts at 7:00 AM
+                $ real_hour = (calendar.Hours + 6) % 24
+                $ hour_12_format = real_hour % 12
+                $ hour_12_format = 12 if hour_12_format == 0 else hour_12_format
+                $ am_pm = "AM" if real_hour < 12 or real_hour == 24 else "PM"
+                
+                if not is_in_school(LocationID):
+                    # For simplicity, minutes are not displayed; adjust if needed
+                    text f"{hour_12_format}:00 {am_pm}" xpos 5 ypos 7 style "digital_text" color "#000000" size 25
+                    #text f"{label}" xpos 123 ypos 50 style "digital_text" color "#000000"
 
-                    # Add the school clock time display
-                    if is_in_school(LocationID) and 12 <= school_clock.hour < 18:
-                        text f"{school_clock.Output} {am_pm}" xpos 5 ypos 7 style "digital_text" color "#000000" size 25
-                        #text f"{label}" xpos 110 ypos 50 style "digital_text" color "#000000"
+                # Add the school clock time display
+                if is_in_school(LocationID) and 12 <= school_clock.hour < 18:
+                    text f"{school_clock.Output} {am_pm}" xpos 5 ypos 7 style "digital_text" color "#000000" size 25
+                    #text f"{label}" xpos 110 ypos 50 style "digital_text" color "#000000"
 
         # backpack icon
         imagebutton:
