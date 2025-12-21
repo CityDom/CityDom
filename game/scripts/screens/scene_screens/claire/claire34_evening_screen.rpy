@@ -6,4 +6,4 @@ screen ClaireEveningScreen34():
             hover "ScenesScreens/ClaireSceneScreens/Claire34EveningScreen/ClaireEvening34Button1_hover.png"
             xpos 1012
             ypos 264
-            action [Hide("ClaireEveningScreen34"), Jump("ClaireEveningEvent34")]
+            action [Function(hideEventScreens), Jump("ClaireEveningEvent34")]

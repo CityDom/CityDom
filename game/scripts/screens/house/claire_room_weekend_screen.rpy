@@ -2,12 +2,11 @@ screen ClaireRoomWeekendScreen():
 
     # Auto-redirect when it's '
     on "show" action If(
-        calendar.Hours == 4,
+        (calendar.Day == 0 or calendar.Day == 6) and calendar.Hours == 4,
         [Hide("ClaireRoomWeekendScreen"), Jump("ClaireNoon14")]
     )
 
-    add "HouseScreens/Claire_Weekend_6AM.webp"
-    if calendar.Hours == 0:
+    if (calendar.Day == 0 or calendar.Day == 6) and calendar.Hours == 0:
         add "HouseScreens/Claire_Weekend_6AM.webp"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:

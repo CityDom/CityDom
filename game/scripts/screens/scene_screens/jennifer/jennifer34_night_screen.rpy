@@ -6,4 +6,4 @@ screen JenniferNightScreen34():
             hover "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Button1_hover.png"
             xpos 995
             ypos 285
-            action [Hide("JenniferNightScreen34"), Jump("JenniferNightEvent34")]
+            action [Function(hideEventScreens), Jump("JenniferNightEvent34")]

@@ -3,15 +3,15 @@ screen JenniferRoomWeekendScreen():
     # Auto-redirect when it's 4
     
     on "show" action If(
-        calendar.Hours == 4,
+        (calendar.Day == 0 or calendar.Day == 6) and calendar.Hours == 4,
         [Hide("JenniferRoomWeekendScreen"), Jump("Jennifer_weekend_10AM")]
     )
     on "show" action If(
-        calendar.Hours == 8,
+        (calendar.Day == 0 or calendar.Day == 6) and calendar.Hours == 8,
         [Hide("JenniferRoomWeekendScreen"), Jump("Jennifer_weekend_2PM")]
     )
 
-    if calendar.Hours == 0:
+    if (calendar.Day == 0 or calendar.Day == 6) and calendar.Hours == 0:
         add "HouseScreens/Jennifer_Weekend_6AM.webp"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -23,7 +23,10 @@ screen JenniferRoomWeekendScreen():
                 focus_mask True
 
     elif calendar.Hours < 12 and calendar.Hours >= 0:
-        add "HouseScreens/Jennifer_Room_Weekend_Day.webp"
+        if calendar.Day == 0 or calendar.Day == 6:
+            add "HouseScreens/Jennifer_Room_Weekend_Day.webp"
+        else:
+            add "HomeSubplace/Jennifer room.png"
 
     elif calendar.Hours < 16 and calendar.Hours >= 12:
         add "HomeSubplace/Jennifer room evening.png"

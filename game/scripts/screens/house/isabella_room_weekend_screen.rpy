@@ -1,5 +1,5 @@
 screen IsabellaRoomWeekendScreen():
-    if calendar.Hours == 0:
+    if (calendar.Day == 0 or calendar.Day == 6) and calendar.Hours == 0:
         add "HouseScreens/Isabella_Weekend_6AM.webp"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -9,7 +9,7 @@ screen IsabellaRoomWeekendScreen():
                 ypos 403
                 action [Hide("IsabellaRoomWeekendScreen"), Jump("Isabella_weekend_6AM")]
                 focus_mask True
-    elif calendar.Hours == 1:
+    elif (calendar.Day == 0 or calendar.Day == 6) and calendar.Hours == 1:
         add "HouseScreens/Isabella_Weekend_7AM.webp"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
