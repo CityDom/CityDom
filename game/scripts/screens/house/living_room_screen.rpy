@@ -27,14 +27,15 @@ screen LivingroomScreen():
                 ]
                 focus_mask True
         elif calendar.Hours == 1:
-            add "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Screen1.png"
-            imagebutton:
-                idle "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Button1_idle.png"
-                hover "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Button1_hover.png"
-                xpos 1440
-                ypos 274
-                action [Hide("LivingroomScreen"), Jump("ClaireMorningEvent24")]
-                focus_mask True
+            if calendar.Day not in [0, 6]:
+                add "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Screen1.png"
+                imagebutton:
+                    idle "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Button1_idle.png"
+                    hover "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Button1_hover.png"
+                    xpos 1440
+                    ypos 274
+                    action [Hide("LivingroomScreen"), Jump("ClaireMorningEvent24")]
+                    focus_mask True
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -57,14 +58,15 @@ screen LivingroomScreen():
                 ]
                 focus_mask True            
         elif calendar.Hours == 3:
-            add "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreen1.png"
-            imagebutton:
-                idle "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreenButton1_idle.png"
-                hover "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreenButton1_hover.png"
-                xpos 1223
-                ypos 274
-                action [Hide("LivingroomScreen"), Jump("DinnerGroupEvent")]
-                focus_mask True
+            if calendar.Day not in [0, 6]:
+                add "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreen1.png"
+                imagebutton:
+                    idle "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreenButton1_idle.png"
+                    hover "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreenButton1_hover.png"
+                    xpos 1223
+                    ypos 274
+                    action [Hide("LivingroomScreen"), Jump("DinnerGroupEvent")]
+                    focus_mask True
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -197,15 +199,18 @@ screen LivingroomScreen():
                 ]
                 focus_mask True
         elif calendar.Hours == 13:
-            add "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Screen1.png"
-            if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_idle.png"
-                    hover "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_hover.png"
-                    xpos 1125
-                    ypos 463
-                    action [Hide("LivingroomScreen"), Jump("IsabellaEveningEvent24")]
-                    focus_mask True
+            if calendar.Day not in [0, 6]:
+                add "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Screen1.png"
+                if not MapScreenShown and not StatsScreenShown:
+                    imagebutton:
+                        idle "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_idle.png"
+                        hover "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_hover.png"
+                        xpos 1125
+                        ypos 463
+                        action [Hide("LivingroomScreen"), Jump("IsabellaEveningEvent24")]
+                        focus_mask True
+            else:
+                add "HomeSubplace/LivingRoom evening.png"
         elif calendar.Hours == 14:
             add "HomeSubplace/LivingRoom evening.png"
             if not MapScreenShown and not StatsScreenShown:
@@ -236,15 +241,19 @@ screen LivingroomScreen():
                     ]
                     focus_mask True
         elif calendar.Hours == 16:
-            add "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreen1.webp"
+            if calendar.Day not in [0, 6]:
+                add "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreen1.webp"
+            else:
+                add "HomeSubplace/LivingRoom night.png"
             if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreenButton1_idle.png"
-                    hover "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreenButton1_hover.png"
-                    xpos 1223
-                    ypos 278
-                    action [Hide("LivingroomScreen"), Jump("LunchGroupEvent")]
-                    focus_mask True
+                if calendar.Day not in [0, 6]:
+                    imagebutton:
+                        idle "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreenButton1_idle.png"
+                        hover "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreenButton1_hover.png"
+                        xpos 1223
+                        ypos 278
+                        action [Hide("LivingroomScreen"), Jump("LunchGroupEvent")]
+                        focus_mask True
                 imagebutton:
                     idle "MCEvents/HouseButtons/CouchButton_Evening_idle.webp"
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
@@ -256,8 +265,11 @@ screen LivingroomScreen():
                     ]
                     focus_mask True
         elif calendar.Hours == 17:
-            add "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreen1.webp"
-            if not MapScreenShown and not StatsScreenShown:
+            if calendar.Day not in [0, 6]:
+                add "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreen1.webp"
+            else:
+                add "HomeSubplace/LivingRoom night.png"
+            if not MapScreenShown and not StatsScreenShown and calendar.Day not in [0, 6]:
                 imagebutton:
                     idle "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreenButton1_idle.png"
                     hover "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreenButton1_hover.png"
@@ -281,15 +293,18 @@ screen LivingroomScreen():
                     ]
                     focus_mask True
         elif calendar.Hours == 19:
-            add "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Screen1.png"
-            if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_idle.png"
-                    hover "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_hover.png"
-                    xpos 1187
-                    ypos 364
-                    action [Hide("LivingroomScreen"), Jump("ClaireNightEvent44")]
-                    focus_mask True
+            if calendar.Day not in [0, 6]:
+                add "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Screen1.png"
+                if not MapScreenShown and not StatsScreenShown:
+                    imagebutton:
+                        idle "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_idle.png"
+                        hover "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_hover.png"
+                        xpos 1187
+                        ypos 364
+                        action [Hide("LivingroomScreen"), Jump("ClaireNightEvent44")]
+                        focus_mask True
+            else:
+                add "HomeSubplace/LivingRoom night.png"
         elif calendar.Hours == 20:
             add "MCEvents/HouseButtons/Livingroom_Night.webp"
             if not MapScreenShown and not StatsScreenShown:
