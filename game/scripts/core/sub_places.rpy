@@ -6,6 +6,7 @@ init python:
     # Push whole row closer to the bottom (positive values move DOWN).
     SUBLOC_BOTTOM_SHIFT = 50
     SUBLOC_RIGHT_SHIFT = 40   # pixels; + moves RIGHT, - moves LEFT
+    SUBLOC_SCHOOL_Y_SHIFT = -20  # pixels; negative moves school row UP
 
     # Fine-tune offsets (icon vs. shadow)
     SUBLOC_ICON_Y_OFFSET = 8
