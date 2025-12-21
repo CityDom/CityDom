@@ -15,8 +15,7 @@ label SleepEvent:
                     $ reset_GymClass_scene_variables()
                     $ reset_detention_scene_variables()
                     $ reset_breakfast_weekend_9am_flags_for_new_day()
-                    $ school_clock.hour = 12
-                    $ school_clock.period = 0
+                    $ school_clock.reset()
                     $ calendar.advance_to_next_day()
                     scene SleepScene1 with Dissolve(0.5)
                     MC "....."
@@ -39,8 +38,7 @@ label SleepEvent:
                 $ reset_GymClass_scene_variables()
                 $ reset_detention_scene_variables()
                 $ reset_breakfast_weekend_9am_flags_for_new_day()
-                $ school_clock.hour = 12
-                $ school_clock.period = 0
+                $ school_clock.reset()
                 scene BlackScreen with Dissolve(4)
                 "{color=#808080}**You fall asleep.**{/color}"
                 "{color=#808080}**The next day.**{/color}"
@@ -102,7 +100,9 @@ label SleepEvent:
                         $ renpy.call("GameLoop")
             "Don't sleep yet":
                 $ current_location = str(Location).lower()
+                $ calendar._day_advanced_flag = False
                 jump GameLoop
     else:
         MC "I'm so tiered, maybe I should go to my room to get some sleep."
+        $ calendar._day_advanced_flag = False
         $ renpy.call("GameLoop")

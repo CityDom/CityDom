@@ -50,6 +50,7 @@ label start:
                         renpy.show_screen(location_screen)
 
             # Check for location change and update the location if changed
+            $ previous_location_id = LocationID
             $ new_location = renpy.call_screen("MainHud", _layer="screens")
             $ location_changed = False
             if new_location != Location:
@@ -67,6 +68,10 @@ label start:
                 python:
                     for screen_name in ALL_EVENT_SCREENS:
                         renpy.hide_screen(screen_name)
+
+                # Leaving school: keep calendar aligned with the school clock.
+                if previous_location_id == 1 and LocationID != 1:
+                    $ calendar.sync_from_school_clock(round_break=True)
 
                 # Update background immediately for the new location.
                 $ Location_img = get_location_image_key(Location, calendar.period_index)

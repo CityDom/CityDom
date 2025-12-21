@@ -3,9 +3,7 @@ init python:
         renpy.hide_screen("MainHud")
 
     def synchronize_school_clock():
-        if school_clock.period % 2 != 0:
-            school_clock.period += 1
-            school_clock.hour += 1
+        calendar.align_school_period_to_class()
 
 screen MapScreen():
     frame:

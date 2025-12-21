@@ -14,7 +14,7 @@ label AfterGoToSchoolMinigameFail():
         $ LocationID = 1
         $ Location = "school"
         $ calendar.Hours = 6
-        $ school_clock.hour = 12
+        $ school_clock.reset()
         $ renpy.call("GameLoop")
     else:
         jump AfterGoToSchoolMinigame

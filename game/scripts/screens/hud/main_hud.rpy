@@ -9,42 +9,28 @@ init python:
 init python:
     def advance_time_or_sleep():
         if is_in_school(LocationID) and is_in_school_hours():
-            # Player is in school during school hours
-            current_school_hour = school_clock.hour
-            current_school_period = school_clock.period
-            
-            # Advance time in school (use at_school=True)
-            school_clock.AddTime(at_school=True)
-            
-            # If the period transitions from 00 minutes to 50 minutes, advance the calendar hour
-            if current_school_period % 2 == 0 and school_clock.period % 2 == 1:
-                calendar.AddTime(1)
+            if school_clock.is_last_period():
+                renpy.call("GetOutOfSchoolItsLate")
+                return
+            calendar.advance_school_periods(1)
+            if not is_in_school_hours():
+                renpy.call("GetOutOfSchoolItsLate")
+                return
 
-        elif is_in_school(LocationID) and not is_in_school_hours_minusONE():
-            # Player is in school but it is too late (past allowed school hours)
+        elif is_in_school(LocationID) and not is_in_school_hours():
             renpy.call("GetOutOfSchoolItsLate")
-            
+
         elif calendar.Hours == 20:
             # It's 8 PM, trigger the sleep event
             renpy.call("SleepEvent")
         
         else:
             # Player is NOT in school
-            if not is_in_school(LocationID) and is_in_school_hours():
-                # If it is still within school hours, advance both clocks accordingly (at_school=False)
-                school_clock.AddTime(at_school=False)
-                calendar.AddTime(1)  # Also advance the calendar by 1 hour
-            else:
-                # Outside school hours, only advance the calendar by 1 hour
-                calendar.AddTime(1)
+            calendar.AddTime(1)
 
         # Hide any active event screens
         for screen_name in ALL_EVENT_SCREENS:
             renpy.hide_screen(screen_name)
-
-        # Reset the school clock at 6 PM (18:00)
-        if calendar.Hours == 18:
-            school_clock.reset()
 
         # Continue the game loop
         renpy.call("GameLoop")
@@ -57,16 +43,10 @@ init python:
         return location_id == 1
 
     def is_in_school_hours():
-        if 6 <= calendar.Hours < 12:
-            return True
-        else:
-            return False
+        return calendar.is_school_hours()
 
     def is_in_school_hours_minusONE():
-        if 6 <= calendar.Hours < 11:
-            return True
-        else:
-            return False
+        return calendar.is_school_hours() and calendar.Hours < 11
 
     def show_map_screen():
         renpy.show_screen("MapScreen")
@@ -198,42 +178,41 @@ screen MainHud():
     #     use Camera_screen
 
     # daytime icons 
-    for q in DayTime:
-        for icon, (start, end), label in time_icons:
-            if start <= calendar.Hours < end:
-                # Creating a frame to hold the icon and text together
-                $ scaled_icon = scale_image(icon, scale_factor)
-                frame:
-                    xpos 20
-                    ypos 10
-                    xsize scaled_icon.width
-                    ysize scaled_icon.height
-                    background None  # Ensures the frame itself has no visible border
+    for icon, (start, end), label in time_icons:
+        if start <= calendar.Hours < end:
+            # Creating a frame to hold the icon and text together
+            $ scaled_icon = scale_image(icon, scale_factor)
+            frame:
+                xpos 20
+                ypos 10
+                xsize scaled_icon.width
+                ysize scaled_icon.height
+                background None  # Ensures the frame itself has no visible border
 
-                    # Add the scaled icon as the background of the frame
-                    add scaled_icon
+                # Add the scaled icon as the background of the frame
+                add scaled_icon
 
-                    # Calculate the real hour format
-                    $ real_hour = (calendar.Hours + 6) % 24
-                    $ hour_12_format = real_hour % 12
-                    $ hour_12_format = 12 if hour_12_format == 0 else hour_12_format
-                    $ am_pm = "AM" if real_hour < 12 or real_hour == 24 else "PM"
+                # Calculate the real hour format
+                $ real_hour = (calendar.Hours + 6) % 24
+                $ hour_12_format = real_hour % 12
+                $ hour_12_format = 12 if hour_12_format == 0 else hour_12_format
+                $ am_pm = "AM" if real_hour < 12 or real_hour == 24 else "PM"
 
-                    if not is_in_school(LocationID):
-                        # Position the time text within the frame
-                        text f"{hour_12_format}:00 {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
-                        
-                        # Display the current weekday within the frame
-                        $ current_weekday = calendar.WeekDays[int(calendar.Day)]
-                        text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
+                if not is_in_school(LocationID):
+                    # Position the time text within the frame
+                    text f"{hour_12_format}:00 {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
+                    
+                    # Display the current weekday within the frame
+                    $ current_weekday = calendar.WeekDays[int(calendar.Day)]
+                    text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
 
-                    if is_in_school(LocationID) and 12 <= school_clock.hour < 18:
-                        # Position the school clock time within the frame
-                        text f"{school_clock.Output} {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
-                        
-                        # Display the current weekday within the frame
-                        $ current_weekday = calendar.WeekDays[int(calendar.Day)]
-                        text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
+                if is_in_school(LocationID) and 12 <= school_clock.hour < 18:
+                    # Position the school clock time within the frame
+                    text f"{school_clock.Output} {am_pm}" xalign 0.7 yalign 0.25 style "digital_text" color "#ffffff" outlines [(1, "#000000", 0, 0)] size 30
+                    
+                    # Display the current weekday within the frame
+                    $ current_weekday = calendar.WeekDays[int(calendar.Day)]
+                    text "[current_weekday]" xalign 0.5 yalign 0.1 color "#ffffff" style "digital_text" outlines [(1, "#000000", 0, 0)] size 30
 
 
 
