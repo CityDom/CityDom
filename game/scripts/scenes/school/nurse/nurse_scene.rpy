@@ -56,7 +56,7 @@ label LunaMenu:
                 scene Nurse_Scene15 with Dissolve(0.5)
                 Luna "But... uhhh... I don't really have time to talk right now..."
                 Luna "So if you don't have an actual problem you kinda have to leave..."
-                call stat_reward({"Luna": {"love": 2}}, show_black=False, return_to="LunaMenu")
+                call stat_reward({"Luna": {"love": 2}}, return_to="LunaMenu")
         "Pervert compliment":
             if Watched_Nurse_PervertCompliment:
                 MC "{color=#808080}*I already told her that...*{color=#808080}"

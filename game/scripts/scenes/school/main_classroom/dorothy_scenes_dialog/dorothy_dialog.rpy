@@ -14,6 +14,6 @@ label DorothyClassroomScene:
     scene DorothyScene2 with Dissolve(0.5)
     Dorothy "Oh, yeah, I'm doing okay, thank you for asking!"
     Dorothy "I have to finish this report for Miss Thompson, but we can talk later!"
-    call stat_reward({"Dorothy": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Dorothy": {"love": 2}}, return_to=None)
     $ DorothyClassroomSceneWatched = True
     $ renpy.call("GameLoop")

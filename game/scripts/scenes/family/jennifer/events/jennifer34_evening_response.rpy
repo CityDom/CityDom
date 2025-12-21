@@ -62,12 +62,12 @@ label JenniferEvening34:
                     MC "Sorry, mom, I was just...."
                     Jennifer "I DON'T WANT TO HEAR A THING!!!!"
                     Jennifer "LEAVE!!!!!!!!!"
-                    call stat_reward({"Jennifer": {"love": -5, "corruption": -5}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"love": -5, "corruption": -5}}, return_to=None)
                     $ Location = "Hallway" 
                     $ advance_time_or_sleep()
                 "Leave":
                     "You close the door as slowly as you can and leave."
-                    call stat_reward({"Jennifer": {"corruption": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"corruption": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
         "Open":
@@ -81,7 +81,7 @@ label JenniferEvening34:
             MC "Sorry mom I was just...."
             Jennifer "I DON'T WANT TO HEAR A THING!!!!"
             Jennifer "LEAVE!!!!!!!!!"
-            call stat_reward({"Jennifer": {"love": -5, "corruption": -5}}, show_black=False, return_to=None)
+            call stat_reward({"Jennifer": {"love": -5, "corruption": -5}}, return_to=None)
             $ Location = "Hallway" 
             $ advance_time_or_sleep()
         "Leave":

@@ -54,7 +54,7 @@ label JenniferMorning24:
                     scene Jennifer_morning24_4 with Dissolve(0.5)
                     Jennifer "Ok kiddo, now go sit at the table, let's eat breakfast"
                     MC "Oke mom, thanks for the kiss"
-                    call stat_reward({"Jennifer": {"love": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"love": 2}}, return_to=None)
                     $ Location = "livingroom"
                     $ advance_time_or_sleep()
         "Leave":

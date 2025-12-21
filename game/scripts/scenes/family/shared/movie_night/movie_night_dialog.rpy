@@ -22,7 +22,7 @@ label MovieNightLVL1:
                 scene MovieScene30 with Dissolve(0.5)
                 menu:
                     "Action":
-                        call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
+                        call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, return_to=None)
                         scene MovieScene31 with Dissolve(0.5)
                         MC "We could watch an action movie."
                         scene MovieScene30 with Dissolve(0.5)
@@ -91,7 +91,7 @@ label MovieNightLVL1:
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
                     "Romance":
-                        call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
+                        call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, return_to=None)
                         scene MovieScene31 with Dissolve(0.5)
                         MC "We could watch a romance movie"
                         scene MovieScene30 with Dissolve(0.5)
@@ -162,7 +162,7 @@ label MovieNightLVL1:
                                 $ Location = "Entrance"
                                 $ advance_time_or_sleep()
                     "Horror":
-                        call stat_reward({"Isabella": {"love": -2}, "Jennifer": {"love": -2}}, show_black=False, return_to=None)
+                        call stat_reward({"Isabella": {"love": -2}, "Jennifer": {"love": -2}}, return_to=None)
                         scene MovieScene31 with Dissolve(0.5)
                         MC "We could maybe watch a horror movie"
                         scene MovieScene30 with Dissolve(0.5)

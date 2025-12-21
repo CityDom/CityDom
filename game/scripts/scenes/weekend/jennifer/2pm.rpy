@@ -135,7 +135,7 @@ label Jennifer_weekend_2PM:
             Isabella "You are such a fucking dumbass, stop talking!"
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            call stat_reward({"Isabella": {"love": -2, "corruption": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Isabella": {"love": -2, "corruption": 2}, "Jennifer": {"love": 2}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Open":

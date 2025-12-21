@@ -16,6 +16,6 @@ label MariaClassroomScene:
     Maria "Then let me sleep."
     scene MariaScene1 with Dissolve(0.5)
     MC "...."
-    call stat_reward({"Maria": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Maria": {"love": 2}}, return_to=None)
     $ MariaClassroomSceneWatched = True
     $ renpy.call("GameLoop")

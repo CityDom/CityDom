@@ -148,7 +148,7 @@ label LolaAndDorothyFirstPauseScene:
                     scene LolaAndDorothyEventScene61 with Dissolve(0.5)
                     Lola "Let's go Leya, we'll play in two, [MC] is leaving!"
                     $ Maria_Report_Lola_Grabbed_tit = True
-                    call stat_reward({"Lola": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Lola": {"love": -5, "corruption": 2}}, return_to=None)
                     $ advance_time_or_sleep()
                 "Don't":
                     scene LolaAndDorothyEventScene62 with Dissolve(0.5)
@@ -168,7 +168,7 @@ label LolaAndDorothyFirstPauseScene:
                     scene LolaAndDorothyEventScene69 with Dissolve(0.5)
                     Lola "Okay then... bye, bye..."
                     $ Maria_Report_Lola_didnt_Grabbed_tit = True
-                    call stat_reward({"Lola": {"love": 5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Lola": {"love": 5, "corruption": 2, "obedience": 2}}, return_to=None)
                     $ advance_time_or_sleep()
         "Do gymnastic":
             $ Maria_Report_Leya = True
@@ -219,7 +219,7 @@ label LolaAndDorothyFirstPauseScene:
                             Lola "OH MY GOD, [MC_upper], GET THE FUCK OFF RIGHT NOW!!!!"
                             MC "{color=#808080}*Shit, I need to leave!*{color=#808080}"
                             scene BlackScreen with Dissolve(0.5)
-                            call stat_reward({"Leya": {"love": -8, "corruption": 2}, "Lola": {"love": -8, "corruption": 2}}, show_black=False, return_to=None)
+                            call stat_reward({"Leya": {"love": -8, "corruption": 2}, "Lola": {"love": -8, "corruption": 2}}, return_to=None)
                             $ advance_time_or_sleep()
                         "leave":
                             MC "{color=#808080}*Let's not risk it...*{color=#808080}"

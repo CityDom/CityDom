@@ -90,7 +90,7 @@ label JenniferNight34:
             Jennifer "Now please leave..."
             scene Jennifer_night34_26 with Dissolve(0.5)
             MC "Oke mom, bye!"
-            call stat_reward({"Jennifer": {"love": 2, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Jennifer": {"love": 2, "corruption": 2, "obedience": 2}}, return_to=None)
             $ Location = "hallway"
             $ advance_time_or_sleep()
         "Leave":

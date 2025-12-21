@@ -135,7 +135,7 @@ label IsabellaEvening44:
                             Isabella "Finally!"
                             Isabella "And don't call me a good girl, it's weird."
                             "{color=#808080}**You both leave the room without anyone seeing you.**{/color}"
-                            call stat_reward({"Isabella": {"corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                            call stat_reward({"Isabella": {"corruption": 2, "obedience": 2}}, return_to=None)
                             $ Location = "Hallway"
                             $ advance_time_or_sleep()
                         "Slap her ass":
@@ -218,7 +218,7 @@ label IsabellaEvening44:
                             # ! in the future she will say "than... nevermind" and further into the future she will say thanks or thank you 
                             MC "You can leave now."
                             "{color=#808080}**She leaves the room and you shortly leave after her.**{/color}"
-                            call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                            call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": 2}}, return_to=None)
                             $ Location = "Hallway"
                             $ advance_time_or_sleep()
                         "Tell her to undress":
@@ -247,7 +247,7 @@ label IsabellaEvening44:
                             scene Isabella_evening44_58 with Dissolve(0.5)
                             MC "{color=#808080}*Shit... I crossed the line too early...*{/color}"
                             MC "{color=#808080}*She is not ready to do that yet*{/color}"
-                            call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": -5}}, show_black=False, return_to=None)
+                            call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": -5}}, return_to=None)
                             $ Location = "Hallway"
                             $ advance_time_or_sleep()
                 "Blackmail her":
@@ -322,7 +322,7 @@ label IsabellaEvening44:
                             scene Isabella_evening44_90 with Dissolve(0.5)
                             MC "Yeah... you can go..."
                             "{color=#808080}**You both leave the room.**{/color}"
-                            call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                            call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": 2}}, return_to=None)
                             $ Location = "Hallway"
                             $ advance_time_or_sleep()
                         "We don't":
@@ -341,7 +341,7 @@ label IsabellaEvening44:
                             MC "{color=#808080}*But she is so dumb that she told me what she would say if I were to tell mom...*{/color}"
                             MC "{color=#808080}*So I will just need the right evidence before I will be able to blackmail her.*{/color}"
                             "{color=#808080}**She leaves the room and you leave shortly after her.**{/color}"
-                            call stat_reward({"Isabella": {"love": -5, "corruption": -5, "obedience": -5}}, show_black=False, return_to=None)
+                            call stat_reward({"Isabella": {"love": -5, "corruption": -5, "obedience": -5}}, return_to=None)
                             $ Location = "Hallway"
                             $ advance_time_or_sleep()
 
@@ -412,7 +412,7 @@ label IsabellaEvening44:
                     scene Isabella_evening44_78 with Dissolve(0.5)
                     MC "Okay, now let's get out of here before mom finds us."
                     MC "{color=#808080}*You both leave the room*{/color}"
-                    call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Isabella": {"love": -5, "corruption": 2, "obedience": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
         "Leave":

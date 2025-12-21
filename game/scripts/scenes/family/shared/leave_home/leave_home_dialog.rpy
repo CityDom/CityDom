@@ -179,7 +179,7 @@ label LeaveHomeLVL1:
                     MC "{color=#808080}*My gaslight didn't work to well*{/color}"
                     scene BlackScreen with Dissolve(0.5)
                     "{color=#808080}***You close the door behind your mom.*{/color}"
-                    call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": 2}}, return_to=None)
                     $ Location = "Entrance"
                     $ advance_time_or_sleep()
                 "Don't":
@@ -210,6 +210,6 @@ label LeaveHomeLVL1:
                     MC "{color=#808080}*I don't know if I would ever get another opportunity like that...*{/color}"
                     scene BlackScreen with Dissolve(0.5)
                     "{color=#808080}*You close the door after Jennifer leaves.{/color}"
-                    call stat_reward({"Jennifer": {"love": 2, "corruption": -2}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"love": 2, "corruption": -2}}, return_to=None)
                     $ Location = "Entrance"
                     $ advance_time_or_sleep()

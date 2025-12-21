@@ -78,7 +78,7 @@ label SleepEvent:
                         MC "{color=#808080}*But I can swear that I heard her.*{/color}"
                         MC "{color=#808080}*And the door slamming shut.*{/color}"
                         MC "{color=#808080}*In any case, I should wake up...*{/color}"
-                        call stat_reward({"Jennifer": {"love": -2, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                        call stat_reward({"Jennifer": {"love": -2, "corruption": 2, "obedience": 2}}, return_to=None)
                         $ Location = "my room"
                         $ calendar.Hours = 2
                         $ calendar.update_sub_place_data()

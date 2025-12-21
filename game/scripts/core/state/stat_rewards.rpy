@@ -60,11 +60,10 @@ init python:
         for line in lines:
             renpy.say(None, line)
 
-label stat_reward(changes, return_to="GameLoop", show_black=True, dissolve_time=0.5, color="#808080"):
-    if show_black:
-        scene BlackScreen
-        if dissolve_time is not None:
-            with Dissolve(dissolve_time)
+label stat_reward(changes, return_to="GameLoop", dissolve_time=0.5, color="#808080"):
+    scene BlackScreen
+    if dissolve_time is not None:
+        with Dissolve(dissolve_time)
     $ _stat_reward_lines = format_stat_rewards(changes, color=color)
     $ show_stat_rewards(_stat_reward_lines)
     $ apply_stat_rewards(changes)

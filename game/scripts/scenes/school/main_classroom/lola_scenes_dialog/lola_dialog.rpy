@@ -21,6 +21,6 @@ label LolaClassroomScene:
     Lola "Sadly, we don't have any matches coming up, but I'll let you know if one comes up."
     scene LolaScene4 with Dissolve(0.5)
     MC "Okay, thanks!"
-    call stat_reward({"Lola": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Lola": {"love": 2}}, return_to=None)
     $ LolaClassroomSceneWatched = True
     $ renpy.call("GameLoop")

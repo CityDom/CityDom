@@ -55,7 +55,7 @@ label IsabellaNoon24:
             MC "See you around, right?"
             Isabella "...."
             MC "{color=#808080}*I think she's pissed*{/color}"
-            call stat_reward({"Isabella": {"love": -5, "obedience": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Isabella": {"love": -5, "obedience": 2}}, return_to=None)
             $ Location = "entrance"
             $ advance_time_or_sleep()
         "Don't":
@@ -63,7 +63,7 @@ label IsabellaNoon24:
             Isabella "See you around, [MC]."
             MC "Just like that? no kiss? no hug?"
             Isabella "In your dreams, pervert!"
-            call stat_reward({"Isabella": {"love": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Isabella": {"love": 2}}, return_to=None)
             $ Location = "entrance"
             $ advance_time_or_sleep()
 
