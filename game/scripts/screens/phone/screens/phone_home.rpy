@@ -1,4 +1,6 @@
 screen phone_screen():
+    $ init_background_buttons()
+    $ update_current_message()
     frame:
         xpos 1550
         ypos 100

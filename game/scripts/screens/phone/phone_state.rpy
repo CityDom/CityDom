@@ -1,7 +1,7 @@
 # Shared state for phone screens.
 
 default background_buttons = {
-    "DefaultBackground": "BackgroundButton_Default_Idle"
+    "DefaultBackground": True,
 }
 
 default background_previews = {}
@@ -15,8 +15,8 @@ default typebar_focused = False
 default typebar_placeholder = "Type your message"
 
 default selected_chat = ""
-default chat_names = ["Jennifer", "Isabella", "Claire"]
-default current_message = {name: 0 for name in chat_names}
+default chat_names = []
+default current_message = {}
 
 # Character selection tabs.
 default characters_tab1 = ["Jennifer", "Isabella", "Claire", "Maria", "Alis", "Sophie", "Lola", "Selina", "Helena", "Dorothy", "Leya", "Greta", "Jannice", "Criss"]
