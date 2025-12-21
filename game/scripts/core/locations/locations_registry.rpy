@@ -135,9 +135,9 @@ init -2 python:
     register_location("Hallway", location_id=0)
     register_location("HouseToilet", location_id=0, screen_name="HouseToiletScreen")
     register_location("My room", location_id=0)
-    register_location("Jennifer room", location_id=0, screen_name="JenniferRoomWeekendScreen")
-    register_location("Isabella room", location_id=0, screen_name="IsabellaRoomWeekendScreen")
-    register_location("Claire room", location_id=0, screen_name="ClaireRoomWeekendScreen")
+    register_location("Jennifer room", location_id=0, screen_name="JenniferRoomScreen")
+    register_location("Isabella room", location_id=0, screen_name="IsabellaRoomScreen")
+    register_location("Claire room", location_id=0, screen_name="ClaireRoomScreen")
 
     # School locations (LocationID = 1)
     register_location("School", location_id=1, screen_name="SchoolScreen")
