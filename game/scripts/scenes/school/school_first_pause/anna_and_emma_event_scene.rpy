@@ -107,7 +107,7 @@ label AnnaAndEmmaFirstPauseScene:
             scene AnnaAndEmmaScene40 with Dissolve(0.5)
             Anna "Yeah, you leave already you asshole!!"
             scene AnnaAndEmmaScene41 with Dissolve(0.5)
-            call stat_reward({"Anna": {"love": -5, "corruption": 2}, "Emma": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Anna": {"love": -5, "corruption": 2}, "Emma": {"love": -5, "corruption": 2}}, return_to=None)
             $ Maria_Report_AnnaAndEmma_tits = True
             $ advance_time_or_sleep()
         "Don't":
@@ -204,7 +204,7 @@ label AnnaAndEmmaFirstPauseScene:
                     EmmaAndAnna "Fuck you!"
                     scene BlackScreen with Dissolve(0.5)
                     $ Maria_Report_AnnaAndEmma_ass = True
-                    call stat_reward({"Anna": {"love": -5, "corruption": 2, "obedience": 2}, "Emma": {"love": -5, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Anna": {"love": -5, "corruption": 2, "obedience": 2}, "Emma": {"love": -5, "corruption": 2, "obedience": 2}}, return_to=None)
                     $ advance_time_or_sleep()
                 "Don't":
                     scene AnnaAndEmmaScene75 with Dissolve(0.5)

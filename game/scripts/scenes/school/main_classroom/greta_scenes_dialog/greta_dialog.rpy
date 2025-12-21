@@ -17,6 +17,6 @@ label GretaClassroomScene:
     MC "Oh, okay, good luck with that!"
     scene GretaScene5 with Dissolve(0.5)
     Greta "Thank you, [MC]!"
-    call stat_reward({"Greta": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Greta": {"love": 2}}, return_to=None)
     $ GretaClassroomSceneWatched = True
     $ renpy.call("GameLoop")

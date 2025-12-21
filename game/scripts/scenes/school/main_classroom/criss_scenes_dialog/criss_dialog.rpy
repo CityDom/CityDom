@@ -23,6 +23,6 @@ label CrissClassroomScene:
     Criss "Yeah, I will most likely come over, is there a problem?"
     scene CrissScene7 with Dissolve(0.5)
     MC "Okay, that's all I wanted to know."
-    call stat_reward({"Criss": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Criss": {"love": 2}}, return_to=None)
     $ CrissClassroomSceneWatched = True
     $ renpy.call("GameLoop")

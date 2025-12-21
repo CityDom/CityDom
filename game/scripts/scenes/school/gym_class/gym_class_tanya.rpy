@@ -43,7 +43,7 @@ label TanyaGymMenu:
                 scene GymClass_Tanya9 with Dissolve(0.5)
                 Tanya "Haha, miles away from working!"
                 Tanya "Now tell me what you really want. You're never nice just to be nice!"
-                call stat_reward({"Tanya": {"love": 2}}, show_black=False, return_to=None)
+                call stat_reward({"Tanya": {"love": 2}}, return_to=None)
             else:
                 MC "{color=#808080}*I already talked to her about that.*{/color}"
             jump TanyaGymMenu
@@ -58,7 +58,7 @@ label TanyaGymMenu:
                 Tanya "It shows that you lived with that jerk. I hope Jennifer taught you better."
                 Tanya "I hope you're not talking to the other teachers like that!"
                 Tanya "Now get lost before I smack you!"
-                call stat_reward({"Tanya": {"love": -2, "corruption": 2}}, show_black=False, return_to=None)
+                call stat_reward({"Tanya": {"love": -2, "corruption": 2}}, return_to=None)
             else:
                 MC "{color=#808080}*I already talked to her about that.*{/color}"
             jump TanyaGymMenu

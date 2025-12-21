@@ -94,12 +94,12 @@ label JenniferMorning44:
                     scene Jennifer_morning44_21 with Dissolve(0.5)
                     Jennifer "[MC_upper] GET OUT RIGHT NOW!!!!!!"
                     MC "{color=#808080}*I hope she won't stay mad for long..*{/color}"
-                    call stat_reward({"Jennifer": {"love": -5}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
                 "Leave":
                     MC "{color=#808080}*Yeah... I'm not risking that.*{/color}"
-                    call stat_reward({"Jennifer": {"corruption": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"corruption": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
         "Open":
@@ -112,7 +112,7 @@ label JenniferMorning44:
             Jennifer "WHAT ARE YOU DOING BARGING IN LIKE THIS?!?!?!"
             Jennifer "GET OUT RIGHT NOW!!!!!!!!"
             MC "{color=#808080}*I hope she won't be mad at me for long...*{/color}"
-            call stat_reward({"Jennifer": {"love": -5}}, show_black=False, return_to=None)
+            call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Leave":

@@ -53,7 +53,7 @@ label HelenaAndSophieFirstPauseScene:
                     scene HelenaAndSophieEventScene17 with Dissolve(0.5)
                     Helena "I think you got a bit too comfortable with this conversation, [MC]!"
                     Helena "We're going to class, see ya!"
-                    call stat_reward({"Helena": {"love": -5, "corruption": 2}, "Sophie": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Helena": {"love": -5, "corruption": 2}, "Sophie": {"love": -5, "corruption": 2}}, return_to=None)
                     $ advance_time_or_sleep()
                 "Agree with them":
                     MC "You girls are right, and it's a shame to have them compressed."
@@ -71,7 +71,7 @@ label HelenaAndSophieFirstPauseScene:
                     Sophie "Byeee!"
                     scene HelenaAndSophieEventScene20 with Dissolve(0.5)
                     Helena "See ya!"
-                    call stat_reward({"Helena": {"love": 2}, "Sophie": {"love": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Helena": {"love": 2}, "Sophie": {"love": 2}}, return_to=None)
                     $ advance_time_or_sleep()
         "Leave":
             MC "I was just passing by, see you in class!"

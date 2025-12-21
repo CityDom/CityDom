@@ -128,7 +128,7 @@ label CrissAndIsabellaFirstPauseScene:
             Isabella "You just can't stop yourself from being a pervert!"
             scene BlackScreen with Dissolve(0.5)
             $ Maria_Report_Criss_Kissed = True
-            call stat_reward({"Criss": {"love": -5, "corruption": 2}, "Isabella": {"love": -5}}, show_black=False, return_to=None)
+            call stat_reward({"Criss": {"love": -5, "corruption": 2}, "Isabella": {"love": -5}}, return_to=None)
             $ advance_time_or_sleep()
         "Don't":
             $ Maria_Report_Criss_didnt_Kissed = True

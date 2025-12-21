@@ -79,7 +79,7 @@ label DropPenScene:
             scene DropPenScene30 with Dissolve(0.5)
             Jannice "See you after the break!"
             $ Location = "mainclassroom"
-            call stat_reward({"Jannice": {"love": -5, "corruption": 2}, "Maria": {"love": 2, "corruption": 2, "obedience": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Jannice": {"love": -5, "corruption": 2}, "Maria": {"love": 2, "corruption": 2, "obedience": 2}}, return_to=None)
             $ advance_time_or_sleep()
         "Don't":
             scene DropPenScene31 with Dissolve(0.5)
@@ -95,6 +95,6 @@ label DropPenScene:
             Jannice "Make sure to do your homework!"
             scene DropPenScene30 with Dissolve(0.5)
             Jannice "See you after the break!"
-            call stat_reward({"Jannice": {"love": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Jannice": {"love": 2}}, return_to=None)
             $ Location = "mainclassroom"
             $ advance_time_or_sleep()

@@ -110,7 +110,7 @@ label JenniferMorning34:
                             Jennifer "I DON'T WANT TO HEAR A THING !!!!!!"
                             Jennifer "GET OUT !!!!!!!!!!"
                             "{color=#808080}**You get out of the bathroom as soon as possible**{/color}"
-                            call stat_reward({"Jennifer": {"love": -5}}, show_black=False, return_to=None)
+                            call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
                             $ Location = "washing room"
                             $ advance_time_or_sleep()
                         "Leave":
@@ -118,7 +118,7 @@ label JenniferMorning34:
                             "{color=#808080}**You walk out as slowly and quietly as possible, making sure to close the door behind you without making a sound**{/color}"
                             Jennifer "{color=#808080}*Huh.. Did I hear something?...*{/color}"
                             Jennifer "{color=#808080}*I must be imagining things...*{/color}"
-                            call stat_reward({"Jennifer": {"corruption": 2}}, show_black=False, return_to=None)
+                            call stat_reward({"Jennifer": {"corruption": 2}}, return_to=None)
                             $ Location = "washing room"
                             $ advance_time_or_sleep()
                 "Leave":
@@ -135,7 +135,7 @@ label JenniferMorning34:
             Jennifer "DON'T YOU HEAR THE SHOWER RUNNING? OR SEE THE LIGHTS ON?!?!"
             scene Jennifer_morning34_0 with Dissolve(0.5)
             MC "{color=#808080}*I thought as much...*{/color}"
-            call stat_reward({"Jennifer": {"love": -5}}, show_black=False, return_to=None)
+            call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
             $ Location = "washing room"
             $ renpy.call("GameLoop")
         "Leave":

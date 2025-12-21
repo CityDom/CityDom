@@ -70,6 +70,6 @@ label Isabella_weekend_12PM:
     Isabella "KYAAAAAAAAAAAAAAAAAA!!!!"
     scene BlackScreen with Dissolve(0.5)
     "{color=#808080}**You run as fast as you can**"
-    call stat_reward({"Criss": {"love": -2, "corruption": 2}, "Isabella": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Criss": {"love": -2, "corruption": 2}, "Isabella": {"love": -5, "corruption": 2}}, return_to=None)
     $ Location = "Entrance"
     $ advance_time_or_sleep()

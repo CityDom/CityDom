@@ -29,7 +29,7 @@ label Jennifer_weekend_7AM:
             Jennifer "WHAT ARE YOU DOING!!! GET OUT!!!!!"
             MC "Sorry m..."
             Jennifer "GET OUT NOW!!!!!!!"
-            call stat_reward({"Jennifer": {"love": -5}}, show_black=False, return_to=None)
+            call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
         "Leave":

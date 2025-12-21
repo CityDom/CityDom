@@ -50,7 +50,7 @@ label IsabellaEvening34:
                         scene Isabella_evening34_9 with Dissolve(0.5)
                         MC "Ok sis, see you around then."
                         "{color=#808080}**You leave the room**{color=#808080}"
-                        call stat_reward({"Isabella": {"love": 2}}, show_black=False, return_to=None)
+                        call stat_reward({"Isabella": {"love": 2}}, return_to=None)
                         $ Location = "Hallway"
                         $ advance_time_or_sleep()
                     "Touch":
@@ -85,7 +85,7 @@ label IsabellaEvening34:
                                         Isabella "Your hand always slips, right?!"
                                         Isabella "Get the fuck out right now or I will scream for mom!"
                                         "{color=#808080}**You quickly leave the room**{color=#808080}"
-                                        call stat_reward({"Isabella": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
+                                        call stat_reward({"Isabella": {"love": -5, "corruption": 2}}, return_to=None)
                                         $ Location = "Hallway"
                                         $ advance_time_or_sleep()
                                     "Just hug her":
@@ -102,7 +102,7 @@ label IsabellaEvening34:
                                         scene Isabella_evening34_20 with Dissolve(0.5)
                                         Isabella "Okay, now get out, I have to get ready for tomorrow."
                                         "{color=#808080}**You leave the room**{color=#808080}"
-                                        call stat_reward({"Isabella": {"love": 2, "obedience": 2}}, show_black=False, return_to=None)
+                                        call stat_reward({"Isabella": {"love": 2, "obedience": 2}}, return_to=None)
                                         $ Location = "Hallway"
                                         $ advance_time_or_sleep()
         "Leave":

@@ -23,6 +23,6 @@ label AnnaEmmaClassroomScene:
     Emma "Yeah, get lost!"
     scene AnnaEmmaScene1 with Dissolve(0.5)
     MC "{color=#808080}*Tsk, They are meaner than I thought.*"
-    call stat_reward({"Anna": {"love": 2}, "Emma": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Anna": {"love": 2}, "Emma": {"love": 2}}, return_to=None)
     $ AnnaEmmaClassroomSceneWatched = True
     $ renpy.call("GameLoop")

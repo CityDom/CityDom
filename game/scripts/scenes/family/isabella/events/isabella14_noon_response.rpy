@@ -45,7 +45,7 @@ label IsabellaNoon14:
                 "Leave":
                     MC "{color=#808080}*It's better if I just leave.*{color=#808080}"
                     "{color=#808080}**You leave the room quietly**{color=#808080}"
-                    call stat_reward({"Isabella": {"corruption": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Isabella": {"corruption": 2}}, return_to=None)
                     $ Location = "Hallway"
                     $ advance_time_or_sleep()
         "Open":
@@ -57,7 +57,7 @@ label IsabellaNoon14:
             MC "Omg I'm so sorry I didn't know u were in the ro-"
             Isabella "GET OOOOOUT!!!!!!!!"
             "{color=#808080}**You leave the room immediately.**{color=#808080}"
-            call stat_reward({"Isabella": {"love": -5}}, show_black=False, return_to=None)
+            call stat_reward({"Isabella": {"love": -5}}, return_to=None)
             $ Location = "Hallway"
         "Leave":
             MC "{color=#808080}*Let's not risk it today.*{color=#808080}"

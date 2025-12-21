@@ -41,7 +41,7 @@ label IsabellaMorning34:
     scene Isabella_morning34_3 with Dissolve(0.5)
     MC "......."
     "{color=#808080}**You help her learn the lesson and then leave**{/color}"
-    call stat_reward({"Isabella": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Isabella": {"love": 2}}, return_to=None)
     $ Location = "Hallway"
     $ advance_time_or_sleep()
 

@@ -30,6 +30,6 @@ label HelenaClassroomScene:
     Helena "But we can talk after the class!"
     scene HelenaScene12 with Dissolve(0.5)
     MC "It's okay, we can talk later."
-    call stat_reward({"Helena": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Helena": {"love": 2}}, return_to=None)
     $ HelenaClassroomSceneWatched = True
     $ renpy.call("GameLoop")

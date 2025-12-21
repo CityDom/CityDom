@@ -14,6 +14,6 @@ label IsabellaClassroomScene:
     Isabella "Uhh, no, I'm going with Criss."
     scene IsabellaScene3 with Dissolve(0.5)
     MC "Oke, talk to you later then."
-    call stat_reward({"Isabella": {"love": 2}}, show_black=False, return_to=None)
+    call stat_reward({"Isabella": {"love": 2}}, return_to=None)
     $ IsabellaClassroomSceneWatched = True
     $ renpy.call("GameLoop")

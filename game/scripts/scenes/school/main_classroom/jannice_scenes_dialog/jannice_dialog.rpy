@@ -37,7 +37,7 @@ label janniceTalk_menu:
             Jannice "Compliments won't raise your grades [MC]."
             Jannice "Now go back to your seat, class is about to start"
             $ JanniceComplimentWatched = True
-            call stat_reward({"Jannice": {"love": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Jannice": {"love": 2}}, return_to=None)
             jump first_menu
         "Pervert compliment":
             if JannicePervComplimentWatched:
@@ -49,7 +49,7 @@ label janniceTalk_menu:
             scene JanniceScene9 with Dissolve(0.5)
             Jannice "This is no way to talk to a teacher, [MC]!!"
             Jannice "Enjoy your time in detention today, go to your seat!"
-            call stat_reward({"Jannice": {"love": -5, "corruption": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Jannice": {"love": -5, "corruption": 2}}, return_to=None)
             $ JannicePervComplimentWatched = True
             scene BlackScreen with Dissolve(0.5)
             $ renpy.call("GameLoop")
@@ -65,7 +65,7 @@ label janniceTalk_menu:
             MC "You just seem to have gained some weight lately, are you sure you are alright?"
             scene JanniceScene13 with Dissolve(0.5)
             Jannice "I'm fine, [MC], go back to your seat right now! You have detention!!"
-            call stat_reward({"Jannice": {"love": -5, "corruption": -5}}, show_black=False, return_to=None)
+            call stat_reward({"Jannice": {"love": -5, "corruption": -5}}, return_to=None)
             $ JanniceInsultWatched = True
             scene BlackScreen with Dissolve(0.5)
             $ renpy.call("GameLoop")

@@ -93,7 +93,7 @@ label JenniferEvening44:
                     MC "{color=#808080}*I messed up pretty bad...*{/color}"
                     scene BlackScreen
                     "{color=#808080}**You leave the room.**{/color}"
-                    call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": -5}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"love": -5, "corruption": 2, "obedience": -5}}, return_to=None)
                     $ Location = "Entrance"
                     $ advance_time_or_sleep()
                 "Leave":
@@ -103,7 +103,7 @@ label JenniferEvening44:
                     Jennifer "Go sit at the table, the food it's almost done."
                     scene BlackScreen
                     "{color=#808080}**You leave the room.**{/color}"
-                    call stat_reward({"Jennifer": {"love": 2}}, show_black=False, return_to=None)
+                    call stat_reward({"Jennifer": {"love": 2}}, return_to=None)
                     $ Location = "Entrance"
                     $ advance_time_or_sleep()
         "Leave":

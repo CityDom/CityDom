@@ -72,7 +72,7 @@ label scarletTalk_menu:
                 Scarlet "GO BACK TO YOUR PLACE RIGHT NOW!!!!"
                 scene BlackScreen with Dissolve(0.5)
                 MC "{color=#808080}*Geez... She really flies off the handle pretty quick...*{color=#808080}"
-                call stat_reward({"Scarlet": {"love": -2, "corruption": 2}}, show_black=False)
+                call stat_reward({"Scarlet": {"love": -2, "corruption": 2}})
             else:
                 MC "{color=#808080}*I already talked to her about that...*"
                 jump scarletTalk_menu

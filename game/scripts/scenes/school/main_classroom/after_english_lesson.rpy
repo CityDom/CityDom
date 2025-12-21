@@ -21,7 +21,7 @@ label AfterEnglishLessonFail:
     Jannice "Make sure to do your homework!"
     scene DropPenScene30 with Dissolve(0.5)
     Jannice "See you after the break!"
-    call stat_reward({"Maria": {"love": -5, "corruption": -5, "obedience": -5}}, show_black=False, return_to=None)
+    call stat_reward({"Maria": {"love": -5, "corruption": -5, "obedience": -5}}, return_to=None)
     $ Location = "mainclassroom"
     $ advance_time_or_sleep()
 
@@ -58,6 +58,6 @@ label MariaFinishLessonSuccess:
     Jannice "Make sure to do your homework!"
     scene DropPenScene30 with Dissolve(0.5)
     Jannice "See you after the break!"
-    call stat_reward({"Maria": {"love": 5, "corruption": 5, "obedience": 5}}, show_black=False, return_to=None)
+    call stat_reward({"Maria": {"love": 5, "corruption": 5, "obedience": 5}}, return_to=None)
     $ Location = "mainclassroom"
     $ advance_time_or_sleep()

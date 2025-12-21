@@ -98,7 +98,7 @@ label Jennifer_weekend_8AM:
             MC "{color=#808080}*Although, mom and Isa getting closer to each other doesn't sound bad at all, it might make things easier actually.*"
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            call stat_reward({"Isabella": {"obedience": 2}, "Jennifer": {"obedience": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Isabella": {"obedience": 2}, "Jennifer": {"obedience": 2}}, return_to=None)
             $ Location = "Livingroom"
             $ advance_time_or_sleep()
         "scare Isabella":
@@ -179,7 +179,7 @@ label Jennifer_weekend_8AM:
             MC "UGHHHH..."
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            call stat_reward({"Isabella": {"love": -2, "corruption": 2}, "Jennifer": {"love": -2, "corruption": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Isabella": {"love": -2, "corruption": 2}, "Jennifer": {"love": -2, "corruption": 2}}, return_to=None)
             $ Location = "Livingroom"
             $ advance_time_or_sleep()
         "leave":
@@ -195,6 +195,6 @@ label Jennifer_weekend_8AM:
             MC "Yeah, yeah, you tell me every time."
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
-            call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, show_black=False, return_to=None)
+            call stat_reward({"Isabella": {"love": 2}, "Jennifer": {"love": 2}}, return_to=None)
             $ Location = "Livingroom"
             $ advance_time_or_sleep()
