@@ -4,6 +4,17 @@ image MapImage = "HomeSubplace/map.png"
 image JenniferInRoomJenniferAtHome = "JenniferAllScenes/JenniferInRoom/JenniferAtHome.png"
 
 init 1 python:
+    def screen_event(start_hour, end_hour, day, location, block, is_active):
+        return Event(
+            start_hour,
+            end_hour,
+            day,
+            location,
+            block,
+            is_active,
+            screen_name=get_location_screen_name(location),
+        )
+
     EVENTS = {
         # * Jennifer Events
         # 1: Event(0, 0, -1, "Jennifer room", "JenniferMorningEvent14", True), # Wakes up
@@ -52,43 +63,43 @@ init 1 python:
         # 38: Event(17, 17, -1, "Livingroom", "MovieNightEvent", True), # Everyone watches TV
 
         # * School Events
-        39: Event(0, 24, -1, "School", "SchoolEvent", True), # School Front Screen
-        40: Event(0, 24, -1, "SchoolEntrance", "SchoolEntranceEvent", True), # School Entrance Screen
-        41: Event(0, 24, -1, "ToiletsFront", "ToiletsFrontEvent", True), # School Entrance Screen
-        42: Event(0, 24, -1, "MensToilet", "MensToiletEvent", True), # School Entrance Screen
-        43: Event(0, 24, -1, "WomansToilet", "WomansToiletEvent", True), # School Entrance Screen
-        44: Event(0, 24, -1, "UpTheStairs", "UpTheStairsEvent", True), # Up The Stairs Screen
-        45: Event(0, 24, -1, "TeacherHall", "TeacherHallEvent", True),# Teacher Hall Screen
-        46: Event(0, 24, -1, "ArtClassFront", "ArtClassFrontEvent", True),# Art Class Front Screen
-        47: Event(0, 24, -1, "MedicRoomFront", "MedicRoomFrontEvent", True),# Medic Room Front Screen
-        48: Event(0, 24, -1, "SchoolGymFront", "SchoolGymFrontEvent", True),# School Gym Front Screen
-        49: Event(0, 24, -1, "InsideSchoolGym", "InsideSchoolGymEvent", True),# Inside School Gym Screen
-        50: Event(0, 24, -1, "BackYard", "BackYardEvent", True),# BackYard Screen
-        51: Event(0, 24, -1, "SchoolPool", "SchoolPoolEvent", True),# SchoolPool Screen
-        52: Event(0, 24, -1, "TeachersBathroom", "TeachersBathroomEvent", True),# TeachersBathroom Screen
-        53: Event(0, 24, -1, "PrincipalOffice", "PrincipalOfficeEvent", True),# PrincipalOffice Screen
-        54: Event(0, 24, -1, "TeachersLounge", "TeachersLoungeEvent", True),# TeachersLounge Screen
-        55: Event(0, 24, -1, "MainClassroom", "MainClassroomEvent", True),# MainClassroom Screen
-        56: Event(0, 24, -1, "NurseRoom", "NurseRoomEvent", True),# NurseRoom Screen
-        57: Event(0, 24, -1, "ArtClass", "ArtClassEvent", True),# NurseRoom Screen
-        58: Event(0, 24, -1, "SchoolLibrary", "SchoolLibraryEvent", True),# SchoolLibrary Screen
-        60: Event(0, 24, -1, "MannersClass", "MannersClassEvent", True),# Manners Class Screen
-        61: Event(0, 24, -1, "BioClass", "BioClassEvent", True),# Bio Class Screen
-        62: Event(0, 24, -1, "Gym", "GymEvent", True),# Bio Class Screen
-        63: Event(0, 24, -1, "GymLockerRoomFront", "GymLockerRoomFrontEvent", True),# Bio Class Screen
-        64: Event(0, 24, -1, "GirlsLockerRoom", "GirlsLockerRoomEvent", True),# Bio Class Screen
+        39: screen_event(0, 24, -1, "School", "SchoolEvent", True), # School Front Screen
+        40: screen_event(0, 24, -1, "SchoolEntrance", "SchoolEntranceEvent", True), # School Entrance Screen
+        41: screen_event(0, 24, -1, "ToiletsFront", "ToiletsFrontEvent", True), # School Entrance Screen
+        42: screen_event(0, 24, -1, "MensToilet", "MensToiletEvent", True), # School Entrance Screen
+        43: screen_event(0, 24, -1, "WomansToilet", "WomansToiletEvent", True), # School Entrance Screen
+        44: screen_event(0, 24, -1, "UpTheStairs", "UpTheStairsEvent", True), # Up The Stairs Screen
+        45: screen_event(0, 24, -1, "TeacherHall", "TeacherHallEvent", True),# Teacher Hall Screen
+        46: screen_event(0, 24, -1, "ArtClassFront", "ArtClassFrontEvent", True),# Art Class Front Screen
+        47: screen_event(0, 24, -1, "MedicRoomFront", "MedicRoomFrontEvent", True),# Medic Room Front Screen
+        48: screen_event(0, 24, -1, "SchoolGymFront", "SchoolGymFrontEvent", True),# School Gym Front Screen
+        49: screen_event(0, 24, -1, "InsideSchoolGym", "InsideSchoolGymEvent", True),# Inside School Gym Screen
+        50: screen_event(0, 24, -1, "BackYard", "BackYardEvent", True),# BackYard Screen
+        51: screen_event(0, 24, -1, "SchoolPool", "SchoolPoolEvent", True),# SchoolPool Screen
+        52: screen_event(0, 24, -1, "TeachersBathroom", "TeachersBathroomEvent", True),# TeachersBathroom Screen
+        53: screen_event(0, 24, -1, "PrincipalOffice", "PrincipalOfficeEvent", True),# PrincipalOffice Screen
+        54: screen_event(0, 24, -1, "TeachersLounge", "TeachersLoungeEvent", True),# TeachersLounge Screen
+        55: screen_event(0, 24, -1, "MainClassroom", "MainClassroomEvent", True),# MainClassroom Screen
+        56: screen_event(0, 24, -1, "NurseRoom", "NurseRoomEvent", True),# NurseRoom Screen
+        57: screen_event(0, 24, -1, "ArtClass", "ArtClassEvent", True),# NurseRoom Screen
+        58: screen_event(0, 24, -1, "SchoolLibrary", "SchoolLibraryEvent", True),# SchoolLibrary Screen
+        60: screen_event(0, 24, -1, "MannersClass", "MannersClassEvent", True),# Manners Class Screen
+        61: screen_event(0, 24, -1, "BioClass", "BioClassEvent", True),# Bio Class Screen
+        62: screen_event(0, 24, -1, "Gym", "GymEvent", True),# Bio Class Screen
+        63: screen_event(0, 24, -1, "GymLockerRoomFront", "GymLockerRoomFrontEvent", True),# Bio Class Screen
+        64: screen_event(0, 24, -1, "GirlsLockerRoom", "GirlsLockerRoomEvent", True),# Bio Class Screen
 
         # * House screens
-        65: Event(0, 24, -1, "Housefront", "HousefrontEvent", True),# Housefront Screen
-        66: Event(0, 24, -3, "HouseToilet", "HouseToiletEvent", True),# HouseToilet Screen
-        67: Event(0, 24, -1, "Livingroom", "LivingroomEvent", True),# LivingRoom Screen
-        68: Event(0, 24, -3, "bathroom", "BathroomEvent", True),# bathroom Screen
+        65: screen_event(0, 24, -1, "Housefront", "HousefrontEvent", True),# Housefront Screen
+        66: screen_event(0, 24, -3, "HouseToilet", "HouseToiletEvent", True),# HouseToilet Screen
+        67: screen_event(0, 24, -1, "Livingroom", "LivingroomEvent", True),# LivingRoom Screen
+        68: screen_event(0, 24, -3, "bathroom", "BathroomEvent", True),# bathroom Screen
 
         # 69: Event(0, 24, -2, "Isabella room", "IsabellaRoomWeekendEvent", True),
         # 70: Event(0, 24, -2, "Jennifer room", "JenniferRoomWeekendEvent", True),
         # 71: Event(0, 24, -2, "Claire room", "ClaireRoomWeekendEvent", True),
-        72: Event(0, 24, -3, "kitchen", "KitchenEvent", True),# Kitchen Screen
-        73: Event(0, 24, -2, "Garden1", "Garden1WeekendEvent", True),# Garden1 Screen
-        74: Event(0, 24, -2, "Garden2", "Garden2WeekendEvent", True),# Garden2 Screen
-        74: Event(0, 24, -3, "Entrance", "EntranceEvent", True),# Garden2 Screen
+        72: screen_event(0, 24, -3, "kitchen", "KitchenEvent", True),# Kitchen Screen
+        73: screen_event(0, 24, -2, "Garden1", "Garden1WeekendEvent", True),# Garden1 Screen
+        74: screen_event(0, 24, -2, "Garden2", "Garden2WeekendEvent", True),# Garden2 Screen
+        74: screen_event(0, 24, -3, "Entrance", "EntranceEvent", True),# Garden2 Screen
     }

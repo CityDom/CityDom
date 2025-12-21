@@ -8,7 +8,7 @@ label start:
         label GameLoop:
             
             # Reset variables
-            $ BlockToCall, clickType = "", ""
+            $ selected_event, clickType = None, ""
             $ calendar.update_period_index()
             $ LocationID = get_location_id(Location, LocationID)
             $ Location = get_location_name(Location)
@@ -25,12 +25,12 @@ label start:
             python:
                 for event in EVENTS.values():
                     if event.is_active and event.date_check(calendar) and event.location.lower() == current_location:
-                        BlockToCall = event.block
+                        selected_event = event
 
-            if BlockToCall:
-                $ screen_name = f"{BlockToCall.replace('Event', 'Screen')}"
+            if selected_event:
+                $ screen_name = selected_event.screen_name
                 # Check if the screen exists before attempting to show it
-                if renpy.has_screen(screen_name):
+                if screen_name and renpy.has_screen(screen_name):
                     $ renpy.show_screen(screen_name)
                 else:
                     python:
@@ -38,7 +38,7 @@ label start:
                             renpy.hide_screen(screen_name)
                     # If there's no specific screen for the event, call the event block directly
                     # This assumes you have a label or function setup for handling the event by its name
-                    $ renpy.call(BlockToCall)
+                    $ renpy.call(selected_event.block)
 
             # ! Sad isolate event. Will look for a better solution
             if is_before_gym_swim_class() and (calendar.Day == 1 or calendar.Day == 3 or calendar.Day == 5) and Location == "GirlsLockerRoom":
