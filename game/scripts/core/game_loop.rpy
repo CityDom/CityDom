@@ -33,6 +33,9 @@ label start:
                 if renpy.has_screen(screen_name):
                     $ renpy.show_screen(screen_name)
                 else:
+                    python:
+                        for screen_name in ALL_EVENT_SCREENS:
+                            renpy.hide_screen(screen_name)
                     # If there's no specific screen for the event, call the event block directly
                     # This assumes you have a label or function setup for handling the event by its name
                     $ renpy.call(BlockToCall)
@@ -43,10 +46,10 @@ label start:
                 $ renpy.jump("BeforeGymClass_FromInside_Scene")
             # ! Sad isolate event. Will look for a better solution
 
-            if LastLocation != Location:
-                python:
-                    location_screen = get_location_screen_name(Location)
-                    if location_screen and renpy.has_screen(location_screen):
+            python:
+                location_screen = get_location_screen_name(Location)
+                if location_screen and renpy.has_screen(location_screen):
+                    if LastLocation != Location or not renpy.get_screen(location_screen):
                         renpy.show_screen(location_screen)
 
             # Check for location change and update the location if changed

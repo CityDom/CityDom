@@ -6,4 +6,4 @@ screen IsabellaNightScreen44():
             hover "ScenesScreens/IsabellaSceneScreens/Isabella44NightScreen/IsabellaNight44Button1_hover.png"
             xpos 753
             ypos 398
-            action [Hide("IsabellaNightScreen44"), Jump("IsabellaNightEvent44")]
+            action [Function(hideEventScreens), Jump("IsabellaNightEvent44")]
