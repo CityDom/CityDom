@@ -7,10 +7,6 @@ screen BathroomScreen():
         "HomeSubplace/Bathroom evening.png" if calendar.Hours < 16 else 
         "HomeSubplace/Bathroom night.png")
     if calendar.Day not in [0, 6]:
-        on "show" action If(calendar.Hours == 1, [Hide("BathroomScreen"), Jump("JenniferMorningEvent34")])
-        on "show" action If(calendar.Hours == 2, [Hide("BathroomScreen"), Jump("IsabellaMorningEvent24")])
-        on "show" action If(calendar.Hours == 18, [Hide("BathroomScreen"), Jump("ClaireNightEvent34")])
-
         if calendar.Hours == 0:
             $ last_shower_time = -10  # Allows showering again in the new day
         if not MapScreenShown and not StatsScreenShown:
@@ -52,10 +48,6 @@ screen BathroomScreen():
                 )
                 at bump
                 focus_mask True
-    if calendar.Day == 0 or calendar.Day == 6:  # Weekend logic
-        on "show" action If(calendar.Hours == 1, [Hide("BathroomScreen"), Jump("Claire_weekend_7AM")])
-        # on "show" action If(calendar.Hours == 12, [Hide("HouseToiletScreen"), Jump("IsabellaNightEvent34")])
-        # on "show" action If(calendar.Hours == 1, [Hide("HouseToiletScreen"), Jump("Jennifer_weekend_7AM")])
 label TooSoonToShower:
     "I already showered recently, I don't get dirty that fast."
     $ renpy.call("GameLoop")

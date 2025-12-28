@@ -1,5 +1,6 @@
 label start:
     $ GameIsRunning = True
+    $ _ensure_background_music()
 
     jump GameIntro
     # Game is running
@@ -9,6 +10,7 @@ label start:
             
             # Reset variables
             $ selected_event, clickType = None, ""
+            $ _ensure_background_music()
             $ calendar.update_period_index()
             $ LocationID = get_location_id(Location, LocationID)
             $ Location = get_location_name(Location)
@@ -32,7 +34,7 @@ label start:
                 # Check if the screen exists before attempting to show it
                 if screen_name and renpy.has_screen(screen_name):
                     $ renpy.show_screen(screen_name)
-                else:
+                elif getattr(selected_event, "auto_trigger", True):
                     python:
                         for screen_name in ALL_EVENT_SCREENS:
                             renpy.hide_screen(screen_name)

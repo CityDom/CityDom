@@ -258,11 +258,16 @@ screen quick_menu():
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
 
+screen music_guard():
+    timer 0.01 action Function(_ensure_background_music)
+    timer 1.0 repeat True action Function(_ensure_background_music)
+
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
 init python:
     config.overlay_screens.append("quick_menu")
+    config.overlay_screens.append("music_guard")
 
 default quick_menu = False
 

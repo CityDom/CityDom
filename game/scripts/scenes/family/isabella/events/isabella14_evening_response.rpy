@@ -76,8 +76,8 @@ label IsabellaEvening14:
             MC "Oh my god, I'm so sorry I didn't know you were changing, I thought you-"
             scene Isabella_evening14_13 with Dissolve(0.5)
             Isabella "I SAID GET THE FUCK OUT NOW PERVERT!!!!!!!!!!"
-            call stat_reward({"Isabella": {"love": -5}}, return_to=None)
             $ Location = "Hallway"
+            call stat_reward({"Isabella": {"love": -5}}, return_to="GameLoop")
         "Leave":
             MC "{color=#808080}*Better not to risk it.*{color=#808080}"
             $ Location = "Hallway"

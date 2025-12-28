@@ -81,6 +81,16 @@ screen IsabellaRoomScreen():
                     ypos 367
                     action [Function(hideEventScreens), Jump("Isabella_weekend_7AM")]
                     focus_mask True
+        elif calendar.Hours == 8:
+            add "HouseScreens/Isabella_Weekend_2PM.webp"
+            if not MapScreenShown and not StatsScreenShown:
+                imagebutton:
+                    idle "HouseScreens/Isabella_2PM_idle.png"
+                    hover "HouseScreens/Isabella_2PM_hover.png"
+                    xpos 778
+                    ypos 353
+                    action [Function(hideEventScreens), Jump("Isabella_weekend_2PM")]
+                    focus_mask True
         elif calendar.Hours < 12 and calendar.Hours >= 0:
             add "HomeSubplace/Isabella room.png"
         elif calendar.Hours < 16 and calendar.Hours >= 12:

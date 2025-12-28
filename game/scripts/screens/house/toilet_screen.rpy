@@ -4,10 +4,6 @@ default Bathroom_Pee_scene = []
 screen HouseToiletScreen():
     add "HomeSubplace/HouseToilet.png"
     if calendar.Day not in [0, 6]:
-        on "show" action If(calendar.Hours == 2, [Hide("HouseToiletScreen"), Jump("ClaireMorningEvent34")])
-        on "show" action If(calendar.Hours == 12, [Hide("HouseToiletScreen"), Jump("IsabellaNightEvent34")])
-        on "show" action If(calendar.Hours == 18, [Hide("HouseToiletScreen"), Jump("Jennifer_weekend_7AM")])
-
         if calendar.Hours == 0:
             $ last_pee_time = -10
 
@@ -45,10 +41,6 @@ screen HouseToiletScreen():
                         ]
                     )
                     focus_mask True
-    if calendar.Day == 0 or calendar.Day == 6:  # Weekend logic
-        # on "show" action If(calendar.Hours == 2, [Hide("HouseToiletScreen"), Jump("ClaireMorningEvent34")])
-        # on "show" action If(calendar.Hours == 12, [Hide("HouseToiletScreen"), Jump("IsabellaNightEvent34")])
-        on "show" action If(calendar.Hours == 1, [Hide("HouseToiletScreen"), Jump("Jennifer_weekend_7AM")])
 label TooSoonToPee:
     "I already peed, I don't need to go again so soon."
     $ renpy.call("GameLoop")

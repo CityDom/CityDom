@@ -153,7 +153,7 @@ init python:
                 school_clock.advance_periods(SCHOOL_PERIODS_PER_HOUR)
                 
     class Event:
-        def __init__(self, start_hour, end_hour, day, location, block, is_active, screen_name=None):
+        def __init__(self, start_hour, end_hour, day, location, block, is_active, screen_name=None, auto_trigger=True):
             self.start_hour = start_hour
             self.end_hour = end_hour
             self.day = day
@@ -161,6 +161,7 @@ init python:
             self.block = block
             self.is_active = is_active
             self.screen_name = screen_name
+            self.auto_trigger = auto_trigger
 
         def date_check(self, c):
             hour_within_range = self.start_hour <= c.Hours <= self.end_hour
@@ -209,4 +210,3 @@ init python:
 
     EVENTS = [Event(0, 0, -1, "", "", False) for _ in range(50)]
     Inventory = [Items("none", 0, 0, 0, t) for t in range(50)]
-
