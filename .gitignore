@@ -89,6 +89,9 @@ steam_appid.txt
 *.keystore
 .android.json
 
+# Ren'Py Warp extension (VS Code)
+renpy_warp_*.rpe*
+
 # Live2D integration
 cubism
 CubismSdkForNative-4-*.zip
