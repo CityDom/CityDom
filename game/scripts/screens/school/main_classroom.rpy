@@ -9,7 +9,7 @@ screen MainClassroomScreen():
             hover "DetentionClass/DetentionClass_Sandra_Button_hover.png"
             xpos 251
             ypos 157
-            action [Hide("MainClassroomScreen"), Jump("DetentionClass_Sandra_Scene")]
+            action Function(start_event_from_screen, "DetentionClass/DetentionClass.png", "DetentionClass_Sandra_Scene")
             focus_mask True
 
         imagebutton:
@@ -17,13 +17,13 @@ screen MainClassroomScreen():
             hover "DetentionClass/DetentionClass_Maria_Button_hover.png"
             xpos 1376
             ypos 408
-            action [Hide("MainClassroomScreen"), Jump("DetentionClass_Maria_Scene")]
+            action Function(start_event_from_screen, "DetentionClass/DetentionClass.png", "DetentionClass_Maria_Scene")
             focus_mask True
         imagebutton:
             auto "MoveRightArrowSmaller_%s.png"
             xpos 1050
             ypos 350
-            action [Hide("MainClassroomScreen"), Jump("DetentionClass_Scene")]
+            action Function(start_event_from_screen, "DetentionClass/DetentionClass.png", "DetentionClass_Scene")
             at rootateDown
             focus_mask True
     elif is_english_class_hour():
@@ -34,7 +34,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/JanniceButton_hover.png"
             xpos 1272
             ypos 483
-            action [Hide("MainClassroomScreen"), Jump("JanniceClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "JanniceClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -42,7 +42,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/DorothyButton_hover.png"
             xpos 340
             ypos 367
-            action [Hide("MainClassroomScreen"), Jump("DorothyClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "DorothyClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -50,7 +50,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/HelenaButton_hover.png"
             xpos 557
             ypos 276
-            action [Hide("MainClassroomScreen"), Jump("HelenaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "HelenaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -58,7 +58,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/AlisButton_hover.png"
             xpos 336
             ypos 215
-            action [Hide("MainClassroomScreen"), Jump("AlisClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "AlisClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -66,7 +66,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/SophieButton_hover.png"
             xpos 538
             ypos 232
-            action [Hide("MainClassroomScreen"), Jump("SophieClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "SophieClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -74,7 +74,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/AnnaEmmaButton_hover.png"
             xpos 255
             ypos 165
-            action [Hide("MainClassroomScreen"), Jump("AnnaEmmaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "AnnaEmmaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -82,7 +82,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/SelinaButton_hover.png"
             xpos 1035
             ypos 305
-            action [Hide("MainClassroomScreen"), Jump("SelinaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "SelinaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -90,7 +90,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/GretaButton_hover.png"
             xpos 1205
             ypos 270
-            action [Hide("MainClassroomScreen"), Jump("GretaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "GretaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -98,7 +98,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/LeyaButton_hover.png"
             xpos 865
             ypos 190
-            action [Hide("MainClassroomScreen"), Jump("LeyaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "LeyaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -106,7 +106,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/LolaButton_hover.png"
             xpos 1047
             ypos 173
-            action [Hide("MainClassroomScreen"), Jump("LolaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "LolaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -114,7 +114,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/IsabellaButton_hover.png"
             xpos 767
             ypos 136
-            action [Hide("MainClassroomScreen"), Jump("IsabellaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "IsabellaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -122,7 +122,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/CrissButton_hover.png"
             xpos 913
             ypos 97
-            action [Hide("MainClassroomScreen"), Jump("CrissClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "CrissClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -130,7 +130,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/MariaButton_hover.png"
             xpos 832
             ypos 130
-            action [Hide("MainClassroomScreen"), Jump("MariaClassroomScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "MariaClassroomScene")
             focus_mask True
 
         imagebutton:
@@ -148,7 +148,7 @@ screen MainClassroomScreen():
             hover "ClassRoomButtons/GretaButton_hover.png"
             xpos 1205
             ypos 270
-            action [Hide("MainClassroomScreen"), Jump("GretaFirstPauseScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "GretaFirstPauseScene")
             focus_mask True
 
     elif school_clock.period < 11:

@@ -21,12 +21,13 @@ screen ToiletsFrontScreen():
                 action [Return("SchoolEntrance"), Hide("SchoolEntranceScreen")]
                 at buttonScale
     elif school_clock.IsBreak and school_clock.hour < 15 and school_clock.period < 7:
+        add "SchoolSubplace/ToiletsFront1.png"
         imagebutton:
             idle "SchoolFirstPause/SelinaEventScene/Selina_Button_idle.png"
             hover "SchoolFirstPause/SelinaEventScene/Selina_Button_hover.png"
             xpos 488
             ypos 370
-            action [Hide("ToiletsFrontScreen"), Jump("SelinaFirstPauseScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/ToiletsFront1.png", "SelinaFirstPauseScene")
             focus_mask True
         imagebutton:
             idle "SchoolDoors/GirlsToiletsDoor_idle.png"

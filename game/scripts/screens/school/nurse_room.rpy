@@ -9,7 +9,7 @@ screen NurseRoomScreen():
                 hover "SchoolCharButtons/SchoolMedicButton_hover.png"
                 xpos 1023
                 ypos 302
-                action [Hide("NurseRoomScreen"), Jump("NurseScene")]
+                action Function(start_event_from_screen, "SchoolSubplace/NurseRoom.png", "NurseScene")
                 focus_mask True
     else:
         add "SchoolSubplace/NurseRoom evening.png"

@@ -42,13 +42,14 @@ screen UpTheStairsScreen():
             #     action [Return("WomansToilet"), Hide("UpTheStairsScreen")]
             #     at buttonScale
     elif school_clock.IsBreak and school_clock.hour < 15 and school_clock.period < 7:
+        add "SchoolSubplace/UpTheStairs.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolFirstPause/CrissAndIsabellaEventScene/CrissAndIsabella_Button_idle.png"
                 hover "SchoolFirstPause/CrissAndIsabellaEventScene/CrissAndIsabella_Button_hover.png"
                 xpos 385
                 ypos 328
-                action [Hide("UpTheStairsScreen"), Jump("CrissAndIsabellaFirstPauseScene")]
+                action Function(start_event_from_screen, "SchoolSubplace/UpTheStairs.png", "CrissAndIsabellaFirstPauseScene")
                 focus_mask True     
             imagebutton:
                 auto "MoveUpArrow_%s.png"

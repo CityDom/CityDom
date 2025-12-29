@@ -6,7 +6,7 @@ screen InsideSchoolGymScreen():
             hover "SchoolDoors/GymDoor_hover.png"
             xpos 206
             ypos 219
-            action [Hide("InsideSchoolGymScreen"), Jump("FirstTimeGym_Scene")]
+            action Function(start_event_from_screen, "SchoolSubplace/InsideSchoolGym.png", "FirstTimeGym_Scene")
             focus_mask True
         imagebutton:
             auto "MoveRightArrow_%s.png"

@@ -6,7 +6,7 @@ screen GymLockerRoomFrontScreen():
             hover "SchoolDoors/GirlsLockerRoomDoor_hover.png"
             xpos 1248
             ypos 152
-            action [Hide("GymLockerRoomFrontScreen"), Jump("BeforeGymClass_Scene")]
+            action Function(start_event_from_screen, "SchoolSubplace/GymLockerRoomFront.png", "BeforeGymClass_Scene")
             focus_mask True
     elif is_day_hour(calendar.Hours):
         add "SchoolSubplace/GymLockerRoomFront.png"

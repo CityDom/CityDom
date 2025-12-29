@@ -15,7 +15,7 @@ screen ArtClassScreen():
                 auto "MoveRightArrowSmaller_%s.png"
                 xpos 950
                 ypos 550
-                action [Hide("ArtClassScreen"), Jump("DuringArtClassScene")]
+                action Function(start_event_from_screen, "ArtClass/ArtClass.png", "DuringArtClassScene")
                 at ClassRoomButtonLookDown
                 focus_mask True
             imagebutton:
@@ -23,28 +23,28 @@ screen ArtClassScreen():
                 hover "ArtClass/Maria_hover.png"
                 xpos 725
                 ypos 512
-                action [Hide("ArtClassScreen"), Jump("ArtClass_Maria_Scene")]
+                action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_Maria_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Isa_Criss_idle.png"
                 hover "ArtClass/Isa_Criss_hover.png"
                 xpos 1190
                 ypos 173
-                action [Hide("ArtClassScreen"), Jump("ArtClass_IsabellaCriss_Scene")]
+                action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_IsabellaCriss_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Emma_Anna_idle.png"
                 hover "ArtClass/Emma_Anna_hover.png"
                 xpos 330
                 ypos 240
-                action [Hide("ArtClassScreen"), Jump("ArtClass_AnnaEmma_Scene")]
+                action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_AnnaEmma_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Sophie_Alis_idle.png"
                 hover "ArtClass/Sophie_Alis_hover.png"
                 xpos 606
                 ypos 120
-                action [Hide("ArtClassScreen"), Jump("ArtClass_SophieAlis_Scene")]
+                action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_SophieAlis_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Lola_Leya_Dorothy_Helena_idle.png"
@@ -58,14 +58,14 @@ screen ArtClassScreen():
                 hover "ArtClass/Selina_Greta_hover.png"
                 xpos 48
                 ypos 343
-                action [Hide("ArtClassScreen"), Jump("ArtClass_SelinaGreta_Scene")]
+                action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_SelinaGreta_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Scarlet_idle.png"
                 hover "ArtClass/Scarlet_hover.png"
                 xpos 997
                 ypos 114
-                action [Hide("ArtClassScreen"), Jump("ArtClass_Scarlet_Scene")]
+                action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_Scarlet_Scene")
                 focus_mask True
     else:
         add "SchoolSubplace/ArtClass.png"

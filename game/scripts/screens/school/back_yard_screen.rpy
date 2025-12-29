@@ -8,5 +8,5 @@ screen BackYardScreen():
             hover "SchoolFirstPause/MariaEventScene/Maria_Button_hover.png"
             xpos 812
             ypos 325
-            action [Hide("BackYardScreen"),Jump("MariaFirstPauseScene")]
+            action Function(start_event_from_screen, "SchoolSubplace/BackYard1.png", "MariaFirstPauseScene")
             focus_mask True

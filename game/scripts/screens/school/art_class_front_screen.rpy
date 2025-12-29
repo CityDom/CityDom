@@ -66,5 +66,5 @@ screen ArtClassFrontScreen():
                 hover "SchoolFirstPause/HelenaAndSophieEventScene/SophieAndHelenaButton_hover.png"
                 xpos 1065
                 ypos 379
-                action [Hide("ArtClassFrontScreen"), Jump("HelenaAndSophieFirstPauseScene")]
+                action Function(start_event_from_screen, "SchoolFirstPause/HelenaAndSophieEventScene/HelenaAndSophieScreen.png", "HelenaAndSophieFirstPauseScene")
                 focus_mask True

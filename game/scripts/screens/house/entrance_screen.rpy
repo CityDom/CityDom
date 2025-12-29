@@ -7,7 +7,7 @@ screen EntranceScreen():
                 hover "ScenesScreens/LeaveHomeSceneScreens/LeaveHomeScreen1/LeaveHomeScreenButton1_hover.png"
                 xpos 1176
                 ypos 252
-                action [Hide("EntranceScreen"), Jump("LeaveHomeLVL1")]
+                action Function(start_event_from_screen, "ScenesScreens/LeaveHomeSceneScreens/LeaveHomeScreen1/LeaveHomeScreen1.webp", "LeaveHomeLVL1")
                 focus_mask True
         elif calendar.Hours == HOUR_4PM:
             add "ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Screen1.webp"
@@ -16,7 +16,7 @@ screen EntranceScreen():
                 hover "ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Button1_hover.png"
                 xpos 1332
                 ypos 414
-                action [Hide("EntranceScreen"), Jump("IsabellaNoonEvent24")]
+                action Function(start_event_from_screen, "ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Screen1.webp", "IsabellaNoonEvent24")
                 focus_mask True
         elif calendar.Hours == HOUR_6PM:
             add "ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Screen1.webp"
@@ -25,7 +25,7 @@ screen EntranceScreen():
                 hover "ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Button1_hover.png"
                 xpos 1363   
                 ypos 367
-                action [Hide("EntranceScreen"), Jump("ClaireEveningEvent14")]
+                action Function(start_event_from_screen, "ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Screen1.webp", "ClaireEveningEvent14")
                 focus_mask True
         elif calendar.Hours == HOUR_7PM:
             add "ScenesScreens/JenniferSceneScreens/Jennifer24EveningScreen/JenniferEvening24Screen1.webp"
@@ -35,7 +35,7 @@ screen EntranceScreen():
                     hover "ScenesScreens/JenniferSceneScreens/Jennifer24EveningScreen/JenniferEvening24Button1_hover.png"
                     xpos 1355
                     ypos 350
-                    action [Hide("EntranceScreen"), Jump("JenniferEveningEvent24")]
+                    action Function(start_event_from_screen, "ScenesScreens/JenniferSceneScreens/Jennifer24EveningScreen/JenniferEvening24Screen1.webp", "JenniferEveningEvent24")
                     focus_mask True
         elif is_day_hour(calendar.Hours):
             add "Places/Entrance.png"
@@ -52,7 +52,7 @@ screen EntranceScreen():
                     hover "HouseScreens/Isabella_10AM_hover.png"
                     xpos 1328
                     ypos 402
-                    action [Hide("EntranceScreen"), Jump("Isabella_weekend_10AM")]
+                    action Function(start_event_from_screen, "HouseScreens/Isabella_Weekend_10AM.webp", "Isabella_weekend_10AM")
                     focus_mask True
         elif calendar.Hours == HOUR_1PM:
             add "HouseScreens/Jennifer_weekend_1PM.webp"
@@ -62,7 +62,7 @@ screen EntranceScreen():
                     hover "HouseScreens/Jennifer_1PM_hover.png"
                     xpos 1314
                     ypos 354
-                    action [Hide("EntranceScreen"), Jump("Jennifer_weekend_1PM")]
+                    action Function(start_event_from_screen, "HouseScreens/Jennifer_weekend_1PM.webp", "Jennifer_weekend_1PM")
                     focus_mask True
         elif is_day_hour(calendar.Hours):
             add "Places/Entrance.png"

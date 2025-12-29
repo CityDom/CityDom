@@ -14,6 +14,8 @@ init python:
     }
 
     def _is_main_menu():
+        if getattr(store, "force_music_in_tests", False):
+            return False
         try:
             if renpy.context()._main_menu:
                 return True

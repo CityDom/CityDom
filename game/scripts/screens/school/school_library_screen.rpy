@@ -13,7 +13,7 @@ screen SchoolLibraryScreen():
                 hover "SchoolFirstPause/DorothyEventScene/DorothyButton_hover.png"
                 xpos 549
                 ypos 165
-                action [Hide("SchoolLibraryScreen"), Jump("DorothyFirstPauseScene")]
+                action Function(start_event_from_screen, "SchoolSubplace/SchoolLibrary.png", "DorothyFirstPauseScene")
     elif is_day_hour(calendar.Hours):
         add "SchoolSubplace/SchoolLibrary.png"
         if not MapScreenShown and not StatsScreenShown:

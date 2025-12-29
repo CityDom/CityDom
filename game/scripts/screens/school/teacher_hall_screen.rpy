@@ -13,7 +13,7 @@ screen TeacherHallScreen():
                 hover "SchoolDoors/PrincipalDoor_hover.png"
                 xpos 875
                 ypos 392
-                action [Hide("TeacherHallScreen"), Jump("PrincipalOffice")]
+                action Function(start_event_from_screen, "SchoolSubplace/TeacherHall.png", "PrincipalOffice")
             imagebutton:
                 idle "SchoolDoors/TeachersLoungeDoor_idle.png"
                 hover "SchoolDoors/TeachersLoungeDoor_hover.png"
@@ -34,7 +34,7 @@ screen TeacherHallScreen():
                 hover "SchoolDoors/PrincipalDoor_hover.png"
                 xpos 875
                 ypos 392
-                action [Hide("TeacherHallScreen"), Jump("PrincipalOffice")]
+                action Function(start_event_from_screen, "SchoolSubplace/TeacherHall evening.png", "PrincipalOffice")
             imagebutton:
                 idle "SchoolDoors/TeachersLoungeDoor_idle.png"
                 hover "SchoolDoors/TeachersLoungeDoor_hover.png"
@@ -55,7 +55,7 @@ screen TeacherHallScreen():
                 hover "SchoolDoors/PrincipalDoor_hover.png"
                 xpos 875
                 ypos 392
-                action [Hide("TeacherHallScreen"), Jump("PrincipalOffice")]
+                action Function(start_event_from_screen, "SchoolSubplace/TeacherHall night.png", "PrincipalOffice")
             imagebutton:
                 idle "SchoolDoors/TeachersLoungeDoor_idle.png"
                 hover "SchoolDoors/TeachersLoungeDoor_hover.png"

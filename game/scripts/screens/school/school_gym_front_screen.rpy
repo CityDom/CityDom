@@ -46,7 +46,7 @@ screen SchoolGymFrontScreen():
                 hover "SchoolFirstPause/LolaAndDorothyEventScene/LolaAndDorothyButton_hover.png"
                 xpos 210
                 ypos 350
-                action [Hide("SchoolGymFrontScreen"),Jump("LolaAndDorothyFirstPauseScene")]
+                action Function(start_event_from_screen, "SchoolFirstPause/LolaAndDorothyEventScene/SchoolGymFront_LolaAndDorothy.png", "LolaAndDorothyFirstPauseScene")
                 focus_mask True
     else:
         add "SchoolSubplace/SchoolGymFront evening.png"

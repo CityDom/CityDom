@@ -18,33 +18,33 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Jennifer_Label", "MC_Livingroom_Movie_Morning_Isabella_Label", "MC_Livingroom_Movie_Morning_Alone_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Jennifer_Label", "MC_Livingroom_Movie_Morning_Isabella_Label", "MC_Livingroom_Movie_Morning_Alone_Label"],
                         Livingroom_scene_morning
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_7AM:
+            $ scene_bg = "HomeSubplace/LivingRoom.png"
             if calendar.Day not in [0, 6]:
-                add "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Screen1.png"
+                $ scene_bg = "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Screen1.png"
+                add scene_bg
                 imagebutton:
                     idle "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Button1_idle.png"
                     hover "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Button1_hover.png"
                     xpos 1440
                     ypos 274
-                    action [Hide("LivingroomScreen"), Jump("ClaireMorningEvent24")]
+                    action Function(start_event_from_screen, scene_bg, "ClaireMorningEvent24")
                     focus_mask True
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump("MC_Livingroom_Movie_7AM_Claire_Label")
-                ]
+                action Function(start_event_from_screen, scene_bg, "MC_Livingroom_Movie_7AM_Claire_Label")
                 focus_mask True
         elif calendar.Hours == HOUR_8AM:
             imagebutton:
@@ -52,30 +52,26 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump("MC_Livingroom_Movie_8AM_Jennifer_Label")
-                ]
+                action Function(start_event_from_screen, "HomeSubplace/LivingRoom.png", "MC_Livingroom_Movie_8AM_Jennifer_Label")
                 focus_mask True            
         elif calendar.Hours == HOUR_9AM:
+            $ scene_bg = "HomeSubplace/LivingRoom.png"
             if calendar.Day not in [0, 6]:
-                add "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreen1.png"
+                $ scene_bg = "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreen1.png"
+                add scene_bg
                 imagebutton:
                     idle "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreenButton1_idle.png"
                     hover "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreenButton1_hover.png"
                     xpos 1223
                     ypos 274
-                    action [Hide("LivingroomScreen"), Jump("DinnerGroupEvent")]
+                    action Function(start_event_from_screen, scene_bg, "DinnerGroupEvent")
                     focus_mask True
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump("MC_Livingroom_Movie_9AM_All_Label")
-                ]
+                action Function(start_event_from_screen, scene_bg, "MC_Livingroom_Movie_9AM_All_Label")
                 focus_mask True
         elif calendar.Hours == HOUR_10AM:
             imagebutton:
@@ -83,10 +79,7 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump("MC_Livingroom_Movie_Morning_Alone_Label")
-                ]
+                action Function(start_event_from_screen, "HomeSubplace/LivingRoom.png", "MC_Livingroom_Movie_Morning_Alone_Label")
                 focus_mask True
         elif calendar.Hours == HOUR_11AM:
             imagebutton:
@@ -94,10 +87,7 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump("MC_Livingroom_Movie_11AM_Jennifer_Label")
-                ]
+                action Function(start_event_from_screen, "HomeSubplace/LivingRoom.png", "MC_Livingroom_Movie_11AM_Jennifer_Label")
                 focus_mask True
         elif calendar.Hours == HOUR_12PM:
             imagebutton:
@@ -105,13 +95,14 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_12PM_Mhyrorin_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_12PM_Mhyrorin_Label"],
                         Livingroom_scene_12PM
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_1PM:
             imagebutton:
@@ -119,13 +110,14 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_1PM_Mhyrorin_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_1PM_Mhyrorin_Label"],
                         Livingroom_scene_1PM
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_2PM:
             imagebutton:
@@ -133,13 +125,14 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_2PM_Mhyrorin_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_2PM_Mhyrorin_Label"],
                         Livingroom_scene_2PM
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_3PM:
             imagebutton:
@@ -147,13 +140,14 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_3PM_Mhyrorin_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_3PM_Mhyrorin_Label"],
                         Livingroom_scene_3PM
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_4PM:
             imagebutton:
@@ -161,13 +155,14 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_4PM_Isabella_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_4PM_Isabella_Label"],
                         Livingroom_scene_4PM
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_5PM:
             imagebutton:
@@ -175,13 +170,14 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_5PM_Isabella_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_5PM_Isabella_Label"],
                         Livingroom_scene_5PM
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_6PM:
             add "HomeSubplace/LivingRoom evening.png"
@@ -190,27 +186,30 @@ screen LivingroomScreen():
                 hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
                 xpos 975
                 ypos 515
-                action [
-                    Hide("LivingroomScreen"), 
-                    Jump(choose_housefront_scene(
-                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_6PM_Isabella_Label"], 
+                action Function(
+                    start_event_from_screen,
+                    "HomeSubplace/LivingRoom evening.png",
+                    choose_housefront_scene(
+                        ["MC_Livingroom_Movie_Morning_Alone_Label", "MC_Livingroom_Movie_6PM_Isabella_Label"],
                         Livingroom_scene_6PM
-                    ))
-                ]
+                    )
+                )
                 focus_mask True
         elif calendar.Hours == HOUR_7PM:
+            $ scene_bg = "HomeSubplace/LivingRoom evening.png"
             if calendar.Day not in [0, 6]:
-                add "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Screen1.png"
+                $ scene_bg = "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Screen1.png"
+                add scene_bg
                 if should_show_room_buttons():
                     imagebutton:
                         idle "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_idle.png"
                         hover "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_hover.png"
                         xpos 1125
                         ypos 463
-                        action [Hide("LivingroomScreen"), Jump("IsabellaEveningEvent24")]
+                        action Function(start_event_from_screen, scene_bg, "IsabellaEveningEvent24")
                         focus_mask True
             else:
-                add "HomeSubplace/LivingRoom evening.png"
+                add scene_bg
         elif calendar.Hours == HOUR_8PM:
             add "HomeSubplace/LivingRoom evening.png"
             if should_show_room_buttons():
@@ -219,10 +218,7 @@ screen LivingroomScreen():
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
                     xpos 975
                     ypos 515
-                    action [
-                        Hide("LivingroomScreen"), 
-                        Jump("MC_Livingroom_Movie_8PM_MC_Alone_Label")
-                    ]
+                    action Function(start_event_from_screen, "HomeSubplace/LivingRoom evening.png", "MC_Livingroom_Movie_8PM_MC_Alone_Label")
                     focus_mask True
         elif calendar.Hours == HOUR_9PM:
             add "MCEvents/HouseButtons/JenniferInTheKitchen.webp"
@@ -232,19 +228,22 @@ screen LivingroomScreen():
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
                     xpos 975
                     ypos 515
-                    action [
-                        Hide("LivingroomScreen"), 
-                        Jump(choose_housefront_scene(
-                            ["MC_Livingroom_Movie_8PM_MC_Alone_Label", "MC_Livingroom_Movie_9PM_Jennifer_Label"], 
+                    action Function(
+                        start_event_from_screen,
+                        "MCEvents/HouseButtons/JenniferInTheKitchen.webp",
+                        choose_housefront_scene(
+                            ["MC_Livingroom_Movie_8PM_MC_Alone_Label", "MC_Livingroom_Movie_9PM_Jennifer_Label"],
                             Livingroom_scene_9PM
-                        ))
-                    ]
+                        )
+                    )
                     focus_mask True
         elif calendar.Hours == HOUR_10PM:
+            $ scene_bg = "HomeSubplace/LivingRoom night.png"
             if calendar.Day not in [0, 6]:
-                add "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreen1.webp"
+                $ scene_bg = "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreen1.webp"
+                add scene_bg
             else:
-                add "HomeSubplace/LivingRoom night.png"
+                add scene_bg
             if should_show_room_buttons():
                 if calendar.Day not in [0, 6]:
                     imagebutton:
@@ -252,30 +251,29 @@ screen LivingroomScreen():
                         hover "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreenButton1_hover.png"
                         xpos 1223
                         ypos 278
-                        action [Hide("LivingroomScreen"), Jump("LunchGroupEvent")]
+                        action Function(start_event_from_screen, scene_bg, "LunchGroupEvent")
                         focus_mask True
                 imagebutton:
                     idle "MCEvents/HouseButtons/CouchButton_Evening_idle.webp"
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
                     xpos 975
                     ypos 515
-                    action [
-                        Hide("LivingroomScreen"), 
-                        Jump("MC_Livingroom_Movie_10PM_All_Label")
-                    ]
+                    action Function(start_event_from_screen, scene_bg, "MC_Livingroom_Movie_10PM_All_Label")
                     focus_mask True
         elif calendar.Hours == HOUR_11PM:
+            $ scene_bg = "HomeSubplace/LivingRoom night.png"
             if calendar.Day not in [0, 6]:
-                add "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreen1.webp"
+                $ scene_bg = "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreen1.webp"
+                add scene_bg
             else:
-                add "HomeSubplace/LivingRoom night.png"
+                add scene_bg
             if should_show_room_buttons() and calendar.Day not in [0, 6]:
                 imagebutton:
                     idle "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreenButton1_idle.png"
                     hover "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreenButton1_hover.png"
                     xpos 990
                     ypos 344
-                    action [Hide("LivingroomScreen"), Jump("MovieNightEvent")]
+                    action Function(start_event_from_screen, scene_bg, "MovieNightEvent")
         elif calendar.Hours == HOUR_12AM:
             add "MCEvents/HouseButtons/Livingroom_Night.webp"
             if should_show_room_buttons():
@@ -284,27 +282,30 @@ screen LivingroomScreen():
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
                     xpos 975
                     ypos 515
-                    action [
-                        Hide("LivingroomScreen"), 
-                        Jump(choose_housefront_scene(
-                            ["MC_Livingroom_Movie_12AM_Alone_Label", "MC_Livingroom_Movie_12AM_Isabella_Label"], 
+                    action Function(
+                        start_event_from_screen,
+                        "MCEvents/HouseButtons/Livingroom_Night.webp",
+                        choose_housefront_scene(
+                            ["MC_Livingroom_Movie_12AM_Alone_Label", "MC_Livingroom_Movie_12AM_Isabella_Label"],
                             Livingroom_scene_9PM
-                        ))
-                    ]
+                        )
+                    )
                     focus_mask True
         elif calendar.Hours == HOUR_1AM:
+            $ scene_bg = "HomeSubplace/LivingRoom night.png"
             if calendar.Day not in [0, 6]:
-                add "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Screen1.png"
+                $ scene_bg = "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Screen1.png"
+                add scene_bg
                 if should_show_room_buttons():
                     imagebutton:
                         idle "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_idle.png"
                         hover "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_hover.png"
                         xpos 1187
                         ypos 364
-                        action [Hide("LivingroomScreen"), Jump("ClaireNightEvent44")]
+                        action Function(start_event_from_screen, scene_bg, "ClaireNightEvent44")
                         focus_mask True
             else:
-                add "HomeSubplace/LivingRoom night.png"
+                add scene_bg
         elif calendar.Hours == HOUR_2AM:
             add "MCEvents/HouseButtons/Livingroom_Night.webp"
             if should_show_room_buttons():
@@ -313,11 +314,12 @@ screen LivingroomScreen():
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
                     xpos 975
                     ypos 515
-                    action [
-                        Hide("LivingroomScreen"), 
-                        Jump(choose_housefront_scene(
-                            ["MC_Livingroom_Movie_2AM_Alone_Label", "MC_Livingroom_Movie_2AM_Isabella_Label", "MC_Livingroom_Movie_2AM_Jennifer_Label", "MC_Livingroom_Movie_2AM_Claire_Label", "MC_Livingroom_Movie_2AM_Mhyrorin_Label"], 
+                    action Function(
+                        start_event_from_screen,
+                        "MCEvents/HouseButtons/Livingroom_Night.webp",
+                        choose_housefront_scene(
+                            ["MC_Livingroom_Movie_2AM_Alone_Label", "MC_Livingroom_Movie_2AM_Isabella_Label", "MC_Livingroom_Movie_2AM_Jennifer_Label", "MC_Livingroom_Movie_2AM_Claire_Label", "MC_Livingroom_Movie_2AM_Mhyrorin_Label"],
                             Livingroom_scene_2AM
-                        ))
-                    ]
+                        )
+                    )
                     focus_mask True

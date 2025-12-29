@@ -6,21 +6,21 @@ screen GymScreen():
             hover "GymClass/Isa_Team_Button_hover.png"
             xpos 1267
             ypos 302
-            action [Hide("GymScreen"), Jump("Isa_Team_Scene")]
+            action Function(start_event_from_screen, "SchoolSubplace/Gym.png", "Isa_Team_Scene")
             focus_mask True
         imagebutton:
             idle "GymClass/Lola_Team_Button_idle.png"
             hover "GymClass/Lola_Team_Button_hover.png"
             xpos 162
             ypos 372
-            action [Hide("GymScreen"), Jump("Lola_Team_Scene")]
+            action Function(start_event_from_screen, "SchoolSubplace/Gym.png", "Lola_Team_Scene")
             focus_mask True
         imagebutton:
             idle "GymClass/Tanya_Button_idle.png"
             hover "GymClass/Tanya_Button_hover.png"
             xpos 898
             ypos 116
-            action [Hide("GymScreen"), Jump("GymClass_Tanya")]
+            action Function(start_event_from_screen, "SchoolSubplace/Gym.png", "GymClass_Tanya")
             focus_mask True
         imagebutton:
             auto "MoveRightArrow_%s.png"

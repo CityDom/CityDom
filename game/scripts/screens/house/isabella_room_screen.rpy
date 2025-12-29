@@ -126,6 +126,6 @@ screen IsabellaRoomScreen():
                 hover button["hover"]
                 xpos button["xpos"]
                 ypos button["ypos"]
-                action [Function(hideEventScreens), Jump(button["jump"])]
+                action Function(start_event_from_screen, scene_def["bg"], button["jump"])
                 if focus_mask_value is not None:
                     focus_mask focus_mask_value

@@ -83,7 +83,7 @@ label Isabella_weekend_6AM:
                     scene Isabella_weekend_6AM_37 with Dissolve(0.5)
                     Jennifer "Go to your room, [MC]..."
                     scene Isabella_weekend_6AM_38 with Dissolve(0.5) 
-                    Jennifer "And you, Isabella, Clean your room!"
+                    Jennifer "And you, Isabella, clean your room!"
                     scene Isabella_weekend_6AM_39 with Dissolve(0.5) 
                     Isabella "Sure thing, mommy!"
                     scene Isabella_weekend_6AM_40 with Dissolve(0.5)
