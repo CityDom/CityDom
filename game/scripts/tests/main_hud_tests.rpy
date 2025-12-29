@@ -6,6 +6,7 @@ testsuite main_hud_logic_tests:
             renpy.store._test_mainhud_state = (
                 renpy.store.LocationID,
                 renpy.store.calendar.Hours,
+                renpy.store.calendar.Day,
             )
 
     after testcase:
@@ -13,6 +14,7 @@ testsuite main_hud_logic_tests:
             (
                 renpy.store.LocationID,
                 renpy.store.calendar.Hours,
+                renpy.store.calendar.Day,
             ) = renpy.store._test_mainhud_state
             del renpy.store._test_mainhud_state
 
@@ -35,6 +37,7 @@ testsuite main_hud_logic_tests:
     testcase main_hud_school_hours:
         description "is_in_school_hours boundaries."
         python:
+            renpy.store.calendar.Day = 1
             renpy.store.calendar.Hours = 6
             test_expect_equal(
                 renpy.store.is_in_school_hours(),
@@ -59,10 +62,18 @@ testsuite main_hud_logic_tests:
                 False,
                 "Expected is_in_school_hours to be False at 12."
             )
+            renpy.store.calendar.Day = 6
+            renpy.store.calendar.Hours = 6
+            test_expect_equal(
+                renpy.store.is_in_school_hours(),
+                False,
+                "Expected is_in_school_hours to be False on weekend."
+            )
 
     testcase main_hud_school_hours_minusone:
         description "is_in_school_hours_minusONE boundaries."
         python:
+            renpy.store.calendar.Day = 1
             renpy.store.calendar.Hours = 10
             test_expect_equal(
                 renpy.store.is_in_school_hours_minusONE(),

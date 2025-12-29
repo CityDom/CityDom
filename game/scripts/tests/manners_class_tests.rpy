@@ -9,10 +9,10 @@ testsuite manners_class_tests:
                 renpy.store.calendar.period_index,
                 renpy.store.school_clock.hour,
                 renpy.store.school_clock.period,
-            renpy.store.Location,
-            renpy.store.LocationID,
-            getattr(renpy.store, "manners_event_last_time", None),
-        )
+                renpy.store.Location,
+                renpy.store.LocationID,
+                getattr(renpy.store, "manners_event_last_time", None),
+            )
 
     after testcase:
         python:
