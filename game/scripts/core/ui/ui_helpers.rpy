@@ -17,3 +17,13 @@ init python:
                 pass
         store.hideEventScreens()
         renpy.jump(label)
+
+screen event_imagebutton(idle, hover, xpos, ypos, bg, label, focus_mask=True):
+    imagebutton:
+        idle idle
+        hover hover
+        xpos xpos
+        ypos ypos
+        action Function(start_event_from_screen, bg, label)
+        if focus_mask is not None:
+            focus_mask focus_mask

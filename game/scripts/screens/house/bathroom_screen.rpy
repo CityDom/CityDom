@@ -1,6 +1,4 @@
 default last_shower_time = -10 
-default Bathroom_Shower_scene = []
-default Bathroom_BrushTeeth_scene = []
 
 screen BathroomScreen():
     $ scene_bg = ("HomeSubplace/Bathroom.png" if is_day_hour(calendar.Hours) else
@@ -20,9 +18,9 @@ screen BathroomScreen():
                         action Function(
                             start_event_from_screen,
                             scene_bg,
-                            choose_housefront_scene(
-                                ["MC_Bathroom_BrushTeeth_Isabella", "MC_Bathroom_BrushTeeth_Claire", "MC_Bathroom_BrushTeeth_Jennifer", "MC_Bathroom_BrushTeeth_Mhyrorin", "MC_Bathroom_BrushTeeth_Alone"],
-                                Bathroom_BrushTeeth_scene
+                            choose_scene_with_history(
+                                "bathroom_brush_teeth",
+                                ["MC_Bathroom_BrushTeeth_Isabella", "MC_Bathroom_BrushTeeth_Claire", "MC_Bathroom_BrushTeeth_Jennifer", "MC_Bathroom_BrushTeeth_Mhyrorin", "MC_Bathroom_BrushTeeth_Alone"]
                             )
                         )
                         focus_mask True
@@ -40,7 +38,7 @@ screen BathroomScreen():
                     (calendar.Hours - last_shower_time) >= 6 or last_shower_time == -10,
                     [
                         SetVariable("last_shower_time", calendar.Hours),
-                        Function(start_event_from_screen, scene_bg, choose_housefront_scene(available_shower_scenes, Bathroom_Shower_scene))
+                        Function(start_event_from_screen, scene_bg, choose_scene_with_history("bathroom_shower", available_shower_scenes))
                     ],
                     [
                         Function(start_event_from_screen, scene_bg, "TooSoonToShower")
@@ -51,4 +49,3 @@ screen BathroomScreen():
 label TooSoonToShower:
     "I already showered recently, I don't get dirty that fast."
     $ renpy.call("GameLoop")
-
