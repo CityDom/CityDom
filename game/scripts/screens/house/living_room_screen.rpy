@@ -11,8 +11,8 @@ default Livingroom_scene_2AM = []
 
 screen LivingroomScreen():
     add "HomeSubplace/LivingRoom.png"
-    if not MapScreenShown and not StatsScreenShown:
-        if calendar.Hours == 0:
+    if should_show_room_buttons():
+        if calendar.Hours == HOUR_6AM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -26,7 +26,7 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 1:
+        elif calendar.Hours == HOUR_7AM:
             if calendar.Day not in [0, 6]:
                 add "ScenesScreens/ClaireSceneScreens/Claire24MorningScreen/ClaireMorning24Screen1.png"
                 imagebutton:
@@ -46,7 +46,7 @@ screen LivingroomScreen():
                     Jump("MC_Livingroom_Movie_7AM_Claire_Label")
                 ]
                 focus_mask True
-        elif calendar.Hours == 2:
+        elif calendar.Hours == HOUR_8AM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -57,7 +57,7 @@ screen LivingroomScreen():
                     Jump("MC_Livingroom_Movie_8AM_Jennifer_Label")
                 ]
                 focus_mask True            
-        elif calendar.Hours == 3:
+        elif calendar.Hours == HOUR_9AM:
             if calendar.Day not in [0, 6]:
                 add "ScenesScreens/DinnerSceneScreens/DinnerScreen1/DinnerScreen1.png"
                 imagebutton:
@@ -77,7 +77,7 @@ screen LivingroomScreen():
                     Jump("MC_Livingroom_Movie_9AM_All_Label")
                 ]
                 focus_mask True
-        elif calendar.Hours == 4:
+        elif calendar.Hours == HOUR_10AM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -88,7 +88,7 @@ screen LivingroomScreen():
                     Jump("MC_Livingroom_Movie_Morning_Alone_Label")
                 ]
                 focus_mask True
-        elif calendar.Hours == 5:
+        elif calendar.Hours == HOUR_11AM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -99,7 +99,7 @@ screen LivingroomScreen():
                     Jump("MC_Livingroom_Movie_11AM_Jennifer_Label")
                 ]
                 focus_mask True
-        elif calendar.Hours == 6:
+        elif calendar.Hours == HOUR_12PM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -113,7 +113,7 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 7:
+        elif calendar.Hours == HOUR_1PM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -127,7 +127,7 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 8:
+        elif calendar.Hours == HOUR_2PM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -141,7 +141,7 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 9:
+        elif calendar.Hours == HOUR_3PM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -155,7 +155,7 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 10:
+        elif calendar.Hours == HOUR_4PM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -169,7 +169,7 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 11:
+        elif calendar.Hours == HOUR_5PM:
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_idle.webp"
                 hover "MCEvents/HouseButtons/CouchButton_hover.webp"
@@ -183,7 +183,7 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 12:
+        elif calendar.Hours == HOUR_6PM:
             add "HomeSubplace/LivingRoom evening.png"
             imagebutton:
                 idle "MCEvents/HouseButtons/CouchButton_Evening_idle.webp"
@@ -198,10 +198,10 @@ screen LivingroomScreen():
                     ))
                 ]
                 focus_mask True
-        elif calendar.Hours == 13:
+        elif calendar.Hours == HOUR_7PM:
             if calendar.Day not in [0, 6]:
                 add "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Screen1.png"
-                if not MapScreenShown and not StatsScreenShown:
+                if should_show_room_buttons():
                     imagebutton:
                         idle "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_idle.png"
                         hover "ScenesScreens/IsabellaSceneScreens/Isabella24EveningScreen/IsabellaEvening24Button1_hover.png"
@@ -211,9 +211,9 @@ screen LivingroomScreen():
                         focus_mask True
             else:
                 add "HomeSubplace/LivingRoom evening.png"
-        elif calendar.Hours == 14:
+        elif calendar.Hours == HOUR_8PM:
             add "HomeSubplace/LivingRoom evening.png"
-            if not MapScreenShown and not StatsScreenShown:
+            if should_show_room_buttons():
                 imagebutton:
                     idle "MCEvents/HouseButtons/CouchButton_Evening_idle.webp"
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
@@ -224,9 +224,9 @@ screen LivingroomScreen():
                         Jump("MC_Livingroom_Movie_8PM_MC_Alone_Label")
                     ]
                     focus_mask True
-        elif calendar.Hours == 15:
+        elif calendar.Hours == HOUR_9PM:
             add "MCEvents/HouseButtons/JenniferInTheKitchen.webp"
-            if not MapScreenShown and not StatsScreenShown:
+            if should_show_room_buttons():
                 imagebutton:
                     idle "MCEvents/HouseButtons/CouchButton_Evening_idle.webp"
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
@@ -240,12 +240,12 @@ screen LivingroomScreen():
                         ))
                     ]
                     focus_mask True
-        elif calendar.Hours == 16:
+        elif calendar.Hours == HOUR_10PM:
             if calendar.Day not in [0, 6]:
                 add "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreen1.webp"
             else:
                 add "HomeSubplace/LivingRoom night.png"
-            if not MapScreenShown and not StatsScreenShown:
+            if should_show_room_buttons():
                 if calendar.Day not in [0, 6]:
                     imagebutton:
                         idle "ScenesScreens/LunchSceneScreens/LunchScreen1/LunchScreenButton1_idle.png"
@@ -264,21 +264,21 @@ screen LivingroomScreen():
                         Jump("MC_Livingroom_Movie_10PM_All_Label")
                     ]
                     focus_mask True
-        elif calendar.Hours == 17:
+        elif calendar.Hours == HOUR_11PM:
             if calendar.Day not in [0, 6]:
                 add "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreen1.webp"
             else:
                 add "HomeSubplace/LivingRoom night.png"
-            if not MapScreenShown and not StatsScreenShown and calendar.Day not in [0, 6]:
+            if should_show_room_buttons() and calendar.Day not in [0, 6]:
                 imagebutton:
                     idle "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreenButton1_idle.png"
                     hover "ScenesScreens/MovieNightSceneScreens/MovieNightScreen1/MovieNightScreenButton1_hover.png"
                     xpos 990
                     ypos 344
                     action [Hide("LivingroomScreen"), Jump("MovieNightEvent")]
-        elif calendar.Hours == 18:
+        elif calendar.Hours == HOUR_12AM:
             add "MCEvents/HouseButtons/Livingroom_Night.webp"
-            if not MapScreenShown and not StatsScreenShown:
+            if should_show_room_buttons():
                 imagebutton:
                     idle "MCEvents/HouseButtons/CouchButton_Evening_idle.webp"
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"
@@ -292,10 +292,10 @@ screen LivingroomScreen():
                         ))
                     ]
                     focus_mask True
-        elif calendar.Hours == 19:
+        elif calendar.Hours == HOUR_1AM:
             if calendar.Day not in [0, 6]:
                 add "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Screen1.png"
-                if not MapScreenShown and not StatsScreenShown:
+                if should_show_room_buttons():
                     imagebutton:
                         idle "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_idle.png"
                         hover "ScenesScreens/ClaireSceneScreens/Claire44NightScreen/ClaireNight44Button1_hover.png"
@@ -305,9 +305,9 @@ screen LivingroomScreen():
                         focus_mask True
             else:
                 add "HomeSubplace/LivingRoom night.png"
-        elif calendar.Hours == 20:
+        elif calendar.Hours == HOUR_2AM:
             add "MCEvents/HouseButtons/Livingroom_Night.webp"
-            if not MapScreenShown and not StatsScreenShown:
+            if should_show_room_buttons():
                 imagebutton:
                     idle "MCEvents/HouseButtons/CouchButton_Evening_idle.webp"
                     hover "MCEvents/HouseButtons/CouchButton_Evening_hover.webp"

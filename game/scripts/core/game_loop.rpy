@@ -25,9 +25,16 @@ label start:
             # Check for events in the current location
             $ current_location = normalize_location_key(Location)
             python:
-                for event in EVENTS.values():
-                    if event.is_active and event.date_check(calendar) and event.location.lower() == current_location:
-                        selected_event = event
+                matching_events = [
+                    event
+                    for event in EVENTS.values()
+                    if event.is_active
+                    and event.date_check(calendar)
+                    and event.location.lower() == current_location
+                    and event.condition_check()
+                ]
+                if matching_events:
+                    selected_event = max(matching_events, key=lambda e: (e.priority, e.start_hour))
 
             if selected_event:
                 $ screen_name = selected_event.screen_name
@@ -42,12 +49,6 @@ label start:
                     # This assumes you have a label or function setup for handling the event by its name
                     $ renpy.call(selected_event.block)
 
-            # ! Sad isolate event. Will look for a better solution
-            if is_before_gym_swim_class() and (calendar.Day == 1 or calendar.Day == 3 or calendar.Day == 5) and Location == "GirlsLockerRoom":
-                $ renpy.hide_screen("GirlsLockerRoomScreen")
-                $ renpy.jump("BeforeGymClass_FromInside_Scene")
-            # ! Sad isolate event. Will look for a better solution
-
             python:
                 location_screen = get_location_screen_name(Location)
                 if location_screen and renpy.has_screen(location_screen):
@@ -60,6 +61,8 @@ label start:
             $ location_changed = False
             if new_location != Location:
                 $ location_changed = True
+                $ LocationEntryFrom = Location
+                $ LocationEntryTime = (calendar.Day, calendar.Hours)
                 python:
                     loc_def = get_location_def(new_location)
                     if loc_def:

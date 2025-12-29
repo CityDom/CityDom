@@ -28,7 +28,7 @@ screen GymScreen():
             ypos 600
             action Function(show_work_in_progress)
             at rootateDown
-    elif 0 <= calendar.Hours <= 11:
+    elif is_day_hour(calendar.Hours):
         add "SchoolSubplace/Gym empty.png"
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/Gym evening.png"

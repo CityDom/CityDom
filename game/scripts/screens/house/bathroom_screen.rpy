@@ -3,14 +3,14 @@ default Bathroom_Shower_scene = []
 default Bathroom_BrushTeeth_scene = []
 
 screen BathroomScreen():
-    add ("HomeSubplace/Bathroom.png" if calendar.Hours < 12 else 
-        "HomeSubplace/Bathroom evening.png" if calendar.Hours < 16 else 
+    add ("HomeSubplace/Bathroom.png" if is_day_hour(calendar.Hours) else 
+        "HomeSubplace/Bathroom evening.png" if is_evening_hour(calendar.Hours) else 
         "HomeSubplace/Bathroom night.png")
     if calendar.Day not in [0, 6]:
-        if calendar.Hours == 0:
+        if calendar.Hours == HOUR_6AM:
             $ last_shower_time = -10  # Allows showering again in the new day
-        if not MapScreenShown and not StatsScreenShown:
-            if calendar.Hours == 0:
+        if should_show_room_buttons():
+            if calendar.Hours == HOUR_6AM:
                 imagebutton:
                     idle "MCEvents/HouseButtons/BathroomSink_idle.webp"
                     hover "MCEvents/HouseButtons/BathroomSink_hover.webp"
@@ -26,7 +26,7 @@ screen BathroomScreen():
                     focus_mask True
 
             $ available_shower_scenes = ["MC_Bathroom_Shower_Alone"]
-            if calendar.Hours < 12:
+            if is_day_hour(calendar.Hours):
                 $ available_shower_scenes.append("MC_Bathroom_Shower_Mhyrorin")
 
             imagebutton:

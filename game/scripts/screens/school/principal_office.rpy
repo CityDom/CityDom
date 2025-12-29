@@ -1,5 +1,5 @@
 screen PrincipalOfficeScreen():
-    if 0 <= calendar.Hours <= 11:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/PrincipalOffice.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -8,7 +8,7 @@ screen PrincipalOfficeScreen():
                 xpos 879
                 ypos 232
                 action Function(show_work_in_progress)
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/PrincipalOffice evening.png"
-    if 16 <= calendar.Hours <= 24:
+    if is_night_hour(calendar.Hours):
         add "SchoolSubplace/PrincipalOffice night.png"

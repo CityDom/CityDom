@@ -14,7 +14,7 @@ screen SchoolLibraryScreen():
                 xpos 549
                 ypos 165
                 action [Hide("SchoolLibraryScreen"), Jump("DorothyFirstPauseScene")]
-    elif calendar.Hours < 12:
+    elif is_day_hour(calendar.Hours):
         add "SchoolSubplace/SchoolLibrary.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -25,5 +25,5 @@ screen SchoolLibraryScreen():
                 action Function(show_work_in_progress)
     else:
         add "SchoolSubplace/SchoolLibrary evening.png"
-    # if 16 <= calendar.Hours <= 24:
+    # if is_night_hour(calendar.Hours):
     #     add "SchoolSubplace/SchoolLibrary night.png"

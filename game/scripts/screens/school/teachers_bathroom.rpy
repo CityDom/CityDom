@@ -1,7 +1,7 @@
 screen TeachersBathroomScreen():
-    if 0 <= calendar.Hours <= 11:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/TeachersBathroom.png"
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/TeachersBathroom evening.png"
-    if 16 <= calendar.Hours <= 24:
+    if is_night_hour(calendar.Hours):
         add "SchoolSubplace/TeachersBathroom night.png"

@@ -1,16 +1,16 @@
-default manners_event_triggered = False  # Global flag if not already
+default manners_event_last_time = None
 
 screen MannersClassScreen():
-    if calendar.Hours < 12:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/MannersClass.png"
     else:
         add "SchoolSubplace/MannersClass evening.png"
-
-    on "show":
-        if school_clock.hour == 14 and school_clock.period == 4 and not manners_event_triggered:
-            action If(not renpy.in_rollback(), [SetVariable("manners_event_triggered", True), Hide("MannersClassScreen"), Call("MannersClassWrapper")])
 label MannersClassWrapper:
-    if seenSandraBackstory:
+    $ manners_event_last_time = (calendar.Day, calendar.Hours)
+    $ from_inside = True
+    if LocationEntryFrom is not None and LocationEntryTime == (calendar.Day, calendar.Hours):
+        $ from_inside = normalize_location_key(LocationEntryFrom) == normalize_location_key("MannersClass")
+    if from_inside and seenSandraBackstory:
         call MannersClass_FromInside_Scene
     else:
         call MannersClassScene

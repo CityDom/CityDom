@@ -4,23 +4,23 @@ default Bathroom_Pee_scene = []
 screen HouseToiletScreen():
     add "HomeSubplace/HouseToilet.png"
     if calendar.Day not in [0, 6]:
-        if calendar.Hours == 0:
+        if calendar.Hours == HOUR_6AM:
             $ last_pee_time = -10
 
         
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             
-            if 0 <= calendar.Hours <= 20:
+            if is_in_window(calendar.Hours, HOUR_6AM, HOUR_2AM, inclusive_end=True):
                 
                 $ available_scenes = ["MC_Toilet_Piss_Alone"]
                 
-                if not (6 <= calendar.Hours < 10):
+                if not is_in_window(calendar.Hours, HOUR_12PM, HOUR_4PM):
                     $ available_scenes.append("MC_Toilet_Piss_Isabella")
                 
-                if not (6 <= calendar.Hours < 13):
+                if not is_in_window(calendar.Hours, HOUR_12PM, HOUR_7PM):
                     $ available_scenes.append("MC_Toilet_Piss_Jennifer")
                 
-                if calendar.Hours < 12:
+                if is_day_hour(calendar.Hours):
                     $ available_scenes.append("MC_Toilet_Piss_Mhyrorin")
                 
                 imagebutton:

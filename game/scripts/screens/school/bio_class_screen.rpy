@@ -1,5 +1,5 @@
 screen BioClassScreen():
-    if not is_bio_class_hour() and calendar.Hours < 12:
+    if not is_bio_class_hour() and is_day_hour(calendar.Hours):
         add "SchoolSubplace/BioClass empty.png"
     elif is_bio_class_hour():
         add "SchoolSubplace/BioClass.png"

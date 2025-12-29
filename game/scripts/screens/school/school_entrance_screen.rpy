@@ -10,7 +10,7 @@ init:
         rotate 180
 
 screen SchoolEntranceScreen():
-    if not is_manners_class_hour() and calendar.Hours < 12:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/SchoolEntrance.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -31,26 +31,5 @@ screen SchoolEntranceScreen():
                 xpos 1146
                 ypos 390
                 action [Return("MannersClass"), Hide("SchoolEntranceScreen")]
-    elif is_manners_class_hour():
-        add "SchoolSubplace/SchoolEntrance.png"
-        if not MapScreenShown and not StatsScreenShown:
-            imagebutton:
-                auto "MoveLeftArrow_%s.png"
-                xpos 20
-                ypos 500
-                action [Return("ToiletsFront"), Hide("SchoolEntranceScreen")]
-                at buttonScale
-            imagebutton:
-                auto "MoveRightArrowSmaller_%s.png"
-                xpos 220
-                ypos 230
-                action [Return("UpTheStairs"), Hide("SchoolEntranceScreen")]
-                at rotate_Minus35
-            imagebutton:
-                idle "SchoolDoors/MannersClassDoor_idle.png"
-                hover "SchoolDoors/MannersClassDoor_hover.png"
-                xpos 1146
-                ypos 390
-                action [Hide("SchoolEntranceScreen"), Jump("MannersClassScene")]
     else:
         add "SchoolSubplace/SchoolEntrance evening.png"

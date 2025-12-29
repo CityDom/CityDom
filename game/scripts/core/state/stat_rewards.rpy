@@ -60,7 +60,7 @@ init python:
         for line in lines:
             renpy.say(None, line)
 
-label stat_reward(changes, return_to="GameLoop", dissolve_time=0.5, color="#808080"):
+label stat_reward(changes, return_to="ReturnToLocation", dissolve_time=0.5, color="#808080"):
     scene BlackScreen
     if dissolve_time is not None:
         with Dissolve(dissolve_time)

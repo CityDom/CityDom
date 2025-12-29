@@ -1,5 +1,5 @@
 screen TeacherHallScreen():
-    if 0 <= calendar.Hours <= 11:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/TeacherHall.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -20,7 +20,7 @@ screen TeacherHallScreen():
                 xpos 1508
                 ypos 310
                 action [Return("TeachersLounge"), Hide("TeacherHallScreen")]
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/TeacherHall evening.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -41,7 +41,7 @@ screen TeacherHallScreen():
                 xpos 1508
                 ypos 310
                 action [Return("TeachersLounge"), Hide("TeacherHallScreen")]
-    if 16 <= calendar.Hours <= 24:
+    if is_night_hour(calendar.Hours):
         add "SchoolSubplace/TeacherHall night.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:

@@ -14,7 +14,7 @@ screen InsideSchoolGymScreen():
             ypos 300
             action [Return("GymLockerRoomFront"), Hide("InsideSchoolGymScreen")]
             at rotateUpRight
-    elif 0 <= calendar.Hours <= 11:
+    elif is_day_hour(calendar.Hours):
         add "SchoolSubplace/InsideSchoolGym.png"
         imagebutton:
             idle "SchoolDoors/GymDoor_idle.png"
@@ -29,7 +29,7 @@ screen InsideSchoolGymScreen():
             ypos 300
             action [Return("GymLockerRoomFront"), Hide("InsideSchoolGymScreen")]
             at rotateUpRight
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/InsideSchoolGym evening.png"
-    if 16 <= calendar.Hours <= 24:
+    if is_night_hour(calendar.Hours):
         add "SchoolSubplace/InsideSchoolGym night.png"

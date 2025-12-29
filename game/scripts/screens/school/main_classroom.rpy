@@ -155,7 +155,7 @@ screen MainClassroomScreen():
         add "SchoolSubplace/MainClassroom.png"
     else:
         add "SchoolSubplace/MainClassroom evening1.png"
-    # if 16 <= calendar.Hours <= 24:
+    # if is_night_hour(calendar.Hours):
     #     add "SchoolSubplace/MainClassroom night.png"
 transform ClassRoomButtonLookDown:
     rotate 45

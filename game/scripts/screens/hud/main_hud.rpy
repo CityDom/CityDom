@@ -193,7 +193,7 @@ screen MainHud():
                 add scaled_icon
 
                 # Calculate the real hour format
-                $ real_hour = (calendar.Hours + 6) % 24
+                $ real_hour = to_real_hour(calendar.Hours)
                 $ hour_12_format = real_hour % 12
                 $ hour_12_format = 12 if hour_12_format == 0 else hour_12_format
                 $ am_pm = "AM" if real_hour < 12 or real_hour == 24 else "PM"

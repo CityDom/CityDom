@@ -8,7 +8,7 @@ init:
             linear 0.1 zoom 1.0
 
 screen SchoolScreen():
-    if 0 <= calendar.Hours <= 11:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/School.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -23,7 +23,7 @@ screen SchoolScreen():
                 ypos 500
                 action [Return("SchoolGymFront"), Hide("SchoolScreen")]
                 at rotateUpLeft
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/School evening.png"
-    if 16 <= calendar.Hours <= 24:
+    if is_night_hour(calendar.Hours):
         add "SchoolSubplace/School night.png"

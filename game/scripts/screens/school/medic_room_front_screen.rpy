@@ -1,5 +1,5 @@
 screen MedicRoomFrontScreen():
-    if 0 <= calendar.Hours <= 11:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/MedicRoomFront.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -21,7 +21,7 @@ screen MedicRoomFrontScreen():
                 ypos 295
                 action [Return("BioClass"), Hide("MedicRoomFrontScreen")]
                 focus_mask True
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/MedicRoomFront evening.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
@@ -43,7 +43,7 @@ screen MedicRoomFrontScreen():
                 ypos 295
                 action [Return("BioClass"), Hide("MedicRoomFrontScreen")]
                 focus_mask True
-    if 16 <= calendar.Hours <= 24:
+    if is_night_hour(calendar.Hours):
         add "SchoolSubplace/MedicRoomFront night.png"
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:

@@ -8,7 +8,7 @@ screen GymLockerRoomFrontScreen():
             ypos 152
             action [Hide("GymLockerRoomFrontScreen"), Jump("BeforeGymClass_Scene")]
             focus_mask True
-    elif 0 <= calendar.Hours <= 11:
+    elif is_day_hour(calendar.Hours):
         add "SchoolSubplace/GymLockerRoomFront.png"
         imagebutton:
             idle "SchoolDoors/GirlsLockerRoomDoor_idle.png"
@@ -17,5 +17,5 @@ screen GymLockerRoomFrontScreen():
             ypos 152
             action [Return("GirlsLockerRoom"), Hide("GymLockerRoomFrontScreen")]
             focus_mask True
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/GymLockerRoomFront evening.png"

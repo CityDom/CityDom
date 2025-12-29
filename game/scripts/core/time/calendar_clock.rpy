@@ -8,6 +8,68 @@ default default_calendar_month = 0
 default calendar = Calendar()
 
 init python:
+    # calendar.Hours uses a 6 AM offset: 0 == 6 AM, 8 == 2 PM, 12 == 6 PM.
+    HOUR_OFFSET = 6
+    AFTERNOON_START_HOUR = 8
+    EVENING_START_HOUR = 12
+    NIGHT_BG_START_HOUR = 16
+    HOUR_6AM = 0
+    HOUR_7AM = 1
+    HOUR_8AM = 2
+    HOUR_9AM = 3
+    HOUR_10AM = 4
+    HOUR_11AM = 5
+    HOUR_12PM = 6
+    HOUR_1PM = 7
+    HOUR_2PM = 8
+    HOUR_3PM = 9
+    HOUR_4PM = 10
+    HOUR_5PM = 11
+    HOUR_6PM = 12
+    HOUR_7PM = 13
+    HOUR_8PM = 14
+    HOUR_9PM = 15
+    HOUR_10PM = 16
+    HOUR_11PM = 17
+    HOUR_12AM = 18
+    HOUR_1AM = 19
+    HOUR_2AM = 20
+    HOUR_3AM = 21
+    HOUR_4AM = 22
+    HOUR_5AM = 23
+
+    def to_real_hour(game_hour):
+        return (int(game_hour) + HOUR_OFFSET) % 24
+
+    def from_real_hour(real_hour):
+        return (int(real_hour) - HOUR_OFFSET) % 24
+
+    def is_morning_hour(hour):
+        # 6 AM to 1 PM in game-hour space.
+        return int(hour) < AFTERNOON_START_HOUR
+
+    def is_day_hour(hour):
+        return int(hour) < EVENING_START_HOUR
+
+    def is_afternoon_hour(hour):
+        hour = int(hour)
+        return AFTERNOON_START_HOUR <= hour < EVENING_START_HOUR
+
+    def is_evening_hour(hour):
+        hour = int(hour)
+        return EVENING_START_HOUR <= hour < NIGHT_BG_START_HOUR
+
+    def is_night_hour(hour):
+        return int(hour) >= NIGHT_BG_START_HOUR
+
+    def is_in_window(hour, start, end, inclusive_end=False):
+        hour = int(hour)
+        start = int(start)
+        end = int(end)
+        if inclusive_end:
+            return start <= hour <= end
+        return start <= hour < end
+
     DAY_START_HOUR = 0
     DAY_END_HOUR = 20
     DAY_HOURS_COUNT = DAY_END_HOUR - DAY_START_HOUR + 1
@@ -33,9 +95,13 @@ init python:
         def Output(self):
             return f"{self.WeekDays[self.Day]} {str(self.Hours).zfill(2)}:00"
 
-        def is_school_hours(self, hour=None):
+        def is_school_hours(self, hour=None, day=None):
             if hour is None:
                 hour = self.Hours
+            if day is None:
+                day = self.Day
+            if day in (0, 6):
+                return False
             return SCHOOL_START_HOUR <= hour < SCHOOL_END_HOUR
 
         def AddTime(self, Hours):
@@ -50,6 +116,7 @@ init python:
                 day_advanced = self._advance_one_hour()
                 self._sync_school_clock_after_hour(prev_hour, self.Hours, day_advanced)
             hud_refresh()
+            _ensure_background_music()
 
         def advance_school_periods(self, periods=1):
             periods = int(periods)
@@ -66,6 +133,7 @@ init python:
                     self._advance_one_hour()
             self.update_period_index()
             hud_refresh()
+            _ensure_background_music()
 
         def align_school_period_to_class(self):
             if not self.is_school_hours():
@@ -87,6 +155,7 @@ init python:
             self.Hours = school_clock.hour - offset
             self.update_period_index()
             hud_refresh()
+            _ensure_background_music()
 
         def get_current_hour(self):
             return self.Hours
@@ -109,17 +178,30 @@ init python:
             self.Hours = DAY_START_HOUR
             self.update_period_index()
             school_clock.reset()
+            _ensure_background_music()
 
         def update_period_index(self):
-            if 12 <= self.Hours < 16:
+            if EVENING_START_HOUR <= self.Hours < NIGHT_BG_START_HOUR:
                 self.period_index = 1
-            elif 16 <= self.Hours < 24:
+            elif NIGHT_BG_START_HOUR <= self.Hours < 24:
                 self.period_index = 2
             else:
                 self.period_index = 0
 
         def update_sub_place_data(self):
             self.update_period_index()
+
+        def real_hour(self):
+            return to_real_hour(self.Hours)
+
+        def is_morning(self):
+            return is_morning_hour(self.Hours)
+
+        def is_afternoon(self):
+            return is_afternoon_hour(self.Hours)
+
+        def is_night(self):
+            return is_night_hour(self.Hours)
 
         def _advance_one_hour(self):
             if not hasattr(self, "_day_advanced_flag"):
@@ -153,7 +235,19 @@ init python:
                 school_clock.advance_periods(SCHOOL_PERIODS_PER_HOUR)
                 
     class Event:
-        def __init__(self, start_hour, end_hour, day, location, block, is_active, screen_name=None, auto_trigger=True):
+        def __init__(
+            self,
+            start_hour,
+            end_hour,
+            day,
+            location,
+            block,
+            is_active,
+            screen_name=None,
+            auto_trigger=True,
+            condition=None,
+            priority=0,
+        ):
             self.start_hour = start_hour
             self.end_hour = end_hour
             self.day = day
@@ -162,6 +256,8 @@ init python:
             self.is_active = is_active
             self.screen_name = screen_name
             self.auto_trigger = auto_trigger
+            self.condition = condition
+            self.priority = priority
 
         def date_check(self, c):
             hour_within_range = self.start_hour <= c.Hours <= self.end_hour
@@ -188,8 +284,17 @@ init python:
         def check_location(self, location):
             return self.location.lower() == location.lower()
 
+        def condition_check(self):
+            if self.condition is None:
+                return True
+            return bool(self.condition())
+
         def __str__(self):
-            return f"Event at {self.location} from Hour {self.start_hour} to {self.end_hour}, on Day {self.day}. Block: {self.block}. Active: {self.is_active}"
+            return (
+                f"Event at {self.location} from Hour {self.start_hour} to {self.end_hour}, "
+                f"on Day {self.day}. Block: {self.block}. Active: {self.is_active}. "
+                f"Priority: {self.priority}"
+            )
 
     class Items(object):
         def __init__(self, name, val, weight, NoOwned, ID):
@@ -208,5 +313,4 @@ init python:
         def CurrentWeight(self):
             return sum(q.weight * q.NoOwned for q in Inventory)
 
-    EVENTS = [Event(0, 0, -1, "", "", False) for _ in range(50)]
     Inventory = [Items("none", 0, 0, 0, t) for t in range(50)]

@@ -4,7 +4,7 @@ image MapImage = "HomeSubplace/map.png"
 image JenniferInRoomJenniferAtHome = "JenniferAllScenes/JenniferInRoom/JenniferAtHome.png"
 
 init 1 python:
-    def screen_event(start_hour, end_hour, day, location, block, is_active, auto_trigger=True):
+    def screen_event(start_hour, end_hour, day, location, block, is_active, auto_trigger=True, condition=None, priority=0):
         return Event(
             start_hour,
             end_hour,
@@ -14,34 +14,27 @@ init 1 python:
             is_active,
             screen_name=get_location_screen_name(location),
             auto_trigger=auto_trigger,
+            condition=condition,
+            priority=priority,
         )
 
     EVENTS = {
         # * Jennifer Events
         1: Event(0, 0, -1, "Jennifer room", "JenniferMorningEvent14", True, auto_trigger=False), # Wakes up
-        # 2: Event(1, 1, -1, "bathroom", "JenniferMorningEvent34", True), # Shower
-        # 3: Event(2, 2, -3, "kitchen", "JenniferMorningEvent24", True), # Cooks
         4: Event(4, 4, -1, "Jennifer room", "JenniferMorningEvent44", True), # Dresses up for work
-        # 5: Event(13, 13, -1, "Entrance", "JenniferEveningEvent24", True), # Gets home
         6: Event(14, 14, -1, "Jennifer room", "JenniferEveningEvent34", True), # Changes into house clothing
-        # 7: Event(15, 15, -1, "kitchen", "JenniferEveningEvent44", True), # Cooks
-        # 8: Event(18, 18, -1, "toilet", "JenniferNightEvent24", True), # Using the toilet
         9: Event(19, 19, -1, "Jennifer room", "JenniferNightEvent34", True, auto_trigger=False), # Prays
         10: Event(20, 20, -1, "Jennifer room", "JenniferNightEvent44", True, auto_trigger=False), # Sleeps
 
         # * Jennifer Weekend (auto)
-        101: Event(4, 4, -2, "Jennifer room", "Jennifer_weekend_10AM", True), # 10 AM
-        102: Event(8, 8, -2, "Jennifer room", "Jennifer_weekend_2PM", True), # 2 PM
+        101: Event(4, 4, -2, "Jennifer room", "Jennifer_weekend_10AM", True, priority=10), # 10 AM
+        102: Event(8, 8, -2, "Jennifer room", "Jennifer_weekend_2PM", True, priority=10), # 2 PM
 
         # * Isabella Events
         11: Event(0, 0, -1, "Isabella room", "IsabellaMorningEvent14", True, auto_trigger=False), # Wakes up
         12: Event(1, 1, -1, "Isabella room", "IsabellaMorningEvent34", True, auto_trigger=False), # Homework
-        # 13: Event(2, 2, -1, "bathroom", "IsabellaMorningEvent24", True), # Showers
         14: Event(4, 4, -1, "Isabella room", "IsabellaNoonEvent14", True), # Dresses up for school
-        # 15: Event(10, 10, -1, "Entrance", "IsabellaNoonEvent24", True), # Gets home
         16: Event(11, 11, -1, "Isabella room", "IsabellaEveningEvent14", True), # Changes into house clothing
-        # 17: Event(12, 12, -1, "toilet", "IsabellaNightEvent34", True), # Using the toilet
-        # 18: Event(13, 13, -1, "Livingroom", "IsabellaEveningEvent24", True), # Watches TV
         19: Event(14, 14, -1, "Isabella room", "IsabellaEveningEvent34", True, auto_trigger=False), # Makes her backpack
         20: Event(15, 15, -1, "Jennifer room", "IsabellaEveningEvent44", True, auto_trigger=False), # Doing a bad thing
         21: Event(18, 18, -1, "Isabella room", "IsabellaAfterNoonEvent44", True, auto_trigger=False), # Plays on the computer
@@ -50,22 +43,13 @@ init 1 python:
 
         # * Claire Events
         24: Event(0, 0, -1, "Claire room", "ClaireMorningEvent14", True, auto_trigger=False), # Wakes up
-        # 25: Event(1, 1, -1, "Livingroom", "ClaireMorningEvent24", True), # Drinks her coffee
-        # 26: Event(2, 2, -1, "toilet", "ClaireMorningEvent34", True), # Using the toilet
         27: Event(4, 4, -1, "Claire room", "ClaireNoonEvent14", True), # Dresses up for school
-        # 28: Event(12, 12, -1, "Entrance", "ClaireEveningEvent14", True), # Gets home
         29: Event(13, 13, -1, "Claire room", "ClaireEveningEvent24", True), # Changes into home clothing
         30: Event(14, 14, -1, "Claire room", "ClaireEveningEvent34", True, auto_trigger=False), # On her phone
         31: Event(15, 15, -1, "Claire room", "ClaireEveningEvent44", True, auto_trigger=False), # Homework
-        # 32: Event(18, 18, -1, "bathroom", "ClaireNightEvent34", True), # Showers
-        # 33: Event(19, 19, -1, "Livingroom", "ClaireNightEvent44", True), # Watches TV
         34: Event(20, 20, -1, "Claire room", "ClaireMidnightEvent14", True, auto_trigger=False), # Sleeps
 
         # * Group Events
-        # 35: Event(3, 3, -1, "Livingroom", "DinnerGroupEvent", True), # Everyone eats
-        # 36: Event(5, 5, -1, "Entrance", "LeaveHomeEvent", True), # Everyone leaves for school/work
-        # 37: Event(16, 16, -1, "Livingroom", "LunchGroupEvent", True), # Everybody eats part 2
-        # 38: Event(17, 17, -1, "Livingroom", "MovieNightEvent", True), # Everyone watches TV
 
         # * School Events
         39: screen_event(0, 24, -1, "School", "SchoolEvent", True), # School Front Screen
@@ -89,10 +73,12 @@ init 1 python:
         57: screen_event(0, 24, -1, "ArtClass", "ArtClassEvent", True),# NurseRoom Screen
         58: screen_event(0, 24, -1, "SchoolLibrary", "SchoolLibraryEvent", True),# SchoolLibrary Screen
         60: screen_event(0, 24, -1, "MannersClass", "MannersClassEvent", True),# Manners Class Screen
+        159: Event(0, 24, -1, "MannersClass", "MannersClassWrapper", True, condition=can_trigger_manners_event, priority=20),
         61: screen_event(0, 24, -1, "BioClass", "BioClassEvent", True),# Bio Class Screen
         62: screen_event(0, 24, -1, "Gym", "GymEvent", True),# Bio Class Screen
         63: screen_event(0, 24, -1, "GymLockerRoomFront", "GymLockerRoomFrontEvent", True),# Bio Class Screen
         64: screen_event(0, 24, -1, "GirlsLockerRoom", "GirlsLockerRoomEvent", True),# Bio Class Screen
+        160: Event(0, 24, -1, "GirlsLockerRoom", "BeforeGymClass_FromInside_Scene", True, condition=can_trigger_before_gym_class_event, priority=30),
 
         # * House screens
         65: screen_event(0, 24, -1, "Housefront", "HousefrontEvent", True),# Housefront Screen
@@ -100,21 +86,18 @@ init 1 python:
         67: screen_event(0, 24, -1, "Livingroom", "LivingroomEvent", True),# LivingRoom Screen
         68: screen_event(0, 24, -3, "bathroom", "BathroomEvent", True),# bathroom Screen
 
-        # 69: Event(0, 24, -2, "Isabella room", "IsabellaRoomWeekendEvent", True),
-        # 70: Event(0, 24, -2, "Jennifer room", "JenniferRoomWeekendEvent", True),
-        # 71: Event(0, 24, -2, "Claire room", "ClaireRoomWeekendEvent", True),
         72: screen_event(0, 24, -3, "kitchen", "KitchenEvent", True),# Kitchen Screen
         73: screen_event(0, 24, -2, "Garden1", "Garden1WeekendEvent", True),# Garden1 Screen
         74: screen_event(0, 24, -2, "Garden2", "Garden2WeekendEvent", True),# Garden2 Screen
-        74: screen_event(0, 24, -3, "Entrance", "EntranceEvent", True),# Garden2 Screen
+        75: screen_event(0, 24, -3, "Entrance", "EntranceEvent", True),# Garden2 Screen
 
         # * House auto events (toilet/bathroom)
-        201: Event(2, 2, -1, "HouseToilet", "ClaireMorningEvent34", True),
-        202: Event(12, 12, -1, "HouseToilet", "IsabellaNightEvent34", True),
-        203: Event(18, 18, -1, "HouseToilet", "Jennifer_weekend_7AM", True),
-        204: Event(1, 1, -2, "HouseToilet", "Jennifer_weekend_7AM", True),
-        211: Event(1, 1, -1, "Bathroom", "JenniferMorningEvent34", True),
-        212: Event(2, 2, -1, "Bathroom", "IsabellaMorningEvent24", True),
-        213: Event(18, 18, -1, "Bathroom", "ClaireNightEvent34", True),
-        214: Event(1, 1, -2, "Bathroom", "Claire_weekend_7AM", True),
+        201: Event(2, 2, -1, "HouseToilet", "ClaireMorningEvent34", True, priority=10),
+        202: Event(12, 12, -1, "HouseToilet", "IsabellaNightEvent34", True, priority=10),
+        203: Event(18, 18, -1, "HouseToilet", "Jennifer_weekend_7AM", True, priority=10),
+        204: Event(1, 1, -2, "HouseToilet", "Jennifer_weekend_7AM", True, priority=10),
+        211: Event(1, 1, -1, "Bathroom", "JenniferMorningEvent34", True, priority=10),
+        212: Event(2, 2, -1, "Bathroom", "IsabellaMorningEvent24", True, priority=10),
+        213: Event(18, 18, -1, "Bathroom", "ClaireNightEvent34", True, priority=10),
+        214: Event(1, 1, -2, "Bathroom", "Claire_weekend_7AM", True, priority=10),
     }

@@ -90,6 +90,15 @@ init -2 python:
         loc = get_location_def(name_or_key)
         return loc.screen_name if loc else None
 
+    def get_all_location_screen_names():
+        screens = []
+        seen = set()
+        for loc in _LOCATIONS.values():
+            if loc.screen_name and loc.screen_name not in seen:
+                screens.append(loc.screen_name)
+                seen.add(loc.screen_name)
+        return tuple(screens)
+
     def get_location_image_key(name_or_key, period_index):
         base = normalize_location_key(name_or_key)
         if period_index == 1:
@@ -190,3 +199,5 @@ init -2 python:
     register_sublocation("SchoolGymFront", 1, 1310, 900, "SchoolSubLocationIcons/SchoolGymFront_%s.png", True, icon_size=SCHOOL_SUBLOC_ICON_SIZE)
     register_sublocation("InsideSchoolGym", 1, 1490, 900, "SchoolSubLocationIcons/InsideSchoolGym_%s.png", True, icon_size=SCHOOL_SUBLOC_ICON_SIZE)
     register_sublocation("SchoolPool", 1, 1670, 900, "SchoolSubLocationIcons/SchoolPool_%s.png", True, icon_size=SCHOOL_SUBLOC_ICON_SIZE)
+
+    ALL_EVENT_SCREENS = list(get_all_location_screen_names())

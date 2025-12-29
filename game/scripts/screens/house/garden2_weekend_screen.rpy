@@ -1,7 +1,7 @@
 screen Garden2WeekendScreen():
-    if calendar.Hours == 2:
+    if calendar.Hours == HOUR_8AM:
         add "HouseScreens/Claire_Weekend_8AM.webp"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Claire_8AM_idle.png"
                 hover "HouseScreens/Claire_8AM_hover.png"
@@ -9,9 +9,9 @@ screen Garden2WeekendScreen():
                 ypos 348
                 action [Hide("Garden2WeekendScreen"), Jump("Claire_weekend_8AM")]
                 focus_mask True
-    elif calendar.Hours < 12 and calendar.Hours >= 0:
+    elif is_day_hour(calendar.Hours):
         add "HomeSubplace/garden2.png"
-    elif calendar.Hours < 16 and calendar.Hours >= 12:
+    elif is_evening_hour(calendar.Hours):
         add "HomeSubplace/garden2 evening.png"
-    elif calendar.Hours > 15 and calendar.Hours <= 20:
+    elif is_night_hour(calendar.Hours):
         add "HomeSubplace/garden2 night.png"

@@ -49,9 +49,9 @@ init python:
 
 screen HousefrontScreen():
 
-    if calendar.Hours == 0:
+    if calendar.Hours == HOUR_6AM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -66,9 +66,9 @@ screen HousefrontScreen():
                 ]
                 focus_mask True
 
-    elif calendar.Hours == 1:
+    elif calendar.Hours == HOUR_7AM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -83,9 +83,9 @@ screen HousefrontScreen():
                 ]
                 focus_mask True
 
-    elif calendar.Hours == 2:
+    elif calendar.Hours == HOUR_8AM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -97,9 +97,9 @@ screen HousefrontScreen():
                 ]
                 focus_mask True
 
-    elif calendar.Hours == 3:
+    elif calendar.Hours == HOUR_9AM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -111,9 +111,9 @@ screen HousefrontScreen():
                 ]
                 focus_mask True
 
-    elif calendar.Hours == 4:
+    elif calendar.Hours == HOUR_10AM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -125,9 +125,9 @@ screen HousefrontScreen():
                 ]
                 focus_mask True
 
-    elif calendar.Hours == 5:
+    elif calendar.Hours == HOUR_11AM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -138,9 +138,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_All_11AM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 6:
+    elif calendar.Hours == HOUR_12PM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -151,9 +151,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Mhyrorin_12AM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 7:
+    elif calendar.Hours == HOUR_1PM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -164,9 +164,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Mhyrorin_1PM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 8:
+    elif calendar.Hours == HOUR_2PM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -177,9 +177,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Mhyrorin_2PM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 9:
+    elif calendar.Hours == HOUR_3PM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -190,9 +190,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Mhyrorin_3PM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 10:
+    elif calendar.Hours == HOUR_4PM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -203,9 +203,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Isabella_4PM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 11:
+    elif calendar.Hours == HOUR_5PM:
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -216,9 +216,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Isabella_5PM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 12:
+    elif calendar.Hours == HOUR_6PM:
         add "HomeSubplace/Housefront evening.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -229,9 +229,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Claire_6PM")
                 ]
                 focus_mask True
-    elif calendar.Hours == 13:
+    elif calendar.Hours == HOUR_7PM:
         add "HomeSubplace/Housefront evening.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -242,9 +242,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Jennifer_7PM")
                 ]
                 focus_mask True        
-    elif calendar.Hours == 14:
+    elif calendar.Hours == HOUR_8PM:
         add "HomeSubplace/Housefront evening.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -258,9 +258,9 @@ screen HousefrontScreen():
                     ))
                 ]
                 focus_mask True      
-    elif calendar.Hours == 15:
+    elif calendar.Hours == HOUR_9PM:
         add "HomeSubplace/Housefront evening.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -271,9 +271,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Jennifer_9PM")
                 ]
                 focus_mask True 
-    elif calendar.Hours == 16:
+    elif calendar.Hours == HOUR_10PM:
         add "HomeSubplace/Housefront night.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -284,9 +284,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Jennifer_10PM")
                 ]
                 focus_mask True  
-    elif calendar.Hours == 17:
+    elif calendar.Hours == HOUR_11PM:
         add "HomeSubplace/Housefront night.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -297,9 +297,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Isabella_11PM")
                 ]
                 focus_mask True  
-    elif calendar.Hours == 18:
+    elif calendar.Hours == HOUR_12AM:
         add "HomeSubplace/Housefront night.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -310,9 +310,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Isabella_12PM")
                 ]
                 focus_mask True  
-    elif calendar.Hours == 19:
+    elif calendar.Hours == HOUR_1AM:
         add "HomeSubplace/Housefront night.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -323,9 +323,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Claire_1AM")
                 ]
                 focus_mask True 
-    elif calendar.Hours == 20:
+    elif calendar.Hours == HOUR_2AM:
         add "HomeSubplace/Housefront night.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -336,9 +336,9 @@ screen HousefrontScreen():
                     Jump("MC_GetsHome_Mhyrorin_2AM")
                 ]
                 focus_mask True 
-    elif 0 <= calendar.Hours <= 11:
+    elif is_day_hour(calendar.Hours):
         add "HomeSubplace/Housefront.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -346,9 +346,9 @@ screen HousefrontScreen():
                 ypos 199
                 action [Hide("HousefrontScreen"), Return("Entrance")]
                 focus_mask True
-    elif 12 <= calendar.Hours <= 15:
+    elif is_evening_hour(calendar.Hours):
         add "HomeSubplace/Housefront evening.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"
@@ -356,9 +356,9 @@ screen HousefrontScreen():
                 ypos 199
                 action [Hide("HousefrontScreen"), Return("Entrance")]
                 focus_mask True
-    elif 16 <= calendar.Hours <= 24:
+    elif is_night_hour(calendar.Hours):
         add "HomeSubplace/Housefront night.png"
-        if not MapScreenShown and not StatsScreenShown:
+        if should_show_room_buttons():
             imagebutton:
                 idle "EntranceScreen/EntranceDoor_idle.png"
                 hover "EntranceScreen/EntranceDoor_hover.png"

@@ -1,61 +1,89 @@
+init 1 python:
+    JENNIFER_ROOM_WEEKDAY_EVENTS = {
+        HOUR_6AM: {
+            "bg": "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Screen1.png",
+            "button": {
+                "idle": "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Button1_idle.png",
+                "hover": "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Button1_hover.png",
+                "xpos": 927,
+                "ypos": 361,
+                "jump": "JenniferMorningEvent14",
+            },
+        },
+        HOUR_9PM: {
+            "bg": "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Screen1.webp",
+            "button": {
+                "idle": "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Button1_idle.png",
+                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Button1_hover.png",
+                "xpos": 1699,
+                "ypos": 515,
+                "jump": "IsabellaEveningEvent44",
+            },
+        },
+        HOUR_1AM: {
+            "bg": "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Screen1.webp",
+            "button": {
+                "idle": "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Button1_idle.png",
+                "hover": "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Button1_hover.png",
+                "xpos": 995,
+                "ypos": 285,
+                "jump": "JenniferNightEvent34",
+            },
+        },
+        HOUR_2AM: {
+            "bg": "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Screen1.webp",
+            "button": {
+                "idle": "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Button1_idle.png",
+                "hover": "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Button1_hover.png",
+                "xpos": 1080,
+                "ypos": 457,
+                "jump": "JenniferNightEvent44",
+            },
+        },
+    }
+
+    JENNIFER_ROOM_WEEKEND_EVENTS = {
+        HOUR_6AM: {
+            "bg": "HouseScreens/Jennifer_Weekend_6AM.webp",
+            "button": {
+                "idle": "HouseScreens/Jennifer_6AM_idle.png",
+                "hover": "HouseScreens/Jennifer_6AM_hover.png",
+                "xpos": 1119,
+                "ypos": 396,
+                "jump": "Jennifer_weekend_6AM",
+                "focus_mask": True,
+            },
+        },
+    }
+
 screen JenniferRoomScreen():
     if calendar.Day not in [0, 6]:
-        if calendar.Hours == 0:
-            add "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Screen1.png"
-            if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Button1_idle.png"
-                    hover "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Button1_hover.png"
-                    xpos 927
-                    ypos 361
-                    action [Function(hideEventScreens), Jump("JenniferMorningEvent14")]
-        elif calendar.Hours == 15:
-            add "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Screen1.webp"
-            if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Button1_idle.png"
-                    hover "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Button1_hover.png"
-                    xpos 1699
-                    ypos 515
-                    action [Function(hideEventScreens), Jump("IsabellaEveningEvent44")]
-        elif calendar.Hours == 19:
-            add "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Screen1.webp"
-            if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Button1_idle.png"
-                    hover "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Button1_hover.png"
-                    xpos 995
-                    ypos 285
-                    action [Function(hideEventScreens), Jump("JenniferNightEvent34")]
-        elif calendar.Hours == 20:
-            add "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Screen1.webp"
-            if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Button1_idle.png"
-                    hover "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Button1_hover.png"
-                    xpos 1080
-                    ypos 457
-                    action [Function(hideEventScreens), Jump("JenniferNightEvent44")]
-        elif calendar.Hours < 12 and calendar.Hours >= 0:
-            add "HomeSubplace/Jennifer room.png"
-        elif calendar.Hours < 16 and calendar.Hours >= 12:
-            add "HomeSubplace/Jennifer room evening.png"
-        elif calendar.Hours > 15 and calendar.Hours <= 20:
-            add "HomeSubplace/Jennifer room night.png"
+        $ scene_def = select_room_scene(
+            calendar.Hours,
+            JENNIFER_ROOM_WEEKDAY_EVENTS,
+            "HomeSubplace/Jennifer room.png",
+            "HomeSubplace/Jennifer room evening.png",
+            "HomeSubplace/Jennifer room night.png",
+        )
     else:
-        if calendar.Hours == 0:
-            add "HouseScreens/Jennifer_Weekend_6AM.webp"
-            if not MapScreenShown and not StatsScreenShown:
-                imagebutton:
-                    idle "HouseScreens/Jennifer_6AM_idle.png"
-                    hover "HouseScreens/Jennifer_6AM_hover.png"
-                    xpos 1119
-                    ypos 396
-                    action [Function(hideEventScreens), Jump("Jennifer_weekend_6AM")]
-                    focus_mask True
-        elif calendar.Hours < 12 and calendar.Hours >= 0:
-            add "HouseScreens/Jennifer_Room_Weekend_Day.webp"
-        elif calendar.Hours < 16 and calendar.Hours >= 12:
-            add "HomeSubplace/Jennifer room evening.png"
-        elif calendar.Hours > 15 and calendar.Hours <= 20:
-            add "HomeSubplace/Jennifer room night.png"
+        $ scene_def = select_room_scene(
+            calendar.Hours,
+            JENNIFER_ROOM_WEEKEND_EVENTS,
+            "HouseScreens/Jennifer_Room_Weekend_Day.webp",
+            "HomeSubplace/Jennifer room evening.png",
+            "HomeSubplace/Jennifer room night.png",
+        )
+
+    if scene_def:
+        add scene_def["bg"]
+        if scene_def.get("button") and should_show_room_buttons():
+            $ button = scene_def["button"]
+            $ focus_mask_value = button.get("focus_mask")
+            imagebutton:
+                idle button["idle"]
+                hover button["hover"]
+                xpos button["xpos"]
+                ypos button["ypos"]
+                action [Function(hideEventScreens), Jump(button["jump"])]
+                if focus_mask_value is not None:
+                    focus_mask focus_mask_value

@@ -1,5 +1,5 @@
 screen GirlsLockerRoomScreen():
-    if 0 <= calendar.Hours <= 11:
+    if is_day_hour(calendar.Hours):
         add "SchoolSubplace/GirlsLockerRoom.png"
-    if 12 <= calendar.Hours <= 15:
+    if is_evening_hour(calendar.Hours):
         add "SchoolSubplace/GirlsLockerRoom evening.png"

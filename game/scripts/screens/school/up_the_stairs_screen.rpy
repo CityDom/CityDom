@@ -70,7 +70,7 @@ screen UpTheStairsScreen():
             #     ypos 337
             #     action [Return("WomansToilet"), Hide("UpTheStairsScreen")]
             #     at buttonScale
-    # if 16 <= calendar.Hours <= 24:
+    # if is_night_hour(calendar.Hours):
     #     add "SchoolSubplace/UpTheStairs night.png"
     #     if not MapScreenShown and not StatsScreenShown:
     #         imagebutton:
