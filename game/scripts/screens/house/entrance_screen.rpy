@@ -64,6 +64,16 @@ screen EntranceScreen():
                     ypos 354
                     action Function(start_event_from_screen, "HouseScreens/Jennifer_weekend_1PM.webp", "Jennifer_weekend_1PM")
                     focus_mask True
+        elif calendar.Hours == HOUR_3PM:
+            add "HouseScreens/Jennifer_weekend_3PM.webp"
+            if should_show_room_buttons():
+                imagebutton:
+                    idle "HouseScreens/Jennifer_3PM_idle.png"
+                    hover "HouseScreens/Jennifer_3PM_hover.png"
+                    xpos 989
+                    ypos 284
+                    action Function(start_event_from_screen, "HouseScreens/Jennifer_weekend_3PM.webp", "Jennifer_weekend_3PM")
+                    focus_mask True
         elif is_day_hour(calendar.Hours):
             add "Places/Entrance.png"
         elif is_evening_hour(calendar.Hours):

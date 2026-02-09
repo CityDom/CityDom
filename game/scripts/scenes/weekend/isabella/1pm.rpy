@@ -65,7 +65,7 @@ label Isabella_weekend_1PM:
     scene Isabella_weekend_1PM_25 with Dissolve(0.5)
     MC "Huh? What are you doing?"
     scene Isabella_weekend_1PM_26 with Dissolve(0.5)
-    MC "Okay, let's talk about it. I done joking."
+    MC "Okay, let's talk about it. I'm done joking."
     scene Isabella_weekend_1PM_27 with Dissolve(0.5)
     Mhyrorin "Are you sure?!"
     scene Isabella_weekend_1PM_28 with Dissolve(0.5)

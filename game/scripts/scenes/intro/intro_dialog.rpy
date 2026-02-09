@@ -312,7 +312,7 @@ label GameIntro:
     scene IntroScene82 with Dissolve(0.5)
     MC "Ehh... you know... not the best.."
     MC "He's got a new girlfriend."
-    MC "And she has a kid with her. So we were all living together."
+    MC "And she has 2 girls from her past relationship with her. So we were all living together."
     MC "But over all it was okay, a bit annoying though."
     scene IntroScene84 with Dissolve(0.5)
     Isabella "Really? Well... I guess it's normal..."
@@ -320,7 +320,7 @@ label GameIntro:
     Isabella "And... how are the girls?"
     Isabella "Did you get along with them?"
     scene IntroScene86 with Dissolve(0.5)
-    MC "Pretty good, the daughter was pissing me off a little."
+    MC "Pretty good, the daughters were pissing me off a little."
     MC "But all in all, it was alright..."
     scene IntroScene87 with Dissolve(0.5)
     Isabella "So... you've had it pretty good, huh?"

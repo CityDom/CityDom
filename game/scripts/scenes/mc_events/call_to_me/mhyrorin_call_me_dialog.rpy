@@ -248,7 +248,7 @@ label MhyrorinCallToMeDialog:
                                     Mhyrorin "Uhhhh... okay, if you don't need anything else, I will see my way out!"
                                     Mhyrorin "Bye byee!"
                                     window hide
-                                    $ current_location = str(Location).lower()
+                                    #$ current_location = str(Location).lower()
                                     $ advance_time_or_sleep()
                                 "Show me your mouth":
                                     MC "I want you to get on your knees and open your mouth."

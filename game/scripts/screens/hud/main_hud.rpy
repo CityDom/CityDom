@@ -32,6 +32,9 @@ init python:
         for screen_name in ALL_EVENT_SCREENS:
             renpy.hide_screen(screen_name)
 
+        # Force location background refresh after event scenes.
+        renpy.store.Location_img = ""
+
         # Continue the game loop
         renpy.call("GameLoop")
 
