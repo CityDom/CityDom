@@ -797,6 +797,15 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
+                vbox:
+                    style_prefix "radio"
+                    label _("Font")
+                    for display_name, font_path in AVAILABLE_GAME_FONTS:
+                        textbutton _(display_name):
+                            text_font font_path
+                            action Function(set_game_font, font_path)
+                            selected is_game_font_selected(font_path)
+
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
 

@@ -286,7 +286,7 @@ define gui.slot_spacing = 15
 ## The position of the main menu text.
 define gui.main_menu_text_xalign = 1.0
 
-
+define config.menu_include_disabled = True
 ## Frames ######################################################################
 ##
 ## These variables control the look of frames that can contain user interface

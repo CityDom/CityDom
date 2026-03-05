@@ -221,7 +221,7 @@ screen HousefrontScreen():
                         "HomeSubplace/Housefront evening.png",
                         choose_housefront_scene(
                             ["MC_GetsHome_Claire_8PM", "MC_GetsHome_Isabella_8PM"],
-                            housefront_scene_history_7AM
+                            housefront_scene_history_8PM
                         )
                     )
                     focus_mask True      

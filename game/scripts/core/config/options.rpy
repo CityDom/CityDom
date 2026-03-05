@@ -223,6 +223,11 @@ init python:
 
 # define build.itch_project = "renpytom/test-project"
 
+label before_main_menu:
+    $ apply_selected_game_font()
+    return
+
 label after_load:
+    $ apply_selected_game_font()
     $ _ensure_background_music()
     return
