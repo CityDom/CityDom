@@ -22,7 +22,7 @@ label MC_GetsHome_Jennifer_7PM:
             scene Jennifer_Scene_7PM_2 with Dissolve(1)
             Claire "....."
             scene Jennifer_Scene_7PM_3 with Dissolve(1)
-            MC "{color=#808080}*I guess I'm waiting for mom to get home...*"
+            MC "{color=#808080}*I guess I'm waiting for Jennifer to get home...*"
             scene BlackScreen with Dissolve(1)
             "{color=#808080}**20 minutes later...**"
             scene Jennifer_Scene_7PM_4 with Dissolve(0.5)

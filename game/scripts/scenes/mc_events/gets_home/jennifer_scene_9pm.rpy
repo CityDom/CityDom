@@ -30,7 +30,7 @@ label MC_GetsHome_Jennifer_9PM:
             scene Jennifer_Scene_9PM_6 with Dissolve(0.5)
             "{color=#808080}*PLAP PLAP PLAP PLAP*"
             scene Jennifer_Scene_9PM_7 with Dissolve(0.5)
-            MC "{color=#808080}*Ah shit... that gotta be mom... and she isn't happy.*"
+            MC "{color=#808080}*Ah shit... that gotta be Jennifer... and she isn't happy.*"
             scene Jennifer_Scene_9PM_8 with Dissolve(0.5)
             Jennifer "Get in already, I have food on the stove!"
             Jennifer "Bring a damn key with you, will you?!"

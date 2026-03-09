@@ -87,3 +87,16 @@ label Jennifer_weekend_4PM_kill_yourself:
     MC "I don't know many people with horns."
     scene Jennifer_weekend_4PM_27 with Dissolve(0.5)
     Mhyrorin "Well, sorry isn't gonna cut it!"
+    scene Jennifer_weekend_4PM_28 with Dissolve(0.5)
+    Mhyrorin "I'm fucking drenched now!"
+    ###! LVL 2, Mhyro drops the used tissue on Jennifer, after which she wakes up, MC snatches it fast but some slime is left on her face and she smells/tastes it and doesn't hate it.
+    scene Jennifer_weekend_4PM_29 with Dissolve(0.5)
+    MC "Well, that's what you get for scaring me, so I'm not gonna feel bad about it!"
+    scene Jennifer_weekend_4PM_30 with Dissolve(0.5)
+    Mhyrorin "Oh, really? Then I won't be sorry for doing this either!"
+    scene Jennifer_weekend_4PM_31 with Dissolve(0.5)
+    Mhyrorin "Wakey wakey!"
+    scene Jennifer_weekend_4PM_32 with Dissolve(0.5)
+    MC "NO, NO, NO, WAIT!!"
+    scene Jennifer_weekend_4PM_33 with Dissolve(0.5)
+    Mhyrorin "Kheheh."

@@ -57,7 +57,7 @@ label GameIntro:
     Jennifer "[MC_upper], IS THAT YOU?!"
     scene IntroScene12 with Dissolve(0.5)
     MC "{color=#808080}*Oh my god...*{/color}"
-    MC "{color=#808080}*No way this is mom!!!*{/color}"
+    MC "{color=#808080}*No way this is Jennifer!!!*{/color}"
     MC "{color=#808080}*Thinking about it... She didn't change that much since I was a kid.*{/color}"
     MC "{color=#808080}*But now she looks so hot.*{/color}"
     scene introscene10 with Dissolve(0.5)
@@ -239,7 +239,7 @@ label GameIntro:
     Jennifer "I'll help [MC] with his luggage and make breakfast."
     scene IntroScene60 with Dissolve(0.5)
     Claire "UGHHHH!! Just do it already!"
-    MC "{color=#808080}*Mom is always going easy on her...*{/color}"
+    MC "{color=#808080}*Jennifer is always going easy on her...*{/color}"
     MC "{color=#808080}*Since she feels that it's her fault for dad leaving.*{/color}"
     MC "{color=#808080}*And for Claire's resentment.*{/color}"
     scene IntroScene61 with Dissolve(0.5)
@@ -448,7 +448,7 @@ label GameIntro:
     Unknown "Nobody can hear us, you dumbass!"
     scene IntroScene116 with Dissolve(0.5)
     MC "{color=#808080}*She's right!*{/color}"
-    MC "{color=#808080}*Mom hasn't gone to sleep yet...*{/color}"
+    MC "{color=#808080}*Jennifer hasn't gone to sleep yet...*{/color}"
     MC "{color=#808080}*And she usually barges in my room at every little sound.*{/color}"
     scene IntroScene117 with Dissolve(0.5)
     Unknown "Of course I'm fucking right!"

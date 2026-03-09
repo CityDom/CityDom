@@ -7,7 +7,7 @@ label MC_Livingroom_Movie_2AM_Isabella_Label:
     scene MC_Livingroom_Movie_2AM_Isabella_2 with Dissolve(0.5)
     MC "{color=#808080}**PLAP PLAP PLAP PLAP**"
     scene MC_Livingroom_Movie_2AM_Isabella_3 with Dissolve(0.5)
-    MC "{color=#808080}*Ahh, shit, it must be mom again!*"
+    MC "{color=#808080}*Ahh, shit, it must be Jennifer again!*"
     scene BlackScreen with Dissolve(0.5)
     MC "{color=#808080}*Ughh... What is she doing?*"
     MC "{color=#808080}*I heard the door open... did she just open it and leave?*"

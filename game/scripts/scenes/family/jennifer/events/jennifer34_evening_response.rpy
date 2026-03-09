@@ -47,10 +47,10 @@ label JenniferEvening34:
                     Jennifer "What am I saying..."
                     Jennifer "I gotta put myself together!"
                     scene Jennifer_evening34_14 with Dissolve(0.5)
-                    MC "{color=#808080}*Damn... I never knew mom felt that way...*{/color}"
+                    MC "{color=#808080}*Damn... I never knew Jennifer felt that way...*{/color}"
                     MC "{color=#808080}*That's perfect!!!!!!*{/color}"
                     scene Jennifer_evening34_15 with Dissolve(0.5)
-                    MC "{color=#808080}*No worries mom, I'll take good care of you.*{/color}"
+                    MC "{color=#808080}*No worries Jennifer, I'll take good care of you.*{/color}"
                     MC "{color=#808080}*I've seen what I wanted, I should leave for now!*{/color}"
                     scene Jennifer_evening34_16 with Dissolve(0.5)
                     Jennifer "Huh..."

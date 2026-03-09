@@ -20,7 +20,7 @@ label MC_GetsHome_Jennifer_6AM:
             scene Jennifer_Scene_6AM_4 with Dissolve(0.5)
             Jennifer "I'm coming, I'm coming, wait a second!"
             scene Jennifer_Scene_6AM_5 with Dissolve(0.5)
-            MC "{color=#808080}*That sounded like mom, I think she just woke up...*{color=#808080}"
+            MC "{color=#808080}*That sounded like Jennifer, I think she just woke up...*{color=#808080}"
             scene Jennifer_Scene_6AM_6 with Dissolve(0.5)
             Jennifer "Yes, is there a problem?"
             scene Jennifer_Scene_6AM_7 with Dissolve(0.5)

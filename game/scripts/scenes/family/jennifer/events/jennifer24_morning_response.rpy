@@ -1,6 +1,6 @@
 label JenniferMorning24:
     scene Jennifer_morning24_1
-    MC "{color=#808080}*Oh, mom is making breakfast, let's see how she's doing*{color=#808080}"
+    MC "{color=#808080}*Oh, Jennifer is making breakfast, let's see how she's doing*{color=#808080}"
     MC "Hey mom, what's up?"
     scene Jennifer_morning24_2 with Dissolve(0.5)
     Jennifer "I'm making breakfast, wanna help me?"

@@ -72,7 +72,7 @@ label SleepEvent:
                         Jennifer "YOU ARE SO GROUNDED FOR THIS!!!!"
                         scene SleepScene3 with Dissolve(0.5)
                         MC "{color=#808080}*Huhh....*{/color}"
-                        MC "{color=#808080}*I think I heard mom calling me...*{/color}"
+                        MC "{color=#808080}*I think I heard Jennifer calling me...*{/color}"
                         scene SleepScene4 with Dissolve(0.5)
                         MC "{color=#808080}*She doesn't seem to be here.*{/color}"
                         MC "{color=#808080}*But I can swear that I heard her.*{/color}"

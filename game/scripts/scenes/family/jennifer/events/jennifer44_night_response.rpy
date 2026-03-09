@@ -1,6 +1,6 @@
 label JenniferNight44:
     scene Jennifer_night44_1 with Dissolve(0.5)
-    MC "{color=#808080}*Oh, mom already fell asleep.*{/color}"
+    MC "{color=#808080}*Oh, Jennifer already fell asleep.*{/color}"
     MC "...."
     MC "{color=#808080}*Let's not disturb her.*{/color}"
     MC "{color=#808080}*She wakes up really easily and she will kill me if she wakes up*{/color}"

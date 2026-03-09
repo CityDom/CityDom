@@ -95,7 +95,7 @@ label Jennifer_weekend_8AM:
             scene Jennifer_weekend_8AM_40 with Dissolve(0.5)
             MC "{color=#808080}*Oh my god I was actually sitting in the cuck chair. They don't even acknowledge me being here.*"
             scene Jennifer_weekend_8AM_41 with Dissolve(0.5)
-            MC "{color=#808080}*Although, mom and Isa getting closer to each other doesn't sound bad at all, it might make things easier actually.*"
+            MC "{color=#808080}*Although, Jennifer and Isa getting closer to each other doesn't sound bad at all, it might make things easier actually.*"
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You get out of the room**{/color}"
             call stat_reward({"Isabella": {"obedience": 2}, "Jennifer": {"obedience": 2}}, return_to=None)

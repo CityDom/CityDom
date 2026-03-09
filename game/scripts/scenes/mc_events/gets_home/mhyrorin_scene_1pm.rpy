@@ -19,7 +19,7 @@ label MC_GetsHome_Mhyrorin_1PM:
             MC "{color=#808080}*Oh, right... nobody is home...*"
             scene Mhyrorin_Scene_1PM_1 with Dissolve(0.5)
             MC "{color=#808080}*What the...*"
-            MC "{color=#808080}*Did mom come home early? Or is someone skipping school as well?*"
+            MC "{color=#808080}*Did Jennifer come home early? Or is someone skipping school as well?*"
             scene Mhyrorin_Scene_1PM_2 with Dissolve(0.5)
             Mhyrorin "Heeeey-yaa!"
             scene Mhyrorin_Scene_1PM_3 with Dissolve(0.5)

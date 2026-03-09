@@ -7,7 +7,7 @@ label MC_Livingroom_Movie_2AM_Jennifer_Label:
     scene MC_Livingroom_Movie_2AM_Jennifer_2 with Dissolve(0.5)
     "{color=#808080}**PLAP PLAP PLAP PLAP**"
     scene MC_Livingroom_Movie_2AM_Jennifer_3 with Dissolve(0.5)
-    MC "{color=#808080}*Ahh, shit, mom must've woken up!*"
+    MC "{color=#808080}*Ahh, shit, Jennifer must've woken up!*"
     scene MC_Livingroom_Movie_2AM_Jennifer_4 with Dissolve(0.5)
     Jennifer "[MC_upper], WHY ARE YOU STILL AWAKE AT THIS HOUR?!?!?!?"
     scene MC_Livingroom_Movie_2AM_Jennifer_5 with Dissolve(0.5)

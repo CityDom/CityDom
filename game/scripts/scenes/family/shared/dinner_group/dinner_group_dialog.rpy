@@ -288,7 +288,7 @@ label DinnerEventLVL1:
                                             Claire "What the fuck are you doing loser? The fork is right there, where are you looking?"
                                             Jennifer "CLAIRE!!!!"
                                             Claire "Alright, I'm sorry..."
-                                            MC "{color=#808080}*Thank god for mom..*{/color}"
+                                            MC "{color=#808080}*Thank god for Jennifer..*{/color}"
                                             $ checked_jennifer = True
                                             $ checked_Isabella = True
                                             $ checked_Claire = True
