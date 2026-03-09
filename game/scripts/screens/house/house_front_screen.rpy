@@ -1,317 +1,100 @@
-default housefront_scene_history_6AM = []
-default housefront_scene_history_7AM = []
-default housefront_scene_history_8PM = []
+init 1 python:
+    def make_housefront_button(jump=None, choices=None, history_key=None, return_to=None, hide_screen=None):
+        button = {
+            "idle": "EntranceScreen/EntranceDoor_idle.png",
+            "hover": "EntranceScreen/EntranceDoor_hover.png",
+            "xpos": 915,
+            "ypos": 199,
+            "focus_mask": True,
+        }
+        if jump is not None:
+            button["jump"] = jump
+        elif choices and history_key:
+            button["choices"] = choices
+            button["history_key"] = history_key
+        elif return_to is not None:
+            button["return_to"] = return_to
+            if hide_screen is not None:
+                button["hide_screen"] = hide_screen
+        return button
 
-default housefront_max_scene_repeats = 2
-default housefront_force_scene_after_count = 5 
+    HOUSEFRONT_EVENT_SCENES = {
+        HOUR_6AM: {
+            "bg": "HomeSubplace/Housefront.png",
+            "buttons": [
+                make_housefront_button(
+                    choices=["MC_GetsHome_Claire_6AM", "MC_GetsHome_Jennifer_6AM", "MC_GetsHome_Isabella_6AM"],
+                    history_key="housefront_6AM",
+                )
+            ],
+        },
+        HOUR_7AM: {
+            "bg": "HomeSubplace/Housefront.png",
+            "buttons": [
+                make_housefront_button(
+                    choices=["MC_GetsHome_Claire_6AM", "MC_GetsHome_Isabella_7AM"],
+                    history_key="housefront_7AM",
+                )
+            ],
+        },
+        HOUR_8AM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Isabella_8AM")]},
+        HOUR_9AM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Jennifer_9AM")]},
+        HOUR_10AM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_All_10AM")]},
+        HOUR_11AM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_All_11AM")]},
+        HOUR_12PM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Mhyrorin_12PM")]},
+        HOUR_1PM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Mhyrorin_1PM")]},
+        HOUR_2PM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Mhyrorin_2PM")]},
+        HOUR_3PM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Mhyrorin_3PM")]},
+        HOUR_4PM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Isabella_4PM")]},
+        HOUR_5PM: {"bg": "HomeSubplace/Housefront.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Isabella_5PM")]},
+        HOUR_6PM: {"bg": "HomeSubplace/Housefront evening.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Claire_6PM")]},
+        HOUR_7PM: {"bg": "HomeSubplace/Housefront evening.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Jennifer_7PM")]},
+        HOUR_8PM: {
+            "bg": "HomeSubplace/Housefront evening.png",
+            "buttons": [
+                make_housefront_button(
+                    choices=["MC_GetsHome_Claire_8PM", "MC_GetsHome_Isabella_8PM"],
+                    history_key="housefront_8PM",
+                )
+            ],
+        },
+        HOUR_9PM: {"bg": "HomeSubplace/Housefront evening.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Jennifer_9PM")]},
+        HOUR_10PM: {"bg": "HomeSubplace/Housefront night.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Jennifer_10PM")]},
+        HOUR_11PM: {"bg": "HomeSubplace/Housefront night.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Isabella_11PM")]},
+        HOUR_12AM: {"bg": "HomeSubplace/Housefront night.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Isabella_12AM")]},
+        HOUR_1AM: {"bg": "HomeSubplace/Housefront night.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Claire_1AM")]},
+        HOUR_2AM: {"bg": "HomeSubplace/Housefront night.png", "buttons": [make_housefront_button(jump="MC_GetsHome_Mhyrorin_2AM")]},
+    }
 
-init python:
-    import random
-
-    def choose_housefront_scene(housefront_scenes, scene_history):
-        if not housefront_scenes:
-            renpy.say("Error", "No scenes available! Check your scene setup.")
-            return None  
-
-        # Count how many times each scene has been played
-        scene_counts = {scene: scene_history.count(scene) for scene in housefront_scenes}
-
-        # Prioritize scenes that have never been played
-        never_played = [scene for scene in housefront_scenes if scene_counts[scene] == 0]
-
-        if never_played:
-            # Force an unplayed scene if any exist
-            chosen_scene = random.choice(never_played)
+    def get_housefront_fallback_scene(hour):
+        if is_day_hour(hour):
+            bg = "HomeSubplace/Housefront.png"
+        elif is_evening_hour(hour):
+            bg = "HomeSubplace/Housefront evening.png"
         else:
-            # Prevent repeating the same scene too often
-            if len(scene_history) >= housefront_max_scene_repeats:
-                last_scene = scene_history[-1]
-                if scene_history[-housefront_max_scene_repeats:] == [last_scene] * housefront_max_scene_repeats:
-                    housefront_scenes = [scene for scene in housefront_scenes if scene != last_scene] or housefront_scenes
+            bg = "HomeSubplace/Housefront night.png"
 
-            # Avoid scenes repeated in the last few turns
-            recent_window = scene_history[-housefront_force_scene_after_count:]
-            filtered = [scene for scene in housefront_scenes if scene not in recent_window]
+        return {
+            "bg": bg,
+            "buttons": [
+                make_housefront_button(
+                    return_to="Entrance",
+                    hide_screen="HousefrontScreen",
+                )
+            ],
+        }
 
-            # Choose a scene, prioritizing filtered ones
-            chosen_scene = random.choice(filtered) if filtered else random.choice(housefront_scenes)
-
-        # Add to scene history
-        scene_history.append(chosen_scene)
-
-        # Keep scene history size reasonable
-        if len(scene_history) > housefront_force_scene_after_count:
-            scene_history.pop(0)
-
-        return chosen_scene
-
+    def get_housefront_scene(hour):
+        scene_def = HOUSEFRONT_EVENT_SCENES.get(hour)
+        if scene_def:
+            return scene_def
+        return get_housefront_fallback_scene(hour)
 
 
 screen HousefrontScreen():
+    $ scene_def = get_housefront_scene(calendar.Hours)
 
-    if calendar.Hours == HOUR_6AM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(
-                        start_event_from_screen,
-                        "HomeSubplace/Housefront.png",
-                        choose_housefront_scene(
-                            ["MC_GetsHome_Claire_6AM", "MC_GetsHome_Jennifer_6AM", "MC_GetsHome_Isabella_6AM"],
-                            housefront_scene_history_6AM
-                        )
-                    )
-                    focus_mask True
+    add scene_def["bg"]
 
-    elif calendar.Hours == HOUR_7AM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(
-                        start_event_from_screen,
-                        "HomeSubplace/Housefront.png",
-                        choose_housefront_scene(
-                            ["MC_GetsHome_Claire_6AM", "MC_GetsHome_Isabella_7AM"],
-                            housefront_scene_history_7AM
-                        )
-                    )
-                    focus_mask True
-
-    elif calendar.Hours == HOUR_8AM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Isabella_8AM")
-                    focus_mask True
-
-    elif calendar.Hours == HOUR_9AM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Jennifer_9AM")
-                    focus_mask True
-
-    elif calendar.Hours == HOUR_10AM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_All_10AM")
-                    focus_mask True
-
-    elif calendar.Hours == HOUR_11AM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_All_11AM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_12PM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Mhyrorin_12AM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_1PM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Mhyrorin_1PM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_2PM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Mhyrorin_2PM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_3PM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Mhyrorin_3PM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_4PM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Isabella_4PM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_5PM:
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront.png", "MC_GetsHome_Isabella_5PM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_6PM:
-        add "HomeSubplace/Housefront evening.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront evening.png", "MC_GetsHome_Claire_6PM")
-                    focus_mask True
-    elif calendar.Hours == HOUR_7PM:
-        add "HomeSubplace/Housefront evening.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront evening.png", "MC_GetsHome_Jennifer_7PM")
-                    focus_mask True        
-    elif calendar.Hours == HOUR_8PM:
-        add "HomeSubplace/Housefront evening.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(
-                        start_event_from_screen,
-                        "HomeSubplace/Housefront evening.png",
-                        choose_housefront_scene(
-                            ["MC_GetsHome_Claire_8PM", "MC_GetsHome_Isabella_8PM"],
-                            housefront_scene_history_8PM
-                        )
-                    )
-                    focus_mask True      
-    elif calendar.Hours == HOUR_9PM:
-        add "HomeSubplace/Housefront evening.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront evening.png", "MC_GetsHome_Jennifer_9PM")
-                    focus_mask True 
-    elif calendar.Hours == HOUR_10PM:
-        add "HomeSubplace/Housefront night.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront night.png", "MC_GetsHome_Jennifer_10PM")
-                    focus_mask True  
-    elif calendar.Hours == HOUR_11PM:
-        add "HomeSubplace/Housefront night.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront night.png", "MC_GetsHome_Isabella_11PM")
-                    focus_mask True  
-    elif calendar.Hours == HOUR_12AM:
-        add "HomeSubplace/Housefront night.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront night.png", "MC_GetsHome_Isabella_12PM")
-                    focus_mask True  
-    elif calendar.Hours == HOUR_1AM:
-        add "HomeSubplace/Housefront night.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront night.png", "MC_GetsHome_Claire_1AM")
-                    focus_mask True 
-    elif calendar.Hours == HOUR_2AM:
-        add "HomeSubplace/Housefront night.png"
-        if should_show_room_buttons():
-                imagebutton:
-                    idle "EntranceScreen/EntranceDoor_idle.png"
-                    hover "EntranceScreen/EntranceDoor_hover.png"
-                    xpos 915
-                    ypos 199
-                    action Function(start_event_from_screen, "HomeSubplace/Housefront night.png", "MC_GetsHome_Mhyrorin_2AM")
-                    focus_mask True 
-    elif is_day_hour(calendar.Hours):
-        add "HomeSubplace/Housefront.png"
-        if should_show_room_buttons():
-            imagebutton:
-                idle "EntranceScreen/EntranceDoor_idle.png"
-                hover "EntranceScreen/EntranceDoor_hover.png"
-                xpos 915
-                ypos 199
-                action [Hide("HousefrontScreen"), Return("Entrance")]
-                focus_mask True
-    elif is_evening_hour(calendar.Hours):
-        add "HomeSubplace/Housefront evening.png"
-        if should_show_room_buttons():
-            imagebutton:
-                idle "EntranceScreen/EntranceDoor_idle.png"
-                hover "EntranceScreen/EntranceDoor_hover.png"
-                xpos 915
-                ypos 199
-                action [Hide("HousefrontScreen"), Return("Entrance")]
-                focus_mask True
-    elif is_night_hour(calendar.Hours):
-        add "HomeSubplace/Housefront night.png"
-        if should_show_room_buttons():
-            imagebutton:
-                idle "EntranceScreen/EntranceDoor_idle.png"
-                hover "EntranceScreen/EntranceDoor_hover.png"
-                xpos 915
-                ypos 199
-                action [Hide("HousefrontScreen"), Return("Entrance")]
-                focus_mask True
+    if should_show_room_buttons():
+        use room_scene_buttons(scene_def)

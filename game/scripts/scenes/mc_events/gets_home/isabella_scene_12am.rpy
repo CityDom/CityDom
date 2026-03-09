@@ -1,6 +1,9 @@
 init python:
     define_images("Isabella_Scene_12PM_", "MCEvents/MC_GetsHome/Isabella/12PM", "Isabella_Scene_12PM_", 100)
 
+label MC_GetsHome_Isabella_12AM:
+    jump MC_GetsHome_Isabella_12PM
+
 label MC_GetsHome_Isabella_12PM:
     scene Jennifer_Scene_10PM_1 with Dissolve(0.5)
     menu:

@@ -99,7 +99,7 @@ init 1 python:
     }
 
 screen IsabellaRoomScreen():
-    if calendar.Day not in [0, 6]:
+    if is_weekday_day(calendar.Day):
         $ scene_def = select_room_scene(
             calendar.Hours,
             ISABELLA_ROOM_WEEKDAY_EVENTS,
@@ -118,15 +118,5 @@ screen IsabellaRoomScreen():
 
     if scene_def:
         add scene_def["bg"]
-        if scene_def.get("button") and should_show_room_buttons():
-            $ button = scene_def["button"]
-            $ focus_mask_value = button.get("focus_mask")
-            use event_imagebutton(
-                idle=button["idle"],
-                hover=button["hover"],
-                xpos=button["xpos"],
-                ypos=button["ypos"],
-                bg=scene_def["bg"],
-                label=button["jump"],
-                focus_mask=focus_mask_value,
-            )
+        if should_show_room_buttons():
+            use room_scene_buttons(scene_def)

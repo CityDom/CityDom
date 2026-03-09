@@ -38,6 +38,10 @@ init python:
     HOUR_4AM = 22
     HOUR_5AM = 23
 
+    EVENT_DAY_WEEKDAY = -1
+    EVENT_DAY_WEEKEND = -2
+    EVENT_DAY_ANY = -3
+
     def to_real_hour(game_hour):
         return (int(game_hour) + HOUR_OFFSET) % 24
 
@@ -262,13 +266,13 @@ init python:
         def date_check(self, c):
             hour_within_range = self.start_hour <= c.Hours <= self.end_hour
 
-            if self.day == -1:
+            if self.day == EVENT_DAY_WEEKDAY:
                 # Weekday-only
                 is_correct_day = 1 <= c.Day <= 5
-            elif self.day == -2:
+            elif self.day == EVENT_DAY_WEEKEND:
                 # Weekend-only
                 is_correct_day = c.Day == 0 or c.Day == 6
-            elif self.day == -3:
+            elif self.day == EVENT_DAY_ANY:
                 # Any day
                 is_correct_day = True
             else:

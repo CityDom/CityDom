@@ -1,10 +1,42 @@
 init python:
+    HUD_PANEL_FLAGS = (
+        "ShowPhone",
+        "ShowInventory",
+        "showWallpaperScreen",
+        "ShowConversationScreen",
+        "Messanger",
+        "showWallpaperPreview",
+        "ShowCamera",
+        "ShowCallForSidebar",
+    )
+
     def hideEventScreens():
         for screen_name in ALL_EVENT_SCREENS:
             renpy.hide_screen(screen_name)
 
     def callGameLoop():
         renpy.call("GameLoop")
+
+    def set_hud_panels(**overrides):
+        for flag_name in HUD_PANEL_FLAGS:
+            setattr(store, flag_name, bool(overrides.get(flag_name, False)))
+
+    def toggle_hud_panel(flag_name):
+        next_state = not bool(getattr(store, flag_name))
+        set_hud_panels(**{flag_name: next_state})
+
+    def can_use_hud_hotspots():
+        return not (
+            store.ShowPhone
+            or store.Messanger
+            or store.ShowConversationScreen
+            or store.showWallpaperScreen
+            or store.showWallpaperPreview
+            or store.ShowCamera
+        )
+
+    def hud_navigation_actions(target):
+        return [Function(hideEventScreens), Function(set_hud_panels), Return(target)]
 
 init python:
     def advance_time_or_sleep():
@@ -54,13 +86,8 @@ init python:
     def show_map_screen():
         renpy.show_screen("MapScreen")
         renpy.hide_screen("MainHud")
-        ShowPhone = False
-        MapScreenShown = True
-        ShowInventory = False
-        showWallpaperScreen = False
-        Messanger = False
-        showWallpaperPreview = False
-        ShowCallForSidebar = False
+        set_hud_panels()
+        store.MapScreenShown = True
 
 screen MainHud():
 
@@ -70,22 +97,16 @@ screen MainHud():
     # default _hud_tick = 0
     # timer 0.75 action SetScreenVariable("_hud_tick", _hud_tick + 1) repeat True
 #  invisible door buttons
-    if ShowPhone == False:
-        if Messanger == False:
-            if ShowConversationScreen == False:
-                if showWallpaperScreen == False:
-                    if showWallpaperPreview == False:
-                        if ShowCamera == False:
-                            if Location_img in invisible_door_button_mappings:
-                                $ button_data = invisible_door_button_mappings[Location_img]
-                                for button in button_data:
-                                    imagebutton:
-                                        idle button["idle"]
-                                        hover button["hover"]
-                                        xpos button["xpos"]
-                                        ypos button["ypos"]
-                                        action button["action"]
-                                        focus_mask True
+    if can_use_hud_hotspots() and Location_img in invisible_door_button_mappings:
+        $ button_data = invisible_door_button_mappings[Location_img]
+        for button in button_data:
+            imagebutton:
+                idle button["idle"]
+                hover button["hover"]
+                xpos button["xpos"]
+                ypos button["ypos"]
+                action button["action"]
+                focus_mask True
     $ current_sublocs = get_sublocations(LocationID)
     $ has_sublocs = bool(current_sublocs)
 
@@ -123,20 +144,12 @@ screen MainHud():
                     xcenter cx
                     ycenter cy
                     focus_mask True
-                    action [Function(hideEventScreens),
-                            Return(subloc.name),
-                            SetVariable("ShowPhone", False),
-                            SetVariable("ShowInventory", False), 
-                            SetVariable("showWallpaperScreen", False), 
-                            SetVariable("Messanger", False),
-                            SetVariable("showWallpaperPreview", False),
-                            SetVariable("ShowCallForSidebar", False)]
+                    action hud_navigation_actions(subloc.name)
 
     #  map icon
     imagebutton:
         auto "SubLocationIcons/MapIcon_%s.png" xpos 1830 ypos 10
-        action [Function(show_map_screen),
-                SetVariable("ShowCallForSidebar", False)]
+        action Function(show_map_screen)
 
     #  open/close sublocations
     if not (is_in_school(LocationID) and not is_in_school_hours()):
@@ -147,14 +160,7 @@ screen MainHud():
     #  phone icon
     imagebutton:
         auto "PhoneIcon_%s.png" xpos 1750 ypos 10
-        action [ToggleVariable("ShowPhone", True, False), 
-                SetVariable("ShowInventory", False), 
-                SetVariable("showWallpaperScreen", False), 
-                SetVariable("ShowConversationScreen", False), 
-                SetVariable("Messanger", False),
-                SetVariable("showWallpaperPreview", False),
-                SetVariable("ShowCamera", False),
-                SetVariable("ShowCallForSidebar", False)]
+        action Function(toggle_hud_panel, "ShowPhone")
 
     if ShowPhone:
         use phone_screen
@@ -228,14 +234,7 @@ screen MainHud():
                 idle "GoBackRoomButton_idle.png"
                 xpos 1850
                 ypos 1000
-                action [Return(room_mappings[Location_img]), 
-                        SetVariable("ShowPhone", False), 
-                        SetVariable("ShowInventory", False), 
-                        SetVariable("showWallpaperScreen", False), 
-                        SetVariable("Messanger", False),
-                        SetVariable("showWallpaperPreview", False),
-                        SetVariable("ShowCamera", False),
-                        SetVariable("ShowCallForSidebar", False)]
+                action [Function(set_hud_panels), Return(room_mappings[Location_img])]
 
     imagebutton:
         auto "skip_time_%s.png" xpos 1510 ypos 10
@@ -243,19 +242,12 @@ screen MainHud():
     
     imagebutton:
         auto "sleep_%s.png" xpos 1590 ypos 10
-        action If(ShowPhone == False and Messanger == False and ShowConversationScreen == False and showWallpaperScreen == False and showWallpaperPreview == False and ShowCamera == False, Function(sleep_function))
+        action If(can_use_hud_hotspots(), Function(sleep_function))
 
     if LocationID == 0:
         imagebutton:
             auto "Announce_%s.png" xpos 1670 ypos 10
-            action [ToggleVariable("ShowCallForSidebar", True, False),
-                    SetVariable("ShowInventory", False), 
-                    SetVariable("showWallpaperScreen", False), 
-                    SetVariable("ShowConversationScreen", False), 
-                    SetVariable("Messanger", False),
-                    SetVariable("showWallpaperPreview", False),
-                    SetVariable("ShowCamera", False),
-                    SetVariable("ShowPhone", False)]
+            action Function(toggle_hud_panel, "ShowCallForSidebar")
     else:
         imagebutton:
             auto "Announce_%s.png" xpos 1670 ypos 10

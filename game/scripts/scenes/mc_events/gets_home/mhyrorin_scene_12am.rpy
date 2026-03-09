@@ -1,6 +1,9 @@
 init python:
     define_images("Mhyrorin_Scene_12AM_", "MCEvents/MC_GetsHome/Mhyrorin/12AM", "Mhyrorin_Scene_12AM_", 100)
 
+label MC_GetsHome_Mhyrorin_12PM:
+    jump MC_GetsHome_Mhyrorin_12AM
+
 label MC_GetsHome_Mhyrorin_12AM:
     scene Jennifer_Scene_6AM_1 with Dissolve(0.5)
     menu:

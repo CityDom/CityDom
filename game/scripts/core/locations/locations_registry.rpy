@@ -159,7 +159,7 @@ init -2 python:
     register_location("SchoolGymFront", location_id=1, screen_name="SchoolGymFrontScreen")
     register_location("InsideSchoolGym", location_id=1, screen_name="InsideSchoolGymScreen")
     register_location("SchoolPool", location_id=1, screen_name="SchoolPoolScreen")
-    register_location("MansToilet", location_id=1, screen_name="MensToiletScreen", aliases=("MensToilet",))
+    register_location("MensToilet", location_id=1, screen_name="MensToiletScreen", aliases=("MansToilet",))
     register_location("WomansToilet", location_id=1, screen_name="WomansToiletScreen")
     register_location("TeachersBathroom", location_id=1, screen_name="TeachersBathroomScreen")
     register_location("PrincipalOffice", location_id=1, screen_name="PrincipalOfficeScreen")
