@@ -148,7 +148,10 @@ screen MainHud():
 
     #  map icon
     imagebutton:
-        auto "SubLocationIcons/MapIcon_%s.png" xpos 1830 ypos 10
+        idle "gui/new_ui/icons/map.png"
+        hover "gui/new_ui/icons/map_hover.png"
+        xpos 1740
+        ypos 12
         action Function(show_map_screen)
 
     #  open/close sublocations
@@ -159,7 +162,10 @@ screen MainHud():
 
     #  phone icon
     imagebutton:
-        auto "PhoneIcon_%s.png" xpos 1750 ypos 10
+        idle "gui/new_ui/icons/phone.png"
+        hover "gui/new_ui/icons/phone_hover.png"
+        xpos 1660
+        ypos 12
         action Function(toggle_hud_panel, "ShowPhone")
 
     if ShowPhone:
@@ -237,19 +243,31 @@ screen MainHud():
                 action [Function(set_hud_panels), Return(room_mappings[Location_img])]
 
     imagebutton:
-        auto "skip_time_%s.png" xpos 1510 ypos 10
+        idle "gui/new_ui/icons/skip.png"
+        hover "gui/new_ui/icons/skip_hover.png"
+        xpos 1430
+        ypos 12
         action Function(advance_time_or_sleep)
     
     imagebutton:
-        auto "sleep_%s.png" xpos 1590 ypos 10
+        idle "gui/new_ui/icons/sleep.png"
+        hover "gui/new_ui/icons/sleep_hover.png"
+        xpos 1510
+        ypos 12
         action If(can_use_hud_hotspots(), Function(sleep_function))
 
     if LocationID == 0:
         imagebutton:
-            auto "Announce_%s.png" xpos 1670 ypos 10
+            idle "gui/new_ui/icons/call.png"
+            hover "gui/new_ui/icons/call_hover.png"
+            xpos 1590
+            ypos 22
             action Function(toggle_hud_panel, "ShowCallForSidebar")
     else:
         imagebutton:
-            auto "Announce_%s.png" xpos 1670 ypos 10
+            idle "gui/new_ui/icons/call.png"
+            hover "gui/new_ui/icons/call_hover.png"
+            xpos 1590
+            ypos 22
             action NullAction()
-        add "forbidden.png" xpos 1670 ypos 10
+        add "forbidden.png" xpos 1590 ypos 22
