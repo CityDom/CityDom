@@ -226,6 +226,18 @@ init 1 python:
                     jump="Jennifer_weekend_4PM",
                 )
             ],
+        },
+        HOUR_5PM: {
+            "bg": "HouseScreens/Jennifer_weekend_5PM.webp",
+            "buttons": [
+                make_livingroom_button(
+                    "HouseScreens/Jennifer_5PM_idle.png",
+                    "HouseScreens/Jennifer_5PM_hover.png",
+                    976,
+                    325,
+                    jump="Jennifer_weekend_5PM",
+                )
+            ],
         }
     }
 

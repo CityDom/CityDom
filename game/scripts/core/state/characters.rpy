@@ -32,6 +32,7 @@ define IsabellaCry = Character("Isabella crying")
 define IsaAndHelena = Character("Isabella & Helena")
 define IsaAndMC = Character("Isabella & [MC]")
 define IsaAndClaire = Character("Isabella & Claire")
+define IsaAndCriss = Character("Isabella & Criss")
 
 define MariaW = Character("Maria Whispering")
 define MariaLS = Character("Maria lip syncing")

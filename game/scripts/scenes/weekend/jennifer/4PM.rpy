@@ -100,3 +100,11 @@ label Jennifer_weekend_4PM_kill_yourself:
     MC "NO, NO, NO, WAIT!!"
     scene Jennifer_weekend_4PM_33 with Dissolve(0.5)
     Mhyrorin "Kheheh."
+    scene Jennifer_weekend_4PM_34 with Dissolve(0.5)
+    Jennifer "Can you tell me, why on earth, ARE YOU YELLING, WHEN YOU KNOW DAMN WELL I'M SLEEPING?!?!"
+    scene Jennifer_weekend_4PM_35 with Dissolve(0.5)
+    MC "Sorryyyyy!!!"
+    scene BlackScreen with Dissolve(1)
+    call stat_reward({"Jennifer": {"love": -2, "corruption": 2}}, return_to=None)
+    $ Location = "Entrance"
+    $ advance_time_or_sleep()

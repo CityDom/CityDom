@@ -96,6 +96,28 @@ init 1 python:
                 "focus_mask": True,
             },
         },
+        HOUR_4PM: {
+            "bg": "HouseScreens/Isabella_Weekend_4PM.webp",
+            "button": {
+                "idle": "HouseScreens/Isabella_4PM_idle.png",
+                "hover": "HouseScreens/Isabella_4PM_hover.png",
+                "xpos": 932,
+                "ypos": 572,
+                "jump": "Isabella_weekend_4PM",
+                "focus_mask": True,
+            },
+        },
+        HOUR_5PM: {
+            "bg": "HouseScreens/Isabella_Weekend_5PM.webp",
+            "button": {
+                "idle": "HouseScreens/Isabella_5PM_idle.png",
+                "hover": "HouseScreens/Isabella_5PM_hover.png",
+                "xpos": 932,
+                "ypos": 414,
+                "jump": "Isabella_weekend_5PM",
+                "focus_mask": True,
+            },
+        },
     }
 
 screen IsabellaRoomScreen():

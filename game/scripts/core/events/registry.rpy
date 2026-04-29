@@ -41,6 +41,9 @@ init 1 python:
         22: Event(19, 19, EVENT_DAY_WEEKDAY, "Isabella room", "IsabellaNightEvent44", True, auto_trigger=False), # Stays on social media
         23: Event(20, 20, EVENT_DAY_WEEKDAY, "Isabella room", "IsabellaMidnightEvent14", True, auto_trigger=False), # Sleeps
 
+        # * Isabella Weekend (auto)
+        215: Event(9, 9, EVENT_DAY_WEEKEND, "Isabella room", "Isabella_weekend_3PM", True, priority=10), # 3 PM
+
         # * Claire Events
         24: Event(0, 0, EVENT_DAY_WEEKDAY, "Claire room", "ClaireMorningEvent14", True, auto_trigger=False), # Wakes up
         27: Event(4, 4, EVENT_DAY_WEEKDAY, "Claire room", "ClaireNoonEvent14", True), # Dresses up for school
@@ -100,4 +103,6 @@ init 1 python:
         212: Event(2, 2, EVENT_DAY_WEEKDAY, "Bathroom", "IsabellaMorningEvent24", True, priority=10),
         213: Event(18, 18, EVENT_DAY_WEEKDAY, "Bathroom", "ClaireNightEvent34", True, priority=10),
         214: Event(1, 1, EVENT_DAY_WEEKEND, "Bathroom", "Claire_weekend_7AM", True, priority=10),
+        216: Event(10, 10, EVENT_DAY_WEEKEND, "HouseToilet", "Criss_weekend_4PM", True, priority=10),
+
     }
