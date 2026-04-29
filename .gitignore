@@ -105,6 +105,10 @@ CubismSdkForNative-4-*.zip
 *.backup
 *.orig
 
+# Tool dependencies and build outputs
+tools/character-viewer/node_modules/
+tools/character-viewer/src-tauri/target/
+
 # Screenshots and saves
 /screenshot*
 

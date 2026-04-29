@@ -1,0 +1,6 @@
+{
+  "character_id": "mhyrorin",
+  "default_model": "Base.glb",
+  "camera_preset": "full_body",
+  "notes": "Place the exported HS2 GLB here for the first prototype run."
+}
