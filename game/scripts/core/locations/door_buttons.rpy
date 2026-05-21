@@ -18,7 +18,7 @@ init python:
 
     invisible_door_button_mappings = {
         # EVENING
-        "washing room evening": [create_button("TransparentDoors/WashingRoomDoor", 220, 132, "bathroom", "Evening")],
+        "washing room evening": [create_button("TransparentDoors/WashingRoomDoor", 0, 0, "bathroom", "Evening")],
         "hallway evening": [
             create_button("TransparentDoors/McDoorButton", 764, 88, "my room", "Evening"),
             create_button("TransparentDoors/IsabellaRoomButton", 1117, 92, "Isabella room", "Evening"),
@@ -42,7 +42,7 @@ init python:
         "Claire room evening": [create_button("TransparentDoors/ClaireRoomButtonInside", 0, 94, "hallway", "Evening")],
 
         # NIGHT
-        "washing room night": [create_button("TransparentDoors/WashingRoomDoor", 220, 132, "bathroom", "Night")],
+        "washing room night": [create_button("TransparentDoors/WashingRoomDoor", 0, 0, "bathroom", "Night")],
         "hallway night": [
             create_button("TransparentDoors/McDoorButton", 764, 88, "my room", "Night"),
             create_button("TransparentDoors/IsabellaRoomButton", 1117, 92, "Isabella room", "Night"),
@@ -66,7 +66,7 @@ init python:
         "Claire room night": [create_button("TransparentDoors/ClaireRoomButtonInside", 0, 94, "hallway", "Night")],
 
         # DAY
-        "washing room": [create_button("TransparentDoors/WashingRoomDoor", 220, 132, "bathroom", "Day")],
+        "washing room": [create_button("TransparentDoors/WashingRoomDoor", 0, 0, "bathroom", "Day")],
         "hallway": [
             create_button("TransparentDoors/McDoorButton", 764, 88, "my room", "Day"),
             create_button("TransparentDoors/IsabellaRoomButton", 1117, 92, "Isabella room", "Day"),

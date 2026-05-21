@@ -49,6 +49,26 @@ screen Garden1WeekendScreen():
                 ypos 484
                 action Function(start_event_from_screen, "HouseScreens/Isabella_weekend_1PM.webp", "Isabella_weekend_1PM")
                 focus_mask True
+    elif calendar.Hours == HOUR_6PM:
+        add "HouseScreens/Jennifer_Weekend_6PM.webp"
+        if should_show_room_buttons():
+            imagebutton:
+                idle "HouseScreens/Jennifer_6PM_idle.png"
+                hover "HouseScreens/Jennifer_6PM_hover.png"
+                xpos 748
+                ypos 333
+                action Function(start_event_from_screen, "HouseScreens/Jennifer_Weekend_6PM.webp", "Jennifer_Weekend_6PM")
+                focus_mask True
+    elif calendar.Hours == HOUR_7PM:
+        add "HouseScreens/Jennifer_Weekend_7PM.webp"
+        if should_show_room_buttons():
+            imagebutton:
+                idle "HouseScreens/Jennifer_7PM_idle.png"
+                hover "HouseScreens/Jennifer_7PM_hover.png"
+                xpos 632
+                ypos 376
+                action Function(start_event_from_screen, "HouseScreens/Jennifer_Weekend_7PM.webp", "Jennifer_Weekend_7PM")
+                focus_mask True                
     elif is_day_hour(calendar.Hours):
         add "HomeSubplace/garden1.png"
     elif is_evening_hour(calendar.Hours):

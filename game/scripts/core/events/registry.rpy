@@ -88,6 +88,7 @@ init 1 python:
         66: screen_event(0, 24, EVENT_DAY_ANY, "HouseToilet", "HouseToiletEvent", True),# HouseToilet Screen
         67: screen_event(0, 24, EVENT_DAY_WEEKDAY, "Livingroom", "LivingroomEvent", True),# LivingRoom Screen
         68: screen_event(0, 24, EVENT_DAY_ANY, "Bathroom", "BathroomEvent", True),# Bathroom Screen
+        69: screen_event(0, 24, EVENT_DAY_ANY, "Washing Room", "WashingRoomEvent", True),# Washing Room Screen
 
         72: screen_event(0, 24, EVENT_DAY_ANY, "Kitchen", "KitchenEvent", True),# Kitchen Screen
         73: screen_event(0, 24, EVENT_DAY_WEEKEND, "Garden1", "Garden1WeekendEvent", True),# Garden1 Screen
@@ -104,5 +105,6 @@ init 1 python:
         213: Event(18, 18, EVENT_DAY_WEEKDAY, "Bathroom", "ClaireNightEvent34", True, priority=10),
         214: Event(1, 1, EVENT_DAY_WEEKEND, "Bathroom", "Claire_weekend_7AM", True, priority=10),
         216: Event(10, 10, EVENT_DAY_WEEKEND, "HouseToilet", "Criss_weekend_4PM", True, priority=10),
+        217: Event(13, 13, EVENT_DAY_WEEKEND, "HouseToilet", "ClaireMorningEvent34", True, priority=10),
 
     }

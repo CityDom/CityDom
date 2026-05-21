@@ -15,14 +15,15 @@ label GameIntro:
             hide WarningScreen
         "Exit":
             $ renpy.quit()
+
     scene BlackScreen
+
     $ mc_name = renpy.input("What is your name?", default="").strip()
+
     if mc_name == "":
         $ mc_name = "John"
 
-    # Dynamically set the MC character object with the chosen name.
-    $ MC = Character(mc_name)
-    $ MC_upper = get_upper_name(MC)
+    $ MC_upper = mc_name.upper()
     scene IntroScene1 with Dissolve(0.5)
     McDad "I'm sorry things went this way, [MC]..."
     McDad "But at least you will get to spend some time with your mom and sisters."

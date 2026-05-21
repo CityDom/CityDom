@@ -132,6 +132,66 @@ init -2 python:
             _SUBLOC_ICON_SIZES[image_path] = size
         return size
 
+    SUBLOC_THUMBNAIL_SIZE = 110
+    SUBLOC_THUMBNAIL_BASES = {
+        "my room": "My_room",
+        "jennifer room": "Jennifer_room",
+        "isabella room": "Isabella_room",
+        "claire room": "Claire_room",
+        "housetoilet": "HouseToilet",
+        "livingroom": "Livingroom",
+        "washing room": "Washing_Room",
+        "bathroom": "Bathroom",
+        "entrance": "Entrance",
+        "garden1": "Garden1",
+        "garden2": "Garden2",
+        "housefront": "Housefront",
+        "school": "School",
+        "schoolentrance": "SchoolEntrance",
+        "toiletsfront": "ToiletsFront",
+        "upthestairs": "UpTheStairs",
+        "teacherhall": "TeacherHall",
+        "artclassfront": "ArtClassFront",
+        "medicroomfront": "MedicRoomFront",
+        "schoolgymfront": "SchoolGymFront",
+        "insideschoolgym": "InsideSchoolGym",
+        "schoolpool": "SchoolPool",
+    }
+
+    def get_subloc_period_index(hour):
+        hour = int(hour)
+        if EVENING_START_HOUR <= hour < NIGHT_BG_START_HOUR:
+            return 1
+        if NIGHT_BG_START_HOUR <= hour < 24:
+            return 2
+        return 0
+
+    def get_subloc_thumbnail_paths(subloc_name, period_index):
+        base = SUBLOC_THUMBNAIL_BASES.get(normalize_location_key(subloc_name))
+        if not base:
+            return None, None
+
+        period = "day"
+        if period_index == 1:
+            period = "evening"
+        elif period_index == 2:
+            period = "night"
+
+        idle = "SubLocationGenerated/%s_%s_idle.png" % (base, period)
+        hover = "SubLocationGenerated/%s_%s_hover.png" % (base, period)
+        return idle, hover
+
+    def get_subloc_hud_icons(subloc, hour):
+        period_index = get_subloc_period_index(hour)
+        if subloc.parent_id in (0, 1):
+            img_idle, img_hover = get_subloc_thumbnail_paths(subloc.name, period_index)
+            if img_idle and img_hover:
+                return img_idle, img_hover, (SUBLOC_THUMBNAIL_SIZE, SUBLOC_THUMBNAIL_SIZE)
+
+        img_idle, img_hover = subloc.resolve_icons()
+        iw, ih = subloc.get_icon_size()
+        return img_idle, img_hover, (iw, ih)
+
     # House locations (LocationID = 0)
     register_location("Entrance", location_id=0, screen_name="EntranceScreen")
     register_location("Housefront", location_id=0, screen_name="HousefrontScreen", aliases=("HouseFront",))
@@ -140,7 +200,7 @@ init -2 python:
     register_location("Livingroom", location_id=0, screen_name="LivingroomScreen")
     register_location("Kitchen", location_id=0, screen_name="KitchenScreen")
     register_location("Bathroom", location_id=0, screen_name="BathroomScreen")
-    register_location("Washing Room", location_id=0)
+    register_location("Washing Room", location_id=0, screen_name="WashingRoomScreen")
     register_location("Hallway", location_id=0)
     register_location("HouseToilet", location_id=0, screen_name="HouseToiletScreen")
     register_location("My room", location_id=0)

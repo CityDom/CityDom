@@ -6,11 +6,9 @@ init python:
     # Push whole row closer to the bottom (positive values move DOWN).
     SUBLOC_BOTTOM_SHIFT = 50
     SUBLOC_RIGHT_SHIFT = 40   # pixels; + moves RIGHT, - moves LEFT
-    SUBLOC_SCHOOL_Y_SHIFT = -20  # pixels; negative moves school row UP
 
-    # Fine-tune offsets (icon vs. shadow)
+    # Fine-tune icon baseline.
     SUBLOC_ICON_Y_OFFSET = 8
-    SUBLOC_SHADOW_OFFSET = 3
 
     HOVER_ZOOM = 1.10      # how much to zoom on hover
     HOVER_DUR  = 0.08      # animation time

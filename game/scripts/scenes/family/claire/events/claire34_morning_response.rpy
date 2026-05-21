@@ -15,7 +15,6 @@ label ClaireMorning34:
         "Peep":
             scene Claire_morning34_1 with Dissolve(0.5)
             MC "{color=#808080}*Oh my god, it's Claire!!*{/color}"
-            MC "{color=#808080}*And she doesn't have any pants on.*{/color}"
             MC "{color=#808080}*But I can't seem to see anything if she stays in that position.*{/color}"
             MC "{color=#808080}*I better leave before anyone sees me.*{/color}"
             $ Location = "Hallway"

@@ -7,7 +7,7 @@ label Jennifer_weekend_1PM:
     scene Jennifer_weekend_1PM_2 with Dissolve(0.5)
     Jennifer "Hey sweetie."
     scene Jennifer_weekend_1PM_3 with Dissolve(0.5)
-    Jennifer "Can you help mommy with these bags? I'm so tiered."
+    Jennifer "Can you help mommy with these bags? I'm so tired."
     scene Jennifer_weekend_1PM_4 with Dissolve(0.5)
     MC "Of course, give'em here."
     scene Jennifer_weekend_1PM_5 with Dissolve(0.5)
@@ -17,7 +17,7 @@ label Jennifer_weekend_1PM:
     scene BlackScreen with Dissolve(0.5)
     "{color=#808080}**A few moments later...**"
     scene Jennifer_weekend_1PM_7 with Dissolve(0.5)
-    MC "If you're so tiered, why don't you let me put the food in the fridge?"
+    MC "If you're so tired, why don't you let me put the food in the fridge?"
     scene Jennifer_weekend_1PM_8 with Dissolve(0.5)
     Jennifer "Because you don't organize things the way I like them."
     scene Jennifer_weekend_1PM_9 with Dissolve(0.5)

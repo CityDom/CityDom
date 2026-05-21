@@ -1,4 +1,6 @@
-define MC = Character("John")
+default mc_name = "John"
+define MC = Character("[mc_name]")
+define MCW = Character("[mc_name] Whispering")
 define Jennifer = Character("Jennifer")
 define Isabella = Character("Isabella")
 define Claire = Character("Claire")
@@ -33,7 +35,8 @@ define IsaAndHelena = Character("Isabella & Helena")
 define IsaAndMC = Character("Isabella & [MC]")
 define IsaAndClaire = Character("Isabella & Claire")
 define IsaAndCriss = Character("Isabella & Criss")
-
+define MhyrorinAngel = Character("Saint Mira")
+define MhyrorinDemon = Character("Demon Mira")
 define MariaW = Character("Maria Whispering")
 define MariaLS = Character("Maria lip syncing")
 define TanyaW = Character("Tanya Whispering")
