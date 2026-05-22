@@ -40,12 +40,15 @@ init 1 python:
 
         return Function(start_event_from_screen, scene_bg, label)
 
+    def resolve_scene_button_hover(button_def):
+        return resolve_tinted_button_hover(button_def)
+
 
 screen room_scene_buttons(scene_def):
     for button in get_scene_buttons(scene_def):
         imagebutton:
             idle button["idle"]
-            hover button["hover"]
+            hover resolve_scene_button_hover(button)
             xpos button["xpos"]
             ypos button["ypos"]
             action resolve_scene_button_action(button, scene_def.get("bg"))

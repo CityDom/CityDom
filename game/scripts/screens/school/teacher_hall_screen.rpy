@@ -4,19 +4,19 @@ screen TeacherHallScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolDoors/TeachersToiletDoor_idle.png"
-                hover "SchoolDoors/TeachersToiletDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/TeachersToiletDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 301
                 ypos 292
                 action [Return("TeachersBathroom"), Hide("TeacherHallScreen")]
             imagebutton:
                 idle "SchoolDoors/PrincipalDoor_idle.png"
-                hover "SchoolDoors/PrincipalDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/PrincipalDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 875
                 ypos 392
                 action Function(start_event_from_screen, "SchoolSubplace/TeacherHall.png", "PrincipalOffice")
             imagebutton:
                 idle "SchoolDoors/TeachersLoungeDoor_idle.png"
-                hover "SchoolDoors/TeachersLoungeDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/TeachersLoungeDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 1508
                 ypos 310
                 action [Return("TeachersLounge"), Hide("TeacherHallScreen")]
@@ -25,19 +25,19 @@ screen TeacherHallScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolDoors/TeachersToiletDoor_idle.png"
-                hover "SchoolDoors/TeachersToiletDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/TeachersToiletDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 301
                 ypos 292
                 action [Return("TeachersBathroom"), Hide("TeacherHallScreen")]
             imagebutton:
                 idle "SchoolDoors/PrincipalDoor_idle.png"
-                hover "SchoolDoors/PrincipalDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/PrincipalDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 875
                 ypos 392
                 action Function(start_event_from_screen, "SchoolSubplace/TeacherHall evening.png", "PrincipalOffice")
             imagebutton:
                 idle "SchoolDoors/TeachersLoungeDoor_idle.png"
-                hover "SchoolDoors/TeachersLoungeDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/TeachersLoungeDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 1508
                 ypos 310
                 action [Return("TeachersLounge"), Hide("TeacherHallScreen")]
@@ -46,19 +46,19 @@ screen TeacherHallScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolDoors/TeachersToiletDoor_idle.png"
-                hover "SchoolDoors/TeachersToiletDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/TeachersToiletDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 301
                 ypos 292
                 action [Return("TeachersBathroom"), Hide("TeacherHallScreen")]
             imagebutton:
                 idle "SchoolDoors/PrincipalDoor_idle.png"
-                hover "SchoolDoors/PrincipalDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/PrincipalDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 875
                 ypos 392
                 action Function(start_event_from_screen, "SchoolSubplace/TeacherHall night.png", "PrincipalOffice")
             imagebutton:
                 idle "SchoolDoors/TeachersLoungeDoor_idle.png"
-                hover "SchoolDoors/TeachersLoungeDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/TeachersLoungeDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 1508
                 ypos 310
                 action [Return("TeachersLounge"), Hide("TeacherHallScreen")]

@@ -46,7 +46,7 @@ screen UpTheStairsScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolFirstPause/CrissAndIsabellaEventScene/CrissAndIsabella_Button_idle.png"
-                hover "SchoolFirstPause/CrissAndIsabellaEventScene/CrissAndIsabella_Button_hover.png"
+                hover make_tinted_hover_displayable("SchoolFirstPause/CrissAndIsabellaEventScene/CrissAndIsabella_Button_idle.png", CHARACTER_HOVER_TINT)
                 xpos 385
                 ypos 328
                 action Function(start_event_from_screen, "SchoolSubplace/UpTheStairs.png", "CrissAndIsabellaFirstPauseScene")

@@ -3,7 +3,7 @@ screen GymLockerRoomFrontScreen():
         add "SchoolSubplace/GymLockerRoomFront.png"
         imagebutton:
             idle "SchoolDoors/GirlsLockerRoomDoor_idle.png"
-            hover "SchoolDoors/GirlsLockerRoomDoor_hover.png"
+            hover make_tinted_hover_displayable("SchoolDoors/GirlsLockerRoomDoor_idle.png", OBJECT_HOVER_TINT)
             xpos 1248
             ypos 152
             action Function(start_event_from_screen, "SchoolSubplace/GymLockerRoomFront.png", "BeforeGymClass_Scene")
@@ -12,7 +12,7 @@ screen GymLockerRoomFrontScreen():
         add "SchoolSubplace/GymLockerRoomFront.png"
         imagebutton:
             idle "SchoolDoors/GirlsLockerRoomDoor_idle.png"
-            hover "SchoolDoors/GirlsLockerRoomDoor_hover.png"
+            hover make_tinted_hover_displayable("SchoolDoors/GirlsLockerRoomDoor_idle.png", OBJECT_HOVER_TINT)
             xpos 1248
             ypos 152
             action [Return("GirlsLockerRoom"), Hide("GymLockerRoomFrontScreen")]

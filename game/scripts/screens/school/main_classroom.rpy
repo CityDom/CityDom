@@ -31,7 +31,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/JanniceButton_idle.png"
-            hover "ClassRoomButtons/JanniceButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/JanniceButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 1272
             ypos 483
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "JanniceClassroomScene")
@@ -39,7 +39,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/DorothyButton_idle.png"
-            hover "ClassRoomButtons/DorothyButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/DorothyButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 340
             ypos 367
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "DorothyClassroomScene")
@@ -47,7 +47,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/HelenaButton_idle.png"
-            hover "ClassRoomButtons/HelenaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/HelenaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 557
             ypos 276
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "HelenaClassroomScene")
@@ -55,7 +55,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/AlisButton_idle.png"
-            hover "ClassRoomButtons/AlisButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/AlisButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 336
             ypos 215
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "AlisClassroomScene")
@@ -63,7 +63,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/SophieButton_idle.png"
-            hover "ClassRoomButtons/SophieButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/SophieButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 538
             ypos 232
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "SophieClassroomScene")
@@ -71,7 +71,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/AnnaEmmaButton_idle.png"
-            hover "ClassRoomButtons/AnnaEmmaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/AnnaEmmaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 255
             ypos 165
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "AnnaEmmaClassroomScene")
@@ -79,7 +79,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/SelinaButton_idle.png"
-            hover "ClassRoomButtons/SelinaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/SelinaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 1035
             ypos 305
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "SelinaClassroomScene")
@@ -87,7 +87,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/GretaButton_idle.png"
-            hover "ClassRoomButtons/GretaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/GretaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 1205
             ypos 270
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "GretaClassroomScene")
@@ -95,7 +95,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/LeyaButton_idle.png"
-            hover "ClassRoomButtons/LeyaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/LeyaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 865
             ypos 190
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "LeyaClassroomScene")
@@ -103,7 +103,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/LolaButton_idle.png"
-            hover "ClassRoomButtons/LolaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/LolaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 1047
             ypos 173
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "LolaClassroomScene")
@@ -111,7 +111,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/IsabellaButton_idle.png"
-            hover "ClassRoomButtons/IsabellaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/IsabellaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 767
             ypos 136
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "IsabellaClassroomScene")
@@ -119,7 +119,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/CrissButton_idle.png"
-            hover "ClassRoomButtons/CrissButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/CrissButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 913
             ypos 97
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "CrissClassroomScene")
@@ -127,7 +127,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "ClassRoomButtons/MariaButton_idle.png"
-            hover "ClassRoomButtons/MariaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/MariaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 832
             ypos 130
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "MariaClassroomScene")
@@ -145,7 +145,7 @@ screen MainClassroomScreen():
         add "SchoolSubplace/MainClassroom.png"
         imagebutton:
             idle "ClassRoomButtons/GretaButton_idle.png"
-            hover "ClassRoomButtons/GretaButton_hover.png"
+            hover make_tinted_hover_displayable("ClassRoomButtons/GretaButton_idle.png", CHARACTER_HOVER_TINT)
             xpos 1205
             ypos 270
             action Function(start_event_from_screen, "SchoolSubplace/MainClassroom.png", "GretaFirstPauseScene")

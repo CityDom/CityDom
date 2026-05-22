@@ -10,7 +10,7 @@ init python:
         """Creates button dictionary with the correct image paths based on time of day."""
         return {
             "idle": f"{image_base}_{time_of_day}_idle.png",   # Example: McDoorButton_Evening_idle.png
-            "hover": f"{image_base}_{time_of_day}_hover.png", # Example: McDoorButton_Evening_hover.png
+            "hover_tint": "#ffd966",
             "xpos": xpos,
             "ypos": ypos,
             "action": [Return(return_value)] + default_action[1:]
@@ -243,7 +243,7 @@ screen door_buttons(location):
         for button in invisible_door_button_mappings[location_key]:
             imagebutton:
                 idle button["idle"]
-                hover button["hover"]
+                hover resolve_tinted_button_hover(button)
                 xpos button["xpos"]
                 ypos button["ypos"]
                 action button["action"]

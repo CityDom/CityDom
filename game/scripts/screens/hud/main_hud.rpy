@@ -102,7 +102,7 @@ screen MainHud():
         for button in button_data:
             imagebutton:
                 idle button["idle"]
-                hover button["hover"]
+                hover resolve_tinted_button_hover(button)
                 xpos button["xpos"]
                 ypos button["ypos"]
                 action button["action"]

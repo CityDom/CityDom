@@ -30,13 +30,13 @@ screen ArtClassFrontScreen():
                 at rotateUpRight
             imagebutton:
                 idle "SchoolDoors/ArtClassDoor_idle.png"
-                hover "SchoolDoors/ArtClassDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/ArtClassDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 1622
                 ypos 318
                 action [Return("ArtClass"), Hide("ArtClassScreen")]
             imagebutton:
                 idle "SchoolDoors/ClassRoomDoor_idle.png"
-                hover "SchoolDoors/ClassRoomDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/ClassRoomDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 39
                 ypos 230
                 action [Return("MainClassroom"), Hide("SchoolEntranceScreen")]
@@ -51,19 +51,19 @@ screen ArtClassFrontScreen():
                 at rotateUpRight
             imagebutton:
                 idle "SchoolDoors/ArtClassDoor_idle.png"
-                hover "SchoolDoors/ArtClassDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/ArtClassDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 1622
                 ypos 318
                 action [Return("ArtClass"), Hide("ArtClassScreen")]
             imagebutton:
                 idle "SchoolDoors/ClassRoomDoor_idle.png"
-                hover "SchoolDoors/ClassRoomDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/ClassRoomDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 39
                 ypos 230
                 action [Return("MainClassroom"), Hide("SchoolEntranceScreen")]
             imagebutton:
                 idle "SchoolFirstPause/HelenaAndSophieEventScene/SophieAndHelenaButton_idle.png"
-                hover "SchoolFirstPause/HelenaAndSophieEventScene/SophieAndHelenaButton_hover.png"
+                hover make_tinted_hover_displayable("SchoolFirstPause/HelenaAndSophieEventScene/SophieAndHelenaButton_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1065
                 ypos 379
                 action Function(start_event_from_screen, "SchoolFirstPause/HelenaAndSophieEventScene/HelenaAndSophieScreen.png", "HelenaAndSophieFirstPauseScene")

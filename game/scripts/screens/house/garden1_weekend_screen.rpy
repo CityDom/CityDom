@@ -4,7 +4,7 @@ screen Garden1WeekendScreen():
         if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Claire_8AM_idle.png"
-                hover "HouseScreens/Claire_8AM_hover.png"
+                hover make_tinted_hover_displayable("HouseScreens/Claire_8AM_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1199
                 ypos 380
                 action Function(start_event_from_screen, "HouseScreens/Claire_Weekend_8AM.webp", "Claire_weekend_8AM")
@@ -14,7 +14,7 @@ screen Garden1WeekendScreen():
         if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Breakfast_9AM_idle.png"
-                hover "HouseScreens/Breakfast_9AM_hover.png"
+                hover make_tinted_hover_displayable("HouseScreens/Breakfast_9AM_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1225
                 ypos 385
                 action Function(start_event_from_screen, "HouseScreens/Breakfast_9AM.webp", "Breakfast_weekend_9AM")
@@ -24,7 +24,7 @@ screen Garden1WeekendScreen():
         if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Isabella_11AM_idle.png"
-                hover "HouseScreens/Isabella_11AM_hover.png"
+                hover make_tinted_hover_displayable("HouseScreens/Isabella_11AM_idle.png", CHARACTER_HOVER_TINT)
                 xpos 752
                 ypos 405
                 action Function(start_event_from_screen, "HouseScreens/Isabella_weekend_11AM.webp", "Isabella_weekend_11AM")
@@ -34,7 +34,7 @@ screen Garden1WeekendScreen():
         if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Isabella_12PM_idle.png"
-                hover "HouseScreens/Isabella_12PM_hover.png"
+                hover make_tinted_hover_displayable("HouseScreens/Isabella_12PM_idle.png", CHARACTER_HOVER_TINT)
                 xpos 147
                 ypos 535
                 action Function(start_event_from_screen, "HouseScreens/Isabella_weekend_12PM.webp", "Isabella_weekend_12PM")
@@ -44,7 +44,7 @@ screen Garden1WeekendScreen():
         if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Isabella_1PM_idle.png"
-                hover "HouseScreens/Isabella_1PM_hover.png"
+                hover make_tinted_hover_displayable("HouseScreens/Isabella_1PM_idle.png", CHARACTER_HOVER_TINT)
                 xpos 409
                 ypos 484
                 action Function(start_event_from_screen, "HouseScreens/Isabella_weekend_1PM.webp", "Isabella_weekend_1PM")
@@ -54,7 +54,7 @@ screen Garden1WeekendScreen():
         if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Jennifer_6PM_idle.png"
-                hover "HouseScreens/Jennifer_6PM_hover.png"
+                hover make_tinted_hover_displayable("HouseScreens/Jennifer_6PM_idle.png", CHARACTER_HOVER_TINT)
                 xpos 748
                 ypos 333
                 action Function(start_event_from_screen, "HouseScreens/Jennifer_Weekend_6PM.webp", "Jennifer_Weekend_6PM")
@@ -64,7 +64,7 @@ screen Garden1WeekendScreen():
         if should_show_room_buttons():
             imagebutton:
                 idle "HouseScreens/Jennifer_7PM_idle.png"
-                hover "HouseScreens/Jennifer_7PM_hover.png"
+                hover make_tinted_hover_displayable("HouseScreens/Jennifer_7PM_idle.png", CHARACTER_HOVER_TINT)
                 xpos 632
                 ypos 376
                 action Function(start_event_from_screen, "HouseScreens/Jennifer_Weekend_7PM.webp", "Jennifer_Weekend_7PM")

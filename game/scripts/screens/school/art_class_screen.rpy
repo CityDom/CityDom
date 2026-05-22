@@ -20,49 +20,49 @@ screen ArtClassScreen():
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Maria_idle.png"
-                hover "ArtClass/Maria_hover.png"
+                hover make_tinted_hover_displayable("ArtClass/Maria_idle.png", CHARACTER_HOVER_TINT)
                 xpos 725
                 ypos 512
                 action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_Maria_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Isa_Criss_idle.png"
-                hover "ArtClass/Isa_Criss_hover.png"
+                hover make_tinted_hover_displayable("ArtClass/Isa_Criss_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1190
                 ypos 173
                 action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_IsabellaCriss_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Emma_Anna_idle.png"
-                hover "ArtClass/Emma_Anna_hover.png"
+                hover make_tinted_hover_displayable("ArtClass/Emma_Anna_idle.png", CHARACTER_HOVER_TINT)
                 xpos 330
                 ypos 240
                 action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_AnnaEmma_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Sophie_Alis_idle.png"
-                hover "ArtClass/Sophie_Alis_hover.png"
+                hover make_tinted_hover_displayable("ArtClass/Sophie_Alis_idle.png", CHARACTER_HOVER_TINT)
                 xpos 606
                 ypos 120
                 action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_SophieAlis_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Lola_Leya_Dorothy_Helena_idle.png"
-                hover "ArtClass/Lola_Leya_Dorothy_Helena_hover.png"
+                hover make_tinted_hover_displayable("ArtClass/Lola_Leya_Dorothy_Helena_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1518
                 ypos 199
                 action Function(show_work_in_progress)
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Selina_Greta_idle.png"
-                hover "ArtClass/Selina_Greta_hover.png"
+                hover make_tinted_hover_displayable("ArtClass/Selina_Greta_idle.png", CHARACTER_HOVER_TINT)
                 xpos 48
                 ypos 343
                 action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_SelinaGreta_Scene")
                 focus_mask True
             imagebutton:
                 idle "ArtClass/Scarlet_idle.png"
-                hover "ArtClass/Scarlet_hover.png"
+                hover make_tinted_hover_displayable("ArtClass/Scarlet_idle.png", CHARACTER_HOVER_TINT)
                 xpos 997
                 ypos 114
                 action Function(start_event_from_screen, "ArtClass/ArtClass.png", "ArtClass_Scarlet_Scene")

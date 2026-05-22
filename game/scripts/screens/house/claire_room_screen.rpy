@@ -4,7 +4,7 @@ init 1 python:
             "bg": "ScenesScreens/ClaireSceneScreens/Claire14MorningScreen/ClaireMorning14Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/ClaireSceneScreens/Claire14MorningScreen/ClaireMorning14Button1_idle.png",
-                "hover": "ScenesScreens/ClaireSceneScreens/Claire14MorningScreen/ClaireMorning14Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 719,
                 "ypos": 277,
                 "jump": "ClaireMorningEvent14",
@@ -14,7 +14,7 @@ init 1 python:
             "bg": "ScenesScreens/ClaireSceneScreens/Claire34EveningScreen/ClaireEvening34Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/ClaireSceneScreens/Claire34EveningScreen/ClaireEvening34Button1_idle.png",
-                "hover": "ScenesScreens/ClaireSceneScreens/Claire34EveningScreen/ClaireEvening34Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 1012,
                 "ypos": 264,
                 "jump": "ClaireEveningEvent34",
@@ -24,7 +24,7 @@ init 1 python:
             "bg": "ScenesScreens/ClaireSceneScreens/Claire44EveningScreen/ClaireEvening44Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/ClaireSceneScreens/Claire44EveningScreen/ClaireEvening44Button1_idle.png",
-                "hover": "ScenesScreens/ClaireSceneScreens/Claire44EveningScreen/ClaireEvening44Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 626,
                 "ypos": 261,
                 "jump": "ClaireEveningEvent44",
@@ -34,7 +34,7 @@ init 1 python:
             "bg": "ScenesScreens/ClaireSceneScreens/Claire14MidnightScreen/ClaireMidnight14Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/ClaireSceneScreens/Claire14MidnightScreen/ClaireMidnight14Button1_idle.png",
-                "hover": "ScenesScreens/ClaireSceneScreens/Claire14MidnightScreen/ClaireMidnight14Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 712,
                 "ypos": 322,
                 "jump": "ClaireMidnightEvent14",
@@ -47,7 +47,7 @@ init 1 python:
             "bg": "HouseScreens/Claire_Weekend_6AM.webp",
             "button": {
                 "idle": "HouseScreens/Claire_6AM_idle.png",
-                "hover": "HouseScreens/Claire_6AM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 730,
                 "ypos": 348,
                 "jump": "Claire_weekend_6AM",

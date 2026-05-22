@@ -4,7 +4,7 @@ init 1 python:
             "bg": "HouseScreens/Jennifer_weekend_8PM.webp",
             "button": {
                 "idle": "HouseScreens/Jennifer_8PM_idle.png",
-                "hover": "HouseScreens/Jennifer_8PM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 1307,
                 "ypos": 615,
                 "jump": "Jennifer_weekend_8PM",

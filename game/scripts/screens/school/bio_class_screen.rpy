@@ -6,49 +6,49 @@ screen BioClassScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "BioClass/Isa_Criss_Helena_idle.png"
-                hover "BioClass/Isa_Criss_Helena_hover.png"
+                hover make_tinted_hover_displayable("BioClass/Isa_Criss_Helena_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1570
                 ypos 374
                 action Function(start_event_from_screen, "SchoolSubplace/BioClass.png", "BioClass_IsaCrissHelena_Scene")
                 focus_mask True
             imagebutton:
                 idle "BioClass/Selina_Greta_idle.png"
-                hover "BioClass/Selina_Greta_hover.png"
+                hover make_tinted_hover_displayable("BioClass/Selina_Greta_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1116
                 ypos 422
                 action Function(start_event_from_screen, "SchoolSubplace/BioClass.png", "BioClass_Selina_Greta_Scene")
                 focus_mask True
             imagebutton:
                 idle "BioClass/Dorothy_idle.png"
-                hover "BioClass/Dorothy_hover.png"
+                hover make_tinted_hover_displayable("BioClass/Dorothy_idle.png", CHARACTER_HOVER_TINT)
                 xpos 743
                 ypos 590
                 action Function(start_event_from_screen, "SchoolSubplace/BioClass.png", "BioClass_Dorothy_Scene")
                 focus_mask True
             imagebutton:
                 idle "BioClass/Lola_Leya_idle.png"
-                hover "BioClass/Lola_Leya_hover.png"
+                hover make_tinted_hover_displayable("BioClass/Lola_Leya_idle.png", CHARACTER_HOVER_TINT)
                 xpos 211
                 ypos 387
                 action Function(start_event_from_screen, "SchoolSubplace/BioClass.png", "BioClass_Lola_Leya_Scene")
                 focus_mask True
             imagebutton:
                 idle "BioClass/Anna_Emma_idle.png"
-                hover "BioClass/Anna_Emma_hover.png"
+                hover make_tinted_hover_displayable("BioClass/Anna_Emma_idle.png", CHARACTER_HOVER_TINT)
                 xpos 485
                 ypos 420
                 action Function(start_event_from_screen, "SchoolSubplace/BioClass.png", "BioClass_Anna_Emma_Scene")
                 focus_mask True
             imagebutton:
                 idle "BioClass/Sophie_Alis_idle.png"
-                hover "BioClass/Sophie_Alis_hover.png"
+                hover make_tinted_hover_displayable("BioClass/Sophie_Alis_idle.png", CHARACTER_HOVER_TINT)
                 xpos 549
                 ypos 284
                 action Function(start_event_from_screen, "SchoolSubplace/BioClass.png", "BioClass_Sophie_Alis_Scene")
                 focus_mask True
             imagebutton:
                 idle "BioClass/Maria_idle.png"
-                hover "BioClass/Maria_hover.png"
+                hover make_tinted_hover_displayable("BioClass/Maria_idle.png", CHARACTER_HOVER_TINT)
                 xpos 863
                 ypos 363
                 action Function(start_event_from_screen, "SchoolSubplace/BioClass.png", "BioClass_Maria_Scene")

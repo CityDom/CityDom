@@ -4,7 +4,7 @@ init 1 python:
             "bg": "ScenesScreens/IsabellaSceneScreens/Isabella14MorningScreen/IsabellaMorning14Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/IsabellaSceneScreens/Isabella14MorningScreen/IsabellaMorning14Button1_idle.png",
-                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella14MorningScreen/IsabellaMorning14Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 720,
                 "ypos": 331,
                 "jump": "IsabellaMorningEvent14",
@@ -14,7 +14,7 @@ init 1 python:
             "bg": "ScenesScreens/IsabellaSceneScreens/Isabella34MorningScreen/IsabellaMorning34Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/IsabellaSceneScreens/Isabella34MorningScreen/IsabellaMorning34Button1_idle.png",
-                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella34MorningScreen/IsabellaMorning34Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 662,
                 "ypos": 340,
                 "jump": "IsabellaMorningEvent34",
@@ -24,7 +24,7 @@ init 1 python:
             "bg": "ScenesScreens/IsabellaSceneScreens/Isabella34EveningScreen/IsabellaEvening34Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/IsabellaSceneScreens/Isabella34EveningScreen/IsabellaEvening34Button1_idle.png",
-                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella34EveningScreen/IsabellaEvening34Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 663,
                 "ypos": 370,
                 "jump": "IsabellaEveningEvent34",
@@ -34,7 +34,7 @@ init 1 python:
             "bg": "ScenesScreens/IsabellaSceneScreens/Isabella44AfternoonScreen/IsabellaAfternoon44Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/IsabellaSceneScreens/Isabella44AfternoonScreen/IsabellaAfternoon44Button1_idle.png",
-                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella44AfternoonScreen/IsabellaAfternoon44Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 1263,
                 "ypos": 339,
                 "jump": "IsabellaAfterNoonEvent44",
@@ -44,7 +44,7 @@ init 1 python:
             "bg": "ScenesScreens/IsabellaSceneScreens/Isabella44NightScreen/IsabellaNight44Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/IsabellaSceneScreens/Isabella44NightScreen/IsabellaNight44Button1_idle.png",
-                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella44NightScreen/IsabellaNight44Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 753,
                 "ypos": 398,
                 "jump": "IsabellaNightEvent44",
@@ -54,7 +54,7 @@ init 1 python:
             "bg": "ScenesScreens/IsabellaSceneScreens/Isabella14MidnightScreen/IsabellaMidnight14Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/IsabellaSceneScreens/Isabella14MidnightScreen/IsabellaMidnight14Button1_idle.png",
-                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella14MidnightScreen/IsabellaMidnight14Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 823,
                 "ypos": 401,
                 "jump": "IsabellaMidnightEvent14",
@@ -67,7 +67,7 @@ init 1 python:
             "bg": "HouseScreens/Isabella_Weekend_6AM.webp",
             "button": {
                 "idle": "HouseScreens/Isabella_6AM_idle.png",
-                "hover": "HouseScreens/Isabella_6AM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 714,
                 "ypos": 403,
                 "jump": "Isabella_weekend_6AM",
@@ -78,7 +78,7 @@ init 1 python:
             "bg": "HouseScreens/Isabella_Weekend_7AM.webp",
             "button": {
                 "idle": "HouseScreens/Isabella_7AM_idle.png",
-                "hover": "HouseScreens/Isabella_7AM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 795,
                 "ypos": 367,
                 "jump": "Isabella_weekend_7AM",
@@ -89,7 +89,7 @@ init 1 python:
             "bg": "HouseScreens/Isabella_Weekend_2PM.webp",
             "button": {
                 "idle": "HouseScreens/Isabella_2PM_idle.png",
-                "hover": "HouseScreens/Isabella_2PM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 778,
                 "ypos": 353,
                 "jump": "Isabella_weekend_2PM",
@@ -100,7 +100,7 @@ init 1 python:
             "bg": "HouseScreens/Isabella_Weekend_4PM.webp",
             "button": {
                 "idle": "HouseScreens/Isabella_4PM_idle.png",
-                "hover": "HouseScreens/Isabella_4PM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 932,
                 "ypos": 572,
                 "jump": "Isabella_weekend_4PM",
@@ -111,7 +111,7 @@ init 1 python:
             "bg": "HouseScreens/Isabella_Weekend_5PM.webp",
             "button": {
                 "idle": "HouseScreens/Isabella_5PM_idle.png",
-                "hover": "HouseScreens/Isabella_5PM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 932,
                 "ypos": 414,
                 "jump": "Isabella_weekend_5PM",

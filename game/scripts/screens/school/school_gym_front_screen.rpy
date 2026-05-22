@@ -4,7 +4,7 @@ screen SchoolGymFrontScreen():
         add "SchoolSubplace/SchoolGymFront.png"
         imagebutton:
             idle "SchoolDoors/GymRoomDoor_idle.png"
-            hover "SchoolDoors/GymRoomDoor_hover.png"
+            hover make_tinted_hover_displayable("SchoolDoors/GymRoomDoor_idle.png", OBJECT_HOVER_TINT)
             xpos 881
             ypos 269
             action [Return("InsideSchoolGym"), Hide("SchoolGymFrontScreen")]
@@ -25,7 +25,7 @@ screen SchoolGymFrontScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolDoors/GymRoomDoor_idle.png"
-                hover "SchoolDoors/GymRoomDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/GymRoomDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 881
                 ypos 269
                 action [Return("InsideSchoolGym"), Hide("SchoolGymFrontScreen")]
@@ -43,7 +43,7 @@ screen SchoolGymFrontScreen():
                 at rotate_upLeft
             imagebutton:
                 idle "SchoolFirstPause/LolaAndDorothyEventScene/LolaAndDorothyButton_idle.png"
-                hover "SchoolFirstPause/LolaAndDorothyEventScene/LolaAndDorothyButton_hover.png"
+                hover make_tinted_hover_displayable("SchoolFirstPause/LolaAndDorothyEventScene/LolaAndDorothyButton_idle.png", CHARACTER_HOVER_TINT)
                 xpos 210
                 ypos 350
                 action Function(start_event_from_screen, "SchoolFirstPause/LolaAndDorothyEventScene/SchoolGymFront_LolaAndDorothy.png", "LolaAndDorothyFirstPauseScene")

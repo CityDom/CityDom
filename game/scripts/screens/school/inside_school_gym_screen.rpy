@@ -3,7 +3,7 @@ screen InsideSchoolGymScreen():
         add "SchoolSubplace/InsideSchoolGym.png"
         imagebutton:
             idle "SchoolDoors/GymDoor_idle.png"
-            hover "SchoolDoors/GymDoor_hover.png"
+            hover make_tinted_hover_displayable("SchoolDoors/GymDoor_idle.png", OBJECT_HOVER_TINT)
             xpos 206
             ypos 219
             action Function(start_event_from_screen, "SchoolSubplace/InsideSchoolGym.png", "FirstTimeGym_Scene")
@@ -18,7 +18,7 @@ screen InsideSchoolGymScreen():
         add "SchoolSubplace/InsideSchoolGym.png"
         imagebutton:
             idle "SchoolDoors/GymDoor_idle.png"
-            hover "SchoolDoors/GymDoor_hover.png"
+            hover make_tinted_hover_displayable("SchoolDoors/GymDoor_idle.png", OBJECT_HOVER_TINT)
             xpos 206
             ypos 219
             action [Return("Gym"), Hide("InsideSchoolGymScreen")]
