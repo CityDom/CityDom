@@ -13,7 +13,7 @@ screen SchoolScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolDoors/SchoolDoor_Idle.png"
-                hover "SchoolDoors/SchoolDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/SchoolDoor_Idle.png", OBJECT_HOVER_TINT)
                 xpos 363
                 ypos 196
                 action [Return("SchoolEntrance"), Hide("SchoolScreen")]

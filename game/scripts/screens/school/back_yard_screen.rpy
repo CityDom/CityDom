@@ -5,7 +5,7 @@ screen BackYardScreen():
         add "SchoolSubplace/BackYard1.png"
         imagebutton:
             idle "SchoolFirstPause/MariaEventScene/Maria_Button_idle.png"
-            hover "SchoolFirstPause/MariaEventScene/Maria_Button_hover.png"
+            hover make_tinted_hover_displayable("SchoolFirstPause/MariaEventScene/Maria_Button_idle.png", CHARACTER_HOVER_TINT)
             xpos 812
             ypos 325
             action Function(start_event_from_screen, "SchoolSubplace/BackYard1.png", "MariaFirstPauseScene")

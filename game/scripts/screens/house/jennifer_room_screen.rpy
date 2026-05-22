@@ -4,7 +4,7 @@ init 1 python:
             "bg": "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Screen1.png",
             "button": {
                 "idle": "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Button1_idle.png",
-                "hover": "ScenesScreens/JenniferSceneScreens/Jennifer14MorningScreen/JenniferMorning14Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 927,
                 "ypos": 361,
                 "jump": "JenniferMorningEvent14",
@@ -14,7 +14,7 @@ init 1 python:
             "bg": "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Button1_idle.png",
-                "hover": "ScenesScreens/IsabellaSceneScreens/Isabella44EveningScreen/IsabellaEvening44Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 1699,
                 "ypos": 515,
                 "jump": "IsabellaEveningEvent44",
@@ -24,7 +24,7 @@ init 1 python:
             "bg": "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Button1_idle.png",
-                "hover": "ScenesScreens/JenniferSceneScreens/Jennifer34NightScreen/JenniferNight34Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 995,
                 "ypos": 285,
                 "jump": "JenniferNightEvent34",
@@ -34,7 +34,7 @@ init 1 python:
             "bg": "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Screen1.webp",
             "button": {
                 "idle": "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Button1_idle.png",
-                "hover": "ScenesScreens/JenniferSceneScreens/Jennifer44NightScreen/JenniferNight44Button1_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 1080,
                 "ypos": 457,
                 "jump": "JenniferNightEvent44",
@@ -47,7 +47,7 @@ init 1 python:
             "bg": "HouseScreens/Jennifer_Weekend_6AM.webp",
             "button": {
                 "idle": "HouseScreens/Jennifer_6AM_idle.png",
-                "hover": "HouseScreens/Jennifer_6AM_hover.png",
+                "hover_tint": CHARACTER_HOVER_TINT,
                 "xpos": 1119,
                 "ypos": 396,
                 "jump": "Jennifer_weekend_6AM",

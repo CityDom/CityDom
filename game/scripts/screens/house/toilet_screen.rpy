@@ -25,7 +25,7 @@ screen HouseToiletScreen():
                 
                 imagebutton:
                     idle "MCEvents/HouseButtons/ToiletButton_idle.webp"
-                    hover "MCEvents/HouseButtons/ToiletButton_hover.webp"
+                    hover make_tinted_hover_displayable("MCEvents/HouseButtons/ToiletButton_idle.webp", OBJECT_HOVER_TINT)
                     xpos 805
                     ypos 422
                     action If(

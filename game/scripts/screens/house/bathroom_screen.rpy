@@ -12,7 +12,7 @@ screen BathroomScreen():
             if calendar.Hours == HOUR_6AM:
                     imagebutton:
                         idle "MCEvents/HouseButtons/BathroomSink_idle.webp"
-                        hover "MCEvents/HouseButtons/BathroomSink_hover.webp"
+                        hover make_tinted_hover_displayable("MCEvents/HouseButtons/BathroomSink_idle.webp", OBJECT_HOVER_TINT)
                         xpos 1260
                         ypos 545
                         action Function(

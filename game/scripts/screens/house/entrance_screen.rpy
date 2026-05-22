@@ -4,7 +4,7 @@ screen EntranceScreen():
             add "ScenesScreens/LeaveHomeSceneScreens/LeaveHomeScreen1/LeaveHomeScreen1.webp"
             imagebutton:
                 idle "ScenesScreens/LeaveHomeSceneScreens/LeaveHomeScreen1/LeaveHomeScreenButton1_idle.png"
-                hover "ScenesScreens/LeaveHomeSceneScreens/LeaveHomeScreen1/LeaveHomeScreenButton1_hover.png"
+                hover make_tinted_hover_displayable("ScenesScreens/LeaveHomeSceneScreens/LeaveHomeScreen1/LeaveHomeScreenButton1_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1176
                 ypos 252
                 action Function(start_event_from_screen, "ScenesScreens/LeaveHomeSceneScreens/LeaveHomeScreen1/LeaveHomeScreen1.webp", "LeaveHomeLVL1")
@@ -13,7 +13,7 @@ screen EntranceScreen():
             add "ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Screen1.webp"
             imagebutton:
                 idle "ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Button1_idle.png"
-                hover "ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Button1_hover.png"
+                hover make_tinted_hover_displayable("ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Button1_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1332
                 ypos 414
                 action Function(start_event_from_screen, "ScenesScreens/IsabellaSceneScreens/Isabella24NoonScreen/IsabellaNoon24Screen1.webp", "IsabellaNoonEvent24")
@@ -22,7 +22,7 @@ screen EntranceScreen():
             add "ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Screen1.webp"
             imagebutton:
                 idle "ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Button1_idle.png"
-                hover "ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Button1_hover.png"
+                hover make_tinted_hover_displayable("ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Button1_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1363   
                 ypos 367
                 action Function(start_event_from_screen, "ScenesScreens/ClaireSceneScreens/Claire14EveningScreen/ClaireEvening14Screen1.webp", "ClaireEveningEvent14")
@@ -32,7 +32,7 @@ screen EntranceScreen():
             if should_show_room_buttons():
                 imagebutton:
                     idle "ScenesScreens/JenniferSceneScreens/Jennifer24EveningScreen/JenniferEvening24Button1_idle.png"
-                    hover "ScenesScreens/JenniferSceneScreens/Jennifer24EveningScreen/JenniferEvening24Button1_hover.png"
+                    hover make_tinted_hover_displayable("ScenesScreens/JenniferSceneScreens/Jennifer24EveningScreen/JenniferEvening24Button1_idle.png", CHARACTER_HOVER_TINT)
                     xpos 1355
                     ypos 350
                     action Function(start_event_from_screen, "ScenesScreens/JenniferSceneScreens/Jennifer24EveningScreen/JenniferEvening24Screen1.webp", "JenniferEveningEvent24")
@@ -49,7 +49,7 @@ screen EntranceScreen():
             if should_show_room_buttons():
                 imagebutton:
                     idle "HouseScreens/Isabella_10AM_idle.png"
-                    hover "HouseScreens/Isabella_10AM_hover.png"
+                    hover make_tinted_hover_displayable("HouseScreens/Isabella_10AM_idle.png", CHARACTER_HOVER_TINT)
                     xpos 1328
                     ypos 402
                     action Function(start_event_from_screen, "HouseScreens/Isabella_Weekend_10AM.webp", "Isabella_weekend_10AM")
@@ -59,7 +59,7 @@ screen EntranceScreen():
             if should_show_room_buttons():
                 imagebutton:
                     idle "HouseScreens/Jennifer_1PM_idle.png"
-                    hover "HouseScreens/Jennifer_1PM_hover.png"
+                    hover make_tinted_hover_displayable("HouseScreens/Jennifer_1PM_idle.png", CHARACTER_HOVER_TINT)
                     xpos 1314
                     ypos 354
                     action Function(start_event_from_screen, "HouseScreens/Jennifer_weekend_1PM.webp", "Jennifer_weekend_1PM")
@@ -69,10 +69,30 @@ screen EntranceScreen():
             if should_show_room_buttons():
                 imagebutton:
                     idle "HouseScreens/Jennifer_3PM_idle.png"
-                    hover "HouseScreens/Jennifer_3PM_hover.png"
+                    hover make_tinted_hover_displayable("HouseScreens/Jennifer_3PM_idle.png", CHARACTER_HOVER_TINT)
                     xpos 989
                     ypos 284
                     action Function(start_event_from_screen, "HouseScreens/Jennifer_weekend_3PM.webp", "Jennifer_weekend_3PM")
+                    focus_mask True
+        elif calendar.Hours == HOUR_6PM:
+            add "HouseScreens/Claire_weekend_6PM.webp"
+            if should_show_room_buttons():
+                imagebutton:
+                    idle "HouseScreens/Claire_6PM_idle.png"
+                    hover make_tinted_hover_displayable("HouseScreens/Claire_6PM_idle.png", CHARACTER_HOVER_TINT)
+                    xpos 1354
+                    ypos 370
+                    action Function(start_event_from_screen, "HouseScreens/Claire_weekend_6PM.webp", "Claire_weekend_6PM")
+                    focus_mask True
+        elif calendar.Hours == HOUR_7PM:
+            add "HouseScreens/Isabella_weekend_7PM.webp"
+            if should_show_room_buttons():
+                imagebutton:
+                    idle "HouseScreens/Isabella_7PM_idle.png"
+                    hover make_tinted_hover_displayable("HouseScreens/Isabella_7PM_idle.png", CHARACTER_HOVER_TINT)
+                    xpos 1166
+                    ypos 385
+                    action Function(start_event_from_screen, "HouseScreens/Isabella_weekend_7PM.webp", "Isabella_weekend_7PM")
                     focus_mask True
         elif is_day_hour(calendar.Hours):
             add "Places/Entrance.png"

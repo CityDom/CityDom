@@ -39,14 +39,15 @@ label Jennifer_weekend_5PM:
     scene Jennifer_weekend_5PM_11 with Dissolve(0.5)
     Jennifer "Sure thing, grab me a cup as well, please!"
     scene Jennifer_weekend_5PM_9
-    show text "{size=60}{color=#6b0000}BLEAAAAAAHHHH{/color}{/size}":
-        xpos 0.5
-        xanchor 0.5
-        ypos 0.92
-        yanchor 1.0
-    with Dissolve(1.5)
     pause
-    hide text
+    # show text "{size=60}{color=#6b0000}BLEAAAAAAHHHH{/color}{/size}":
+    #     xpos 0.5
+    #     xanchor 0.5
+    #     ypos 0.92
+    #     yanchor 1.0
+    # with Dissolve(1.5)
+    # pause
+    # hide text
     scene Jennifer_weekend_5PM_12 with Dissolve(0.5)
     Jennifer "Eeeeeeekkkk!"
     scene Jennifer_weekend_5PM_13 with Dissolve(0.5)

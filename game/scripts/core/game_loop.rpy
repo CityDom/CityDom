@@ -92,11 +92,20 @@ label start:
                 if previous_location_id == 1 and LocationID != 1:
                     $ calendar.sync_from_school_clock(round_break=True)
 
-                # Update background immediately for the new location.
-                $ Location_img, should_update_bg = get_location_background_update(Location, calendar.period_index, "")
-                if should_update_bg:
-                    scene expression Location_img
-                $ ensure_location_screen_visible(Location)
+                # Trigger direct auto-events before painting the destination room,
+                # so entry scenes do not briefly flash the room background.
+                $ selected_event = select_active_event(calendar, Location)
+                if selected_event and not selected_event.screen_name and getattr(selected_event, "auto_trigger", True):
+                    python:
+                        for screen_name in ALL_EVENT_SCREENS:
+                            renpy.hide_screen(screen_name)
+                    $ renpy.call(selected_event.block)
+                else:
+                    # Update background immediately for the new location.
+                    $ Location_img, should_update_bg = get_location_background_update(Location, calendar.period_index, "")
+                    if should_update_bg:
+                        scene expression Location_img
+                    $ ensure_location_screen_visible(Location)
 
             # Update last location
             $ LastLocation = Location

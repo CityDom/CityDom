@@ -27,7 +27,7 @@ screen SchoolEntranceScreen():
                 at rotate_Minus35
             imagebutton:
                 idle "SchoolDoors/MannersClassDoor_idle.png"
-                hover "SchoolDoors/MannersClassDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/MannersClassDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 1146
                 ypos 390
                 action [Return("MannersClass"), Hide("SchoolEntranceScreen")]

@@ -4,13 +4,13 @@ screen ToiletsFrontScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolDoors/GirlsToiletsDoor_idle.png"
-                hover "SchoolDoors/GirlsToiletsDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/GirlsToiletsDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 928
                 ypos 237
                 action [Return("WomansToilet"), Hide("SchoolEntranceScreen")]
             imagebutton:
                 idle "SchoolDoors/BoysToiletsDoor_idle.png"
-                hover "SchoolDoors/BoysToiletsDoor_hover.png"
+                hover make_tinted_hover_displayable("SchoolDoors/BoysToiletsDoor_idle.png", OBJECT_HOVER_TINT)
                 xpos 297
                 ypos 240
                 action [Return("MansToilet"), Hide("SchoolEntranceScreen")]
@@ -24,20 +24,20 @@ screen ToiletsFrontScreen():
         add "SchoolSubplace/ToiletsFront1.png"
         imagebutton:
             idle "SchoolFirstPause/SelinaEventScene/Selina_Button_idle.png"
-            hover "SchoolFirstPause/SelinaEventScene/Selina_Button_hover.png"
+            hover make_tinted_hover_displayable("SchoolFirstPause/SelinaEventScene/Selina_Button_idle.png", CHARACTER_HOVER_TINT)
             xpos 488
             ypos 370
             action Function(start_event_from_screen, "SchoolSubplace/ToiletsFront1.png", "SelinaFirstPauseScene")
             focus_mask True
         imagebutton:
             idle "SchoolDoors/GirlsToiletsDoor_idle.png"
-            hover "SchoolDoors/GirlsToiletsDoor_hover.png"
+            hover make_tinted_hover_displayable("SchoolDoors/GirlsToiletsDoor_idle.png", OBJECT_HOVER_TINT)
             xpos 928
             ypos 237
             action [Return("WomansToilet"), Hide("SchoolEntranceScreen")]
         imagebutton:
             idle "SchoolDoors/BoysToiletsDoor_idle.png"
-            hover "SchoolDoors/BoysToiletsDoor_hover.png"
+            hover make_tinted_hover_displayable("SchoolDoors/BoysToiletsDoor_idle.png", OBJECT_HOVER_TINT)
             xpos 297
             ypos 240
             action [Return("MansToilet"), Hide("SchoolEntranceScreen")]

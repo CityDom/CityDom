@@ -102,7 +102,7 @@ screen MainHud():
         for button in button_data:
             imagebutton:
                 idle button["idle"]
-                hover button["hover"]
+                hover resolve_tinted_button_hover(button)
                 xpos button["xpos"]
                 ypos button["ypos"]
                 action button["action"]
@@ -117,24 +117,15 @@ screen MainHud():
                 # Scale distances to shrink the gaps uniformly (X and Y both preserved).
                 $ nx = int(min_x + (subloc.x - min_x) * SUBLOC_POS_SCALE_X) + SUBLOC_RIGHT_SHIFT
                 $ ny = int(min_y + (subloc.y - min_y) * SUBLOC_POS_SCALE_Y) + SUBLOC_BOTTOM_SHIFT
-                if LocationID == 1:
-                    $ ny += SUBLOC_SCHOOL_Y_SHIFT
 
-                # Resolve concrete filenames for size/idle/hover.
-                $ img_idle, img_hover = subloc.resolve_icons()
-
-                # Get image size (fallback to a sane default if not loadable)
-                $ iw, ih = subloc.get_icon_size()
+                # Resolve concrete icon displayables. House sublocations use
+                # circular thumbnails from the current time-of-day room image.
+                $ img_idle, img_hover, icon_size = get_subloc_hud_icons(subloc, calendar.Hours)
+                $ iw, ih = icon_size
 
                 # Convert top-left layout (nx, ny) to center coords so we can anchor/zoom from middle
                 $ cx = nx + (iw // 2)
                 $ cy = ny + SUBLOC_ICON_Y_OFFSET + (ih // 2)
-
-                # Shadow (center-anchored so it matches the icon)
-                add "SubIconsShadow.png":
-                    xcenter cx + SUBLOC_SHADOW_OFFSET
-                    ycenter cy + SUBLOC_SHADOW_OFFSET
-                    anchor (0.5, 0.5)
 
                 # Icon (zooms from its center)
                 imagebutton:
@@ -157,7 +148,7 @@ screen MainHud():
     #  open/close sublocations
     if not (is_in_school(LocationID) and not is_in_school_hours()):
         imagebutton:
-            auto "Arrow_%s.png" xpos -15 ypos 955
+            auto "Arrow_%s.png" xpos -15 ypos 977
             action ToggleVariable("ShowSublocationIcons", True, False)
 
     #  phone icon

@@ -10,7 +10,7 @@ screen SchoolLibraryScreen():
                 action Function(show_work_in_progress)
             imagebutton:
                 idle "SchoolFirstPause/DorothyEventScene/DorothyButton_idle.png"
-                hover "SchoolFirstPause/DorothyEventScene/DorothyButton_hover.png"
+                hover make_tinted_hover_displayable("SchoolFirstPause/DorothyEventScene/DorothyButton_idle.png", CHARACTER_HOVER_TINT)
                 xpos 549
                 ypos 165
                 action Function(start_event_from_screen, "SchoolSubplace/SchoolLibrary.png", "DorothyFirstPauseScene")
