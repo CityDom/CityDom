@@ -15,7 +15,9 @@ init python:
         for name in get_wallpaper_previews().keys():
             key = name + "Background"
             if key not in renpy.store.background_buttons:
-                renpy.store.background_buttons[key] = (name == "Default")
+                renpy.store.background_buttons[key] = True
+            else:
+                renpy.store.background_buttons[key] = True
         renpy.store.background_buttons["DefaultBackground"] = True
 
     def handleBackgroundPreview(chat_name):

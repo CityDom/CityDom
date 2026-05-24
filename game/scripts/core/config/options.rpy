@@ -84,7 +84,8 @@ define config.intra_transition = dissolve
 
 ## A transition that is used after a game has been loaded.
 
-define config.after_load_transition = None
+define citydom_soft_game_transition = Fade(0.22, 0.05, 0.35, color="#04010c")
+define config.after_load_transition = citydom_soft_game_transition
 
 
 ## Used when entering the main menu after the game has ended.

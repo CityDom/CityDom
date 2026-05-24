@@ -1,0 +1,9 @@
+<svg width="568" height="320" viewBox="0 0 568 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="base" x1="0" y1="0" x2="568" y2="320" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#371455" stop-opacity="0.62"/><stop offset="100%" stop-color="#230838" stop-opacity="0.56"/>
+</linearGradient>
+<linearGradient id="inner" x1="0" y1="0" x2="568" y2="320" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#7828b4" stop-opacity="0.15"/><stop offset="55%" stop-color="#3c0f64" stop-opacity="0.07"/><stop offset="100%" stop-color="#0a0314" stop-opacity="0.14"/>
+</linearGradient></defs>
+<rect width="568" height="320" rx="12" fill="url(#base)"/><rect width="568" height="320" rx="12" fill="url(#inner)"/>
+</svg>

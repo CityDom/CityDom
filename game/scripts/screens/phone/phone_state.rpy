@@ -17,6 +17,7 @@ default typebar_placeholder = "Type your message"
 default selected_chat = ""
 default chat_names = []
 default current_message = {}
+default ShowCalendarScreen = False
 
 # Character selection tabs.
 default characters_tab1 = ["Jennifer", "Isabella", "Claire", "Maria", "Alis", "Sophie", "Lola", "Selina", "Helena", "Dorothy", "Leya", "Greta", "Jannice", "Criss"]
