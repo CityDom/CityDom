@@ -1,0 +1,1 @@
+{"main-capability":{"identifier":"main-capability","description":"Capability for the main viewer window","local":true,"windows":["main"],"permissions":["core:default","cli:default","fs:allow-read-file","fs:allow-read-text-file","fs:allow-resource-read-recursive",{"identifier":"fs:scope","allow":["$RESOURCE/**/*","$TEMP/**/*","$APPLOCALDATA/**/*","$EXE/**/*"]}]}}

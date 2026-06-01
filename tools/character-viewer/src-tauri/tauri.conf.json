@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "City Dom Character Viewer",
+  "version": "0.1.0",
+  "identifier": "com.citydom.character-viewer",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "City Dom 3D Viewer",
+        "width": 1280,
+        "height": 860,
+        "minWidth": 960,
+        "minHeight": 640,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": false,
+    "targets": "all",
+    "resources": {
+      "../../../assets_3d/": "assets_3d",
+      "../../../requests/": "requests"
+    }
+  },
+  "plugins": {
+    "cli": {
+      "description": "City Dom 3D viewer prototype",
+      "args": [
+        {
+          "name": "request",
+          "takesValue": true,
+          "description": "Path to a viewer request JSON file."
+        },
+        {
+          "name": "character-id",
+          "takesValue": true,
+          "description": "Direct override for character_id."
+        },
+        {
+          "name": "model-path",
+          "takesValue": true,
+          "description": "Direct override for model_path."
+        },
+        {
+          "name": "camera-preset",
+          "takesValue": true,
+          "description": "Direct override for camera_preset."
+        }
+      ]
+    }
+  }
+}
