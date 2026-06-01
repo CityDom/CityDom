@@ -3,21 +3,21 @@ screen GymScreen():
         add "SchoolSubplace/Gym.png"
         imagebutton:
             idle "GymClass/Isa_Team_Button_idle.png"
-            hover "GymClass/Isa_Team_Button_hover.png"
+            hover make_tinted_hover_displayable("GymClass/Isa_Team_Button_idle.png", CHARACTER_HOVER_TINT)
             xpos 1267
             ypos 302
             action Function(start_event_from_screen, "SchoolSubplace/Gym.png", "Isa_Team_Scene")
             focus_mask True
         imagebutton:
             idle "GymClass/Lola_Team_Button_idle.png"
-            hover "GymClass/Lola_Team_Button_hover.png"
+            hover make_tinted_hover_displayable("GymClass/Lola_Team_Button_idle.png", CHARACTER_HOVER_TINT)
             xpos 162
             ypos 372
             action Function(start_event_from_screen, "SchoolSubplace/Gym.png", "Lola_Team_Scene")
             focus_mask True
         imagebutton:
             idle "GymClass/Tanya_Button_idle.png"
-            hover "GymClass/Tanya_Button_hover.png"
+            hover make_tinted_hover_displayable("GymClass/Tanya_Button_idle.png", CHARACTER_HOVER_TINT)
             xpos 898
             ypos 116
             action Function(start_event_from_screen, "SchoolSubplace/Gym.png", "GymClass_Tanya")

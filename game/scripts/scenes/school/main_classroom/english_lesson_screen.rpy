@@ -125,16 +125,16 @@ screen EnglishLessonScreen:
     add "EnglishClassScreen/background.png"
     
     imagebutton:
-        hover "EnglishClassScreen/MariaButton_hover.png"
         idle "EnglishClassScreen/MariaButton_idle.png"
+        hover make_tinted_hover_displayable("EnglishClassScreen/MariaButton_idle.png", CHARACTER_HOVER_TINT)
         xpos 0
         ypos 250
         action [Function(MariaResetMinigame), Hide("EnglishLessonScreen"), Show("MariaInEnglishClassScreen")]
         focus_mask True
     
     imagebutton:
-        hover "EnglishClassScreen/Pen_hover.png"
         idle "EnglishClassScreen/Pen_idle.png"
+        hover make_tinted_hover_displayable("EnglishClassScreen/Pen_idle.png", OBJECT_HOVER_TINT)
         xpos 1333
         ypos 490
         action [Hide("EnglishLessonScreen"), Jump("DropPenScene")]

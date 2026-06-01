@@ -10,7 +10,6 @@ init python:
         "ShowCalendarScreen",
         "Messanger",
         "showWallpaperPreview",
-        "ShowCamera",
         "ShowCallForSidebar",
     )
 
@@ -37,7 +36,6 @@ init python:
             or store.ShowCalendarScreen
             or store.showWallpaperScreen
             or store.showWallpaperPreview
-            or store.ShowCamera
         )
 
     def hud_navigation_actions(target):
@@ -70,7 +68,11 @@ init python:
             renpy.hide_screen(screen_name)
 
         # Force location background refresh after event scenes.
-        renpy.store.Location_img = ""
+        store.calendar.update_period_index()
+        store.LocationID = get_location_id(store.Location, store.LocationID)
+        store.Location = get_location_name(store.Location)
+        store.Location_img = get_location_image_key(store.Location, store.calendar.period_index)
+        show_location_background(store.Location_img)
 
         # Continue the game loop
         renpy.call("GameLoop")
@@ -454,9 +456,6 @@ screen MainHud():
 
     if ShowCallForSidebar:
         use sidebar_screen
-
-    # if ShowCamera:
-    #     use Camera_screen
 
     use citydom_hud_time_widget
 

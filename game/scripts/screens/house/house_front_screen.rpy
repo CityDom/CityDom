@@ -2,7 +2,7 @@ init 1 python:
     def make_housefront_button(jump=None, choices=None, history_key=None, return_to=None, hide_screen=None):
         button = {
             "idle": "EntranceScreen/EntranceDoor_idle.png",
-            "hover": "EntranceScreen/EntranceDoor_hover.png",
+            "hover_tint": OBJECT_HOVER_TINT,
             "xpos": 915,
             "ypos": 199,
             "focus_mask": True,

@@ -16,9 +16,6 @@ default previewImage = "WallpaperPreview_Default.png"
 default showWallpaperScreen = False
 default showWallpaperPreview = False
 default blueHUD = False
-default StatsButtonsAreActive = True
-default ShowBodyScreen = False
-default ShowCamera = False
 default ShowMhyrorinButton = False
 default ShowCallForSidebar = False
 default canDownload = False
@@ -30,24 +27,9 @@ default skip_time_button_enabled = True
 # Variables for controlling character stats screens
 default ShowConversationScreen = False
 default Messanger = False
-default ShowJenniferStats = False
-default ShowJenniferBodyScreen = False
-default ShowClaireStats = False
-default ShowClaireBodyScreen = False
-default ShowIsabellaStats = False
-default ShowIsabellaBodyScreen = False
-default GoToJenniferStats = False
-default GoToClaireStats = False
-default GoToIsabellaStats = False
 default StatScreenShown = False
 default ShouldSeeSwitchSceneButton = False
-default ShowJenniferScheduleScreen = False
-default ShowIsabellaScheduleScreen = False
-default ShowClaireScheduleScreen = False
-default ShowJenniferScheduleScreenWeekend = False
-default ShowIsabellaScheduleScreenWeekend = False
-default ShowClaireScheduleScreenWeekend = False
-define persistent.intro_scene_played = False
+default persistent.intro_scene_played = False
 default scroll_to_bottom_requested = False
 default MapScreenShown = False
 default StatsScreenShown = False
@@ -93,11 +75,6 @@ default Maria_Obedience = 0
 default Maria_love = 0
 default Maria_level = 1
 default Maria_maxLevel = 1
-default ShowMariaStats = False
-default ShowMariaBodyScreen = False
-default GoToMariaStats = False
-default ShowMariaScheduleScreen = False
-default ShowMariaScheduleScreenWeekend = False
 
 ############ Alis STATS #################################################################################
 default Alis_Corruption = 0
@@ -105,11 +82,6 @@ default Alis_Obedience = 0
 default Alis_love = 0
 default Alis_level = 1
 default Alis_maxLevel = 1
-default ShowAlisStats = False
-default ShowAlisBodyScreen = False
-default GoToAlisStats = False
-default ShowAlisScheduleScreen = False
-default ShowAlisScheduleScreenWeekend = False
 
 ############ Sophie STATS #################################################################################
 default Sophie_Corruption = 0
@@ -117,11 +89,6 @@ default Sophie_Obedience = 0
 default Sophie_love = 0
 default Sophie_level = 1
 default Sophie_maxLevel = 1
-default ShowSophieStats = False
-default ShowSophieBodyScreen = False
-default GoToSophieStats = False
-default ShowSophieScheduleScreen = False
-default ShowSophieScheduleScreenWeekend = False
 
 ############ Lola STATS #################################################################################
 default Lola_Corruption = 0
@@ -129,11 +96,6 @@ default Lola_Obedience = 0
 default Lola_love = 0
 default Lola_level = 1
 default Lola_maxLevel = 1
-default ShowLolaStats = False
-default ShowLolaBodyScreen = False
-default GoToLolaStats = False
-default ShowLolaScheduleScreen = False
-default ShowLolaScheduleScreenWeekend = False
 
 ############ Selina STATS #################################################################################
 default Selina_Corruption = 0
@@ -141,11 +103,6 @@ default Selina_Obedience = 0
 default Selina_love = 0
 default Selina_level = 1
 default Selina_maxLevel = 1
-default ShowSelinaStats = False
-default ShowSelinaBodyScreen = False
-default GoToSelinaStats = False
-default ShowSelinaScheduleScreen = False
-default ShowSelinaScheduleScreenWeekend = False
 
 ############ Helena STATS #################################################################################
 default Helena_Corruption = 0
@@ -153,11 +110,6 @@ default Helena_Obedience = 0
 default Helena_love = 0
 default Helena_level = 1
 default Helena_maxLevel = 1
-default ShowHelenaStats = False
-default ShowHelenaBodyScreen = False
-default GoToHelenaStats = False
-default ShowHelenaScheduleScreen = False
-default ShowHelenaScheduleScreenWeekend = False
 
 ############ Dorothy STATS #################################################################################
 default Dorothy_Corruption = 0
@@ -165,11 +117,6 @@ default Dorothy_Obedience = 0
 default Dorothy_love = 0
 default Dorothy_level = 1
 default Dorothy_maxLevel = 1
-default ShowDorothyStats = False
-default ShowDorothyBodyScreen = False
-default GoToDorothyStats = False
-default ShowDorothyScheduleScreen = False
-default ShowDorothyScheduleScreenWeekend = False
 
 ############ Leya STATS #################################################################################
 default Leya_Corruption = 0
@@ -177,11 +124,6 @@ default Leya_Obedience = 0
 default Leya_love = 0
 default Leya_level = 1
 default Leya_maxLevel = 1
-default ShowLeyaStats = False
-default ShowLeyaBodyScreen = False
-default GoToLeyaStats = False
-default ShowLeyaScheduleScreen = False
-default ShowLeyaScheduleScreenWeekend = False
 
 ############ Greta STATS #################################################################################
 default Greta_Corruption = 0
@@ -189,11 +131,6 @@ default Greta_Obedience = 0
 default Greta_love = 0
 default Greta_level = 1
 default Greta_maxLevel = 1
-default ShowGretaStats = False
-default ShowGretaBodyScreen = False
-default GoToGretaStats = False
-default ShowGretaScheduleScreen = False
-default ShowGretaScheduleScreenWeekend = False
 
 ############ Jannice STATS #################################################################################
 default Jannice_Corruption = 0
@@ -201,11 +138,6 @@ default Jannice_Obedience = 0
 default Jannice_love = 0
 default Jannice_level = 1
 default Jannice_maxLevel = 1
-default ShowJanniceStats = False
-default ShowJanniceBodyScreen = False
-default GoToJanniceStats = False
-default ShowJanniceScheduleScreen = False
-default ShowJanniceScheduleScreenWeekend = False
 
 ############ Criss STATS #################################################################################
 default Criss_Corruption = 0
@@ -213,11 +145,6 @@ default Criss_Obedience = 0
 default Criss_love = 0
 default Criss_level = 1
 default Criss_maxLevel = 1
-default ShowCrissStats = False
-default ShowCrissBodyScreen = False
-default GoToCrissStats = False
-default ShowCrissScheduleScreen = False
-default ShowCrissScheduleScreenWeekend = False
 
 ############ Luna STATS #################################################################################
 default Luna_Corruption = 0
@@ -225,11 +152,6 @@ default Luna_Obedience = 0
 default Luna_love = 0
 default Luna_level = 1
 default Luna_maxLevel = 1
-default ShowLunaStats = False
-default ShowLunaBodyScreen = False
-default GoToLunaStats = False
-default ShowLunaScheduleScreen = False
-default ShowLunaScheduleScreenWeekend = False
 
 ############ Angeline STATS #################################################################################
 default Angeline_Corruption = 0
@@ -237,11 +159,6 @@ default Angeline_Obedience = 0
 default Angeline_love = 0
 default Angeline_level = 1
 default Angeline_maxLevel = 1
-default ShowAngelineStats = False
-default ShowAngelineBodyScreen = False
-default GoToAngelineStats = False
-default ShowAngelineScheduleScreen = False
-default ShowAngelineScheduleScreenWeekend = False
 
 ############ Scarlet STATS #################################################################################
 default Scarlet_Corruption = 0
@@ -249,11 +166,6 @@ default Scarlet_Obedience = 0
 default Scarlet_love = 0
 default Scarlet_level = 1
 default Scarlet_maxLevel = 1
-default ShowScarletStats = False
-default ShowScarletBodyScreen = False
-default GoToScarletStats = False
-default ShowScarletScheduleScreen = False
-default ShowScarletScheduleScreenWeekend = False
 
 ############ Anna STATS #################################################################################
 default Anna_Corruption = 0
@@ -261,11 +173,6 @@ default Anna_Obedience = 0
 default Anna_love = 0
 default Anna_level = 1
 default Anna_maxLevel = 1
-default ShowAnnaStats = False
-default ShowAnnaBodyScreen = False
-default GoToAnnaStats = False
-default ShowAnnaScheduleScreen = False
-default ShowAnnaScheduleScreenWeekend = False
 
 ############ Emma STATS #################################################################################
 default Emma_Corruption = 0
@@ -273,11 +180,6 @@ default Emma_Obedience = 0
 default Emma_love = 0
 default Emma_level = 1
 default Emma_maxLevel = 1
-default ShowEmmaStats = False
-default ShowEmmaBodyScreen = False
-default GoToEmmaStats = False
-default ShowEmmaScheduleScreen = False
-default ShowEmmaScheduleScreenWeekend = False
 
 ############ Asako STATS #################################################################################
 default Asako_Corruption = 0
@@ -285,11 +187,6 @@ default Asako_Obedience = 0
 default Asako_love = 0
 default Asako_level = 1
 default Asako_maxLevel = 1
-default ShowAsakoStats = False
-default ShowAsakoBodyScreen = False
-default GoToAsakoStats = False
-default ShowAsakoScheduleScreen = False
-default ShowAsakoScheduleScreenWeekend = False
 
 ############ Rose STATS #################################################################################
 default Rose_Corruption = 0
@@ -297,11 +194,6 @@ default Rose_Obedience = 0
 default Rose_love = 0
 default Rose_level = 1
 default Rose_maxLevel = 1
-default ShowRoseStats = False
-default ShowRoseBodyScreen = False
-default GoToRoseStats = False
-default ShowRoseScheduleScreen = False
-default ShowRoseScheduleScreenWeekend = False
 
 ############ Tanya STATS #################################################################################
 default Tanya_Corruption = 0
@@ -309,11 +201,6 @@ default Tanya_Obedience = 0
 default Tanya_love = 0
 default Tanya_level = 1
 default Tanya_maxLevel = 1
-default ShowTanyaStats = False
-default ShowTanyaBodyScreen = False
-default GoToTanyaStats = False
-default ShowTanyaScheduleScreen = False
-default ShowTanyaScheduleScreenWeekend = False
 
 ############ Sandra STATS #################################################################################
 default Sandra_Corruption = 0
@@ -321,11 +208,6 @@ default Sandra_Obedience = 0
 default Sandra_love = 0
 default Sandra_level = 1
 default Sandra_maxLevel = 1
-default ShowSandraStats = False
-default ShowSandraBodyScreen = False
-default GoToSandraStats = False
-default ShowSandraScheduleScreen = False
-default ShowSandraScheduleScreenWeekend = False
 
 # NVL characters are used for the phone texting
 # define n_nvl = Character("Nighten", kind=nvl, image="nighten", callback=Phone_SendSound)

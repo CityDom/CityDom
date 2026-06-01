@@ -8,15 +8,16 @@ label IsabellaNight34:
             Isabella "I'm almost done... just wait a second..."
             MC "I can't hold it anymore Isabella, pleaseeeee!!"
             Isabella "NO!!! go downstairs if you really need to!"
-            MC "It's occupied there aswell!"
+            MC "It's occupied there as well!"
             Isabella "I don't care, piss yourself then!"
             MC "{color=#808080}*Fuck... I'll have to wait then...*{/color}"
             jump IsabellaNight34
         "Peep":
             scene Isabella_night34_1 with Dissolve(0.5)
-            MC "Oh my god, I can almost see her pussy!!"
-            MC "If she would open her legs just a little more..."
-            MC "Anyway... I should leave before somebody finds me peeping through the restroom keyhole."
+            MC "{color=#808080}*Oh my God... couldn't get a worse angle...*{/color}"
+            MC "{color=#808080}*So much for sitting like a lady Isa...*{/color}"
+            MC "{color=#808080}*I need you to move your hand juuuust a little...*{/color}"
+            MC "{color=#808080}*Anyway... I should leave before somebody finds me peeping through the restroom keyhole.*{/color}"
             $ Location = "Hallway"
             $ renpy.call("GameLoop")
         "Open":

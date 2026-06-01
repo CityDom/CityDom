@@ -4,7 +4,7 @@ screen ArtClassScreen():
     #     if not MapScreenShown and not StatsScreenShown:
     #         imagebutton:
     #             idle "SchoolCharButtons/ArtTeacherButton_idle.png"
-    #             hover "SchoolCharButtons/ArtTeacherButton_hover.png"
+    #             hover make_tinted_hover_displayable("SchoolCharButtons/ArtTeacherButton_idle.png", CHARACTER_HOVER_TINT)
     #             xpos 936
     #             ypos 228
     #             action Function(show_work_in_progress)

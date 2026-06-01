@@ -78,8 +78,8 @@ screen WallPaperPreview_screen():
                         action Function(citydom_wallpaper_preview_apply)
                 elif canDownload:
                     imagebutton:
-                        idle "gui/citydom_ui_v2/phone_gallery_check_idle.png"
-                        hover "gui/citydom_ui_v2/phone_gallery_check_hover.png"
+                        idle "gui/citydom_ui_v2/phone_gallery_download_idle.png"
+                        hover "gui/citydom_ui_v2/phone_gallery_download_hover.png"
                         action [Function(unlockBackground), SetVariable("backFromBackgroundSave", False), SetVariable("canDownload", False)]
 
         use citydom_phone_status_layer

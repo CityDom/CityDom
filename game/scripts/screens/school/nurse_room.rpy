@@ -6,7 +6,7 @@ screen NurseRoomScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolCharButtons/SchoolMedicButton_idle.png"
-                hover "SchoolCharButtons/SchoolMedicButton_hover.png"
+                hover make_tinted_hover_displayable("SchoolCharButtons/SchoolMedicButton_idle.png", CHARACTER_HOVER_TINT)
                 xpos 1023
                 ypos 302
                 action Function(start_event_from_screen, "SchoolSubplace/NurseRoom.png", "NurseScene")
@@ -16,7 +16,7 @@ screen NurseRoomScreen():
     #     if not MapScreenShown and not StatsScreenShown:
     #         imagebutton:
     #             idle "SchoolCharButtons/SchoolMedicButton_idle.png"
-    #             hover "SchoolCharButtons/SchoolMedicButton_hover.png"
+    #             hover make_tinted_hover_displayable("SchoolCharButtons/SchoolMedicButton_idle.png", CHARACTER_HOVER_TINT)
     #             xpos 900
     #             ypos 226
     #             action Function(show_work_in_progress)
@@ -25,7 +25,7 @@ screen NurseRoomScreen():
     #     if not MapScreenShown and not StatsScreenShown:
     #         imagebutton:
     #             idle "SchoolCharButtons/SchoolMedicButton_idle.png"
-    #             hover "SchoolCharButtons/SchoolMedicButton_hover.png"
+    #             hover make_tinted_hover_displayable("SchoolCharButtons/SchoolMedicButton_idle.png", CHARACTER_HOVER_TINT)
     #             xpos 900
     #             ypos 226
     #             action Function(show_work_in_progress)

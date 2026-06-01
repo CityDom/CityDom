@@ -11,6 +11,7 @@ init python:
         "BioClass/",
         "SwimClass/",
         "SchoolFirstPause/",
+        "SchoolCharButtons/",
     )
     OBJECT_HOVER_PREFIXES = (
         "SchoolDoors/",

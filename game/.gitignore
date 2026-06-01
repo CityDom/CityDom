@@ -153,4 +153,5 @@ CubismSdkForNative-4-*.zip
 *.webp
 *.webm
 *.png
+!gui/citydom_ui_v2/*.png
 /images/

@@ -230,6 +230,15 @@ style citydom_details_label is default:
     outlines [ (1, "#06001080", 0, 0) ]
     kerning 2
 
+style citydom_details_toggle_text is default:
+    font "fonts/citydom_ui/Raleway.ttf"
+    size 8
+    bold True
+    color "#f07ab8e6"
+    outlines [ (1, "#06001080", 0, 0) ]
+    kerning 3
+    text_align 0.5
+
 style citydom_details_text is default:
     font "fonts/citydom_ui/Raleway.ttf"
     size 18
@@ -351,6 +360,26 @@ screen citydom_details_tab_button(tab_id, label, x):
             yalign 0.5
             style "citydom_details_label"
             color _tab_color
+
+screen citydom_details_body_toggle_button(x, y, accent):
+    $ _label = "> BACK" if citydom_details_body_view == "front" else "< FRONT"
+    button:
+        style "citydom_ui_card_button"
+        xpos x
+        ypos y
+        xysize (94, 34)
+        background "gui/citydom_ui_v2/details_body_toggle_bg.png"
+        hover_background "gui/citydom_ui_v2/details_body_toggle_bg.png"
+        action ToggleVariable("citydom_details_body_view", true_value="back", false_value="front")
+
+        text _label:
+            xcenter 47
+            ycenter 19
+            xanchor 0.5
+            yanchor 0.5
+            xsize 70
+            style "citydom_details_toggle_text"
+            color citydom_details_hex_rgba(accent, 0.9)
 
 screen citydom_details_info_panel(name):
     $ _accent = citydom_details_accent(name)
@@ -643,8 +672,6 @@ screen StatsScreen():
 
     key "K_ESCAPE" action Function(citydom_details_close)
 
-    add "gui/citydom_ui_v2/details_overlay_dim.png"
-
     fixed:
         xpos 340
         ypos 160
@@ -660,7 +687,8 @@ screen StatsScreen():
             xpos 0
             ypos 0
             xysize (68, 760)
-            add Solid("#00000855", xysize=(68, 760))
+            add Solid("#00000855", xysize=(68, 696)):
+                ypos 32
             viewport:
                 xpos 0
                 ypos 20
@@ -743,21 +771,7 @@ screen StatsScreen():
                     text ">":
                         style "citydom_details_label"
                         color citydom_details_hex_rgba(_accent, 0.72)
-                button:
-                    xpos 300
-                    ypos 32
-                    xysize (94, 34)
-                    background "gui/citydom_ui_v2/details_body_toggle_bg.png"
-                    hover_background "gui/citydom_ui_v2/details_body_toggle_bg.png"
-                    action ToggleVariable("citydom_details_body_view", true_value="back", false_value="front")
-                    fixed:
-                        xysize (94, 34)
-                        text ("> BACK" if citydom_details_body_view == "front" else "< FRONT"):
-                            xalign 0.5
-                            ypos 10
-                            style "citydom_details_label"
-                            size 8
-                            color citydom_details_hex_rgba(_accent, 0.9)
+                use citydom_details_body_toggle_button(300, 32, _accent)
 
         fixed:
             xpos 498

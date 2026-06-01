@@ -8,7 +8,6 @@ label ReturnToLocation:
         for screen_name in ALL_EVENT_SCREENS:
             renpy.hide_screen(screen_name)
     $ Location_img = get_return_location_image(Location, calendar.period_index, Location_img)
-    if renpy.has_image(Location_img, exact=True):
-        scene expression Location_img
+    $ show_location_background(Location_img)
     $ renpy.call("GameLoop")
     return

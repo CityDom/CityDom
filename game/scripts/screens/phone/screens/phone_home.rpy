@@ -5,6 +5,7 @@ default citydom_phone_inventory_launching = False
 default citydom_phone_gallery_launching = False
 default citydom_phone_messages_launching = False
 default citydom_phone_calendar_launching = False
+default citydom_phone_stats_launching = False
 default citydom_phone_home_returning = False
 
 init python:
@@ -68,7 +69,7 @@ init python:
         elif target == "calendar":
             store.ShowCalendarScreen = True
         elif target == "stats":
-            renpy.hide_screen("MainHud")
+            store.ShowPhone = True
             renpy.show_screen("StatsScreen")
             renpy.show_screen("character_select_screen")
             store.CharacterSelectionIsShowing = True
@@ -92,12 +93,29 @@ init python:
         store.citydom_phone_calendar_launching = False
         renpy.restart_interaction()
 
+    def citydom_phone_finish_stats_launch():
+        store.citydom_phone_stats_launching = False
+        renpy.show_screen("StatsScreen")
+        renpy.show_screen("character_select_screen")
+        store.CharacterSelectionIsShowing = True
+        store.StatsScreenShown = True
+        renpy.restart_interaction()
+
     def citydom_phone_finish_home_return():
         store.citydom_phone_home_returning = False
         renpy.restart_interaction()
 
     def citydom_phone_toggle():
-        if store.citydom_phone_closing or getattr(store, "citydom_inventory_closing", False) or getattr(store, "citydom_calendar_closing", False):
+        if (
+            store.citydom_phone_closing
+            or store.citydom_phone_inventory_launching
+            or store.citydom_phone_gallery_launching
+            or store.citydom_phone_messages_launching
+            or store.citydom_phone_calendar_launching
+            or store.citydom_phone_stats_launching
+            or getattr(store, "citydom_inventory_closing", False)
+            or getattr(store, "citydom_calendar_closing", False)
+        ):
             return
         if store.ShowConversationScreen:
             store.citydom_chat_closing = True
@@ -155,6 +173,17 @@ init python:
         store.ShowCalendarScreen = True
         renpy.restart_interaction()
 
+    def citydom_phone_open_stats_app():
+        store.citydom_phone_opening = False
+        store.citydom_phone_closing = False
+        store.citydom_phone_close_target = None
+        store.citydom_phone_stats_launching = False
+        store.CharacterSelectionIsShowing = True
+        store.StatsScreenShown = True
+        renpy.show_screen("StatsScreen")
+        renpy.show_screen("character_select_screen")
+        renpy.restart_interaction()
+
     CITYDOM_PHONE_APPS = (
         {
             "id": "gallery",
@@ -166,7 +195,7 @@ init python:
             "id": "stats",
             "x": 142,
             "y": 540,
-            "action": Function(citydom_phone_start_close, "stats"),
+            "action": Function(citydom_phone_open_stats_app),
         },
         {
             "id": "inventory",
@@ -309,6 +338,9 @@ screen phone_screen():
     if citydom_phone_calendar_launching:
         timer 0.38 action Function(citydom_phone_finish_calendar_launch)
 
+    if citydom_phone_stats_launching:
+        timer 0.38 action Function(citydom_phone_finish_stats_launch)
+
     if citydom_phone_home_returning:
         timer 0.52 action Function(citydom_phone_finish_home_return)
 
@@ -338,7 +370,7 @@ screen phone_screen():
             at citydom_phone_frame_static
 
         fixed:
-            if citydom_phone_inventory_launching or citydom_phone_gallery_launching or citydom_phone_messages_launching or citydom_phone_calendar_launching:
+            if citydom_phone_inventory_launching or citydom_phone_gallery_launching or citydom_phone_messages_launching or citydom_phone_calendar_launching or citydom_phone_stats_launching:
                 at citydom_phone_home_content_exit
             else:
                 at citydom_phone_home_content_static
@@ -365,7 +397,7 @@ screen phone_screen():
             ypos 8
 
         fixed:
-            if citydom_phone_inventory_launching or citydom_phone_gallery_launching or citydom_phone_messages_launching or citydom_phone_calendar_launching:
+            if citydom_phone_inventory_launching or citydom_phone_gallery_launching or citydom_phone_messages_launching or citydom_phone_calendar_launching or citydom_phone_stats_launching:
                 at citydom_phone_home_content_exit
             else:
                 at citydom_phone_home_content_static

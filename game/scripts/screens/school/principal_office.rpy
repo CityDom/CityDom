@@ -4,7 +4,7 @@ screen PrincipalOfficeScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolCharButtons/PrincipalButton_idle.png"
-                hover "SchoolCharButtons/PrincipalButton_hover.png"
+                hover make_tinted_hover_displayable("SchoolCharButtons/PrincipalButton_idle.png", CHARACTER_HOVER_TINT)
                 xpos 879
                 ypos 232
                 action Function(show_work_in_progress)

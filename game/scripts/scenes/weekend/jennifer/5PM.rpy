@@ -2,10 +2,18 @@ init python:
     define_images("Jennifer_weekend_5PM_", "WeekendScenes/JenniferScenes/5PM", "Jennifer_weekend_5PM_", 100)
 
 screen jennifer_5pm_mc_line():
-    window:
-        style "say_window"
+    fixed:
+        xalign 0.5
+        ypos 872
+        xysize (900, 152)
+        at citydom_dialogue_panel_show
+        add Frame(citydom_ui_asset("dialogue_glass_panel"), 6, 6, 6, 6)
 
-        text "No, no, it's nothing, I thought I saw something." style "say_dialogue"
+        text "No, no, it's nothing, I thought I saw something.":
+            style "new_ui_dialogue_text"
+            xpos 36
+            ypos 46
+            xsize 828
 
 label Jennifer_weekend_5PM:
     scene Jennifer_weekend_5PM_1 with Dissolve(0.5)

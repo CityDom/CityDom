@@ -106,5 +106,7 @@ init 1 python:
         214: Event(1, 1, EVENT_DAY_WEEKEND, "Bathroom", "Claire_weekend_7AM", True, priority=10),
         216: Event(10, 10, EVENT_DAY_WEEKEND, "HouseToilet", "Criss_weekend_4PM", True, priority=10),
         217: Event(13, 13, EVENT_DAY_WEEKEND, "HouseToilet", "ClaireMorningEvent34", True, priority=10),
+        218: Event(14, 14, EVENT_DAY_WEEKEND, "HouseToilet", "IsabellaNightEvent34", True, priority=10), # 8 PM
+        219: Event(15, 15, EVENT_DAY_WEEKEND, "Isabella room", "Isabella_weekend_9PM", True, priority=10), # 8 PM
 
     }

@@ -107,6 +107,40 @@ init -2 python:
             return base + " night"
         return base
 
+    _LOCATION_IMAGE_FILE_BASES = {
+        "bathroom": "HomeSubplace/Bathroom",
+        "claire room": "HomeSubplace/Claire room",
+        "entrance": "Places/Entrance",
+        "garden1": "HomeSubplace/garden1",
+        "garden2": "HomeSubplace/garden2",
+        "hallway": "HomeSubplace/Hallway",
+        "housefront": "HomeSubplace/Housefront",
+        "housetoilet": "HomeSubplace/HouseToilet",
+        "isabella room": "HomeSubplace/Isabella room",
+        "jennifer room": "HomeSubplace/Jennifer room",
+        "kitchen": "HomeSubplace/Kitchen",
+        "livingroom": "HomeSubplace/LivingRoom",
+        "my room": "HomeSubplace/My room",
+        "washing room": "HomeSubplace/Washing Room",
+    }
+
+    def get_location_image_file(image_key):
+        key = normalize_location_key(image_key)
+        suffix = ""
+        base_key = key
+
+        if key.endswith(" evening"):
+            base_key = key[:-len(" evening")]
+            suffix = " evening"
+        elif key.endswith(" night"):
+            base_key = key[:-len(" night")]
+            suffix = " night"
+
+        base_path = _LOCATION_IMAGE_FILE_BASES.get(base_key)
+        if not base_path:
+            return None
+        return "%s%s.png" % (base_path, suffix)
+
     def get_sublocations(parent_id):
         return tuple(_SUBLOCATIONS_BY_PARENT.get(parent_id, ()))
 

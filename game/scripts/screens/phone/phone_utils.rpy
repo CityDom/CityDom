@@ -35,6 +35,7 @@ init python:
         global previewImage
 
         previewImageFilename = previewImage.split("/")[-1]
+        opened_from_chat = bool(getattr(renpy.store, "backFromBackgroundSave", False))
 
         matchedKey = None
         for key, value in get_wallpaper_previews().items():
@@ -45,18 +46,19 @@ init python:
         if matchedKey:
             background_buttons[matchedKey] = True
             renpy.store.showWallpaperPreview = False
-            renpy.store.showWallpaperScreen = True
+            renpy.store.showWallpaperScreen = not opened_from_chat
             renpy.store.canDownload = False
-            renpy.redraw(None, 0)
+            if opened_from_chat:
+                renpy.store.ShowPhone = True
+                renpy.store.Messanger = True
+                renpy.store.ShowConversationScreen = True
+            renpy.restart_interaction()
         else:
             renpy.error("Preview image does not match any known backgrounds: " + previewImageFilename)
 
     def toggle_schedule():
         global is_weekend_schedule
         is_weekend_schedule = not is_weekend_schedule
-
-    def get_field(character, field):
-        return renpy.store.__dict__.get("Show{}{}".format(character, field), False)
 
     def calculate_progress(character):
         love = renpy.store.__dict__.get(character + "_love", 0)

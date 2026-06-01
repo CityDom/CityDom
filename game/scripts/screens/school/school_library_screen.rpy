@@ -4,7 +4,7 @@ screen SchoolLibraryScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolCharButtons/SchoolLibrarian_idle.png"
-                hover "SchoolCharButtons/SchoolLibrarian_hover.png"
+                hover make_tinted_hover_displayable("SchoolCharButtons/SchoolLibrarian_idle.png", CHARACTER_HOVER_TINT)
                 xpos 922
                 ypos 298
                 action Function(show_work_in_progress)
@@ -19,7 +19,7 @@ screen SchoolLibraryScreen():
         if not MapScreenShown and not StatsScreenShown:
             imagebutton:
                 idle "SchoolCharButtons/SchoolLibrarian_idle.png"
-                hover "SchoolCharButtons/SchoolLibrarian_hover.png"
+                hover make_tinted_hover_displayable("SchoolCharButtons/SchoolLibrarian_idle.png", CHARACTER_HOVER_TINT)
                 xpos 922
                 ypos 298
                 action Function(show_work_in_progress)

@@ -69,6 +69,16 @@ screen Garden1WeekendScreen():
                 ypos 376
                 action Function(start_event_from_screen, "HouseScreens/Jennifer_Weekend_7PM.webp", "Jennifer_Weekend_7PM")
                 focus_mask True                
+    elif calendar.Hours == HOUR_8PM:
+        add "HouseScreens/Claire_Weekend_8PM.webp"
+        if should_show_room_buttons():
+            imagebutton:
+                idle "HouseScreens/Claire_8PM_idle.png"
+                hover make_tinted_hover_displayable("HouseScreens/Claire_8PM_idle.png", CHARACTER_HOVER_TINT)
+                xpos 185
+                ypos 587
+                action Function(start_event_from_screen, "HouseScreens/Claire_Weekend_8PM.webp", "Claire_Weekend_8PM")
+                focus_mask True     
     elif is_day_hour(calendar.Hours):
         add "HomeSubplace/garden1.png"
     elif is_evening_hour(calendar.Hours):

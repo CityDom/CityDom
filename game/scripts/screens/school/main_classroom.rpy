@@ -6,7 +6,7 @@ screen MainClassroomScreen():
         add "DetentionClass/DetentionClass.png"
         imagebutton:
             idle "DetentionClass/DetentionClass_Sandra_Button_idle.png"
-            hover "DetentionClass/DetentionClass_Sandra_Button_hover.png"
+            hover make_tinted_hover_displayable("DetentionClass/DetentionClass_Sandra_Button_idle.png", CHARACTER_HOVER_TINT)
             xpos 251
             ypos 157
             action Function(start_event_from_screen, "DetentionClass/DetentionClass.png", "DetentionClass_Sandra_Scene")
@@ -14,7 +14,7 @@ screen MainClassroomScreen():
 
         imagebutton:
             idle "DetentionClass/DetentionClass_Maria_Button_idle.png"
-            hover "DetentionClass/DetentionClass_Maria_Button_hover.png"
+            hover make_tinted_hover_displayable("DetentionClass/DetentionClass_Maria_Button_idle.png", CHARACTER_HOVER_TINT)
             xpos 1376
             ypos 408
             action Function(start_event_from_screen, "DetentionClass/DetentionClass.png", "DetentionClass_Maria_Scene")

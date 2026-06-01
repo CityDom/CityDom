@@ -24,8 +24,6 @@ default characters_tab1 = ["Jennifer", "Isabella", "Claire", "Maria", "Alis", "S
 default characters_tab2 = ["Luna", "Asako", "Angeline", "Scarlet", "Tanya", "Anna", "Emma"]
 default current_char_tab = 1
 
-# Stats/overview toggles.
-default ShowCharOverviewScreen = False
 default CharacterSelectionIsShowing = False
 default selected_character = "Jennifer"
 

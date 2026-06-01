@@ -3,7 +3,12 @@ init python:
 
 label Jennifer_weekend_7AM:
     scene Jennifer_weekend_7AM_1 with Dissolve(0.5)
-    MC "{color=#808080}*Seems like someone is using the toilet.*{color=#808080}"
+    MC "{color=#808080}*Seems like someone is using the toilet.*{/color}"
+
+    jump Jennifer_weekend_7AM_menu
+
+
+label Jennifer_weekend_7AM_menu:
     menu:
         "Knock":
             "{color=#808080}**Knock Knock**{/color}"
@@ -15,7 +20,8 @@ label Jennifer_weekend_7AM:
             MC "But mom, it can't wait one more minute."
             Jennifer "I don't care, pee yourself."
             MC "{color=#808080}*Tsk... I guess I'll have to wait...*{/color}" 
-            jump Jennifer_weekend_7AM
+            jump Jennifer_weekend_7AM_menu
+
         "Peep":
             scene Jennifer_weekend_7AM_2 with Dissolve(0.5)
             MC "{color=#808080}*God damn...*{/color}"
@@ -24,6 +30,7 @@ label Jennifer_weekend_7AM:
             MC "{color=#808080}*Let's leave...*{/color}"
             $ Location = "Hallway"
             $ advance_time_or_sleep()
+
         "Open":
             scene Jennifer_weekend_7AM_3 with Dissolve(0.5)
             Jennifer "WHAT ARE YOU DOING!!! GET OUT!!!!!"
@@ -32,7 +39,7 @@ label Jennifer_weekend_7AM:
             call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
             $ Location = "Hallway"
             $ advance_time_or_sleep()
+
         "Leave":
             $ Location = "Hallway"
             $ renpy.call("GameLoop")
-

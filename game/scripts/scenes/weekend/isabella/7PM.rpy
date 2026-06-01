@@ -24,7 +24,7 @@ init python:
 
         renpy.restart_interaction()
 
-style rant_dialogue is say_dialogue:
+style rant_dialogue is new_ui_dialogue_text:
     xpos 0
     ypos 0
     xanchor 0
@@ -32,29 +32,49 @@ style rant_dialogue is say_dialogue:
 
 
 screen scrolling_rant(who, what):
-    style_prefix "say"
     modal True
     zorder 100
 
     default rant_adjustment = ui.adjustment()
     default rant_scroll_active = False
 
-    window:
+    fixed:
         id "window"
+        xalign 0.5
+        ypos 1023
+        xysize (900, 250)
+        at citydom_dialogue_panel_show
+        add Frame(citydom_ui_asset("dialogue_glass_panel"), 6, 6, 6, 6)
 
         if who is not None:
-            window:
-                id "namebox"
-                style "namebox"
+            text who:
+                id "who"
+                xpos -2000
+                ypos -2000
+                xsize 1
+                at citydom_dialogue_engine_text_hidden
 
-                text who:
-                    id "who"
+            $ _rant_who = renpy.filter_text_tags(str(who).upper(), allow=[])
+
+            text _rant_who:
+                style "new_ui_name_text"
+                xpos 36
+                ypos 28
+                xsize 430
+
+            add citydom_dialogue_gradient_name(_rant_who):
+                xpos 36
+                ypos 28
+
+            add citydom_ui_asset("dialogue_header_rule"):
+                xpos 36
+                ypos 55
 
         viewport:
-            xpos gui.dialogue_xpos
-            ypos gui.dialogue_ypos
-            xsize gui.dialogue_width
-            ysize rant_visible_height
+            xpos 36
+            ypos (75 if who is not None else 36)
+            xsize 828
+            ysize (167 if who is not None else 78)
 
             draggable False
             mousewheel False

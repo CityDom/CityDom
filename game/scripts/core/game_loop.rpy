@@ -17,12 +17,44 @@ init python:
 
     def get_location_background_update(location_name, period_index, current_image):
         desired_location_img = get_location_image_key(location_name, period_index)
-        should_update = desired_location_img != current_image and renpy.has_image(desired_location_img, exact=True)
+        should_update = desired_location_img != current_image and get_location_background_displayable(desired_location_img) is not None
         return desired_location_img, should_update
+
+    def get_location_background_displayable(location_image):
+        if renpy.has_image(location_image, exact=True):
+            return location_image
+
+        location_file = get_location_image_file(location_image)
+        if location_file and renpy.loadable(location_file):
+            return location_file
+
+        return None
+
+    def show_location_background(location_image):
+        if renpy.has_image(location_image, exact=True):
+            renpy.scene(layer="master")
+            renpy.show(location_image, layer="master")
+            return True
+
+        location_file = get_location_image_file(location_image)
+        if location_file and renpy.loadable(location_file):
+            renpy.scene(layer="master")
+            renpy.show("location_bg", what=renpy.display.im.Image(location_file), layer="master")
+            return True
+
+        return False
+
+    def hide_inactive_location_screens(active_screen=None):
+        for screen_name in ALL_EVENT_SCREENS:
+            if screen_name != active_screen:
+                renpy.hide_screen(screen_name)
 
     def ensure_location_screen_visible(location_name, previous_location=None):
         location_screen = get_location_screen_name(location_name)
-        if location_screen and renpy.has_screen(location_screen):
+        active_screen = location_screen if location_screen and renpy.has_screen(location_screen) else None
+        hide_inactive_location_screens(active_screen)
+
+        if active_screen:
             if previous_location != location_name or not renpy.get_screen(location_screen):
                 renpy.show_screen(location_screen)
 
@@ -42,11 +74,12 @@ label start:
             $ calendar.update_period_index()
             $ LocationID = get_location_id(Location, LocationID)
             $ Location = get_location_name(Location)
+            $ location_changed_since_last_loop = normalize_location_key(Location) != normalize_location_key(LastLocation)
 
             # Keep background in sync with time-of-day before input.
             $ Location_img, should_update_bg = get_location_background_update(Location, calendar.period_index, Location_img)
-            if should_update_bg:
-                scene expression Location_img
+            if should_update_bg or location_changed_since_last_loop:
+                $ show_location_background(Location_img)
             
             # Check for events in the current location
             $ selected_event = select_active_event(calendar, Location)
@@ -104,7 +137,7 @@ label start:
                     # Update background immediately for the new location.
                     $ Location_img, should_update_bg = get_location_background_update(Location, calendar.period_index, "")
                     if should_update_bg:
-                        scene expression Location_img
+                        $ show_location_background(Location_img)
                     $ ensure_location_screen_visible(Location)
 
             # Update last location
