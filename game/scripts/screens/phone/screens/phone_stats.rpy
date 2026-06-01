@@ -742,7 +742,9 @@ screen StatsScreen():
                 xpos 0
                 ypos 100
 
-            if _image:
+            if citydom_gltf_available(selected_character):
+                use citydom_gltf_character_preview()
+            elif _image:
                 add Transform(_image, zoom=0.58):
                     xalign 0.5
                     ypos 158
