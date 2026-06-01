@@ -2,6 +2,7 @@ default citydom_details_closing = False
 default citydom_details_tab = "info"
 default citydom_details_body_view = "front"
 default citydom_details_outfit = 1
+default _citydom_character_viewer_process = None
 
 init python:
     CITYDOM_DETAILS_CHARACTERS = (
@@ -171,10 +172,12 @@ init python:
         return "gui/citydom_ui_v2/details_rail_idle.png"
 
     def citydom_details_close():
+        citydom_stop_character_viewer()
         store.citydom_details_closing = True
         renpy.restart_interaction()
 
     def citydom_details_finish_close():
+        citydom_stop_character_viewer()
         store.citydom_details_closing = False
         store.citydom_details_tab = "info"
         store.citydom_details_body_view = "front"
@@ -187,6 +190,87 @@ init python:
         renpy.hide_screen("character_select_screen")
         renpy.show_screen("MainHud")
         renpy.restart_interaction()
+
+    def citydom_character_viewer_executable():
+        import os
+
+        root = config.basedir
+        candidates = (
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_tune2", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_tune", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_embed", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_tune2", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_tune", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_embed", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target", "release", "city-dom-character-viewer.exe"),
+        )
+        for candidate in candidates:
+            if os.path.isfile(candidate):
+                return candidate
+        return candidates[0]
+
+    def citydom_stop_character_viewer():
+        process = getattr(store, "_citydom_character_viewer_process", None)
+        if process is None:
+            return
+        try:
+            if process.poll() is None:
+                process.terminate()
+        except Exception:
+            pass
+        store._citydom_character_viewer_process = None
+
+    def citydom_character_viewer_running():
+        process = getattr(store, "_citydom_character_viewer_process", None)
+        if process is None:
+            return False
+        try:
+            return process.poll() is None
+        except Exception:
+            return False
+
+    def citydom_launch_character_viewer(name):
+        import os
+        import subprocess
+
+        if name != "Maria":
+            citydom_stop_character_viewer()
+            return
+
+        if citydom_character_viewer_running():
+            return
+
+        exe = citydom_character_viewer_executable()
+        if not os.path.isfile(exe):
+            renpy.log("CityDom character viewer executable not found: %s" % exe)
+            return
+
+        # Tuned for the current details panel placement: left showcase model area only.
+        args = [
+            exe,
+            "--embed", "true",
+            "--always-on-top", "true",
+            "--character-id", "maria",
+            "--model-path", "characters/maria/Base.fbx",
+            "--camera-preset", "full_body",
+            "--x", "408",
+            "--y", "300",
+            "--width", "430",
+            "--height", "500",
+        ]
+
+        try:
+            creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+            store._citydom_character_viewer_process = subprocess.Popen(args, cwd=config.basedir, creationflags=creationflags)
+        except Exception as exc:
+            renpy.log("CityDom character viewer launch failed: %r" % (exc,))
+
+    def citydom_sync_character_viewer():
+        if getattr(store, "citydom_details_closing", False):
+            citydom_stop_character_viewer()
+            return
+        citydom_launch_character_viewer(getattr(store, "selected_character", ""))
 
 transform citydom_details_show:
     subpixel True
@@ -671,6 +755,7 @@ screen StatsScreen():
         timer 0.30 action Function(citydom_details_finish_close)
 
     key "K_ESCAPE" action Function(citydom_details_close)
+    timer 0.25 repeat True action Function(citydom_sync_character_viewer)
 
     fixed:
         xpos 340

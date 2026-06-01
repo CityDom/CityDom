@@ -47,8 +47,11 @@ export function applyCameraPreset(
   const maxDimension = Math.max(fitHeight, fitWidth);
   const halfFov = MathUtils.degToRad(camera.fov * 0.5);
   const distance = Math.max(maxDimension / (2 * Math.tan(halfFov)), 2.4);
+  const targetY = center.y + fitHeight * 0.1;
 
-  controls.target.set(center.x, center.y + fitHeight * 0.1, center.z);
+  controls.minDistance = Math.max(distance * 0.12, 0.25);
+  controls.maxDistance = Math.max(distance * 4.0, 12.0);
+  controls.target.set(center.x, targetY, center.z);
   camera.position.set(
     center.x + distance * 0.28,
     center.y + fitHeight * 0.06,

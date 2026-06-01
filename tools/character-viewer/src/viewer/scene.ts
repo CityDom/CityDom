@@ -16,9 +16,13 @@ export interface ViewerSceneContext {
   dispose: () => void;
 }
 
-export function createViewerScene(canvas: HTMLCanvasElement): ViewerSceneContext {
+export interface ViewerSceneOptions {
+  transparent: boolean;
+}
+
+export function createViewerScene(canvas: HTMLCanvasElement, options: ViewerSceneOptions): ViewerSceneContext {
   const scene = new Scene();
-  scene.background = new Color("#cfd3d6");
+  scene.background = options.transparent ? null : new Color("#cfd3d6");
 
   const ambient = new AmbientLight("#ffffff", 1.65);
   scene.add(ambient);
@@ -34,9 +38,13 @@ export function createViewerScene(canvas: HTMLCanvasElement): ViewerSceneContext
 
   const renderer = new WebGLRenderer({
     antialias: true,
-    alpha: false,
+    alpha: options.transparent,
     canvas
   });
+
+  if (options.transparent) {
+    renderer.setClearAlpha(0);
+  }
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.outputColorSpace = SRGBColorSpace;

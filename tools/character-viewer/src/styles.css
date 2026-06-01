@@ -13,6 +13,8 @@ html,
 body,
 #app {
   margin: 0;
+  width: 100%;
+  height: 100%;
   min-height: 100%;
 }
 
@@ -107,4 +109,104 @@ body {
   color: #c7ccd3;
   font-size: 14px;
   text-align: center;
+}
+
+body.embed-mode {
+  overflow: hidden;
+  background: transparent;
+}
+
+body.embed-mode #app {
+  display: block;
+  min-height: 100vh;
+  padding: 0;
+}
+
+body.embed-mode .toolbar,
+body.embed-mode .footer-hint {
+  display: none;
+}
+
+body.embed-mode .viewport-shell {
+  position: fixed;
+  inset: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+body.embed-mode #viewer-canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
+body.embed-mode #error-banner {
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  font-size: 12px;
+}
+
+.embed-tuning-panel {
+  position: fixed;
+  left: 8px;
+  top: 8px;
+  z-index: 20;
+  width: 210px;
+  padding: 8px;
+  border: 1px solid rgba(255, 155, 217, 0.42);
+  border-radius: 8px;
+  background: rgba(8, 2, 16, 0.82);
+  color: rgba(255, 230, 251, 0.94);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 11px;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.embed-tuning-panel.is-hidden {
+  opacity: 0.12;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.embed-tuning-panel.is-hidden .embed-tuning-readout,
+.embed-tuning-panel.is-hidden .embed-tuning-buttons {
+  display: none;
+}
+
+.embed-tuning-panel.is-hidden::after {
+  content: "D";
+  display: block;
+  padding: 2px 5px;
+  color: rgba(255, 230, 251, 0.7);
+}
+
+.embed-tuning-readout {
+  margin: 0 0 6px;
+  white-space: pre-wrap;
+  line-height: 1.35;
+}
+
+.embed-tuning-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.embed-tuning-buttons button {
+  min-width: 0;
+  border: 1px solid rgba(255, 155, 217, 0.30);
+  border-radius: 5px;
+  padding: 3px 2px;
+  background: rgba(255, 155, 217, 0.12);
+  color: rgba(255, 230, 251, 0.9);
+  font: inherit;
+  cursor: pointer;
+}
+
+.embed-tuning-buttons button:hover {
+  background: rgba(255, 155, 217, 0.26);
 }

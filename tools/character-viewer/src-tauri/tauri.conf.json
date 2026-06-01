@@ -16,10 +16,11 @@
         "title": "City Dom 3D Viewer",
         "width": 1280,
         "height": 860,
-        "minWidth": 960,
-        "minHeight": 640,
+        "minWidth": 120,
+        "minHeight": 160,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "transparent": true
       }
     ],
     "security": {
@@ -57,6 +58,36 @@
           "name": "camera-preset",
           "takesValue": true,
           "description": "Direct override for camera_preset."
+        },
+        {
+          "name": "embed",
+          "takesValue": true,
+          "description": "Use transparent embedded overlay mode."
+        },
+        {
+          "name": "x",
+          "takesValue": true,
+          "description": "Embedded window x position."
+        },
+        {
+          "name": "y",
+          "takesValue": true,
+          "description": "Embedded window y position."
+        },
+        {
+          "name": "width",
+          "takesValue": true,
+          "description": "Embedded window width."
+        },
+        {
+          "name": "height",
+          "takesValue": true,
+          "description": "Embedded window height."
+        },
+        {
+          "name": "always-on-top",
+          "takesValue": true,
+          "description": "Keep embedded window over the Ren'Py game."
         }
       ]
     }

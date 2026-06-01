@@ -5,6 +5,7 @@ import {
   Object3D,
   Vector3
 } from "three";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { resolveResource } from "@tauri-apps/api/path";
 import { readFile } from "@tauri-apps/plugin-fs";
@@ -44,18 +45,37 @@ function prepareModel(root: Object3D): Group {
   return group;
 }
 
-export async function loadBundledGlb(modelPath: string): Promise<LoadedModel> {
+function contentTypeForModel(modelPath: string): string {
+  if (modelPath.toLowerCase().endsWith(".glb")) {
+    return "model/gltf-binary";
+  }
+
+  if (modelPath.toLowerCase().endsWith(".fbx")) {
+    return "application/octet-stream";
+  }
+
+  return "application/octet-stream";
+}
+
+export async function loadBundledModel(modelPath: string): Promise<LoadedModel> {
   const normalizedModelPath = normalizeModelPath(modelPath);
   const resourcePath = await resolveResource(`assets_3d/${normalizedModelPath}`);
   const bytes = await readFile(resourcePath);
 
-  const blob = new Blob([bytes], { type: "model/gltf-binary" });
+  const blob = new Blob([bytes], { type: contentTypeForModel(normalizedModelPath) });
   const objectUrl = URL.createObjectURL(blob);
-  const loader = new GLTFLoader();
 
   try {
-    const gltf = await loader.loadAsync(objectUrl);
-    const group = prepareModel(gltf.scene);
+    const lowerPath = normalizedModelPath.toLowerCase();
+    let group: Group;
+
+    if (lowerPath.endsWith(".fbx")) {
+      const object = await new FBXLoader().loadAsync(objectUrl);
+      group = prepareModel(object);
+    } else {
+      const gltf = await new GLTFLoader().loadAsync(objectUrl);
+      group = prepareModel(gltf.scene);
+    }
 
     return {
       group,

@@ -1,0 +1,6 @@
+{
+  "character_id": "maria",
+  "models": {
+    "base": "characters/maria/Base.fbx"
+  }
+}

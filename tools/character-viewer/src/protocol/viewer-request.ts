@@ -10,6 +10,15 @@ export interface ViewerRequest {
   cameraPreset: CameraPreset;
 }
 
+export interface ViewerRuntimeOptions {
+  embedded: boolean;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  alwaysOnTop: boolean;
+}
+
 interface CliArgumentValue {
   value?: string | boolean | string[] | null;
 }
@@ -108,4 +117,36 @@ export async function loadViewerRequest(): Promise<ViewerRequest> {
     model_path: modelPathOverride ?? request.modelPath,
     camera_preset: cameraPresetOverride ?? request.cameraPreset
   });
+}
+
+function getCliNumberArg(matches: CliMatchesShape, name: string): number | undefined {
+  const value = getCliStringArg(matches, name);
+
+  if (!value) {
+    return undefined;
+  }
+
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : undefined;
+}
+
+function truthyCliValue(value: string | undefined): boolean {
+  if (!value) {
+    return false;
+  }
+
+  return ["1", "true", "yes", "embed", "embedded"].includes(value.toLowerCase());
+}
+
+export async function loadViewerRuntimeOptions(): Promise<ViewerRuntimeOptions> {
+  const matches = (await getMatches()) as CliMatchesShape;
+
+  return {
+    embedded: truthyCliValue(getCliStringArg(matches, "embed")),
+    x: getCliNumberArg(matches, "x"),
+    y: getCliNumberArg(matches, "y"),
+    width: getCliNumberArg(matches, "width"),
+    height: getCliNumberArg(matches, "height"),
+    alwaysOnTop: truthyCliValue(getCliStringArg(matches, "always-on-top"))
+  };
 }
