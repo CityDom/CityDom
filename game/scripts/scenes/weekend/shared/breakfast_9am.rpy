@@ -76,7 +76,7 @@ label Breakfast_weekend_9AM_menu:
         "Leave":
             # No daily resets here — they’re once-per-day, not per-visit.
             $ Location = "Entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
 
 
 # ---------------------------

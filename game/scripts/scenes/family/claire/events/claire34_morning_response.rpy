@@ -18,13 +18,13 @@ label ClaireMorning34:
             MC "{color=#808080}*But I can't seem to see anything if she stays in that position.*{/color}"
             MC "{color=#808080}*I better leave before anyone sees me.*{/color}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Open":
             MC "{color=#808080}*If I do that... I'm dead.*{/color}"
             MC "{color=#808080}*Like, she literally kills me.*{/color}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
             return
         "Leave":
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

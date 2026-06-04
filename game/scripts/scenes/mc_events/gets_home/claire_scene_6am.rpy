@@ -35,7 +35,7 @@ label MC_GetsHome_Claire_6AM:
             scene Claire_Scene_6AM_3 with Dissolve(0.5)
             MC "{color=#808080}*I guess she's happy to see me...*{color=#808080}"
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

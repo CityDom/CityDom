@@ -358,4 +358,4 @@ label LunchEventLVL1:
             MC "Sorry mom, I gotta go!"
             "{color=#808080}**You run out of the room before Jennifer can yell at you**{/color}"
             $ Location = "Entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

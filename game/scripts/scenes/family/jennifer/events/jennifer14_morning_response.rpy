@@ -154,4 +154,4 @@ label JenniferMorning14:
             scene BlackScreen
             "{color=#808080}**You leave the room**{/color}"
             $ Location = "hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

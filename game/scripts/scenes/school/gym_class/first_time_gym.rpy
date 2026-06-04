@@ -189,4 +189,4 @@ label FirstTimeGym_Scene:
     Maria "Don't touch me, I'll kill you!"
     call stat_reward({"Maria": {"love": 2}, "Tanya": {"love": 2}}, return_to=None)
     $ Location = "Gym"
-    $ renpy.call("GameLoop")
+    call ReturnToLocation

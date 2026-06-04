@@ -68,7 +68,7 @@ label MC_GetsHome_Mhyrorin_12AM:
             scene Mhyrorin_Scene_12AM_24 with Dissolve(0.5)
             MC "She's so weird sometimes..."
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

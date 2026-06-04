@@ -97,5 +97,5 @@ label JenniferNight34:
             scene Jennifer_night34_8 with Dissolve(0.5)
             "{color=#808080}**You leave the room.**"
             $ Location = "hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
 

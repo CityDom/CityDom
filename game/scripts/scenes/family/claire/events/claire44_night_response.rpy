@@ -21,8 +21,8 @@ label ClaireNight44:
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You leave the room**{/color}"
             $ Location = "Entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Leave":
             MC "{color=#808080}*The bitch would kick me out anyway*{/color}"
             $ Location = "Entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

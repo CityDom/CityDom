@@ -89,7 +89,7 @@ label Jennifer_weekend_10AM:
                 "Leave":
                     MC "{color=#808080}*I guess I'll have to do something else until then.*{/color}"
                     $ Location = "Hallway"
-                    $ renpy.call("GameLoop")
+                    call ReturnToLocation
         "Peek":
             scene Jennifer_weekend_10AM_1 with Dissolve(0.5)
             MC "{color=#808080}*Jackpot!*{/color}"
@@ -123,7 +123,7 @@ label Jennifer_weekend_10AM:
                     MC "{color=#808080}Let's better not risk it.*"
                     call stat_reward({"Jennifer": {"corruption": 2}}, return_to=None)
                     $ Location = "Hallway"
-                    $ renpy.call("GameLoop")
+                    call ReturnToLocation
         "Open":
             scene Jennifer_weekend_10AM_12 with Dissolve(0.5)
             Jennifer "WHAT THE HELL ARE YOU DOING!!! GET OUT!!!!!"
@@ -134,4 +134,4 @@ label Jennifer_weekend_10AM:
         "Leave":
             MC "{color=#808080}*Maybe some other time.*{/color}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

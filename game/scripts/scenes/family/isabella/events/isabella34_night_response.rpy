@@ -19,7 +19,7 @@ label IsabellaNight34:
             MC "{color=#808080}*I need you to move your hand juuuust a little...*{/color}"
             MC "{color=#808080}*Anyway... I should leave before somebody finds me peeping through the restroom keyhole.*{/color}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Open":
             scene Isabella_night34_2 with Dissolve(0.5)
             Isabella "AAAAAAAAAAAAAAAAAAAAAAAA"

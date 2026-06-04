@@ -89,4 +89,4 @@ label MC_GetsHome_Jennifer_7PM:
             $ Location = "entrance"
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

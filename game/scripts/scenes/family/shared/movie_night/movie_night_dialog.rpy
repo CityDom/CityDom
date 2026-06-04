@@ -246,4 +246,4 @@ label MovieNightLVL1:
                         jump MovieChoise_menu
         "Leave":
             $ Location = "Entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

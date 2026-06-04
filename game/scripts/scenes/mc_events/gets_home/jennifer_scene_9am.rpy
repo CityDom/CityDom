@@ -34,7 +34,7 @@ label MC_GetsHome_Jennifer_9AM:
             scene Jennifer_Scene_9AM_7 with Dissolve(0.5)
             Jennifer "Go wash your hands, fast, food is already getting cold!"
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

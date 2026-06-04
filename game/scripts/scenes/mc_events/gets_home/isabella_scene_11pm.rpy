@@ -41,7 +41,7 @@ label MC_GetsHome_Isabella_11PM:
             MC "Yeah, yeah..."
             scene BlackScreen with Dissolve(0.5)
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

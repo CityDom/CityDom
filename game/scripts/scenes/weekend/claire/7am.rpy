@@ -13,7 +13,7 @@ label Claire_weekend_7AM:
             scene Claire_weekend_7AM_1 with Dissolve(0.5)
             MC "Tsk...."
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Peek":
             MC "{color=#808080}*Ughhh.... I'm really trying my luck here.*"
             scene Claire_weekend_7AM_4 with Dissolve(0.5)
@@ -61,8 +61,8 @@ label Claire_weekend_7AM:
             scene BlackScreen with Dissolve(0.5)
             "**You bolt out of the bathroom**"
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Leave":
             MC "{color=#808080}*Yeah... let's leave the crazy bitch alone for today*{/color}"
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

@@ -30,4 +30,4 @@ label ClaireMorning24:
             MC "{color=#808080}*I don't have the disposition to deal with her bitch attitude right now.*{/color}"
             MC "{color=#808080}*I'd better leave.*{/color}"
             $ Location = "Entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

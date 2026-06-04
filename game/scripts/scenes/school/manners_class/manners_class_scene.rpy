@@ -229,7 +229,7 @@ label MannersClassScene:
             "Don't":
                 MC "{color=#808080}*Fuck it, if I'm late to this class the teacher will go crazy, I better not enter at all.*{/color}"
                 $ Location = "SchoolEntrance"
-                $ renpy.call("GameLoop")
+                call ReturnToLocation
 
     elif seenSandraBackstory == True:
         scene MannersClass2 with Dissolve(0.5)

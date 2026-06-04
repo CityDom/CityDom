@@ -31,4 +31,4 @@ label ClaireMorning14:
         "Leave":
             MC "Maybe some other time, I'm pretty sure I'm just wasting my time with her for now."
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

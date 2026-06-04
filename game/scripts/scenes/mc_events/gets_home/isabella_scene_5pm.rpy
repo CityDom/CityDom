@@ -49,8 +49,8 @@ label MC_GetsHome_Isabella_5PM:
             scene Isabella_Scene_5PM_15 with Dissolve(0.5)
             MC "Learned it from the best!"
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
             #! lvl 2 isa jumps on his back
         "Enter":    
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

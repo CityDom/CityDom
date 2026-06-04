@@ -317,4 +317,4 @@ label DinnerEventLVL1:
         "leave":
             MC "Sorry mom, I really don't have time now."
             $ Location = "Entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

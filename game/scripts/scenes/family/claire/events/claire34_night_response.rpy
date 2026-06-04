@@ -10,7 +10,7 @@ label ClaireNight34:
             Claire "If you touch that door knob you are dead!"
             MC "{color=#808080}*Fuck... I'll just leave...*{/color}"
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Peek":
             scene Claire_night34_1 with Dissolve(0.5)
             MC "{color=#808080}*I have to be really quiet!*{/color}"
@@ -64,4 +64,4 @@ label ClaireNight34:
         "Leave":
             MC "{color=#808080}*Maybe some other time.*{/color}"
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

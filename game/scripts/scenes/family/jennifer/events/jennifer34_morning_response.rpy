@@ -69,7 +69,7 @@ label JenniferMorning34:
             # else:
             MC "{color=#808080}*better leave...*{/color}"
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Peek":
             scene Jennifer_morning34_14 with Dissolve(0.5)
             "{color=#808080}**You open the door as slowly and quietly as you can.**{/color}"
@@ -137,8 +137,8 @@ label JenniferMorning34:
             MC "{color=#808080}*I thought as much...*{/color}"
             call stat_reward({"Jennifer": {"love": -5}}, return_to=None)
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Leave":
             MC "{color=#808080}*Sounds like it's occupied, better leave.*{/color}"
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

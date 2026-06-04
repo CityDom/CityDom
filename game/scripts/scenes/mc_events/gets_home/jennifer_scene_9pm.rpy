@@ -40,7 +40,7 @@ label MC_GetsHome_Jennifer_9PM:
             Jennifer "I DON'T WANNA HEAR IT!!"
             scene BlackScreen with Dissolve(0.5)
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

@@ -61,5 +61,5 @@ label JenniferMorning24:
             MC "Sorry mom, I don't have time right now, maybe next time!"
             Jennifer "It's ok kiddo, but breakfast it's almost done, be ready by then!"
             $ Location = "livingroom"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
             return

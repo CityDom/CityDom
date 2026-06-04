@@ -76,7 +76,7 @@ label MC_GetsHome_Isabella_12PM:
             Isabella "I swear sometimes I think I'm the only one normal in this family..."
             scene BlackScreen with Dissolve(0.5)
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

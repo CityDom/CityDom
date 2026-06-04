@@ -117,4 +117,4 @@ label Isabella_weekend_6AM:
             scene BlackScreen with Dissolve(0.5)
             "{color=#808080}**You leave the room**{/color}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

@@ -83,7 +83,7 @@ label Jennifer_weekend_2PM:
                     MC "Ah, but I'm in a hurry..."
                     MC "I'll tell you some other time!"
                     $ Location = "Hallway"
-                    $ renpy.call("GameLoop")
+                    call ReturnToLocation
         "Peek":
             scene Jennifer_weekend_2PM_25 with Dissolve(0.5)
             MC "{color=#808080}*Jackpot!*{/color}"
@@ -147,4 +147,4 @@ label Jennifer_weekend_2PM:
         "Leave":
             MC "{color=#808080}*Maybe some other time.*{/color}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

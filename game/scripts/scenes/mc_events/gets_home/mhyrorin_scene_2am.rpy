@@ -87,7 +87,7 @@ label MC_GetsHome_Mhyrorin_2AM:
             MC "...."
             scene BlackScreen with Dissolve(0.5)
             $ Location = "my room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

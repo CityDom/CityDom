@@ -67,4 +67,4 @@ label ClaireNoon14:
             jump ClaireNoon14
         "Leave":
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

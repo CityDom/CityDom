@@ -81,4 +81,4 @@ label IsabellaEvening14:
         "Leave":
             MC "{color=#808080}*Better not to risk it.*{color=#808080}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

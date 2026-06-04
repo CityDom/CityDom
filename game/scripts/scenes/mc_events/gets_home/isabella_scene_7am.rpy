@@ -46,7 +46,7 @@ label MC_GetsHome_Isabella_7AM:
             Isabella "You almost made a cute comment, but you had to ruin it, like always..."
             Isabella "Just get in the house already..."
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

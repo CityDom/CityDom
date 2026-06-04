@@ -149,4 +149,4 @@ label AngelineMenu:
             scene PrincipalOffice_scene41 with Dissolve(0.5)
             Angeline "Are you actually just trying to waste my time as much as possible?"
             $ Location = "TeacherHall"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

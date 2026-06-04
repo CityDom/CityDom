@@ -10,7 +10,7 @@ label IsabellaMorning24:
             Isabella "Nope, piss yourself!"
             MC "{color=#808080}*Fuck... I guess I'll have to wait..*{/color}"
             $ Location = "washing room"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Peek":
             "{color=#808080}**You open the door as slowly and quietly as possible and get in.**{/color}"
             scene Isabella_morning24_19 with Dissolve(0.5)

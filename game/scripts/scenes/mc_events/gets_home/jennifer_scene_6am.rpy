@@ -42,7 +42,7 @@ label MC_GetsHome_Jennifer_6AM:
             scene Jennifer_Scene_6AM_14 with Dissolve(0.5)
             MC "Yeah, yeah..."
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

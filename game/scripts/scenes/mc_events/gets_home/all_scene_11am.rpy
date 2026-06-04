@@ -71,4 +71,4 @@ label MC_GetsHome_All_11AM:
             call screen GoToSchoolFirstTimeScreen
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

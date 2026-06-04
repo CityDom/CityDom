@@ -117,7 +117,7 @@ label LunaMenu:
                 Luna "Enough talking, [MC]!! Get out of my office right now!"
                 call stat_reward({"Luna": {"love": -2, "corruption": 2}}, return_to=None)
                 $ Location = "MedicRoomFront"
-                $ renpy.call("GameLoop")
+                call ReturnToLocation
         "Insult":
             if Watched_Nurse_Insult:
                 MC "{color=#808080}*I already insulted her...*{color=#808080}"
@@ -135,7 +135,7 @@ label LunaMenu:
                 Luna "I don't have time for this right now!"
                 call stat_reward({"Luna": {"love": -2, "corruption": -2}}, return_to=None)
                 $ Location = "MedicRoomFront"
-                $ renpy.call("GameLoop")
+                call ReturnToLocation
         "Leave":
             MC "I was feeling a little off, but I think I'm better now!"
             MC "Thank you, Miss Lucky!"

@@ -32,7 +32,7 @@ label MC_GetsHome_Jennifer_10PM:
             MC "Auch, yeah, I got it..."
             scene BlackScreen with Dissolve(0.5)
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
         "Enter":
             $ Location = "entrance"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

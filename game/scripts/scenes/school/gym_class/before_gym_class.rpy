@@ -5,7 +5,7 @@ init python:
 label BeforeGymClass_FromInside_Scene:
     MC "{color=#808080}*I should get out of here, the girls should be coming in any second...*"
     $ Location = "GymLockerRoomFront"
-    $ renpy.call("GameLoop")
+    call ReturnToLocation
 
 label BeforeGymClass_Scene:
     scene BeforeGymClass_Scene1 with Dissolve(0.5)
@@ -166,4 +166,4 @@ label BeforeGymClass_Scene:
             $ renpy.call("GameLoop")
         "Don't":
             MC "{color=#808080}*Nah, it's too risky, this door is squeaky as hell, they might hear me.*"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation

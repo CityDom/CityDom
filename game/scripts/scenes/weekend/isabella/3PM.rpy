@@ -107,4 +107,4 @@ label Isabella_weekend_3PM:
             MC "Maybe another time..."
             "{color=#808080}**You leave.**{/color}"
             $ Location = "Hallway"
-            $ renpy.call("GameLoop")
+            call ReturnToLocation
