@@ -1,5 +1,15 @@
 screen Garden1WeekendScreen():
-    if calendar.Hours == HOUR_8AM:
+    if calendar.Hours == HOUR_7AM:
+        add "HouseScreens/Jennifer_Weekend_7AM.webp"
+        if should_show_room_buttons():
+            imagebutton:
+                idle "HouseScreens/Jennifer_7AM_idle.png"
+                hover make_tinted_hover_displayable("HouseScreens/Jennifer_7AM_idle.png", CHARACTER_HOVER_TINT)
+                xpos 562
+                ypos 374
+                action Function(start_event_from_screen, "HouseScreens/Jennifer_Weekend_7AM.webp", "Jennifer_weekend_7AM")
+                focus_mask True
+    elif calendar.Hours == HOUR_8AM:
         add "HouseScreens/Claire_Weekend_8AM.webp"
         if should_show_room_buttons():
             imagebutton:

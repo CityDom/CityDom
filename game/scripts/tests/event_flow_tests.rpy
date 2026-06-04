@@ -54,6 +54,19 @@ testsuite event_flow_tests:
                 "Expected IsabellaNightEvent34 at weekend 8 PM in the toilet."
             )
 
+    testcase jennifer_weekend_12am_toilet_event:
+        description "Weekend 12 AM in the house toilet should trigger Jennifer_weekend_12AM."
+        python:
+            renpy.store.calendar.Day = 6
+            renpy.store.calendar.Hours = renpy.store.HOUR_12AM
+            renpy.store.calendar.update_period_index()
+            selected_event = renpy.store.select_active_event(renpy.store.calendar, "HouseToilet")
+            test_expect_equal(
+                selected_event.block,
+                "Jennifer_weekend_12AM",
+                "Expected Jennifer_weekend_12AM at weekend 12 AM in the toilet."
+            )
+
     testcase return_location_image_updates:
         description "Return helper should update image when it differs."
         python:

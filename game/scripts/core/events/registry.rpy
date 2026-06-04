@@ -98,8 +98,8 @@ init 1 python:
         # * House auto events (toilet/bathroom)
         201: Event(2, 2, EVENT_DAY_WEEKDAY, "HouseToilet", "ClaireMorningEvent34", True, priority=10),
         202: Event(12, 12, EVENT_DAY_WEEKDAY, "HouseToilet", "IsabellaNightEvent34", True, priority=10),
-        203: Event(18, 18, EVENT_DAY_WEEKDAY, "HouseToilet", "Jennifer_weekend_7AM", True, priority=10),
-        204: Event(1, 1, EVENT_DAY_WEEKEND, "HouseToilet", "Jennifer_weekend_7AM", True, priority=10),
+        203: Event(18, 18, EVENT_DAY_WEEKDAY, "HouseToilet", "Jennifer_weekend_12AM", True, priority=10),
+        204: Event(18, 18, EVENT_DAY_WEEKEND, "HouseToilet", "Jennifer_weekend_12AM", True, priority=10),
         211: Event(1, 1, EVENT_DAY_WEEKDAY, "Bathroom", "JenniferMorningEvent34", True, priority=10),
         212: Event(2, 2, EVENT_DAY_WEEKDAY, "Bathroom", "IsabellaMorningEvent24", True, priority=10),
         213: Event(18, 18, EVENT_DAY_WEEKDAY, "Bathroom", "ClaireNightEvent34", True, priority=10),
