@@ -31,15 +31,19 @@ init python:
         return None
 
     def show_location_background(location_image):
+        citydom_memory_trace("before_show_location_background:%s" % location_image, force=True)
+
         if renpy.has_image(location_image, exact=True):
             renpy.scene(layer="master")
             renpy.show(location_image, layer="master")
+            citydom_memory_trace("after_show_location_background:%s" % location_image, force=True)
             return True
 
         location_file = get_location_image_file(location_image)
         if location_file and renpy.loadable(location_file):
             renpy.scene(layer="master")
             renpy.show("location_bg", what=renpy.display.im.Image(location_file), layer="master")
+            citydom_memory_trace("after_show_location_background:%s" % location_file, force=True)
             return True
 
         return False
@@ -61,12 +65,14 @@ init python:
 label start:
     $ GameIsRunning = True
     $ _ensure_background_music()
+    $ citydom_memory_trace("start", force=True)
 
     jump GameIntro
     # Game is running
 
     while GameIsRunning:
         label GameLoop:
+            $ citydom_memory_trace("game_loop", force=True)
             
             # Reset variables
             $ selected_event, clickType = None, ""

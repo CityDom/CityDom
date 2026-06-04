@@ -30,11 +30,13 @@ init python:
         return not (store.MapScreenShown or store.StatsScreenShown)
 
     def start_event_from_screen(bg, label):
+        citydom_memory_trace("before_start_event:%s" % label, force=True)
         if bg:
             try:
                 renpy.show("event_bg", what=renpy.display.im.Image(bg), layer="master")
             except Exception:
                 pass
+        citydom_memory_trace("after_start_event:%s" % label, force=True)
         store.hideEventScreens()
         renpy.jump(label)
 
