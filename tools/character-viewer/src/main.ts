@@ -10,6 +10,7 @@ import {
   createViewerCamera
 } from "./viewer/camera";
 import { createViewerControls } from "./viewer/controls";
+import { createMaterialDebugPanel } from "./viewer/material-debug";
 import { loadBundledModel } from "./viewer/model-loader";
 import { loadViewerRequest, loadViewerRuntimeOptions } from "./protocol/viewer-request";
 import { createViewerScene } from "./viewer/scene";
@@ -262,6 +263,10 @@ async function createEmbedTuningPanel(
 
 async function start(): Promise<void> {
   const runtimeOptions = await loadViewerRuntimeOptions();
+  if (runtimeOptions.debugMaterials) {
+    document.body.classList.add("debug-materials-mode");
+  }
+
   await configureWindow(runtimeOptions);
 
   const viewerScene = createViewerScene(canvas, { transparent: runtimeOptions.embedded });
@@ -300,12 +305,18 @@ async function start(): Promise<void> {
       titleEl.textContent = `City Dom 3D Viewer - ${request.characterId}`;
       setStatus(`Loading model for ${request.characterId}...`);
 
-      const loaded = await loadBundledModel(request.modelPath);
+      const loaded = await loadBundledModel(request.modelPath, {
+        applyHs2Overrides: !runtimeOptions.debugMaterials
+      });
       loadedModel = loaded.group;
       disposeModel = loaded.dispose;
 
       viewerScene.scene.add(loadedModel);
       applyCameraPreset(camera, controls, loadedModel, request.cameraPreset);
+
+      if (runtimeOptions.debugMaterials) {
+        createMaterialDebugPanel(loadedModel);
+      }
 
       setStatus(`Loaded ${request.characterId}`);
     } catch (error) {

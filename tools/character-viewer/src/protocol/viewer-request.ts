@@ -12,6 +12,7 @@ export interface ViewerRequest {
 
 export interface ViewerRuntimeOptions {
   embedded: boolean;
+  debugMaterials: boolean;
   x?: number;
   y?: number;
   width?: number;
@@ -143,6 +144,7 @@ export async function loadViewerRuntimeOptions(): Promise<ViewerRuntimeOptions> 
 
   return {
     embedded: truthyCliValue(getCliStringArg(matches, "embed")),
+    debugMaterials: truthyCliValue(getCliStringArg(matches, "debug-materials")),
     x: getCliNumberArg(matches, "x"),
     y: getCliNumberArg(matches, "y"),
     width: getCliNumberArg(matches, "width"),

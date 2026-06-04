@@ -1,5 +1,5 @@
 {
   "character_id": "maria",
-  "model_path": "characters/maria/Base.fbx",
+  "model_path": "characters/maria/Base.glb",
   "camera_preset": "full_body"
 }

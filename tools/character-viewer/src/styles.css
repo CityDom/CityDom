@@ -210,3 +210,135 @@ body.embed-mode #error-banner {
 .embed-tuning-buttons button:hover {
   background: rgba(255, 155, 217, 0.26);
 }
+
+body.debug-materials-mode {
+  overflow: hidden;
+}
+
+body.debug-materials-mode #app {
+  padding-right: 380px;
+}
+
+body.debug-materials-mode .viewport-shell {
+  min-height: calc(100vh - 136px);
+}
+
+.material-debug-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  width: 360px;
+  overflow: auto;
+  padding: 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(13, 15, 18, 0.96);
+  color: #eceff4;
+  box-shadow: -18px 0 30px rgba(0, 0, 0, 0.34);
+}
+
+.material-debug-panel h1 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.material-debug-panel h2 {
+  margin: 16px 0 10px;
+  font-size: 14px;
+  color: #ffb8e8;
+  overflow-wrap: anywhere;
+}
+
+.material-debug-panel select,
+.material-debug-panel button,
+.material-debug-panel input {
+  font: inherit;
+}
+
+.material-debug-panel select {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: #181b20;
+  color: #f4f4f0;
+}
+
+.material-debug-field {
+  display: grid;
+  grid-template-columns: 104px 1fr 42px;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.material-debug-field input[type="color"] {
+  grid-column: 2 / 4;
+  width: 100%;
+  height: 32px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+}
+
+.material-debug-field input[type="range"] {
+  width: 100%;
+}
+
+.material-debug-field output {
+  text-align: right;
+  color: #c7ccd3;
+  font-variant-numeric: tabular-nums;
+}
+
+.material-debug-map-group {
+  display: grid;
+  gap: 7px;
+  margin: 16px 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+}
+
+.material-debug-map-group legend {
+  padding: 0 5px;
+  color: #a7afb9;
+  font-size: 12px;
+}
+
+.material-debug-map-group label {
+  font-size: 12px;
+}
+
+.material-debug-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.material-debug-actions button {
+  border: 1px solid rgba(255, 155, 217, 0.30);
+  border-radius: 6px;
+  padding: 8px;
+  background: rgba(255, 155, 217, 0.12);
+  color: rgba(255, 230, 251, 0.92);
+  cursor: pointer;
+}
+
+.material-debug-actions button:hover {
+  background: rgba(255, 155, 217, 0.24);
+}
+
+.material-debug-snapshot {
+  margin: 12px 0 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: #07090c;
+  color: #c7ccd3;
+  font-size: 11px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

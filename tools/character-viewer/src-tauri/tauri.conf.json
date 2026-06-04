@@ -31,8 +31,8 @@
     "active": false,
     "targets": "all",
     "resources": {
-      "../../../assets_3d/": "assets_3d",
-      "../../../requests/": "requests"
+      "../assets_3d/": "assets_3d",
+      "../requests/": "requests"
     }
   },
   "plugins": {
@@ -88,6 +88,11 @@
           "name": "always-on-top",
           "takesValue": true,
           "description": "Keep embedded window over the Ren'Py game."
+        },
+        {
+          "name": "debug-materials",
+          "takesValue": true,
+          "description": "Show full-window material debugging controls."
         }
       ]
     }

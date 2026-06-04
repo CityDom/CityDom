@@ -1,13 +1,16 @@
 import {
+  ACESFilmicToneMapping,
   AmbientLight,
   Color,
   DirectionalLight,
   PCFSoftShadowMap,
   PerspectiveCamera,
+  PMREMGenerator,
   Scene,
   SRGBColorSpace,
   WebGLRenderer
 } from "three";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 export interface ViewerSceneContext {
   scene: Scene;
@@ -24,15 +27,15 @@ export function createViewerScene(canvas: HTMLCanvasElement, options: ViewerScen
   const scene = new Scene();
   scene.background = options.transparent ? null : new Color("#cfd3d6");
 
-  const ambient = new AmbientLight("#ffffff", 1.65);
+  const ambient = new AmbientLight("#ffffff", 0.75);
   scene.add(ambient);
 
-  const keyLight = new DirectionalLight("#fff4d8", 2.25);
+  const keyLight = new DirectionalLight("#fff4d8", 1.15);
   keyLight.position.set(3, 7, 5);
   keyLight.castShadow = true;
   scene.add(keyLight);
 
-  const rimLight = new DirectionalLight("#dbe9ff", 1.1);
+  const rimLight = new DirectionalLight("#dbe9ff", 0.45);
   rimLight.position.set(-4, 4, -4);
   scene.add(rimLight);
 
@@ -48,8 +51,17 @@ export function createViewerScene(canvas: HTMLCanvasElement, options: ViewerScen
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.outputColorSpace = SRGBColorSpace;
+  renderer.toneMapping = ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.78;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = PCFSoftShadowMap;
+
+  const pmrem = new PMREMGenerator(renderer);
+  const roomEnvironment = new RoomEnvironment();
+  const environment = pmrem.fromScene(roomEnvironment, 0.04).texture;
+  scene.environment = environment;
+  roomEnvironment.dispose();
+  pmrem.dispose();
 
   function resize(camera: PerspectiveCamera): void {
     const width = canvas.clientWidth || window.innerWidth;
@@ -71,6 +83,7 @@ export function createViewerScene(canvas: HTMLCanvasElement, options: ViewerScen
       resize(camera);
     },
     dispose() {
+      environment.dispose();
       renderer.dispose();
     }
   };

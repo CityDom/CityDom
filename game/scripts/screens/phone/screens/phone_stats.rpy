@@ -211,6 +211,7 @@ init python:
         return candidates[0]
 
     def citydom_stop_character_viewer():
+        citydom_memory_trace("before_stop_character_viewer", force=True)
         process = getattr(store, "_citydom_character_viewer_process", None)
         if process is None:
             return
@@ -220,6 +221,7 @@ init python:
         except Exception:
             pass
         store._citydom_character_viewer_process = None
+        citydom_memory_trace("after_stop_character_viewer", force=True)
 
     def citydom_character_viewer_running():
         process = getattr(store, "_citydom_character_viewer_process", None)
@@ -233,6 +235,8 @@ init python:
     def citydom_launch_character_viewer(name):
         import os
         import subprocess
+
+        citydom_memory_trace("before_launch_character_viewer:%s" % name, force=True)
 
         if name != "Maria":
             citydom_stop_character_viewer()
@@ -252,7 +256,7 @@ init python:
             "--embed", "true",
             "--always-on-top", "true",
             "--character-id", "maria",
-            "--model-path", "characters/maria/Base.fbx",
+            "--model-path", "characters/maria/Base.glb",
             "--camera-preset", "full_body",
             "--x", "408",
             "--y", "300",
@@ -263,6 +267,7 @@ init python:
         try:
             creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
             store._citydom_character_viewer_process = subprocess.Popen(args, cwd=config.basedir, creationflags=creationflags)
+            citydom_memory_trace("after_launch_character_viewer:%s" % name, force=True)
         except Exception as exc:
             renpy.log("CityDom character viewer launch failed: %r" % (exc,))
 
