@@ -1,0 +1,966 @@
+{
+  "exportedAt": "2026-06-20T09:29:28.112Z",
+  "materialCount": 32,
+  "materials": [
+    {
+      "name": "1_WetLook_BootL",
+      "uuid": "85836b33-a6ea-45b7-83c4-5f82a81feeef",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_05",
+      "uuid": "23de4b90-dd69-45fa-9563-09feecee6a78",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_07",
+      "uuid": "a0269326-250b-4971-bd65-04490d6edcdd",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_M_bracelet_shushu",
+      "uuid": "e0f7b986-5ca3-4e54-99fd-affffc621c2e",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_M_bracelet_simple_00",
+      "uuid": "ae7bf04e-1675-4854-b3cd-74db716ef50f",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_M_ring01_00",
+      "uuid": "1c341837-6f32-4bfa-ba44-b87167ae3823",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_M_ring02_00",
+      "uuid": "f58874e0-d9bc-4490-b95b-4df10a5d85f6",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_M_tokei02_d_00",
+      "uuid": "e0cd5a2c-390a-4056-b4f5-dcfec3ec8542",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "acs_M_tokei02_r_00",
+      "uuid": "73d9c11a-e7ee-4b1b-aed7-3e0ce88731d4",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "c_m_eyelashes",
+      "uuid": "9c7e8f73-f907-455c-a85c-e9b61ea6e36a",
+      "color": "#000000",
+      "roughness": 0.5,
+      "metalness": 0,
+      "envMapIntensity": 0.25,
+      "opacity": 0.95,
+      "transparent": true,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "c_m_tang",
+      "uuid": "c09f179b-09e1-4409-967a-6152ce8b18b1",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 0,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "c_m_tooth",
+      "uuid": "4e953ed8-f611-46b4-bee6-ce43c825b3a2",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 0,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "cf_m_bot_pantssports1",
+      "uuid": "2195cff3-6cb9-4472-89ee-103e434262ed",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "cf_m_shorts_00",
+      "uuid": "18c5309c-95b3-4b0d-a718-e2641da8de46",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "cf_m_skin_body_00__pbr_baked",
+      "uuid": "041ce95a-ef01-4d2a-a97c-f62307d7997d",
+      "color": "#ffffff",
+      "roughness": 0.88,
+      "metalness": 0,
+      "envMapIntensity": 0.07,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "cf_m_skin_head_01__pbr_baked",
+      "uuid": "ae972803-7a43-48be-bc55-457eb9322c6a",
+      "color": "#ffffff",
+      "roughness": 0.86,
+      "metalness": 0,
+      "envMapIntensity": 0.08,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "cf_m_socks14",
+      "uuid": "56ba7559-e3e4-40ac-97e3-ab7ecc94716b",
+      "color": "#ffffff",
+      "roughness": 0.9,
+      "metalness": 0,
+      "envMapIntensity": 0.04,
+      "opacity": 0.98,
+      "transparent": true,
+      "alphaTest": 0.02,
+      "depthWrite": false,
+      "depthTest": true,
+      "normalScale": 0.35,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "cf_m_top_camisole2",
+      "uuid": "ad3342fe-89bc-4a8e-86f1-f6c3248e944b",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "hair_material_b_31_00",
+      "uuid": "c697d02a-d86e-4471-afa0-e9ae21b82d4e",
+      "color": "#7e4235",
+      "roughness": 1,
+      "metalness": 0,
+      "envMapIntensity": 0.46,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 0,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": true,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": true,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "hair_material_b_31_01",
+      "uuid": "68377129-1167-4349-9449-bbf24200f6bf",
+      "color": "#af857c",
+      "roughness": 0.65,
+      "metalness": 0,
+      "envMapIntensity": 0.46,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 0,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": true,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": true,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "hair_material_f_26_00",
+      "uuid": "876dde43-81a1-47b9-9899-0c36f8e5ff73",
+      "color": "#7b3728",
+      "roughness": 1,
+      "metalness": 0,
+      "envMapIntensity": 0.46,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 0,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": true,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": false,
+        "metalnessMap": true,
+        "aoMap": true,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "HS2 Black Nails",
+      "uuid": "55a8bf8d-182e-4fea-be67-947ffc072c97",
+      "color": "#010101",
+      "roughness": 0.34,
+      "metalness": 0,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "HS2 Glasses Frame",
+      "uuid": "3f1ed8f4-d903-4cb6-b5b7-fd5454b1b127",
+      "color": "#4b4b4b",
+      "roughness": 0.42,
+      "metalness": 0,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": true,
+      "alphaTest": 0,
+      "depthWrite": false,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "HS2 Glasses Lens",
+      "uuid": "9b84f6e6-1e6e-42b1-b0a0-746bf08511b7",
+      "color": "#323232",
+      "roughness": 0.02,
+      "metalness": 0,
+      "envMapIntensity": 0.25,
+      "opacity": 0.12,
+      "transparent": true,
+      "alphaTest": 0,
+      "depthWrite": false,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "HS2Rig Eyes2 for SKLX__pbr_baked",
+      "uuid": "37ff98ff-648b-49c3-aa6b-43d11e5a62e1",
+      "color": "#ffffff",
+      "roughness": 0.42,
+      "metalness": 0,
+      "envMapIntensity": 0.18,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "New Material",
+      "uuid": "a8bfa207-7ecc-4bf4-b4f4-a667b264f409",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "New Material 1",
+      "uuid": "ba633a3f-9163-4175-b99e-c5b4c46e9422",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "New Material 2",
+      "uuid": "634f9f95-92be-4ad6-8e00-f0b8ce2dddca",
+      "color": "#ffffff",
+      "roughness": 1,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "ring10_base",
+      "uuid": "7f76f915-a5c0-4dc6-9115-a879cef92c9b",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "ring6_base",
+      "uuid": "f6230a87-ad1f-4426-aafa-cd55b152f2d8",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0.35,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": true,
+        "normalMap": true,
+        "roughnessMap": true,
+        "metalnessMap": true,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "ring6_stone",
+      "uuid": "4e07abbd-e56c-4443-a467-8238808749b5",
+      "color": "#ffffff",
+      "roughness": 0.62,
+      "metalness": 0.05,
+      "envMapIntensity": 0.12,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    },
+    {
+      "name": "string.002",
+      "uuid": "bf6876ca-e31e-4199-bd87-c08e8f7e544d",
+      "color": "#b2b2b2",
+      "roughness": 0.5,
+      "metalness": 1,
+      "envMapIntensity": 0.25,
+      "opacity": 1,
+      "transparent": false,
+      "alphaTest": 0,
+      "depthWrite": true,
+      "depthTest": true,
+      "normalScale": 1,
+      "enabledMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      },
+      "availableMaps": {
+        "map": false,
+        "normalMap": false,
+        "roughnessMap": false,
+        "metalnessMap": false,
+        "aoMap": false,
+        "alphaMap": false
+      }
+    }
+  ]
+}

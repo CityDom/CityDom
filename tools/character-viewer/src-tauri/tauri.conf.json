@@ -20,7 +20,10 @@
         "minHeight": 160,
         "resizable": true,
         "fullscreen": false,
-        "transparent": true
+        "shadow": false,
+        "transparent": true,
+        "backgroundColor": [0, 0, 0, 0],
+        "visible": false
       }
     ],
     "security": {
@@ -60,6 +63,61 @@
           "description": "Direct override for camera_preset."
         },
         {
+          "name": "owner-pid",
+          "takesValue": true,
+          "description": "Windows process id that should own the embedded viewer window."
+        },
+        {
+          "name": "shell-only",
+          "takesValue": true,
+          "description": "Start the viewer shell without loading a character."
+        },
+        {
+          "name": "command-path",
+          "takesValue": true,
+          "description": "Path to the Ren'Py-to-viewer command JSON file."
+        },
+        {
+          "name": "status-path",
+          "takesValue": true,
+          "description": "Path to the viewer state JSON file."
+        },
+        {
+          "name": "timing-log-path",
+          "takesValue": true,
+          "description": "Path to the viewer timing log."
+        },
+        {
+          "name": "design-width",
+          "takesValue": true,
+          "description": "Ren'Py logical design width."
+        },
+        {
+          "name": "design-height",
+          "takesValue": true,
+          "description": "Ren'Py logical design height."
+        },
+        {
+          "name": "logical-x",
+          "takesValue": true,
+          "description": "Viewer slot x in Ren'Py logical coordinates."
+        },
+        {
+          "name": "logical-y",
+          "takesValue": true,
+          "description": "Viewer slot y in Ren'Py logical coordinates."
+        },
+        {
+          "name": "logical-width",
+          "takesValue": true,
+          "description": "Viewer slot width in Ren'Py logical coordinates."
+        },
+        {
+          "name": "logical-height",
+          "takesValue": true,
+          "description": "Viewer slot height in Ren'Py logical coordinates."
+        },
+        {
           "name": "embed",
           "takesValue": true,
           "description": "Use transparent embedded overlay mode."
@@ -85,6 +143,21 @@
           "description": "Embedded window height."
         },
         {
+          "name": "zoom",
+          "takesValue": true,
+          "description": "Initial embedded camera distance."
+        },
+        {
+          "name": "min-distance",
+          "takesValue": true,
+          "description": "Minimum embedded camera distance."
+        },
+        {
+          "name": "max-distance",
+          "takesValue": true,
+          "description": "Maximum embedded camera distance."
+        },
+        {
           "name": "always-on-top",
           "takesValue": true,
           "description": "Keep embedded window over the Ren'Py game."
@@ -93,6 +166,11 @@
           "name": "debug-materials",
           "takesValue": true,
           "description": "Show full-window material debugging controls."
+        },
+        {
+          "name": "debug-geometry",
+          "takesValue": true,
+          "description": "Show embedded geometry tuning controls."
         }
       ]
     }

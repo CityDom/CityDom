@@ -29,6 +29,29 @@
       </footer>
     </div>
 
+    <script>
+      async function reportViewerBootstrapEvent(event, detail) {
+        try {
+          const invoke = window.__TAURI_INTERNALS__?.invoke;
+          if (!invoke) return;
+          const options = await invoke("get_native_bridge_options");
+          if (!options.timingLogPath) return;
+          await invoke("append_bridge_timing", {
+            path: options.timingLogPath,
+            line: `[${new Date().toISOString()}] ${event}${detail ? ` ${detail}` : ""}\n`
+          });
+        } catch (_) {
+          // Native logging is best-effort during bootstrap failures.
+        }
+      }
+      window.addEventListener("error", (event) => {
+        void reportViewerBootstrapEvent("frontend_error", event.message);
+      });
+      window.addEventListener("unhandledrejection", (event) => {
+        void reportViewerBootstrapEvent("frontend_rejection", String(event.reason));
+      });
+      void reportViewerBootstrapEvent("frontend_inline_ready", "");
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

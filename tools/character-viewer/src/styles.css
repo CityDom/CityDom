@@ -111,15 +111,18 @@ body {
   text-align: center;
 }
 
+html.embed-mode,
 body.embed-mode {
   overflow: hidden;
-  background: transparent;
+  background: transparent !important;
 }
 
+html.embed-mode #app,
 body.embed-mode #app {
   display: block;
   min-height: 100vh;
   padding: 0;
+  background: transparent !important;
 }
 
 body.embed-mode .toolbar,
@@ -133,12 +136,13 @@ body.embed-mode .viewport-shell {
   min-height: 0;
   border: 0;
   border-radius: 0;
-  background: transparent;
+  background: transparent !important;
 }
 
 body.embed-mode #viewer-canvas {
   width: 100vw;
   height: 100vh;
+  background: transparent !important;
 }
 
 body.embed-mode #error-banner {
@@ -243,11 +247,47 @@ body.debug-materials-mode .viewport-shell {
   font-size: 18px;
 }
 
+.material-debug-panel-actions {
+  display: grid;
+  margin: 0 0 12px;
+}
+
+.material-debug-panel-actions button {
+  border: 1px solid rgba(255, 155, 217, 0.36);
+  border-radius: 6px;
+  padding: 9px;
+  background: rgba(255, 155, 217, 0.16);
+  color: rgba(255, 230, 251, 0.94);
+  cursor: pointer;
+}
+
+.material-debug-panel-actions button:hover {
+  background: rgba(255, 155, 217, 0.28);
+}
+
 .material-debug-panel h2 {
   margin: 16px 0 10px;
   font-size: 14px;
   color: #ffb8e8;
   overflow-wrap: anywhere;
+}
+
+.material-debug-global {
+  margin: 12px 0 14px;
+  padding: 12px;
+  border: 1px solid rgba(255, 155, 217, 0.24);
+  border-radius: 8px;
+  background: rgba(255, 155, 217, 0.06);
+}
+
+.material-debug-global h2 {
+  margin-top: 0;
+}
+
+.material-debug-global p {
+  margin: 0 0 8px;
+  color: #a7afb9;
+  font-size: 12px;
 }
 
 .material-debug-panel select,

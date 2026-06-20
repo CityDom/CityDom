@@ -14,6 +14,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 
 export interface ViewerSceneContext {
   scene: Scene;
+  renderer: WebGLRenderer;
   render: (camera: PerspectiveCamera) => void;
   resize: (camera: PerspectiveCamera) => void;
   dispose: () => void;
@@ -46,7 +47,7 @@ export function createViewerScene(canvas: HTMLCanvasElement, options: ViewerScen
   });
 
   if (options.transparent) {
-    renderer.setClearAlpha(0);
+    renderer.setClearColor(0x000000, 0);
   }
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -76,6 +77,7 @@ export function createViewerScene(canvas: HTMLCanvasElement, options: ViewerScen
 
   return {
     scene,
+    renderer,
     render(camera) {
       renderer.render(scene, camera);
     },

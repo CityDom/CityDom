@@ -1,4 +1,5 @@
 import { resolveResource } from "@tauri-apps/api/path";
+import { invoke } from "@tauri-apps/api/core";
 import { getMatches } from "@tauri-apps/plugin-cli";
 import { readTextFile } from "@tauri-apps/plugin-fs";
 
@@ -12,11 +13,19 @@ export interface ViewerRequest {
 
 export interface ViewerRuntimeOptions {
   embedded: boolean;
+  shellOnly: boolean;
   debugMaterials: boolean;
+  debugGeometry: boolean;
+  commandPath?: string;
+  statusPath?: string;
+  timingLogPath?: string;
   x?: number;
   y?: number;
   width?: number;
   height?: number;
+  zoom?: number;
+  minDistance?: number;
+  maxDistance?: number;
   alwaysOnTop: boolean;
 }
 
@@ -26,6 +35,18 @@ interface CliArgumentValue {
 
 interface CliMatchesShape {
   args?: Record<string, CliArgumentValue>;
+}
+
+interface NativeBridgeOptions {
+  embedded: boolean;
+  shellOnly: boolean;
+  commandPath?: string;
+  statusPath?: string;
+  timingLogPath?: string;
+  zoom?: number;
+  minDistance?: number;
+  maxDistance?: number;
+  alwaysOnTop: boolean;
 }
 
 function looksAbsolutePath(value: string): boolean {
@@ -38,7 +59,8 @@ function looksAbsolutePath(value: string): boolean {
 }
 
 function getCliStringArg(matches: CliMatchesShape, name: string): string | undefined {
-  const value = matches.args?.[name]?.value;
+  const camelCaseName = name.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase());
+  const value = matches.args?.[name]?.value ?? matches.args?.[camelCaseName]?.value;
 
   if (typeof value === "string" && value.trim() !== "") {
     return value.trim();
@@ -140,15 +162,55 @@ function truthyCliValue(value: string | undefined): boolean {
 }
 
 export async function loadViewerRuntimeOptions(): Promise<ViewerRuntimeOptions> {
-  const matches = (await getMatches()) as CliMatchesShape;
+  let nativeBridge: NativeBridgeOptions = {
+    embedded: false,
+    shellOnly: false,
+    alwaysOnTop: false
+  };
+  try {
+    nativeBridge = await invoke<NativeBridgeOptions>("get_native_bridge_options");
+  } catch (error) {
+    console.warn("Native viewer bridge options were unavailable.", error);
+  }
+
+  if (nativeBridge.shellOnly) {
+    return {
+      embedded: nativeBridge.embedded,
+      shellOnly: true,
+      debugMaterials: false,
+      debugGeometry: false,
+      commandPath: nativeBridge.commandPath,
+      statusPath: nativeBridge.statusPath,
+      timingLogPath: nativeBridge.timingLogPath,
+      zoom: nativeBridge.zoom,
+      minDistance: nativeBridge.minDistance,
+      maxDistance: nativeBridge.maxDistance,
+      alwaysOnTop: nativeBridge.alwaysOnTop
+    };
+  }
+
+  let matches: CliMatchesShape = {};
+  try {
+    matches = (await getMatches()) as CliMatchesShape;
+  } catch (error) {
+    console.warn("Tauri CLI matches were unavailable; using native runtime options.", error);
+  }
 
   return {
-    embedded: truthyCliValue(getCliStringArg(matches, "embed")),
+    embedded: nativeBridge.embedded || truthyCliValue(getCliStringArg(matches, "embed")),
+    shellOnly: nativeBridge.shellOnly || truthyCliValue(getCliStringArg(matches, "shell-only")),
     debugMaterials: truthyCliValue(getCliStringArg(matches, "debug-materials")),
+    debugGeometry: truthyCliValue(getCliStringArg(matches, "debug-geometry")),
+    commandPath: nativeBridge.commandPath ?? getCliStringArg(matches, "command-path"),
+    statusPath: nativeBridge.statusPath ?? getCliStringArg(matches, "status-path"),
+    timingLogPath: nativeBridge.timingLogPath ?? getCliStringArg(matches, "timing-log-path"),
     x: getCliNumberArg(matches, "x"),
     y: getCliNumberArg(matches, "y"),
     width: getCliNumberArg(matches, "width"),
     height: getCliNumberArg(matches, "height"),
-    alwaysOnTop: truthyCliValue(getCliStringArg(matches, "always-on-top"))
+    zoom: nativeBridge.zoom ?? getCliNumberArg(matches, "zoom"),
+    minDistance: nativeBridge.minDistance ?? getCliNumberArg(matches, "min-distance"),
+    maxDistance: nativeBridge.maxDistance ?? getCliNumberArg(matches, "max-distance"),
+    alwaysOnTop: nativeBridge.alwaysOnTop || truthyCliValue(getCliStringArg(matches, "always-on-top"))
   };
 }

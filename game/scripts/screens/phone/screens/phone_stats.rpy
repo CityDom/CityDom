@@ -3,6 +3,8 @@ default citydom_details_tab = "info"
 default citydom_details_body_view = "front"
 default citydom_details_outfit = 1
 default _citydom_character_viewer_process = None
+default _citydom_character_viewer_last_command = None
+default _citydom_character_viewer_command_sequence = 0
 
 init python:
     CITYDOM_DETAILS_CHARACTERS = (
@@ -11,6 +13,19 @@ init python:
         "Luna", "Asako", "Angeline", "Scarlet", "Tanya", "Anna", "Emma",
         "Sandra",
     )
+
+    CITYDOM_3D_CHARACTERS = {
+        "Maria": {
+            "character_id": "maria",
+            "model_path": "characters/maria/Base.glb",
+            "camera_preset": "full_body",
+        },
+        "Mhyrorin": {
+            "character_id": "mhyrorin",
+            "model_path": "characters/mhyrorin/Base.glb",
+            "camera_preset": "full_body",
+        },
+    }
 
     CITYDOM_DETAILS_ACCENTS = {
         "Jennifer": "#e8648c",
@@ -172,12 +187,12 @@ init python:
         return "gui/citydom_ui_v2/details_rail_idle.png"
 
     def citydom_details_close():
-        citydom_stop_character_viewer()
+        citydom_park_character_viewer()
         store.citydom_details_closing = True
         renpy.restart_interaction()
 
     def citydom_details_finish_close():
-        citydom_stop_character_viewer()
+        citydom_park_character_viewer()
         store.citydom_details_closing = False
         store.citydom_details_tab = "info"
         store.citydom_details_body_view = "front"
@@ -196,14 +211,30 @@ init python:
 
         root = config.basedir
         candidates = (
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer-v4.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer-v3.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer-v2.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_borderless", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_transparent", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_geometry", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target_anchor", "release", "city-dom-character-viewer.exe"),
+            os.path.join(root, "tools", "character-viewer", "src-tauri", "target", "release", "city-dom-character-viewer.exe"),
             os.path.join(root, "tools", "character-viewer", "src-tauri", "target_tune2", "release", "city-dom-character-viewer.exe"),
             os.path.join(root, "tools", "character-viewer", "src-tauri", "target_tune", "release", "city-dom-character-viewer.exe"),
             os.path.join(root, "tools", "character-viewer", "src-tauri", "target_embed", "release", "city-dom-character-viewer.exe"),
-            os.path.join(root, "tools", "character-viewer", "src-tauri", "target", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer-v4.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer-v3.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer-v2.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_warm", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_borderless", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_transparent", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_geometry", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_anchor", "release", "city-dom-character-viewer.exe"),
+            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target", "release", "city-dom-character-viewer.exe"),
             os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_tune2", "release", "city-dom-character-viewer.exe"),
             os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_tune", "release", "city-dom-character-viewer.exe"),
             os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target_embed", "release", "city-dom-character-viewer.exe"),
-            os.path.join(os.path.dirname(root), "tools", "character-viewer", "src-tauri", "target", "release", "city-dom-character-viewer.exe"),
         )
         for candidate in candidates:
             if os.path.isfile(candidate):
@@ -221,6 +252,7 @@ init python:
         except Exception:
             pass
         store._citydom_character_viewer_process = None
+        store._citydom_character_viewer_last_command = None
         citydom_memory_trace("after_stop_character_viewer", force=True)
 
     def citydom_character_viewer_running():
@@ -232,50 +264,133 @@ init python:
         except Exception:
             return False
 
-    def citydom_launch_character_viewer(name):
+    def citydom_character_viewer_bridge_paths():
+        import os
+        import tempfile
+
+        prefix = os.path.join(tempfile.gettempdir(), "citydom-character-viewer-%s" % os.getpid())
+        return {
+            "command": prefix + ".command.json",
+            "status": prefix + ".status.json",
+            "timing": prefix + ".timing.log",
+        }
+
+    def citydom_character_viewer_timing(event, detail=""):
+        import datetime
+
+        path = citydom_character_viewer_bridge_paths()["timing"]
+        try:
+            with open(path, "a") as timing_file:
+                timing_file.write("[%s] %s%s\n" % (
+                    datetime.datetime.utcnow().isoformat() + "Z",
+                    event,
+                    (" " + detail) if detail else "",
+                ))
+        except Exception as exc:
+            renpy.log("CityDom viewer timing log failed: %r" % (exc,))
+
+    def citydom_write_character_viewer_command(command):
+        import json
+        import os
+
+        path = citydom_character_viewer_bridge_paths()["command"]
+        temporary_path = path + ".tmp"
+        try:
+            with open(temporary_path, "w") as command_file:
+                json.dump(command, command_file, separators=(",", ":"))
+            os.replace(temporary_path, path)
+            return True
+        except Exception as exc:
+            renpy.log("CityDom viewer command write failed: %r" % (exc,))
+            return False
+
+    def citydom_ensure_character_viewer_shell():
         import os
         import subprocess
 
-        citydom_memory_trace("before_launch_character_viewer:%s" % name, force=True)
-
-        if name != "Maria":
-            citydom_stop_character_viewer()
-            return
-
         if citydom_character_viewer_running():
-            return
+            return True
+
+        store._citydom_character_viewer_process = None
+        store._citydom_character_viewer_last_command = None
 
         exe = citydom_character_viewer_executable()
         if not os.path.isfile(exe):
             renpy.log("CityDom character viewer executable not found: %s" % exe)
-            return
+            return False
 
-        # Tuned for the current details panel placement: left showcase model area only.
+        paths = citydom_character_viewer_bridge_paths()
+        for path in paths.values():
+            try:
+                if os.path.isfile(path):
+                    os.remove(path)
+            except Exception:
+                pass
+
         args = [
             exe,
             "--embed", "true",
-            "--always-on-top", "true",
-            "--character-id", "maria",
-            "--model-path", "characters/maria/Base.glb",
-            "--camera-preset", "full_body",
-            "--x", "408",
-            "--y", "300",
-            "--width", "430",
-            "--height", "500",
+            "--shell-only", "true",
+            "--always-on-top", "false",
+            "--command-path", paths["command"],
+            "--status-path", paths["status"],
+            "--timing-log-path", paths["timing"],
+            "--owner-pid", str(os.getpid()),
+            "--design-width", "1920",
+            "--design-height", "1080",
+            "--logical-x", "408",
+            "--logical-y", "160",
+            "--logical-width", "430",
+            "--logical-height", "760",
+            "--zoom", "3.32",
+            "--min-distance", "0.31",
+            "--max-distance", "12.00",
         ]
 
         try:
+            citydom_character_viewer_timing("viewer_process_start", "exe=%s" % exe)
             creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
             store._citydom_character_viewer_process = subprocess.Popen(args, cwd=config.basedir, creationflags=creationflags)
-            citydom_memory_trace("after_launch_character_viewer:%s" % name, force=True)
+            citydom_memory_trace("after_launch_character_viewer_shell", force=True)
+            return True
         except Exception as exc:
             renpy.log("CityDom character viewer launch failed: %r" % (exc,))
+            return False
+
+    def citydom_send_character_viewer_command(action, character=None):
+        if not citydom_ensure_character_viewer_shell():
+            return
+
+        signature = (action, character and character.get("character_id"), character and character.get("model_path"))
+        if signature == getattr(store, "_citydom_character_viewer_last_command", None):
+            return
+
+        store._citydom_character_viewer_command_sequence += 1
+        command = {
+            "sequence": store._citydom_character_viewer_command_sequence,
+            "action": action,
+        }
+        if character:
+            command.update(character)
+
+        if citydom_write_character_viewer_command(command):
+            store._citydom_character_viewer_last_command = signature
+            citydom_character_viewer_timing("renpy_command", "action=%s character=%s" % (action, command.get("character_id", "")))
+
+    def citydom_park_character_viewer():
+        if citydom_character_viewer_running():
+            citydom_send_character_viewer_command("park")
 
     def citydom_sync_character_viewer():
         if getattr(store, "citydom_details_closing", False):
-            citydom_stop_character_viewer()
+            citydom_park_character_viewer()
             return
-        citydom_launch_character_viewer(getattr(store, "selected_character", ""))
+
+        character = CITYDOM_3D_CHARACTERS.get(getattr(store, "selected_character", ""))
+        if character:
+            citydom_send_character_viewer_command("show_character", character)
+        else:
+            citydom_park_character_viewer()
 
 transform citydom_details_show:
     subpixel True
